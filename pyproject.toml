@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "supportlens"
+version = "0.1.0"
+description = "Day-one support triage and grounded document QA scaffold"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi==0.121.1", "pydantic==2.12.4", "httpx==0.28.1",
+  "uvicorn==0.38.0", "rank-bm25==0.2.2", "numpy>=1.26,<3",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "tokenizers>=0.20,<1"]
+ui = ["streamlit>=1.40,<2"]
+ml = ["tokenizers>=0.20,<1", "scikit-learn>=1.5,<2", "sentence-transformers>=3,<6"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

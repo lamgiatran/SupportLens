@@ -1,0 +1,8 @@
+{
+  "status": "unavailable",
+  "model": "qwen2.5:1.5b",
+  "num_ctx": 2048,
+  "metric_scope": "generator_probe_not_end_to_end",
+  "error_type": "ConnectTimeout",
+  "message": "timed out"
+}

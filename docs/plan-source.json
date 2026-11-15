@@ -1,0 +1,8 @@
+{
+  "library_file_id": "libfile_57cee3d11b908191be1c28aadafd8f0e",
+  "library_version": "4",
+  "name": "SupportLens_Plan_15_Days_Benchmark_Update.md",
+  "plan_tag": "plan-v1.0",
+  "frozen_on": "2026-11-15",
+  "scope_changes": "issues only at gates 2, 5, 8"
+}

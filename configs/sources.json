@@ -1,0 +1,115 @@
+{
+  "multidoc2dial": {
+    "url": "https://doc2dial.github.io/multidoc2dial/file/multidoc2dial.zip",
+    "path": "multidoc2dial.zip",
+    "sha256": "f0c034c249663d7b3cb08b19cf2cc2c3d101372485be982621d4711931a1ce00",
+    "version": "1.0",
+    "note": "Public test is dummy; use held-out validation by dialogue."
+  },
+  "banking77": {
+    "revision": "57ec275d8078af65b7731c2a98be812d844a6d6b",
+    "files": [
+      {
+        "url": "https://raw.githubusercontent.com/PolyAI-LDN/task-specific-datasets/57ec275d8078af65b7731c2a98be812d844a6d6b/banking_data/train.csv",
+        "path": "banking77/train.csv"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/PolyAI-LDN/task-specific-datasets/57ec275d8078af65b7731c2a98be812d844a6d6b/banking_data/test.csv",
+        "path": "banking77/test.csv"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/PolyAI-LDN/task-specific-datasets/57ec275d8078af65b7731c2a98be812d844a6d6b/banking_data/categories.json",
+        "path": "banking77/categories.json"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/PolyAI-LDN/task-specific-datasets/57ec275d8078af65b7731c2a98be812d844a6d6b/LICENSE",
+        "path": "banking77/LICENSE"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/PolyAI-LDN/task-specific-datasets/57ec275d8078af65b7731c2a98be812d844a6d6b/README.md",
+        "path": "banking77/README.md"
+      }
+    ]
+  },
+  "banking77_oos": {
+    "revision": "fa9553312b1dba54b1be0aae2d30b13171f898e5",
+    "files": [
+      {
+        "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/train/seq.in",
+        "path": "banking77_oos/train/seq.in"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/train/label",
+        "path": "banking77_oos/train/label"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/id-oos/train/seq.in",
+        "path": "banking77_oos/id-oos/train/seq.in"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/id-oos/train/label",
+        "path": "banking77_oos/id-oos/train/label"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/id-oos/train/label_original",
+        "path": "banking77_oos/id-oos/train/label_original"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/valid/seq.in",
+        "path": "banking77_oos/valid/seq.in"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/valid/label",
+        "path": "banking77_oos/valid/label"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/id-oos/valid/seq.in",
+        "path": "banking77_oos/id-oos/valid/seq.in"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/id-oos/valid/label",
+        "path": "banking77_oos/id-oos/valid/label"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/id-oos/valid/label_original",
+        "path": "banking77_oos/id-oos/valid/label_original"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/test/seq.in",
+        "path": "banking77_oos/test/seq.in"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/test/label",
+        "path": "banking77_oos/test/label"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/id-oos/test/seq.in",
+        "path": "banking77_oos/id-oos/test/seq.in"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/id-oos/test/label",
+        "path": "banking77_oos/id-oos/test/label"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/id-oos/test/label_original",
+        "path": "banking77_oos/id-oos/test/label_original"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/ood-oos/valid/seq.in",
+        "path": "banking77_oos/ood-oos/valid/seq.in"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/ood-oos/valid/label",
+        "path": "banking77_oos/ood-oos/valid/label"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/ood-oos/test/seq.in",
+        "path": "banking77_oos/ood-oos/test/seq.in"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/ood-oos/test/label",
+        "path": "banking77_oos/ood-oos/test/label"
+      }
+    ]
+  }
+}

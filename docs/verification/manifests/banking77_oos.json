@@ -1,0 +1,121 @@
+{
+  "manifest_version": 1,
+  "created_at": "2026-11-15T15:49:01.349437+00:00",
+  "acquisition": "preloaded",
+  "files": [
+    {
+      "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/train/seq.in",
+      "path": "banking77_oos/train/seq.in",
+      "sha256": "5ba97261ce844b33e85b2af8f271927699f2ab3d79f99daac074d22abd79453d",
+      "size_bytes": 385016
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/train/label",
+      "path": "banking77_oos/train/label",
+      "sha256": "b4cfaddcc42b3fab9668972a0060753c692285dc8dff552c9fa779c428775370",
+      "size_bytes": 136192
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/id-oos/train/seq.in",
+      "path": "banking77_oos/id-oos/train/seq.in",
+      "sha256": "cd0e24f07649f4b05ef653ca9cc62588ead95abd2b68df8f8d8081f45e53e630",
+      "size_bytes": 98496
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/id-oos/train/label",
+      "path": "banking77_oos/id-oos/train/label",
+      "sha256": "1da3c25419300c6dae3fe9c63e2b5ac08871353fd23e2ee170a9679cf1c78045",
+      "size_bytes": 8248
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/id-oos/train/label_original",
+      "path": "banking77_oos/id-oos/train/label_original",
+      "sha256": "5dedc36dec9c4603856311b0c73c53f04ed97f44a2962d91c660515d63d771d9",
+      "size_bytes": 40058
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/valid/seq.in",
+      "path": "banking77_oos/valid/seq.in",
+      "sha256": "5dcde9139ca2134514ebfd7a6349a5173a8381d2502e67691a5f20b56cfa3af4",
+      "size_bytes": 95958
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/valid/label",
+      "path": "banking77_oos/valid/label",
+      "sha256": "80dc3cae40e49d97d36ef192d79ef1d3bdea242c5ff80954cdd9fc982096dcbe",
+      "size_bytes": 34740
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/id-oos/valid/seq.in",
+      "path": "banking77_oos/id-oos/valid/seq.in",
+      "sha256": "859a89edce0e726fc914e1bc20c3405cb3393cedc956a66959c62353e05f076a",
+      "size_bytes": 24977
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/id-oos/valid/label",
+      "path": "banking77_oos/id-oos/valid/label",
+      "sha256": "43de2d0f989003ddb89a7372a1ccb46a5411affd1ba2ab56b6a3ccc64a31379e",
+      "size_bytes": 2120
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/id-oos/valid/label_original",
+      "path": "banking77_oos/id-oos/valid/label_original",
+      "sha256": "67358e791938acbd6683d5f3fe9485e86a63d0f782dbca005664a055ddbf35d5",
+      "size_bytes": 10308
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/test/seq.in",
+      "path": "banking77_oos/test/seq.in",
+      "sha256": "dc38952ebf63fcb1cdde63bd4fcd5cdf064cafa44fe4d13ab240640b4f06c5ca",
+      "size_bytes": 120049
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/test/label",
+      "path": "banking77_oos/test/label",
+      "sha256": "8109bbb25c13d3ce28c6c9dd819dbba0e008e6726e707446b752004f2fceb33d",
+      "size_bytes": 44920
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/id-oos/test/seq.in",
+      "path": "banking77_oos/id-oos/test/seq.in",
+      "sha256": "faeeb6fa5c97b249f234d2f468d37fe90a94ffdab5fa2812ad00ca201721f11c",
+      "size_bytes": 49926
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/id-oos/test/label",
+      "path": "banking77_oos/id-oos/test/label",
+      "sha256": "271824cddfe249fccc267eedf927b4297cb25819828445932e729bddfd3d241c",
+      "size_bytes": 4320
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/id-oos/test/label_original",
+      "path": "banking77_oos/id-oos/test/label_original",
+      "sha256": "168afb80c2361305d716face0bb9df49d04b107afa15ac3834714fce5fb52f64",
+      "size_bytes": 21040
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/ood-oos/valid/seq.in",
+      "path": "banking77_oos/ood-oos/valid/seq.in",
+      "sha256": "d1e14f587ab3a090392072be5a3dcf4255b8fbc0f85970f7e684db3ba6e84ccc",
+      "size_bytes": 7584
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/ood-oos/valid/label",
+      "path": "banking77_oos/ood-oos/valid/label",
+      "sha256": "1c6451b4179275857f2b21d73214035c6c735bde699322e75f07d0379ac6ca14",
+      "size_bytes": 800
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/ood-oos/test/seq.in",
+      "path": "banking77_oos/ood-oos/test/seq.in",
+      "sha256": "5602a8ce5239fe5f44d121f3b56c7bd42345ca60fa52c1f696b98ced108fc0d2",
+      "size_bytes": 45066
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jianguoz/Few-Shot-Intent-Detection/fa9553312b1dba54b1be0aae2d30b13171f898e5/Datasets/BANKING77-OOS/ood-oos/test/label",
+      "path": "banking77_oos/ood-oos/test/label",
+      "sha256": "76511ff731744ba700867c09ce1d07661ee5266c6ea269b2209f4310555d68b1",
+      "size_bytes": 4000
+    }
+  ]
+}

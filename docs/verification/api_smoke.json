@@ -1,0 +1,40 @@
+{
+  "check": "in_process_ASGI_smoke_not_benchmark",
+  "http_status": 200,
+  "decision": "retrieved",
+  "artifact_version": "R1-document-33f834f30a08b42b",
+  "corpus_documents": 488,
+  "evidence": [
+    {
+      "evidence_id": "doc:199",
+      "doc_id": "View Your VA Payment History | Veterans Affairs#1_0",
+      "domain": "va",
+      "unit": "document"
+    },
+    {
+      "evidence_id": "doc:303",
+      "doc_id": "Renew a hazardous materials (HazMat) endorsement#1_0",
+      "domain": "dmv",
+      "unit": "document"
+    },
+    {
+      "evidence_id": "doc:90",
+      "doc_id": "Manage Your Retirement Benefits | SSA#1_0",
+      "domain": "ssa",
+      "unit": "document"
+    },
+    {
+      "evidence_id": "doc:335",
+      "doc_id": "Voter Registration Application Frequently Asked Questions#1_0",
+      "domain": "dmv",
+      "unit": "document"
+    },
+    {
+      "evidence_id": "doc:389",
+      "doc_id": "Adding and removing users#3_0",
+      "domain": "dmv",
+      "unit": "document"
+    }
+  ],
+  "generator_connected": false
+}

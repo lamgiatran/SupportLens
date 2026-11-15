@@ -1,0 +1,10 @@
+{
+  "sample": "first_n_train_queries_and_documents_not_a_benchmark",
+  "queries": 200,
+  "query_truncated": 44,
+  "query_truncation_rate": 0.22,
+  "current_question_truncated": 0,
+  "max_query_tokens": 256,
+  "chunks": 59,
+  "max_chunk_tokens": 220
+}
