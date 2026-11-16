@@ -1,0 +1,50 @@
+{
+  "banking77": {
+    "train": {
+      "samples": 10003,
+      "labels": 77
+    },
+    "test": {
+      "samples": 3080,
+      "labels": 77
+    },
+    "exact_normalized_train_test_overlap": 6
+  },
+  "banking77_oos": {
+    "in_scope/train": {
+      "samples": 5905,
+      "labels": 50
+    },
+    "in_scope/valid": {
+      "samples": 1506,
+      "labels": 50
+    },
+    "in_scope/test": {
+      "samples": 2000,
+      "labels": 50
+    },
+    "id-oos/train": {
+      "samples": 2062,
+      "labels": 1,
+      "original_intents": 27
+    },
+    "id-oos/valid": {
+      "samples": 530,
+      "labels": 1,
+      "original_intents": 27
+    },
+    "id-oos/test": {
+      "samples": 1080,
+      "labels": 1,
+      "original_intents": 27
+    },
+    "ood-oos/valid": {
+      "samples": 200,
+      "labels": 1
+    },
+    "ood-oos/test": {
+      "samples": 1000,
+      "labels": 1
+    }
+  }
+}

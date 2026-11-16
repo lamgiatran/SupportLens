@@ -1,7 +1,8 @@
 """Small, explicit Ollama raw-prompt probe. No generation latency is fabricated."""
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 import json
+import re
 from time import perf_counter
 
 import httpx
@@ -14,19 +15,39 @@ class Prompt:
     text: str
     tokens: int
     evidence_tokens: int
+    citation_map: dict[str, str] = field(default_factory=dict)
+
+
+def resolve_citations(answer: str, prompt: Prompt) -> tuple[list[str], list[str]]:
+    """Return real IDs plus unknown aliases; never silently accept invented IDs."""
+    cited, invalid = [], []
+    for alias in re.findall(r"\[([^\[\]\r\n]+)\]", answer):
+        alias = alias.strip()
+        if alias in prompt.citation_map:
+            value = prompt.citation_map[alias]
+            if value not in cited:
+                cited.append(value)
+        elif alias not in invalid:
+            invalid.append(alias)
+    return cited, invalid
 
 
 def make_prompt(question: str, evidence: list[dict], tokenizer: Tokenizer,
                 num_ctx: int = 2048, num_predict: int = 128,
                 evidence_budget: int = 600) -> Prompt:
-    system = ("Answer only using the supplied evidence. Cite evidence IDs in brackets. "
+    system = ("Answer only using the supplied evidence. Cite sources as [1], [2], or [3]. "
+              "Use only numbers actually present below. "
               "If evidence is insufficient, say you cannot answer and request human review.")
-    parts = []
-    for item in evidence[:3]:
-        candidate = "\n\n".join(parts + [f"[{item['evidence_id']}] {item['text']}"])
+    parts, citation_map = [], {}
+    for number, item in enumerate(evidence[:3], 1):
+        alias = str(number)
+        evidence_id = item["evidence_id"]
+        if not evidence_id or evidence_id in citation_map.values():
+            raise ValueError("evidence IDs must be non-empty and unique")
+        header = f"[{alias}] "
+        candidate = "\n\n".join(parts + [header + item["text"]])
         if tokenizer.count(candidate, special=False) > evidence_budget:
-            # Keep complete citation IDs; shorten body rather than cutting the whole prompt.
-            header = f"[{item['evidence_id']}] "
+            # Keep the complete numeric alias; trim only the evidence body.
             previous = "\n\n".join(parts)
             prefix = (previous + "\n\n" if previous else "") + header
             room = evidence_budget - tokenizer.count(prefix, special=False)
@@ -36,8 +57,10 @@ def make_prompt(question: str, evidence: list[dict], tokenizer: Tokenizer,
                     body = body[:-1]
                 if body:
                     parts.append(header + body)
+                    citation_map[alias] = evidence_id
             break
-        parts.append(f"[{item['evidence_id']}] {item['text']}")
+        parts.append(header + item["text"])
+        citation_map[alias] = evidence_id
     context = "\n\n".join(parts)
     # raw=True avoids hidden chat-template token accounting in this probe.
     prompt = (f"<|im_start|>system\n{system}<|im_end|>\n"
@@ -46,7 +69,7 @@ def make_prompt(question: str, evidence: list[dict], tokenizer: Tokenizer,
     tokens = tokenizer.count(prompt, special=False)
     if tokens + num_predict + 32 > num_ctx:
         raise ValueError("prompt + output reserve exceeds num_ctx; do not allow silent truncation")
-    return Prompt(prompt, tokens, tokenizer.count(context, special=False))
+    return Prompt(prompt, tokens, tokenizer.count(context, special=False), citation_map)
 
 
 def stream_probe(base_url: str, model: str, prompt: Prompt, *, num_ctx: int,
@@ -74,7 +97,10 @@ def stream_probe(base_url: str, model: str, prompt: Prompt, *, num_ctx: int,
     # GGUF/HF BOS handling can differ slightly. This is diagnostic, not a proof.
     audit = "unavailable" if actual is None else (
         "count_matches_within_2" if abs(actual - prompt.tokens) <= 2 else "token_count_mismatch")
+    citations, invalid = resolve_citations(text, prompt)
     return {"status": "complete" if final.get("done") else "incomplete", "answer": text,
+            "citations": citations, "invalid_citations": invalid,
+            "citation_map": prompt.citation_map,
             "metric_scope": "generator_http_only_not_ui", "ttft_ms": first_ms,
             "total_ms": (perf_counter() - started) * 1000, "expected_prompt_tokens": prompt.tokens,
             "prompt_eval_count": actual, "prompt_token_audit": audit, "num_ctx": num_ctx,

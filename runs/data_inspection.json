@@ -1,0 +1,22 @@
+{
+  "documents": 488,
+  "domains": {
+    "ssa": 109,
+    "va": 138,
+    "dmv": 149,
+    "studentaid": 92
+  },
+  "splits": {
+    "train": {
+      "dialogues": 3474,
+      "query_target_pairs": 22806,
+      "queries_with_references": 22806
+    },
+    "validation": {
+      "dialogues": 661,
+      "query_target_pairs": 4427,
+      "queries_with_references": 4427
+    }
+  },
+  "train_validation_dialogue_overlap": 0
+}

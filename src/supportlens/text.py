@@ -53,8 +53,10 @@ class Query:
 def build_query(question: str, history: Sequence[dict], tokenizer: Tokenizer,
                 max_tokens: int = 256) -> Query:
     # history is chronological and contains past turns only. Current user first.
-    parts = [question] + [f"{t['role']}: {t['content']}" for t in reversed(history)]
-    full = " [SEP] ".join(parts)
+    # Formatting must not add lexical role labels or HF special-token literals.
+    # The same packed text is passed to BM25 and every dense variant.
+    parts = [question] + [t["content"] for t in reversed(history)]
+    full = "\n".join(parts)
     packed = prefix_within(full, tokenizer, max_tokens)
     return Query(packed, tokenizer.count(full), tokenizer.count(packed),
                  packed != full, tokenizer.count(question) > max_tokens)

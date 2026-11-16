@@ -1,0 +1,7 @@
+{
+  "suite": "regression",
+  "returncode": 0,
+  "stdout": "........................................                                 [100%]\n40 passed in 3.14s\n",
+  "stderr": "",
+  "scope": "unit/API tests plus local real tokenizer; model cache/live tests use an offline double"
+}

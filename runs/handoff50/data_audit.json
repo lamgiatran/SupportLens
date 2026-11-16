@@ -1,0 +1,25 @@
+{
+  "rows": 12221,
+  "fit_rows": 5903,
+  "invalid_input_ids": [
+    "id/train/3996",
+    "id/train/4017",
+    "id_oos/valid/289",
+    "id_oos/valid/309",
+    "id_oos/test/239",
+    "id_oos/test/417",
+    "id_oos/test/418",
+    "id_oos/test/624"
+  ],
+  "labels": 50,
+  "source_files": 16,
+  "counts": {
+    "train/id": 5905,
+    "dev/id": 1506,
+    "dev/id_oos": 530,
+    "dev/ood": 200,
+    "test/id": 2000,
+    "test/id_oos": 1080,
+    "test/ood": 1000
+  }
+}

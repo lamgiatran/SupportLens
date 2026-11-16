@@ -1,4 +1,13 @@
-# SupportLens — day-one starter
+# SupportLens - starter v0.2
+
+**Start with [the short update/run notes](docs/RUN_UPDATE.md).** Current handoff
+ownership is in [TEAM_HANDOFF.md](docs/TEAM_HANDOFF.md): Cau owns the whole Banking
+encoder/head pipeline; Tuan calls its `predict()` through the API. This supersedes
+the older leader-encoder assignment without rewriting the frozen plan.
+
+v0.2 fixes query separators, non-JSON UI failures, HTTP outcome logging,
+explicit unused history and numeric citation aliases. It adds one shared Banking
+encoder, a source-aligned cache builder and a repeatable package smoke command.
 
 This repo contains working API contracts, raw-data readers, document-level BM25,
 token budgets, a shared retrieval-risk gate and an Ollama probe. Classifier

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "supportlens"
-version = "0.1.0"
+version = "0.2.0"
 description = "Day-one support triage and grounded document QA scaffold"
 requires-python = ">=3.11"
 dependencies = [
@@ -16,6 +16,8 @@ dependencies = [
 dev = ["pytest>=8,<10", "tokenizers>=0.20,<1"]
 ui = ["streamlit>=1.40,<2"]
 ml = ["tokenizers>=0.20,<1", "scikit-learn>=1.5,<2", "sentence-transformers>=3,<6"]
+classical = ["scikit-learn>=1.5,<2", "nltk>=3.9,<4"]
+banking = ["scikit-learn>=1.5,<2", "sentence-transformers>=3,<6"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
