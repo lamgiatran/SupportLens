@@ -26,5 +26,5 @@ song song với bảng này. File ticket chưa tự tạo GitHub issue. Khi mở
 liên kết gói tương ứng và ghi trạng thái thực tế.
 
 Một lần giao: commit/PR, cách kiểm tra và ba ví dụ. Người nhận báo pass hoặc lỗi
-tái hiện; owner sửa module mình. Đổi phạm vi tại mốc ngày 2, 5 hoặc 8. Số đo
+tái hiện; owner sửa module mình. Số đo
 cuối lấy từ phiên bản freeze sau chọn cấu hình bằng dev.
