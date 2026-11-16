@@ -61,7 +61,7 @@ The [experiment plan](docs/plan-v1.0.md) defines the data splits, model comparis
 
 ## AI Usage Disclosure
 
-AI assisted initial pipeline development, testing and documentation. Team members are responsible for reviewing, extending, running and explaining their assigned modules. Details are recorded in [AI_USAGE.md](docs/AI_USAGE.md).
+ [AI_USAGE.md](docs/AI_USAGE.md).
 
 ## Submission
 
