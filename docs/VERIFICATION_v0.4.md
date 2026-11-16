@@ -89,8 +89,3 @@ Nguồn: `retrieval_metrics.json`, `retrieval_gate3_metrics.json`,
 Giữ C-01/C-02 cho Cầu tự audit/trích calibration rồi fit Banking; T-01 Banking
 warm-up vẫn thuộc Tuấn phối hợp Cầu. Hưng review qrels trước train pairs R4.
 Generator streaming, generation cache, deadline tổng và đo TTFT vẫn chưa làm.
-
-Repo riêng tư https://github.com/lamgiatran/SupportLens đã tạo bằng Edge, đúng owner.
-Lần push đầu từng bị chặn vì chưa rõ payload. Người dùng đã cho phép push phần
-Leader sau khi rà soát ownership; kết quả remote được kiểm tra riêng. Kết nối
-GitHub sai đã được ngắt, phiên Edge đúng lamgiatran được giữ để thao tác repo.
