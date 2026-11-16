@@ -11,6 +11,8 @@ data/processed/**
 !data/processed/**/splits.json
 !data/processed/**/label_map.json
 !data/processed/**/embedding_manifest.json
+!data/processed/docs_qa/manifest.json
+!data/processed/docs_qa/qrels_audit.jsonl
 artifacts/**
 !artifacts/**/
 !artifacts/**/*.json

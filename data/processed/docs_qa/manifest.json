@@ -1,0 +1,81 @@
+{
+  "corpus": "multidoc2dial",
+  "artifact_version": "R1-chunk-022261dfebcd67bc",
+  "config": {
+    "chunk_max_tokens": 220,
+    "chunk_overlap": 32,
+    "encoder_limit": 256,
+    "query_max_tokens": 256,
+    "strict_min_span_coverage": 0.5,
+    "dedup_overlap": 0.5,
+    "validation_dev_fraction": 0.5,
+    "seed": 42
+  },
+  "relevance": {
+    "strict": "at least 50% of any one referenced span, half-open raw character offsets",
+    "lenient": "any positive raw character overlap",
+    "multiple_refs": "union, not all-claims support"
+  },
+  "query_policy": "strip_current_reverse_history_newline_v1",
+  "tokenizer_sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+  "sources_sha256": {
+    "documents": "7205be05b7c260fd3c0eda4d98a4abddf7af66c364238f1be509aa139414012d",
+    "train": "c9a6ef2e0be22306429e0affa51c2ca164b2808a89a999e7756700170ed15d96",
+    "validation": "ce063938b53d96f6128275d76c0ba967a435e3d865d011aaeb6461c2538b2ce4"
+  },
+  "documents": 488,
+  "chunks": 2837,
+  "max_chunk_tokens": 220,
+  "dialogues": {
+    "train": 3474,
+    "dev": 329,
+    "heldout": 332
+  },
+  "statistics": {
+    "train": {
+      "queries": 22806,
+      "invalid_inputs": 0,
+      "truncated": 1910,
+      "current_question_truncated": 0,
+      "with_strict": 22806,
+      "with_lenient": 22806,
+      "references": 37319,
+      "reference_issues": 0
+    },
+    "dev": {
+      "queries": 2213,
+      "invalid_inputs": 0,
+      "truncated": 191,
+      "current_question_truncated": 0,
+      "with_strict": 2213,
+      "with_lenient": 2213,
+      "references": 3588,
+      "reference_issues": 0
+    },
+    "heldout": {
+      "queries": 2214,
+      "invalid_inputs": 0,
+      "truncated": 169,
+      "current_question_truncated": 0,
+      "with_strict": 2214,
+      "with_lenient": 2214,
+      "references": 3593,
+      "reference_issues": 0
+    }
+  },
+  "audit_cases": 20,
+  "files_sha256": {
+    "chunks.jsonl": "635eb734ab8eaef072598757fbcc648f1820219817197327d64f38d374826d61",
+    "splits.json": "a6f5164f2dc5127f4ced44d82c3e70cbdf7a0d048481163332c61c01bad818c0",
+    "qrels_issues.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "qrels_audit.jsonl": "a4ffea387a222dcace960e13cf8b7511c0e06aa4e697bdcf2b49eece35b25e49",
+    "queries.train.jsonl": "0896f3e6615f27e400128fd02b97a2139534b8e32944ef65fed58a9202c855e4",
+    "qrels.train.jsonl": "be4a6ac9f3de672db2e63bff34b97140dd7c7abcbf8d64bb8f91facfc0c8c651",
+    "queries.dev.jsonl": "3a6e8ce877b94cd9b07b83e6dc05e7c3a463f93658d78e110ee53c486b1710c4",
+    "qrels.dev.jsonl": "9c973b5f04827f91661ea8092451c00d700b873d736f49e77dd2d9f41649e08a",
+    "queries.heldout.jsonl": "eda935545592886dc413eb1bdd33bf6264740c81829752a1278c68b9635f5ab7",
+    "qrels.heldout.jsonl": "54b52a716ea5b307eef3703991e729769618c11d110b1fce3222972d76691936"
+  },
+  "build_seconds": 36.006660100014415,
+  "evaluation_status": "no heldout retrieval run; qrels construction is a data audit"
+}

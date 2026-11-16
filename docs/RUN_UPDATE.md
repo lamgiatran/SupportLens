@@ -16,7 +16,8 @@ Tránh `--system-site-packages` để lỗi thư viện hệ thống không lọ
 ## Chuẩn bị vector cho Cầu
 
 ZIP v0.2 đã có `data/processed/handoff50/embeddings.npz` và manifest.
-Cầu có thể dùng ngay cache với numpy/sklearn để fit head. Các lệnh dưới đây
+Cầu dùng cache để audit; hoàn tất C-01 (trùng lặp) và C-02 (calibration) trước fit.
+Không dùng nguyên mask v0.2 để vừa fit head vừa chọn temperature. Các lệnh dưới đây
 chỉ cần khi muốn tự tạo lại cache; dùng cùng `banking.py` cho cả cache và API.
 
 ```powershell
@@ -37,7 +38,9 @@ https://huggingface.co/docs/huggingface_hub/package_reference/environment_variab
 ```python
 import numpy as np
 with np.load("data/processed/handoff50/embeddings.npz", allow_pickle=False) as z:
+    assert "calibration" in z.files, "Hoan tat C-02 truoc khi fit"
     fit = z["fit_eligible"]  # chỉ ID train và input hợp lệ
+    assert not (fit & z["calibration"]).any()
     X_train, y_train = z["embeddings"][fit], z["label"][fit]
 ```
 
@@ -61,6 +64,6 @@ middleware vẫn ghi status 200/4xx/5xx và request ID. Log vận hành không v
 sau khi Cầu tạo hàm đó. Mỗi dòng samples có `input` và `expected` (dict kỳ vọng).
 Không có model/hàm thì smoke fail rõ ràng; không dùng output giả để báo cáo.
 
-Qrels strict/lenient, score/gate Docs-QA, deadline tổng của generator, mô hình
-50 nhãn và nối generation thật vẫn cần làm tiếp. `timeout=45` hiện chỉ là timeout
+Qrels/chunks và cách chạy Docs-QA v0.3 ở `RUN_DOCS_QA.md`. Score/gate Docs-QA,
+deadline tổng, mô hình 50 nhãn và nối generation thật vẫn cần làm tiếp. `timeout=45` hiện chỉ là timeout
 I/O của probe, không được công bố là deadline tổng.

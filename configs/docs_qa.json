@@ -1,0 +1,10 @@
+{
+  "chunk_max_tokens": 220,
+  "chunk_overlap": 32,
+  "encoder_limit": 256,
+  "query_max_tokens": 256,
+  "strict_min_span_coverage": 0.5,
+  "dedup_overlap": 0.5,
+  "validation_dev_fraction": 0.5,
+  "seed": 42
+}

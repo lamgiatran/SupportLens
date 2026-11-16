@@ -77,14 +77,14 @@ def test_citation_aliases_hide_hashes_and_map_back_to_real_ids(tokenizer):
     prompt = make_prompt("current question", [
         {"evidence_id": key, "text": "alpha beta"} for key in ids], tokenizer)
     assert all(key not in prompt.text for key in ids)
-    assert "[1] alpha beta" in prompt.text and "[2] alpha beta" in prompt.text
-    citations, invalid = resolve_citations("alpha [2], beta [1], repeated [2], bad [9]", prompt)
-    assert citations == [ids[1], ids[0]] and invalid == ["9"]
+    assert "[S1] alpha beta" in prompt.text and "[S2] alpha beta" in prompt.text
+    citations, invalid = resolve_citations("alpha [S2], beta [S1], repeated [S2], bad [S9]", prompt)
+    assert citations == [ids[1], ids[0]] and invalid == ["S9"]
 
 
 def test_unpacked_evidence_cannot_be_cited(tokenizer):
     prompt = make_prompt("current question", [
         {"evidence_id": str(i), "text": "alpha " * 100} for i in range(4)],
         tokenizer, evidence_budget=12)
-    assert set(prompt.citation_map) == {"1"}
-    assert resolve_citations("[2]", prompt) == ([], ["2"])
+    assert set(prompt.citation_map) == {"S1"}
+    assert resolve_citations("[S2]", prompt) == ([], ["S2"])

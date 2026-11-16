@@ -1,4 +1,9 @@
-# SupportLens - starter v0.2
+# SupportLens - starter v0.3
+
+**Docs-QA now serves token-bounded passages with the same history policy used in
+offline dev retrieval.** Start with [RUN_DOCS_QA.md](docs/RUN_DOCS_QA.md).
+Strict/lenient qrels and dialogue split IDs are built on real MultiDoc2Dial.
+This is passage retrieval; full answer generation is still pending.
 
 **Start with [the short update/run notes](docs/RUN_UPDATE.md).** Current handoff
 ownership is in [TEAM_HANDOFF.md](docs/TEAM_HANDOFF.md): Cau owns the whole Banking

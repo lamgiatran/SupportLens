@@ -12,6 +12,19 @@ import numpy as np
 from .banking import BankingEncoder
 
 
+def write_split_manifest(path: str | Path, payload: dict) -> None:
+    """Valid JSON, one compact sample per line so mask changes stay local in Git."""
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    header = {k: v for k, v in payload.items() if k != "samples"}
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write(json.dumps(header, ensure_ascii=False, separators=(",", ":"))[:-1])
+        handle.write(("," if header else "") + '"samples":[\n')
+        for i, row in enumerate(payload["samples"]):
+            handle.write((",\n" if i else "") + json.dumps(row, ensure_ascii=False, separators=(",", ":")))
+        handle.write("\n]}\n")
+
+
 def load_handoff_rows(root: str | Path) -> tuple[list[dict], dict[str, str]]:
     root = Path(root)
     rows, sources = [], {}
@@ -82,5 +95,5 @@ def build_cache(rows: list[dict], encoder: BankingEncoder, destination: str | Pa
         json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     splits = {"model_scope": "handoff50", "source_sha256": source_hashes,
               "samples": [{k: v for k, v in r.items() if k != "text"} for r in rows]}
-    (destination / "splits.json").write_text(json.dumps(splits, indent=2) + "\n", encoding="utf-8")
+    write_split_manifest(destination / "splits.json", splits)
     return manifest

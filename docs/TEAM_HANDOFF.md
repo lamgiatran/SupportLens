@@ -1,7 +1,13 @@
-# Bàn giao gọn cho bản v0.2
+# Bàn giao gọn v0.3
 
 Giữ các chặng 1–3 / 4–6 / 7–9 / 10–12 / 13–15 trong file phân công.
 Chỉ thay các điểm phối hợp sau; không cần viết lại kế hoạch.
+
+Việc bắt đầu tiếp theo: Cầu làm [C-01](../issues/C-01-DUPLICATES.md) rồi
+[C-02](../issues/C-02-CALIBRATION.md) trước khi fit. Tuấn nối Docs-QA bằng bundle
+thật theo `RUN_DOCS_QA.md`, đồng thời chuẩn bị [T-01](../issues/T-01-WARMUP.md).
+Leader giữ chunks/qrels/retrieval và review quyết định dữ liệu; không làm thay
+hai ticket Banking của Cầu. Hưng tiếp tục nhánh Course-77 và review mẫu qrels.
 
 | Người | Sở hữu và làm tiếp | Giao ai, để làm gì? |
 |---|---|---|

@@ -16,44 +16,59 @@ class Prompt:
     tokens: int
     evidence_tokens: int
     citation_map: dict[str, str] = field(default_factory=dict)
+    citation_prefix: str = "S"
 
 
 def resolve_citations(answer: str, prompt: Prompt) -> tuple[list[str], list[str]]:
     """Return real IDs plus unknown aliases; never silently accept invented IDs."""
     cited, invalid = [], []
-    for alias in re.findall(r"\[([^\[\]\r\n]+)\]", answer):
-        alias = alias.strip()
-        if alias in prompt.citation_map:
-            value = prompt.citation_map[alias]
-            if value not in cited:
-                cited.append(value)
-        elif alias not in invalid:
-            invalid.append(alias)
+    prefix = prompt.citation_prefix
+    for group in re.findall(r"\[([^\[\]\r\n]+)\]", answer):
+        # Bare numeric brackets belong to source text, not our citation grammar.
+        if not re.search(rf"(?<!\w){re.escape(prefix)}\s*\d", group, re.I):
+            continue
+        for token in re.split(r"[,;]", group):
+            token = token.strip()
+            match = re.fullmatch(rf"(?:{re.escape(prefix)}\s*)?(\d+)", token, re.I)
+            alias = prefix + str(int(match[1])) if match else token
+            if alias in prompt.citation_map:
+                value = prompt.citation_map[alias]
+                if value not in cited:
+                    cited.append(value)
+            elif alias not in invalid:
+                invalid.append(alias)
     return cited, invalid
 
 
 def make_prompt(question: str, evidence: list[dict], tokenizer: Tokenizer,
                 num_ctx: int = 2048, num_predict: int = 128,
                 evidence_budget: int = 600) -> Prompt:
-    system = ("Answer only using the supplied evidence. Cite sources as [1], [2], or [3]. "
-              "Use only numbers actually present below. "
+    # No namespace is inherently impossible in arbitrary source text. Reserve a
+    # short one absent from the supplied text; never edit raw document brackets.
+    original = question + "\n" + "\n".join(item["text"] for item in evidence[:3])
+    prefix = "S"
+    while re.search(rf"\[[^\[\]\r\n]*\b{prefix}\s*\d", original, re.I):
+        prefix += "S"
+    system = (f"Answer only using the supplied evidence. Cite sources as [{prefix}1] or [{prefix}2]. "
+              f"For multiple sources use [{prefix}1, {prefix}2]. "
+              "Use only source aliases actually present below. Numeric brackets in source text are not citations. "
               "If evidence is insufficient, say you cannot answer and request human review.")
     parts, citation_map = [], {}
     for number, item in enumerate(evidence[:3], 1):
-        alias = str(number)
+        alias = prefix + str(number)
         evidence_id = item["evidence_id"]
         if not evidence_id or evidence_id in citation_map.values():
             raise ValueError("evidence IDs must be non-empty and unique")
         header = f"[{alias}] "
         candidate = "\n\n".join(parts + [header + item["text"]])
         if tokenizer.count(candidate, special=False) > evidence_budget:
-            # Keep the complete numeric alias; trim only the evidence body.
+            # Keep the complete source alias; trim only the evidence body.
             previous = "\n\n".join(parts)
-            prefix = (previous + "\n\n" if previous else "") + header
-            room = evidence_budget - tokenizer.count(prefix, special=False)
+            packed_prefix = (previous + "\n\n" if previous else "") + header
+            room = evidence_budget - tokenizer.count(packed_prefix, special=False)
             if room > 0:
                 body = prefix_within(item["text"], tokenizer, room, special=False)
-                while body and tokenizer.count(prefix + body, special=False) > evidence_budget:
+                while body and tokenizer.count(packed_prefix + body, special=False) > evidence_budget:
                     body = body[:-1]
                 if body:
                     parts.append(header + body)
@@ -69,7 +84,7 @@ def make_prompt(question: str, evidence: list[dict], tokenizer: Tokenizer,
     tokens = tokenizer.count(prompt, special=False)
     if tokens + num_predict + 32 > num_ctx:
         raise ValueError("prompt + output reserve exceeds num_ctx; do not allow silent truncation")
-    return Prompt(prompt, tokens, tokenizer.count(context, special=False), citation_map)
+    return Prompt(prompt, tokens, tokenizer.count(context, special=False), citation_map, prefix)
 
 
 def stream_probe(base_url: str, model: str, prompt: Prompt, *, num_ctx: int,
@@ -101,6 +116,7 @@ def stream_probe(base_url: str, model: str, prompt: Prompt, *, num_ctx: int,
     return {"status": "complete" if final.get("done") else "incomplete", "answer": text,
             "citations": citations, "invalid_citations": invalid,
             "citation_map": prompt.citation_map,
+            "citation_status": "invalid" if invalid else ("present" if citations else "missing"),
             "metric_scope": "generator_http_only_not_ui", "ttft_ms": first_ms,
             "total_ms": (perf_counter() - started) * 1000, "expected_prompt_tokens": prompt.tokens,
             "prompt_eval_count": actual, "prompt_token_audit": audit, "num_ctx": num_ctx,

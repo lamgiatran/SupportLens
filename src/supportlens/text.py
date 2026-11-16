@@ -17,6 +17,7 @@ class JsonTokenizer:
     def __init__(self, path: str | Path):
         from tokenizers import Tokenizer as HFTokenizer
         self.backend = HFTokenizer.from_file(str(path))
+        self.fingerprint = hashlib.sha256(Path(path).read_bytes()).hexdigest()
         self.backend.no_truncation()
         self.backend.no_padding()
 
@@ -55,7 +56,7 @@ def build_query(question: str, history: Sequence[dict], tokenizer: Tokenizer,
     # history is chronological and contains past turns only. Current user first.
     # Formatting must not add lexical role labels or HF special-token literals.
     # The same packed text is passed to BM25 and every dense variant.
-    parts = [question] + [t["content"] for t in reversed(history)]
+    parts = [question.strip()] + [t["content"].strip() for t in reversed(history)]
     full = "\n".join(parts)
     packed = prefix_within(full, tokenizer, max_tokens)
     return Query(packed, tokenizer.count(full), tokenizer.count(packed),
@@ -84,8 +85,9 @@ def chunk_document(domain: str, doc_id: str, title: str, text: str,
     offsets = tokenizer.offsets(text)
     chunks = []
     first = 0
+    body_budget = max_tokens - tokenizer.count(header + "\n")
     while first < len(offsets):
-        last = min(len(offsets), first + max_tokens)
+        last = min(len(offsets), first + max(1, body_budget))
         while last > first:
             start, end = offsets[first][0], offsets[last - 1][1]
             value = f"{header}\n{text[start:end]}"

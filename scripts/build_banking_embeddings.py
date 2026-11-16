@@ -8,7 +8,7 @@ from collections import Counter
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from supportlens.banking import BankingEncoder, EncoderConfig
-from supportlens.banking_data import build_cache, load_handoff_rows
+from supportlens.banking_data import build_cache, load_handoff_rows, write_split_manifest
 
 
 def main():
@@ -23,10 +23,10 @@ def main():
     args = parser.parse_args()
     rows, hashes = load_handoff_rows(args.raw)
     args.out.mkdir(parents=True, exist_ok=True)
-    (args.out / "splits.json").write_text(json.dumps({
+    write_split_manifest(args.out / "splits.json", {
         "model_scope": "handoff50", "source_sha256": hashes,
         "samples": [{k: v for k, v in r.items() if k != "text"} for r in rows]
-    }, indent=2) + "\n", encoding="utf-8")
+    })
     audit = {"rows": len(rows), "fit_rows": sum(r["fit_eligible"] for r in rows),
              "invalid_input_ids": [r["sample_id"] for r in rows if not r["valid_input"]],
              "labels": len({r["label"] for r in rows if r["fit_eligible"]}),
