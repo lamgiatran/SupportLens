@@ -1,0 +1,70 @@
+{
+  "model_scope": "handoff50",
+  "encoder": {
+    "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "max_seq_length": 256,
+    "dimension": 384,
+    "normalize_embeddings": true,
+    "text_policy": "strip_current_question_only_v1"
+  },
+  "encoder_fingerprint": "328904011da0a8142d45c583b6cbd8f15fa4004f42795a0bf5f2bbac24b060d4",
+  "source_sha256": {
+    "train/seq.in": "5ba97261ce844b33e85b2af8f271927699f2ab3d79f99daac074d22abd79453d",
+    "train/label": "b4cfaddcc42b3fab9668972a0060753c692285dc8dff552c9fa779c428775370",
+    "valid/seq.in": "5dcde9139ca2134514ebfd7a6349a5173a8381d2502e67691a5f20b56cfa3af4",
+    "valid/label": "80dc3cae40e49d97d36ef192d79ef1d3bdea242c5ff80954cdd9fc982096dcbe",
+    "id-oos/valid/seq.in": "859a89edce0e726fc914e1bc20c3405cb3393cedc956a66959c62353e05f076a",
+    "id-oos/valid/label": "43de2d0f989003ddb89a7372a1ccb46a5411affd1ba2ab56b6a3ccc64a31379e",
+    "id-oos/valid/label_original": "67358e791938acbd6683d5f3fe9485e86a63d0f782dbca005664a055ddbf35d5",
+    "ood-oos/valid/seq.in": "d1e14f587ab3a090392072be5a3dcf4255b8fbc0f85970f7e684db3ba6e84ccc",
+    "ood-oos/valid/label": "1c6451b4179275857f2b21d73214035c6c735bde699322e75f07d0379ac6ca14",
+    "test/seq.in": "dc38952ebf63fcb1cdde63bd4fcd5cdf064cafa44fe4d13ab240640b4f06c5ca",
+    "test/label": "8109bbb25c13d3ce28c6c9dd819dbba0e008e6726e707446b752004f2fceb33d",
+    "id-oos/test/seq.in": "faeeb6fa5c97b249f234d2f468d37fe90a94ffdab5fa2812ad00ca201721f11c",
+    "id-oos/test/label": "271824cddfe249fccc267eedf927b4297cb25819828445932e729bddfd3d241c",
+    "id-oos/test/label_original": "168afb80c2361305d716face0bb9df49d04b107afa15ac3834714fce5fb52f64",
+    "ood-oos/test/seq.in": "5602a8ce5239fe5f44d121f3b56c7bd42345ca60fa52c1f696b98ced108fc0d2",
+    "ood-oos/test/label": "76511ff731744ba700867c09ce1d07661ee5266c6ea269b2209f4310555d68b1"
+  },
+  "rows": 12221,
+  "shape": [
+    12221,
+    384
+  ],
+  "counts": {
+    "train/id": 5905,
+    "dev/id": 1506,
+    "dev/id_oos": 530,
+    "dev/ood": 200,
+    "test/id": 2000,
+    "test/id_oos": 1080,
+    "test/ood": 1000
+  },
+  "encoded_rows": 12213,
+  "invalid_input_ids": [
+    "id/train/3996",
+    "id/train/4017",
+    "id_oos/valid/289",
+    "id_oos/valid/309",
+    "id_oos/test/239",
+    "id_oos/test/417",
+    "id_oos/test/418",
+    "id_oos/test/624"
+  ],
+  "invalid_input_policy": "zero sentinel, not an embedding; never fit/score/reference-bank; retain IDs and count forced handoff separately in evaluation",
+  "encode_seconds": 91.63594560002093,
+  "device": "cpu",
+  "npz_sha256": "0001b29bec902ff10231b9b851dbdd898faca046e3e3a7ae3c3e6ead5e599631",
+  "fit_rule": "fit_eligible = (split=train AND group=id AND valid_input); dev selects; test reports",
+  "timing_scope": "encode call includes first model load and any required download; excludes environment setup",
+  "runtime_versions": {
+    "sentence-transformers": "5.7.0",
+    "torch": "2.10.0",
+    "transformers": "5.6.2",
+    "huggingface-hub": "1.12.0",
+    "tokenizers": "0.22.2",
+    "numpy": "2.4.2",
+    "scikit-learn": "1.8.0"
+  }
+}

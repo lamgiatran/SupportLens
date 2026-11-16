@@ -22,7 +22,7 @@ issue/PR nơi lấy và nơi đặt. Không cần README mới, BOARD và tin nh
 và trả dict; wrapper nạp đúng model của gói. Không ghi “pass” cho gói chưa có.
 Script chỉ chạy callback trong repo/gói do nhóm tin cậy; không dùng pickle tải lạ.
 
-Cache thật giữ 12.221 ID nguồn. Có 8 input rỗng: dùng `valid_input` và
+ZIP đã kèm cache thật, giữ 12.221 ID nguồn. Có 8 input rỗng: dùng `valid_input` và
 `fit_eligible`; vector zero tại hàng invalid là sentinel, không phải embedding.
 Không fit/score/tìm láng giềng trên những hàng đó; giữ chúng trong thống kê nguồn,
 báo riêng từ chối input rỗng khi đánh giá. API từ chối câu rỗng bằng 422.

@@ -15,6 +15,10 @@ Tránh `--system-site-packages` để lỗi thư viện hệ thống không lọ
 
 ## Chuẩn bị vector cho Cầu
 
+ZIP v0.2 đã có `data/processed/handoff50/embeddings.npz` và manifest.
+Cầu có thể dùng ngay cache với numpy/sklearn để fit head. Các lệnh dưới đây
+chỉ cần khi muốn tự tạo lại cache; dùng cùng `banking.py` cho cả cache và API.
+
 ```powershell
 .\.venv\Scripts\python.exe scripts/download_data.py --dataset banking77_oos
 .\.venv\Scripts\python.exe scripts/build_banking_embeddings.py --audit-only
@@ -26,6 +30,9 @@ Lệnh audit chỉ ghi split IDs và `runs/handoff50/data_audit.json`; không si
 Lệnh cuối mới sinh `data/processed/handoff50/embeddings.npz` cùng manifest/hash.
 Nó tải frozen encoder đã ghim revision; không fine-tune, không học trên 77 nhãn.
 Cache và live API gọi cùng `BankingEncoder.encode()` trong `banking.py`.
+Nếu gặp lỗi quyền ghi cache của Hugging Face, đặt `HF_HOME` vào thư mục được
+phép ghi trước khi chạy; xem cấu hình chính thức tại
+https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables.
 
 ```python
 import numpy as np

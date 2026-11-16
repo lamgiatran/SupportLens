@@ -75,8 +75,9 @@ def build_cache(rows: list[dict], encoder: BankingEncoder, destination: str | Pa
                 "invalid_input_policy": "zero sentinel, not an embedding; never fit/score/reference-bank; "
                                         "retain IDs and count forced handoff separately in evaluation",
                 "encode_seconds": elapsed, "device": encoder.device,
+                "timing_scope": "encode call includes first model load and any required download; excludes environment setup",
                 "npz_sha256": hashlib.sha256(cache.read_bytes()).hexdigest(),
-                "fit_rule": "split=train AND group=id only; dev selects; test reports"}
+                "fit_rule": "fit_eligible = (split=train AND group=id AND valid_input); dev selects; test reports"}
     (destination / "embedding_manifest.json").write_text(
         json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     splits = {"model_scope": "handoff50", "source_sha256": source_hashes,
