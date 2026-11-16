@@ -13,10 +13,8 @@ SupportLens course project for class CC01, CLC_HK261, Semester 261, at Ho Chi Mi
 |---|---|---|---|
 | [Trần Gia Lâm](https://github.com/lamgiatran) | 2352670 | Leader | Docs-QA data preparation, retrieval and generation pipeline, retriever fine-tuning when the core system is stable, evaluation, technical review and final integration. |
 | [Nguyễn Hữu Cầu](https://github.com/cau26) | 2352129 | Member | Handoff-50 data audit, shared encoding and prediction pipeline, classifier training, calibration, confidence methods and out-of-scope analysis. |
-| Phan Trần Quốc Tuấn | — | Member | API and UI integration, model loading, conversation state, streaming, error handling and end-to-end smoke testing. |
-| Nguyễn Tấn Hưng | — | Member | BANKING77 preprocessing, BoW/TF-IDF classification baselines, controlled comparisons, error analysis and qrels review. |
-
-Student IDs for Tuấn and Hưng will be added after confirmation.
+| [Phan Trần Quốc Tuấn]( | 2353273 | Member | API and UI integration, model loading, conversation state, streaming, error handling and end-to-end smoke testing. |
+| [Nguyễn Tấn Hưng](https://github.com/Kun-05) | 2352439 | Member | BANKING77 preprocessing, BoW/TF-IDF classification baselines, controlled comparisons, error analysis and qrels review. |
 
 ## Project — SupportLens
 
@@ -65,4 +63,4 @@ The [experiment plan](docs/plan-v1.0.md) defines the data splits, model comparis
 
 ## Submission
 
-The final deliverables will include source code, a report, experiment outputs, run instructions and a demonstration. Complete the required LMS submission separately; publishing files on GitHub does not submit the assignment to the LMS.
+The final deliverables will include source code, a report, experiment outputs, run instructions and a demonstration. Complete the required LMS submission separately.
