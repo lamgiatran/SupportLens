@@ -19,9 +19,6 @@ không làm lại để khớp lịch chuẩn bị cũ.
 | C | Hoàn thiện hành vi và chọn cấu hình bằng dev | 2–3 phiên tiếp; mốc ngày 8 kiểm tra hai chế độ và quyết định giữ/cắt |
 | D | Đo bản chốt, viết kết quả và chạy lại | Khóa tính năng trước ngày 13; dành ngày 13–15 sửa lỗi và bảo vệ |
 
-Mốc kiểm tra là điểm phối hợp, không phải yêu cầu mỗi ngày làm một task mới.
-Công việc đã đạt đầu ra chuyển thẳng sang kiểm tra/tích hợp.
-
 ## Các phần ghép vào nhau thế nào
 
 | Người giao → người nhận | Giao gì và khi nào | Người nhận dùng để làm gì |
