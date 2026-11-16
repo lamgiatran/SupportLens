@@ -1,7 +1,8 @@
 # Docs-QA v0.3 — kết quả thực thi 16/11/2026
 
-Bộ regression hiện tại: **50 passed**, gồm tokenizer thật, qrels strict/lenient,
-numeric-link/citation-list và API/offline history parity.
+Bộ regression hiện tại: **51 passed**, gồm tokenizer thật, qrels strict/lenient,
+numeric-link/citation-list, API/offline history parity và bảo toàn checksum qua
+Git checkout trên Windows (LF cố định cho JSON/JSONL).
 
 Corpus thật: 488 tài liệu, 2.837 chunks; tối đa 220 WordPiece gồm title.
 Public train có 3.474 dialogues/22.806 query; public validation tách theo domain

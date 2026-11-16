@@ -66,7 +66,7 @@
   "audit_cases": 20,
   "files_sha256": {
     "chunks.jsonl": "635eb734ab8eaef072598757fbcc648f1820219817197327d64f38d374826d61",
-    "splits.json": "a6f5164f2dc5127f4ced44d82c3e70cbdf7a0d048481163332c61c01bad818c0",
+    "splits.json": "1aaa0c9c2c0bec8ce18321533ed01512b254ec9f21eac12a39e1124c94303f17",
     "qrels_issues.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "qrels_audit.jsonl": "a4ffea387a222dcace960e13cf8b7511c0e06aa4e697bdcf2b49eece35b25e49",
     "queries.train.jsonl": "0896f3e6615f27e400128fd02b97a2139534b8e32944ef65fed58a9202c855e4",
@@ -76,6 +76,6 @@
     "queries.heldout.jsonl": "eda935545592886dc413eb1bdd33bf6264740c81829752a1278c68b9635f5ab7",
     "qrels.heldout.jsonl": "54b52a716ea5b307eef3703991e729769618c11d110b1fce3222972d76691936"
   },
-  "build_seconds": 36.006660100014415,
+  "build_seconds": 34.1560293000075,
   "evaluation_status": "no heldout retrieval run; qrels construction is a data audit"
 }

@@ -1,5 +1,8 @@
 from dataclasses import asdict
 import json
+from pathlib import Path
+import shutil
+import subprocess
 
 from fastapi.testclient import TestClient
 import pytest
@@ -122,3 +125,22 @@ def test_bundle_round_trip_and_api_use_the_same_passage_history_policy(tmp_path,
         handle.write("{}\n")
     with pytest.raises(ValueError, match="bytes"):
         BM25Chunks.from_bundle(bundle, token_path)
+
+
+def test_hashed_json_assets_keep_bytes_after_windows_style_git_checkout(tmp_path):
+    repo, exported = tmp_path / "source", tmp_path / "checkout"
+    repo.mkdir()
+    subprocess.run(["git", "init", "--quiet", str(repo)], check=True)
+    shutil.copyfile(Path(__file__).resolve().parents[1] / ".gitattributes", repo / ".gitattributes")
+    payloads = {"splits.json": b'{"ids":["a","b"]}\n',
+                "qrels_audit.jsonl": b'{"query_id":"a"}\n{"query_id":"b"}\n'}
+    for name, data in payloads.items():
+        (repo / name).write_bytes(data)
+    subprocess.run(["git", "-c", "core.autocrlf=true", "add", "."], cwd=repo, check=True, capture_output=True)
+    subprocess.run(["git", "-c", "user.name=SupportLens Test", "-c", "user.email=test@example.invalid",
+                    "commit", "--quiet", "-m", "fixture"], cwd=repo, check=True, capture_output=True)
+    exported.mkdir()
+    # Use Git's checkout path directly; no remote transport or MSYS shell needed.
+    subprocess.run(["git", "-c", "core.autocrlf=true", "checkout-index", "--all",
+                    "--prefix=" + exported.as_posix() + "/"], cwd=repo, check=True, capture_output=True)
+    assert all((exported / name).read_bytes() == data for name, data in payloads.items())

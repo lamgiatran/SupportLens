@@ -13,7 +13,8 @@ Việc làm:
   Không đưa dev, test, ID-OOS hay OOD vào fit/calibration/reference bank.
 - Reference bank H3 chỉ lấy các hàng fit thực sự. Giữ đủ 50 nhãn trong fit;
   công bố số mẫu từng nhãn và xử lý trường hợp group-stratification khó đạt đúng 10%.
-- Thứ tự: fit/chọn C trên dev → cố định head → fit T bằng NLL trên ID calibration
+- Thứ tự: fit các head chỉ trên fit split, chọn C bằng dev → cố định head
+  → fit T bằng NLL trên ID calibration
   → chọn confidence/threshold trên dev → freeze trước test.
 
 Giao Tuấn và Leader: commit code, split IDs/mask, kiểm tra seed/disjointness;

@@ -65,7 +65,7 @@ def build_docs_bundle(raw_dir: str | Path, tokenizer_path: str | Path, destinati
     raw_train = json.loads(sources["train"].read_text(encoding="utf-8"))["dial_data"]
     raw_val = json.loads(sources["validation"].read_text(encoding="utf-8"))["dial_data"]
     split = dialogue_split(raw_train, raw_val, seed=cfg["seed"], dev_fraction=cfg["validation_dev_fraction"])
-    (destination / "splits.json").write_text(json.dumps(split, separators=(",", ":")) + "\n", encoding="utf-8")
+    (destination / "splits.json").write_text(json.dumps(split, separators=(",", ":")) + "\n", encoding="utf-8", newline="\n")
     lookup = {item: role for role, ids in split["dialogues"].items() for item in ids}
     tokenizer = JsonTokenizer(tokenizer_path)
     chunks = []
@@ -152,5 +152,5 @@ def build_docs_bundle(raw_dir: str | Path, tokenizer_path: str | Path, destinati
         "statistics": {k: dict(v) for k, v in counts.items()}, "audit_cases": len(audit),
         "files_sha256": {p.name: digest(p) for p in files}, "build_seconds": perf_counter() - started,
         "evaluation_status": "no heldout retrieval run; qrels construction is a data audit"}
-    (destination / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    (destination / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8", newline="\n")
     return manifest

@@ -1,0 +1,3 @@
+# Hashed data artifacts must retain identical bytes after Git checkout on Windows.
+*.json text eol=lf
+*.jsonl text eol=lf
