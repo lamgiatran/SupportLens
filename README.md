@@ -1,50 +1,66 @@
-# SupportLens — v0.4.1
+# SupportLens
 
-Bản nền cho nhóm 4 người: Docs-QA trên MultiDoc2Dial và Banking triage Handoff-50.
-Hướng dẫn chạy: [RUN_DENSE.md](docs/RUN_DENSE.md).
-Việc giao cho từng người: [TEAM_HANDOFF.md](docs/TEAM_HANDOFF.md).
-Phân định code được xuất bản: [OWNERSHIP_REVIEW.md](docs/OWNERSHIP_REVIEW.md).
+SupportLens là dự án NLP xây dựng ứng dụng hỗ trợ khách hàng với hai chế độ:
+tra cứu tài liệu có nguồn và phân luồng yêu cầu ngân hàng theo độ tin cậy.
+Dự án kết hợp thực nghiệm mô hình với API, giao diện và kiểm tra toàn luồng.
 
-Phần Leader đã có: chunks/qrels strict–lenient, dialogue dev/held-out split,
-history hai tin nhắn, R1 BM25 / R2 frozen MiniLM / R3 RRF, Docs gate coverage,
-audit context và adapter Docs vào API. Chỉ đánh giá retrieval trên dev.
+## Mục tiêu sản phẩm
 
-Hưng chưa được làm thay Course-77. Cầu vẫn tự làm audit/calibration/head/H1–H4.
-UI giữ scaffold v0.3 để Tuấn tự mở rộng retriever/history, streaming và Banking.
-Generator phục vụ, cache generation, deadline tổng và fine-tuning R4/R5 còn pending.
+| Chế độ | Luồng sử dụng hướng tới | Cách đánh giá |
+|---|---|---|
+| Docs-QA | Câu hỏi và lịch sử → tìm bằng chứng → trả lời có trích dẫn hoặc yêu cầu hỗ trợ thêm | Truy xuất trên MultiDoc2Dial; kiểm tra bằng chứng trong context và citation |
+| Banking | Yêu cầu → dự đoán intent → chấp nhận hoặc chuyển người theo ngưỡng | Handoff-50: độ chính xác, risk–coverage và khả năng từ chối yêu cầu ngoài phạm vi |
 
-## Chạy bản nền
+Hai chế độ dùng chung API, giao diện và request log. Người dùng chọn chế độ;
+classifier ngân hàng không được dùng để lọc câu hỏi tài liệu.
 
-Python 3.11+:
+## Thiết kế
+
+- **Retrieval:** BM25, dense MiniLM và hybrid RRF trên cùng corpus/chunks.
+- **Banking:** một pipeline encoding và dự đoán, dùng frozen encoder cùng Logistic Regression 50 nhãn.
+- **Ứng dụng:** FastAPI và Streamlit; mô hình và cấu hình được nạp theo phiên bản.
+- **Generation:** hướng phát triển dùng Ollama, trả lời theo bằng chứng và lưu kết quả để đánh giá lại.
+- **Thực nghiệm môn học:** BoW/TF-IDF với Logistic Regression và Linear SVM trên BANKING77 77 nhãn.
+
+## Phát triển cùng nhóm
+
+| Thành viên | Module phụ trách | Đầu ra chính |
+|---|---|---|
+| Leader | Docs-QA và thực nghiệm retriever | Pipeline tài liệu, generator/cache, đánh giá; fine-tune retriever khi luồng lõi ổn |
+| Hưng | Dữ liệu và baseline Course-77 | Pipeline preprocessing/train/evaluate, bảng so sánh và phân tích lỗi |
+| Cầu | Banking Handoff-50 | Pipeline encode/predict, calibration, confidence và cấu hình chuyển người |
+| Tuấn | Serving và giao diện | Ghép module thật vào API/UI, streaming, xử lý lỗi và kiểm tra toàn luồng |
+
+[Gói công việc của từng thành viên](docs/TEAM_HANDOFF.md) ghi đầu vào, hướng làm,
+đầu ra và người sử dụng kết quả. [Bảng công việc](issues/README.md) là nơi theo dõi
+tiến độ. Mỗi thành viên phát triển phần mình và gửi commit/PR cùng cách kiểm tra.
+
+## Chạy và tái lập
+
+Python 3.11 trở lên. Cài môi trường phát triển:
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e ".[dev,ui]"
+```
+
+Tiếp tục theo [hướng dẫn chạy Docs-QA](docs/RUN_DENSE.md) để chuẩn bị dữ liệu,
+chọn cấu hình và khởi động API/UI. Weights và các cache lớn được tải hoặc tạo
+theo hướng dẫn; split IDs, cấu hình và metrics nhỏ được quản lý trong Git.
+
+```powershell
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-ZIP runtime kèm chunks/tokenizer/corpus vectors; GitHub chỉ giữ source, split IDs,
-metrics và manifest. Nếu clone GitHub, cần tải/tạo lại runtime assets trước API
-theo RUN_DENSE.md. Một test tokenizer thật sẽ skip nếu chưa có tokenizer asset.
+## Tiến độ và kết quả
 
-API Docs nhận R1/R2/R3 và history; giao diện scaffold hiện chỉ gửi câu hỏi đơn tới R1.
-Tuấn nhận contract ổn định để tự nối các lựa chọn đó. Banking trả 503 cho đến khi
-Cầu giao pipeline thật và Tuấn nạp vào serving. Trạng thái retrieved là tìm thấy
-evidence, chưa phải câu trả lời do LLM sinh.
+Dự án đang phát triển. Nhánh Docs-QA đã có truy xuất R1/R2/R3 và đánh giá dev;
+các gói Banking, ứng dụng và generation được hoàn thiện theo bảng công việc.
 
-## Kết quả và giới hạn
+Kết quả dev hiện tại: strict hit@3 của BM25 / dense / hybrid là
+**0.4668 / 0.4062 / 0.4803** trên 2.213 query. Khoảng tin cậy cho chênh lệch
+hybrid–BM25 chứa 0. Đọc [thiết lập và kết quả thực nghiệm](docs/VERIFICATION_v0.4.md)
+trước khi so sánh hoặc sử dụng số liệu. Đây là số đo retrieval trên dev.
 
-Đọc [VERIFICATION_v0.4.md](docs/VERIFICATION_v0.4.md): hit@3 strict R1/R2/R3 =
-0.4668 / 0.4062 / 0.4803 trên 2.213 query dev. CI cho chênh lệch R3–R1 chứa 0.
-Giữ R1 mặc định. Coverage gate 70% vẫn có retrieval risk cao; không phải bảo đảm
-risk 10% hoặc độ đúng của câu trả lời. Top-3 còn có thể bị cắt khi pack prompt.
-
-Các script tái lập ở scripts/; JSON kết quả ở runs/docs_qa/. Held-out retrieval,
-Banking training, generation và UI TTFT chưa được đo. Không dùng kết quả kiểm
-tra nhanh vector làm metric báo cáo/CV.
-
-Kế hoạch gốc được giữ ở [plan-v1.0.md](docs/plan-v1.0.md). Các ticket owner là
-phân công, không phải bằng chứng người đó đã hoàn thành scaffold.
-[AI_USAGE.md](docs/AI_USAGE.md) ghi rõ phần trợ lý chuẩn bị.
-
-Repo riêng tư: https://github.com/lamgiatran/SupportLens.
+Xem thêm [thiết kế và protocol](docs/plan-v1.0.md), cùng
+[ghi nhận công cụ hỗ trợ](docs/AI_USAGE.md).

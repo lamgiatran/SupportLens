@@ -1,50 +1,138 @@
-# Giao việc từ bản nền hiện tại
+# SupportLens Phân công thực hiện
 
-Mỗi bạn có khoảng 1 giờ/ngày. Gộp việc thành chặng 2–3 phiên; chuyển chặng khi
-có đầu ra chạy được, không phải vì đã sang một ngày mới. Kế hoạch 15 ngày gốc
-vẫn giữ nguyên. Code nền do trợ lý chuẩn bị không tính là đóng góp đã làm của
-người được ghi tên owner.
+Nhóm xây dựng một ứng dụng NLP có hai chế độ: hỏi tài liệu có nguồn trên
+MultiDoc2Dial và phân luồng ngân hàng Handoff-50. Hưng làm thêm các baseline
+Course-77 đáp ứng yêu cầu môn học. Hai chế độ dùng chung API/UI và được đo riêng
+trên đúng dữ liệu của từng tác vụ.
 
-## Ai sở hữu phần nào?
+## Bắt đầu từ phần hiện có
 
-| Người | Nhận gì để bắt đầu? | Việc tự làm và đầu ra | Bàn giao ai, để làm bước nào? |
-|---|---|---|---|
-| Leader | Raw MultiDoc2Dial và corpus đã chốt | Chunks/qrels, R1/R2/R3, Docs gate, generator/cache và thực nghiệm retriever; adapter Docs vào API | Giao Tuấn API cùng ví dụ request/response để bạn ấy làm UI và streaming; nhận kiểm tra qrels từ Hưng trước khi dựng train pairs R4 |
-| Hưng | BANKING77 Course-77, split/config; file audit 20 qrels | Tự làm preprocessing, BoW/TF-IDF + LR/SVM, ablation và bảng metrics/confusion; review H-01 bằng mắt | Giao code + metrics cho Leader ghép báo cáo. Giao nhận xét span/chunk cho Leader để sửa dữ liệu train retriever nếu cần |
-| Cầu | Cache Banking cùng thứ tự sample IDs, raw data, C-01/C-02 | Tự audit trùng, tạo calibration; chọn C, fit LR 50 nhãn, H1–H4, ngưỡng dev và phân tích OOS; xuất pipeline predict() | Giao Tuấn bản H1 đầu tiên chạy được để thay mock bằng model thật; giao H1–H4 và gate cuối để Tuấn kiểm tra accept/handoff trước demo. Giao metrics cho Leader ghép báo cáo |
-| Tuấn | API Docs đã có R1/R2/R3; scaffold UI chỉ có câu hỏi đơn/R1; contract Banking | Tự làm UI chọn retriever/history, lưu hội thoại, nối stream, adapter và startup Banking, xử lý lỗi/hủy; smoke toàn luồng + hướng dẫn chạy | Giao Leader/Cầu commit và kết quả smoke để xác nhận module đã ghép đúng; lỗi retrieval/generator gửi Leader, lỗi nhãn/confidence Banking gửi Cầu |
+Docs-QA đã có parser, chunks/qrels, BM25/dense/hybrid và số đo dev. Cầu sở hữu
+toàn bộ encoding và dự đoán Banking; Tuấn nhận một pipeline dùng được, không
+chờ Leader viết encoder riêng. Các phần có sẵn được chạy kiểm tra rồi mở rộng;
+không làm lại để khớp lịch chuẩn bị cũ.
 
-## Chặng bắt đầu: 2–3 phiên có thể làm song song
+Mỗi bạn có khoảng 15 giờ chủ động: bốn gói khoảng 3 giờ, thêm 1 giờ ghép bài/tập
+giải thích và 2 giờ dự phòng. Một gói tương ứng 2–3 phiên làm, có thể sang phiên
+sau nếu đầu ra chưa đạt. Giờ máy tự train ghi riêng; chuẩn bị và sửa lỗi tính
+giờ làm. Leader tạm dự trù 3 giờ/ngày theo plan; nếu ít hơn thì giảm phạm vi.
 
-- **Cầu:** làm [C-01](../issues/C-01-DUPLICATES.md), rồi
-  [C-02](../issues/C-02-CALIBRATION.md). Đầu ra là audit, quy tắc xử lý, mask
-  fit/calibration và script tái tạo. Giao Leader review trước khi fit head.
-- **Hưng:** bắt đầu preprocessing + các baseline Course-77. Trong một phiên,
-  làm [H-01](../issues/H-01-QRELS-REVIEW.md); không cần chờ Cầu hay Tuấn.
-- **Tuấn:** dùng API Docs theo [RUN_DENSE.md](RUN_DENSE.md), tự thêm chọn
-  Keywords/R1, Semantic/R2, Hybrid/R3 và history vào UI. Giữ mock Banking trong
-  test để làm tiếp khi Cầu chưa giao head; chạy thật phải báo 503 nếu thiếu head.
-- **Leader:** chuẩn bị generator/cache/deadline và tiếp nhận hai audit. Không
-  làm thay C-01/C-02 hoặc baseline Course-77.
+| Gói | Mục đích | Mốc phối hợp trong khung 15 ngày |
+|---|---|---|
+| A | Chuẩn bị phần riêng, thống nhất ví dụ input/output | 2–3 phiên đầu; mốc ngày 2 kiểm tra UI → API → evidence |
+| B | Có bản đầu chạy được để ghép | 2–3 phiên tiếp; mốc ngày 5 thử module thật qua API |
+| C | Hoàn thiện hành vi và chọn cấu hình bằng dev | 2–3 phiên tiếp; mốc ngày 8 kiểm tra hai chế độ và quyết định giữ/cắt |
+| D | Đo bản chốt, viết kết quả và chạy lại | Khóa tính năng trước ngày 13; dành ngày 13–15 sửa lỗi và bảo vệ |
 
-## Bản predict đầu tiên của Cầu dùng để làm gì?
+Mốc kiểm tra là điểm phối hợp, không phải yêu cầu mỗi ngày làm một task mới.
+Công việc đã đạt đầu ra chuyển thẳng sang kiểm tra/tích hợp.
 
-Sau khi dữ liệu và C đã chốt, Cầu giao bản LR + H1 có metadata/encoder fingerprint
-và ngưỡng dev đầu tiên, kèm vài input/output smoke. Tuấn dùng đúng predict()
-đó trong endpoint Banking để thử câu hỏi thật, nhãn, latency, lỗi tải model và
-hiển thị accept/handoff. Đây là bước bỏ mock trong chặng tích hợp.
+## Các phần ghép vào nhau thế nào
 
-Cầu tiếp tục T/calibration, H2–H4 và phân tích lỗi. Khi giao gate/head cuối, Tuấn
-chỉ thay artifact/config đã version, rồi chạy lại smoke. Tuấn không viết một
-encoder hoặc cách tính confidence khác với Cầu. Startup/lock Banking vẫn là
-[T-01](../issues/T-01-WARMUP.md); warm-up encoder Docs đã được Leader chuẩn bị.
+| Người giao → người nhận | Giao gì và khi nào | Người nhận dùng để làm gì |
+|---|---|---|
+| Leader → Tuấn | API Docs R1/R2/R3 và ví dụ request/response; dùng ngay ở A | Dựng màn tài liệu, gửi câu hỏi/history và hiện evidence |
+| Cầu → Tuấn | Pipeline Banking nhận **câu hỏi**, trả nhãn/score; cuối B | Thay dữ liệu mẫu bằng dự đoán thật; kiểm tra UI → API → model |
+| Cầu → Tuấn | Pipeline/ngưỡng đã chọn trên dev; cuối C | Hoàn thiện accept/handoff, dùng cùng phiên bản để đo và demo |
+| Hưng → Leader | Review 20 ca qrels; sớm trong A hoặc B | Kiểm tra bằng chứng trước train pairs retriever và đánh giá cuối |
+| Hưng → Leader | Baseline, metrics và phân tích lỗi; B đến D | Ghép phần thực nghiệm môn học và giải thích lựa chọn mô hình |
+| Leader → Tuấn | Generator có stream, cấu hình cache/deadline; C | Hiện câu trả lời dần, nguồn và trạng thái lỗi/hoàn thành |
+| Tuấn → Cầu và Leader | Commit tích hợp, ví dụ chạy thật, lỗi tái hiện; B đến D | Kiểm tra API khớp module độc lập và sửa đúng nơi phát sinh lỗi |
 
-## Khi nào gọi là bàn giao xong?
+Banking bản đầu dùng để **kiểm tra kết nối sớm**. Cầu vẫn tiếp tục so sánh score
+và chọn ngưỡng sau đó. Tuấn làm UI/contract bằng dữ liệu mẫu trong lúc chờ, đến
+B thay bằng pipeline thật. Hưng bắt đầu độc lập với hai bạn.
 
-Owner commit code + config/metrics nhỏ, ghi một lệnh smoke và kết quả trong issue/PR.
-Người nhận chạy pass là **đã nhận**; API/UI dùng được module thật là **đã ghép**.
-Không cần thêm README/manifest viết tay và bảng trạng thái cho mỗi lần gửi.
+## Hưng Sở hữu baseline Course 77
 
-Vectors, indexes, weights và raw data không vào Git; dùng gói runtime/link một lần.
-Giữ sample IDs và các cờ loại khỏi fit. Tám câu Banking rỗng vẫn phải được đếm;
-vector zero là sentinel, không phải embedding dùng để train hoặc tìm láng giềng.
+**Mục đích:** xác định preprocessing, biểu diễn và classifier ảnh hưởng phân
+loại intent thế nào; cung cấp phần thực nghiệm môn học.
+
+**Nhận:** BANKING77 gốc 77 nhãn, protocol Course-77 và script tải dữ liệu.
+H-01 nhận qrels audit/chunks từ Leader.
+
+| Gói | Việc tự làm và hướng đi | Đầu ra và điều kiện xong |
+|---|---|---|
+| A | Audit; chia fit/dev theo nhãn, giữ official test; chuẩn hóa/tokenize/lemmatize; E1 = BoW + LR. Làm H-01 sớm. | Split IDs, E1 chạy được; CSV nhận xét 20 qrels giao Leader. Giữ cùng split giữa các baseline. |
+| B | E2 = TF-IDF + LR; E3 = TF-IDF + Linear SVM; một ablation preprocessing. Dùng sklearn Pipeline để vectorizer chỉ fit train. | Code train/evaluate, bảng dev Accuracy/Macro-F1 và cấu hình. Mỗi so sánh chỉ rõ thứ đã đổi. |
+| C | Chọn cấu hình bằng dev, xem confusion và 10 ca sai, giải thích bằng ví dụ thật. | Pipeline load lại được, bảng dev và phân tích lỗi giao Leader. E4 chỉ mở khi phần lõi xong. |
+| D | Freeze theo dev rồi đánh giá official test; hoàn thiện báo cáo và lệnh tái lập. | Metrics cuối, confusion matrix, phần báo cáo, một lệnh chạy và ví dụ load/predict. |
+
+**Nơi làm dự kiến:** bổ sung module Course-77 và script train/evaluate;
+kết quả ở `runs/course77/`, pipeline nhỏ ở `artifacts/course77/`.
+**Giao Leader** để ghép báo cáo. [H-01](../issues/H-01-QRELS-REVIEW.md) được dùng
+kiểm tra dữ liệu retrieval. Hưng cần giải thích vì sao vocab chỉ fit train và
+vì sao preprocessing tốt/kém hơn trên những ca đã xem.
+
+## Cầu Sở hữu toàn bộ Banking Handoff 50
+
+**Mục đích:** nhận câu hỏi mới, dự đoán 50 intent hỗ trợ và quyết định có đủ
+tin cậy để xử lý hay cần chuyển người.
+
+**Nhận:** raw BANKING77-OOS, `banking.py`, `banking_data.py`, cache embeddings
+có sample IDs/fingerprint. Cầu quản lý cùng một `encode()` cho cache và câu mới.
+
+| Gói | Việc tự làm và hướng đi | Đầu ra và điều kiện xong |
+|---|---|---|
+| A | C-01 audit trùng/rỗng; C-02 tách calibration. Chốt quy tắc loại khỏi fit/selection, giữ IDs và kiểm tra disjointness. | Audit, split/mask và script tái tạo giao Leader review; thay đổi có số mẫu/lý do. |
+| B | Fit LR 50 nhãn, chọn C bằng dev rồi cố định head. Bọc encode → predict; bản đầu H1 và ngưỡng dev ban đầu. | **Giao Tuấn:** model, label mapping/config, hàm nhận câu hỏi; cách load và 3 ví dụ input/output. Tuấn nối API bằng câu hỏi thật. |
+| C | Fit T của H2 trên calibration; H3 kNN dùng train-fit bank; H4 energy. So risk–coverage, chọn score/ngưỡng bằng dev. | **Giao Tuấn:** pipeline/ngưỡng đã version và hai ví dụ accept/handoff. Giao Leader đường cong/bảng dev. |
+| D | Freeze trước test; đánh giá cuối, ma trận ID-OOS bị hút vào intent nào và reweight OOS 5/10/20%; viết báo cáo. | Metrics/predictions, phân tích lỗi và cấu hình đúng bản Tuấn phục vụ. Kết luận dựa trên số đo thật. |
+
+**Nơi làm:** mở rộng module Banking hiện có; `runs/handoff50/` và
+`artifacts/handoff50/`. H2 fit T sau chọn C; H3 bank không có calibration,
+dev, test hay OOS. Chi tiết: [C-01](../issues/C-01-DUPLICATES.md),
+[C-02](../issues/C-02-CALIBRATION.md).
+
+**Cầu → Tuấn là pipeline hoàn chỉnh**, không chỉ một file vector. Tuấn không
+viết encoder khác hoặc tự chọn confidence/ngưỡng. Cầu giải thích được câu hỏi
+→ vector → logits → score → quyết định và cách tránh leakage.
+
+## Tuấn Sở hữu ứng dụng và tích hợp
+
+**Mục đích:** người dùng thao tác được cả hai chế độ; API/UI dùng đúng module,
+hiển thị đúng trạng thái và xử lý được lỗi khi chạy.
+
+**Nhận:** `contracts.py`, `api.py`, `ui/app.py`, API Docs và ví dụ từ Leader.
+Nhận Banking bản đầu ở B, bản chốt ở C.
+
+| Gói | Việc tự làm và hướng đi | Đầu ra và điều kiện xong |
+|---|---|---|
+| A | Chạy nền; UI hai chế độ, lựa chọn retriever/history; thống nhất request/response với Cầu/Leader. Banking dùng dữ liệu mẫu trong test. | UI gọi Docs thật và hiện evidence; ví dụ contract Banking được Cầu xác nhận. |
+| B | Thử pipeline Banking độc lập trước rồi nối endpoint/UI. Warm-up/nạp một lần, xử lý lỗi JSON và không phải JSON. | Cùng câu hỏi cho kết quả độc lập/API khớp; giao Cầu/Leader ví dụ/lỗi tái hiện. Request đầu không tự tải weights. |
+| C | Nối stream generator của Leader; hội thoại/reset, nguồn, chuyển người, lỗi/huỷ stream. Nạp ngưỡng Banking chốt. | Hai chế độ dùng module thật; thử thành công/chuyển người/lỗi. Leader cung cấp deadline generator; Tuấn xử lý phía serving/UI. |
+| D | Cùng nhóm chốt/chạy 40 smoke; thử môi trường mới; đo latency, tách cold start; viết cách chạy. | Case ID và expected/actual, hướng dẫn chạy lại, phần báo cáo triển khai. |
+
+**Nơi làm:** API/UI hiện có. Mock dùng cho phát triển/test khi chờ module.
+[T-01](../issues/T-01-WARMUP.md) hướng dẫn warm-up Banking. Tuấn giải thích được
+lifecycle nạp model, đường request và lỗi stream. Docker/CI/SQLite không thuộc
+phần bắt buộc 15 giờ này.
+
+## Leader Sở hữu Docs QA và nghiệm thu
+
+Dùng tiếp retrieval đã có; làm generator, citation, cache và deadline tổng,
+đưa đúng cấu hình được đo vào API để giao Tuấn. Nhận qrels review từ Hưng trước
+train pairs nâng cao. Review/hỗ trợ gỡ lỗi nhưng owner tiếp tục sửa phần mình.
+
+Mục nâng cao ưu tiên: fine-tune dense retriever từ public-train query–grounding
+passage bằng MultipleNegativesRankingLoss. Smoke run quyết định giờ máy. So
+R4 với R2; nếu dùng hybrid, thêm R5 = BM25 + R4 so với R3. Giữ query/chunks/splits
+cố định, không dùng dev/held-out dialogue để train. Chỉ mở khi luồng lõi ổn và
+còn giờ chủ động. Thời gian máy tự train không trừ giờ làm của Leader.
+
+## Bàn giao và nghiệm thu
+
+Một lần giao gồm **commit/PR + một cách kiểm tra + 3 ví dụ input/output**.
+Người nhận chạy khớp ví dụ rồi gọi qua API, owner cùng đối chiếu kết quả.
+Không cần viết README/manifest mới cho mỗi lần gửi. Vector/index lớn dùng link
+chung; code, split IDs, metrics và model nhỏ hợp lý được quản lý trong Git.
+
+Lỗi nhãn/encoding/confidence Banking → Cầu; preprocessing/baseline → Hưng;
+API/UI/stream → Tuấn; retrieval/generator/qrels → Leader. Mỗi bạn gửi thêm vài
+ca lỗi và 5–10 dòng giải thích lựa chọn, rồi tự trình bày module. Công cụ hỗ trợ
+được ghi riêng trong AI_USAGE theo quy định môn học.
+
+Xong khi hai chế độ chạy bằng module thật, demo khớp phiên bản đã đánh giá,
+có câu trả lời/nguồn hoặc lý do chuyển người, người khác chạy lại được và
+nhóm giải thích được luồng. Đây là bằng chứng cho portfolio fresher; một dự án
+không tự quyết định cấp bậc nghề nghiệp.
