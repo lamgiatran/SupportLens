@@ -12,11 +12,6 @@ toàn bộ encoding và dự đoán Banking; Tuấn nhận một pipeline dùng 
 chờ Leader viết encoder riêng. Các phần có sẵn được chạy kiểm tra rồi mở rộng;
 không làm lại để khớp lịch chuẩn bị cũ.
 
-Mỗi bạn có khoảng 15 giờ chủ động: bốn gói khoảng 3 giờ, thêm 1 giờ ghép bài/tập
-giải thích và 2 giờ dự phòng. Một gói tương ứng 2–3 phiên làm, có thể sang phiên
-sau nếu đầu ra chưa đạt. Giờ máy tự train ghi riêng; chuẩn bị và sửa lỗi tính
-giờ làm. Leader tạm dự trù 3 giờ/ngày theo plan; nếu ít hơn thì giảm phạm vi.
-
 | Gói | Mục đích | Mốc phối hợp trong khung 15 ngày |
 |---|---|---|
 | A | Chuẩn bị phần riêng, thống nhất ví dụ input/output | 2–3 phiên đầu; mốc ngày 2 kiểm tra UI → API → evidence |
