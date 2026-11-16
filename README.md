@@ -1,50 +1,68 @@
-# SupportLens — v0.4.1
+# Natural Language Processing (CO3085)
 
-Bản nền cho nhóm 4 người: Docs-QA trên MultiDoc2Dial và Banking triage Handoff-50.
-Hướng dẫn chạy: [RUN_DENSE.md](docs/RUN_DENSE.md).
-Việc giao cho từng người: [TEAM_HANDOFF.md](docs/TEAM_HANDOFF.md).
-Phân định code được xuất bản: [OWNERSHIP_REVIEW.md](docs/OWNERSHIP_REVIEW.md).
+SupportLens course project for class CC01, CLC_HK261, Semester 261, at Ho Chi Minh City University of Technology (HCMUT), VNU-HCM.
 
-Phần Leader đã có: chunks/qrels strict–lenient, dialogue dev/held-out split,
-history hai tin nhắn, R1 BM25 / R2 frozen MiniLM / R3 RRF, Docs gate coverage,
-audit context và adapter Docs vào API. Chỉ đánh giá retrieval trên dev.
+## Course and team
 
-Hưng chưa được làm thay Course-77. Cầu vẫn tự làm audit/calibration/head/H1–H4.
-UI giữ scaffold v0.3 để Tuấn tự mở rộng retriever/history, streaming và Banking.
-Generator phục vụ, cache generation, deadline tổng và fine-tuning R4/R5 còn pending.
+**Course:** Natural Language Processing (CO3085)  
+**Instructor:** Trương Vĩnh Lân  
+**Class:** CC01  
+**Program and semester:** CLC_HK261
 
-## Chạy bản nền
+| Member | Student ID | Role | Responsibilities |
+|---|---|---|---|
+| [Trần Gia Lâm](https://github.com/lamgiatran) | 2352670 | Leader | Docs-QA data preparation, retrieval and generation pipeline, retriever fine-tuning when the core system is stable, evaluation, technical review and final integration. |
+| [Nguyễn Hữu Cầu](https://github.com/cau26) | 2352129 | Member | Handoff-50 data audit, shared encoding and prediction pipeline, classifier training, calibration, confidence methods and out-of-scope analysis. |
+| Phan Trần Quốc Tuấn | — | Member | API and UI integration, model loading, conversation state, streaming, error handling and end-to-end smoke testing. |
+| Nguyễn Tấn Hưng | — | Member | BANKING77 preprocessing, BoW/TF-IDF classification baselines, controlled comparisons, error analysis and qrels review. |
 
-Python 3.11+:
+Student IDs for Tuấn and Hưng will be added after confirmation.
 
-```powershell
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -e ".[dev,ui]"
-.\.venv\Scripts\python.exe -m pytest -q
-```
+## Project — SupportLens
 
-ZIP runtime kèm chunks/tokenizer/corpus vectors; GitHub chỉ giữ source, split IDs,
-metrics và manifest. Nếu clone GitHub, cần tải/tạo lại runtime assets trước API
-theo RUN_DENSE.md. Một test tokenizer thật sẽ skip nếu chưa có tokenizer asset.
+SupportLens combines document question answering with evidence and confidence-based banking request triage. Users select a mode; both modes share the application interface, API and request logging.
 
-API Docs nhận R1/R2/R3 và history; giao diện scaffold hiện chỉ gửi câu hỏi đơn tới R1.
-Tuấn nhận contract ổn định để tự nối các lựa chọn đó. Banking trả 503 cho đến khi
-Cầu giao pipeline thật và Tuấn nạp vào serving. Trạng thái retrieved là tìm thấy
-evidence, chưa phải câu trả lời do LLM sinh.
+| Component | Task | Methods | Evaluation |
+|---|---|---|---|
+| Docs-QA | Retrieve supporting passages and answer with citations or hand off when evidence is insufficient | BM25, frozen dense retrieval, hybrid RRF; local generation | Passage hit@3/hit@5, MRR, retrieval risk–coverage and citation review |
+| Banking | Predict one of 50 supported intents and decide whether to accept or hand off | Frozen encoder with Logistic Regression; H1–H4 confidence methods | Classification results, risk–coverage, OOS false acceptance and error analysis |
+| Course-77 study | Compare text representations and classifiers for the course requirements | BoW/TF-IDF with Logistic Regression and Linear SVM | Accuracy, macro-F1, confusion matrices and preprocessing ablation |
 
-## Kết quả và giới hạn
+The document corpus and retrieval evaluation use MultiDoc2Dial. The Banking application uses Handoff-50; the 77-label study is a separate course experiment. A 77-label classifier is not used to claim that the remaining 27 intents were unseen.
 
-Đọc [VERIFICATION_v0.4.md](docs/VERIFICATION_v0.4.md): hit@3 strict R1/R2/R3 =
-0.4668 / 0.4062 / 0.4803 trên 2.213 query dev. CI cho chênh lệch R3–R1 chứa 0.
-Giữ R1 mặc định. Coverage gate 70% vẫn có retrieval risk cao; không phải bảo đảm
-risk 10% hoặc độ đúng của câu trả lời. Top-3 còn có thể bị cắt khi pack prompt.
+## Work packages
 
-Các script tái lập ở scripts/; JSON kết quả ở runs/docs_qa/. Held-out retrieval,
-Banking training, generation và UI TTFT chưa được đo. Không dùng kết quả kiểm
-tra nhanh vector làm metric báo cáo/CV.
+Each member works in blocks of roughly two to three one-hour sessions. A first working module is handed over before the final model or threshold is selected, so integration can proceed in parallel.
 
-Kế hoạch gốc được giữ ở [plan-v1.0.md](docs/plan-v1.0.md). Các ticket owner là
-phân công, không phải bằng chứng người đó đã hoàn thành scaffold.
-[AI_USAGE.md](docs/AI_USAGE.md) ghi rõ phần trợ lý chuẩn bị.
+| Package | Main outcome | Handoff |
+|---|---|---|
+| A — Prepare | Reviewed data, split rules and agreed input/output examples | Hưng sends qrels review to Lâm; Cầu completes the Banking data audit; Tuấn starts with the Docs API and agreed examples. |
+| B — Integrate a first version | Baselines and a working Banking pipeline | Cầu sends a text-to-prediction pipeline to Tuấn; Tuấn checks standalone/API agreement. |
+| C — Complete behavior | Dev-selected configuration, confidence thresholds and answer streaming | Cầu sends the selected Banking configuration; Lâm supplies generation/cache/deadline behavior; Tuấn integrates both modes. |
+| D — Evaluate and deliver | Frozen evaluations, smoke tests, report sections and reproducible instructions | Members submit measured outputs and explanations; Lâm reviews and integrates the final submission. |
 
-Repo riêng tư: https://github.com/lamgiatran/SupportLens.
+See [team tasks and handoffs](docs/TEAM_HANDOFF.md) and the [task board](issues/README.md) for inputs, expected outputs and acceptance conditions.
+
+## Retrieval progress
+
+Dev evaluation is available for BM25, frozen dense retrieval and hybrid RRF. On 2,213 dev queries, strict hit@3 is 0.4668, 0.4062 and 0.4803, respectively. The confidence interval for the hybrid–BM25 difference includes zero.
+
+These are passage retrieval results on dev. They do not measure final answer quality. The configuration, context-packing audit and limitations are recorded in [the retrieval verification report](docs/VERIFICATION_v0.4.md).
+
+Banking training and calibration, application integration and end-to-end generation are being developed through the assigned work packages. Retriever fine-tuning is the main extension after the core workflow is stable.
+
+## Reproduction
+
+Use Python 3.11 or later. Follow [the Docs-QA run guide](docs/RUN_DENSE.md) to install dependencies, prepare runtime assets and run the API/UI.
+
+Data split IDs, experiment configurations, metrics and manifests are kept with the source. Raw datasets, pretrained weights and large vector caches are downloaded or rebuilt through the documented scripts.
+
+The [experiment plan](docs/plan-v1.0.md) defines the data splits, model comparisons and evaluation procedure. Configuration and threshold selection use dev; held-out evaluation follows the final freeze.
+
+## AI Usage Disclosure
+
+AI assisted initial pipeline development, testing and documentation. Team members are responsible for reviewing, extending, running and explaining their assigned modules. Details are recorded in [AI_USAGE.md](docs/AI_USAGE.md).
+
+## Submission
+
+The final deliverables will include source code, a report, experiment outputs, run instructions and a demonstration. Complete the required LMS submission separately; publishing files on GitHub does not submit the assignment to the LMS.
