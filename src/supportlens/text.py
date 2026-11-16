@@ -52,11 +52,14 @@ class Query:
 
 
 def build_query(question: str, history: Sequence[dict], tokenizer: Tokenizer,
-                max_tokens: int = 256) -> Query:
+                max_tokens: int = 256, *, history_turns: int | None = None) -> Query:
     # history is chronological and contains past turns only. Current user first.
     # Formatting must not add lexical role labels or HF special-token literals.
     # The same packed text is passed to BM25 and every dense variant.
-    parts = [question.strip()] + [t["content"].strip() for t in reversed(history)]
+    if history_turns is not None and (type(history_turns) is not int or history_turns < 0):
+        raise ValueError("history_turns must be a non-negative integer or None (all)")
+    recent = history if history_turns is None else history[-history_turns:] if history_turns else []
+    parts = [question.strip()] + [t["content"].strip() for t in reversed(recent)]
     full = "\n".join(parts)
     packed = prefix_within(full, tokenizer, max_tokens)
     return Query(packed, tokenizer.count(full), tokenizer.count(packed),

@@ -1,7 +1,7 @@
 {
   "status": "pass",
   "scope": "in-process ASGI raw-dialogue smoke; dev only; no generation",
-  "artifact_version": "R1-chunk-022261dfebcd67bc",
+  "artifact_version": "R1-chunk-b3ba5da19294491c",
   "cases": 20,
   "domains": {
     "dmv": 5,
@@ -9,148 +9,148 @@
     "studentaid": 5,
     "va": 5
   },
-  "truncated_history_cases": 4,
+  "truncated_history_cases": 0,
   "all_offline_api_evidence_match": true,
   "samples": [
     {
-      "query_id": "95579929c304d6bcdebc9afea7675135:18",
-      "domain": "dmv",
-      "truncated": true,
-      "used_tokens": 256,
-      "request_id": "f7aa5260-7c0d-403c-9c3a-6ed5e8ac43dc"
-    },
-    {
-      "query_id": "4c1b49755da1202af2409f01b0783176:1",
+      "query_id": "a8213be3cdd0d00ab1bc737cd468a523:7",
       "domain": "dmv",
       "truncated": false,
-      "used_tokens": 8,
-      "request_id": "832e9c88-861e-4f08-a3db-c03db99a8060"
+      "used_tokens": 146,
+      "request_id": "faaf9e8e-061b-443a-825f-7f03b7b7fe8a"
+    },
+    {
+      "query_id": "fe52e49c458d9ae8657e8f70a510ab0e:6",
+      "domain": "dmv",
+      "truncated": false,
+      "used_tokens": 5,
+      "request_id": "920d5a7d-9a9b-4919-841d-dd8e176e8c8b"
     },
     {
       "query_id": "04479f1bf3da15cdbb958078cb204a26:1",
       "domain": "dmv",
       "truncated": false,
       "used_tokens": 17,
-      "request_id": "0c377ae8-7a9f-4005-9d70-b98bed8d7ab8"
+      "request_id": "7995a89e-728d-401a-a6e7-d0404f83ef30"
     },
     {
       "query_id": "04479f1bf3da15cdbb958078cb204a26:11",
       "domain": "dmv",
       "truncated": false,
-      "used_tokens": 154,
-      "request_id": "da6310d0-4804-4004-b6fd-490eb752b07d"
+      "used_tokens": 33,
+      "request_id": "4e54af6e-cf37-4220-8170-94e0caae0cbc"
     },
     {
       "query_id": "04479f1bf3da15cdbb958078cb204a26:13",
       "domain": "dmv",
       "truncated": false,
-      "used_tokens": 210,
-      "request_id": "e0f8f390-9bd3-4507-b8db-a859e96ee76e"
+      "used_tokens": 73,
+      "request_id": "f81e3be3-93e3-438a-b1d5-29645d87e6c3"
     },
     {
-      "query_id": "e96e0bba187600d35629fc861fc4f835:13",
+      "query_id": "e96e0bba187600d35629fc861fc4f835:11",
       "domain": "ssa",
-      "truncated": true,
-      "used_tokens": 256,
-      "request_id": "8403acad-9cdd-4586-8e2d-2c6d56aebf7a"
+      "truncated": false,
+      "used_tokens": 149,
+      "request_id": "d86ab34e-cb65-4d4e-a960-262a1fc7d8d0"
     },
     {
       "query_id": "0d7580a2c992d4d3f1a0255f178d16dc:1",
       "domain": "ssa",
       "truncated": false,
       "used_tokens": 7,
-      "request_id": "1c0e44fa-916b-4fe1-b201-583933c097d0"
+      "request_id": "df6be3f0-1b48-44c7-acba-de2af558eefc"
     },
     {
       "query_id": "00ab3fae7e743c15f1b475ce9131cab5:1",
       "domain": "ssa",
       "truncated": false,
       "used_tokens": 13,
-      "request_id": "e4d0ee6e-80fe-4132-92c1-0baab25ee3a1"
+      "request_id": "f577b6e9-392c-440d-bda3-41b8da9a8064"
     },
     {
       "query_id": "00ab3fae7e743c15f1b475ce9131cab5:11",
       "domain": "ssa",
       "truncated": false,
-      "used_tokens": 199,
-      "request_id": "62f3bfd7-e9df-44d6-952d-ace473ffff40"
+      "used_tokens": 44,
+      "request_id": "cbc772b1-6543-4a53-b638-d4934c937d2e"
     },
     {
       "query_id": "00ab3fae7e743c15f1b475ce9131cab5:3",
       "domain": "ssa",
       "truncated": false,
       "used_tokens": 33,
-      "request_id": "ef80a2c1-d12b-4b73-8e08-3420cf8f8221"
+      "request_id": "aa9645bb-65bc-478d-bb78-5b98de2d297e"
     },
     {
-      "query_id": "d0a56fabdf5336e8d5154db689d6f32c:16",
-      "domain": "studentaid",
-      "truncated": true,
-      "used_tokens": 256,
-      "request_id": "3336adcc-e110-4829-a03f-e3f4b11bab34"
-    },
-    {
-      "query_id": "3f08ac1354721eea07d51b39a4cf54fc:1",
+      "query_id": "bf803ab05c04cba61d2fa9d8d6d686ee:10",
       "domain": "studentaid",
       "truncated": false,
-      "used_tokens": 6,
-      "request_id": "611d8dbb-9f56-4fa2-abae-472711dd788c"
+      "used_tokens": 139,
+      "request_id": "182efbe3-2d3f-42e6-800e-f641b97e4d07"
+    },
+    {
+      "query_id": "40dffec1f37241d6ba631901f00aedd7:4",
+      "domain": "studentaid",
+      "truncated": false,
+      "used_tokens": 5,
+      "request_id": "2bb4ea8c-e65e-4dc4-8024-2ba98b593667"
     },
     {
       "query_id": "015f74aa0f25ba0624252c91f35457f8:1",
       "domain": "studentaid",
       "truncated": false,
       "used_tokens": 28,
-      "request_id": "fbb5ff05-cec9-43e8-adab-03af2e99a0c6"
+      "request_id": "26c76b0d-ba1b-4500-ad53-a2fa6c8c06b2"
     },
     {
       "query_id": "015f74aa0f25ba0624252c91f35457f8:11",
       "domain": "studentaid",
       "truncated": false,
-      "used_tokens": 218,
-      "request_id": "ebfb07d9-3c43-44e6-8491-eccedb3d0b03"
+      "used_tokens": 41,
+      "request_id": "ec9f360c-105a-4bd4-81f9-4118649c8126"
     },
     {
       "query_id": "015f74aa0f25ba0624252c91f35457f8:3",
       "domain": "studentaid",
       "truncated": false,
       "used_tokens": 64,
-      "request_id": "4185b839-9eff-4d48-9e07-598144f5bf99"
+      "request_id": "b95c1ab3-71a3-432e-9e23-35a6704227d9"
     },
     {
-      "query_id": "9fd9ac67b01535b3e3ee084c54afe47b:19",
+      "query_id": "eb193ba9fc1f7043957739df3ee95997:13",
       "domain": "va",
-      "truncated": true,
-      "used_tokens": 256,
-      "request_id": "3709c3d0-81c3-4e48-b91c-a2d5a8401fe7"
+      "truncated": false,
+      "used_tokens": 127,
+      "request_id": "4b909f72-df17-45e9-9a78-e3b070fa0ac9"
     },
     {
       "query_id": "cc1303e36bd2cc88dfcccc8f22e27366:1",
       "domain": "va",
       "truncated": false,
       "used_tokens": 5,
-      "request_id": "9e9415a1-ea7e-4db1-8282-f5dad1a45ede"
+      "request_id": "3b4fe7ce-a8bc-4cb2-a2fc-74e8a5257b8f"
     },
     {
       "query_id": "03cab7d6b2798b6d3f467e19451ccc3c:1",
       "domain": "va",
       "truncated": false,
       "used_tokens": 17,
-      "request_id": "9ff53530-1afd-4e8b-89ab-6def5c4e357f"
+      "request_id": "c2ba01d2-646d-4779-a5a1-48a70c74fdbd"
     },
     {
       "query_id": "03cab7d6b2798b6d3f467e19451ccc3c:11",
       "domain": "va",
       "truncated": false,
-      "used_tokens": 135,
-      "request_id": "de5f65e8-c8bf-493c-ae10-8d016920e624"
+      "used_tokens": 59,
+      "request_id": "5f0c7f43-f403-4c72-8c0f-da7e03372e25"
     },
     {
       "query_id": "03cab7d6b2798b6d3f467e19451ccc3c:3",
       "domain": "va",
       "truncated": false,
       "used_tokens": 26,
-      "request_id": "c488961b-eacb-400e-8b45-84d907751829"
+      "request_id": "84bb3156-d6fd-4285-a1af-a39f304dd4fe"
     }
   ]
 }

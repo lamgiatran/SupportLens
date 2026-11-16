@@ -1,0 +1,9 @@
+{
+  "status": "pass",
+  "split": "dev",
+  "all_metrics_exactly_reproduced": true,
+  "query_cache_reused": true,
+  "all_gate_input_hashes_match": true,
+  "banking_cache_unchanged": true,
+  "heldout_retrieval_run": false
+}

@@ -15,7 +15,8 @@ from .text import JsonTokenizer, Query, build_query, chunk_document
 
 DEFAULTS = {"chunk_max_tokens": 220, "chunk_overlap": 32, "encoder_limit": 256,
             "query_max_tokens": 256, "strict_min_span_coverage": 0.5,
-            "dedup_overlap": 0.5, "validation_dev_fraction": 0.5, "seed": 42}
+            "dedup_overlap": 0.5, "validation_dev_fraction": 0.5, "seed": 42,
+            "history_turns": None}
 
 
 def digest(path: Path) -> str:
@@ -56,6 +57,8 @@ def build_docs_bundle(raw_dir: str | Path, tokenizer_path: str | Path, destinati
     cfg = DEFAULTS | (config or {})
     if not 1 <= cfg["query_max_tokens"] <= cfg["encoder_limit"]:
         raise ValueError("query budget must not exceed the encoder limit")
+    if cfg["history_turns"] is not None and (type(cfg["history_turns"]) is not int or cfg["history_turns"] < 0):
+        raise ValueError("history_turns must be a non-negative integer or None")
     raw_dir, destination = Path(raw_dir), Path(destination)
     destination.mkdir(parents=True, exist_ok=True)
     sources = {role: raw_dir / name for role, name in {
@@ -98,7 +101,7 @@ def build_docs_bundle(raw_dir: str | Path, tokenizer_path: str | Path, destinati
                     role = lookup[example["dialogue_id"]]
                     valid = bool(example["question"].strip())
                     query = build_query(example["question"], example["history"], tokenizer,
-                                        cfg["query_max_tokens"]) if valid else Query("", 0, 0, False, False)
+                                        cfg["query_max_tokens"], history_turns=cfg["history_turns"]) if valid else Query("", 0, 0, False, False)
                     row = {"query_id": qid, "dialogue_id": example["dialogue_id"], "domain": example["domain"],
                            "question": example["question"].strip(), "query_text": query.text,
                            "valid_input": valid, "original_tokens": query.original_tokens,
@@ -138,7 +141,8 @@ def build_docs_bundle(raw_dir: str | Path, tokenizer_path: str | Path, destinati
     with (destination / "qrels_audit.jsonl").open("w", encoding="utf-8", newline="\n") as handle:
         for row in audit:
             _line(handle, row)
-    retriever = BM25Chunks(chunks, tokenizer, query_max_tokens=cfg["query_max_tokens"], dedup_overlap=cfg["dedup_overlap"])
+    retriever = BM25Chunks(chunks, tokenizer, query_max_tokens=cfg["query_max_tokens"],
+                           dedup_overlap=cfg["dedup_overlap"], history_turns=cfg["history_turns"])
     names = ["chunks.jsonl", "splits.json", "qrels_issues.jsonl", "qrels_audit.jsonl"] + [
         f"{kind}.{role}.jsonl" for role in split["dialogues"] for kind in ("queries", "qrels")]
     files = [destination / name for name in names]

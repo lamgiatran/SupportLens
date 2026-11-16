@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "supportlens"
-version = "0.3.0"
+version = "0.4.1"
 description = "Day-one support triage and grounded document QA scaffold"
 requires-python = ">=3.11"
 dependencies = [

@@ -1,4 +1,7 @@
-# Issues ngày 1–3
+# Việc thực hiện và bàn giao
+
+Ưu tiên hiện tại theo chặng và đầu ra: [TEAM_HANDOFF.md](../docs/TEAM_HANDOFF.md).
+Bảng ngày 1–3 bên dưới là các ticket gốc, không phải lịch giao việc mới.
 
 Plan đã khóa ở docs/plan-v1.0.md. Bảng này là danh sách thực hiện, không phải một bản plan mới.
 Các file là ticket cục bộ để copy lên GitHub sau khi nhóm có remote; chưa có GitHub issue IDs.
@@ -16,7 +19,7 @@ Owner là phân công dự kiến; code scaffold chưa phải bằng chứng đ�
 |---|---|---|
 | Current question trước reverse history | Leader / D03-L | Test history dài, log truncation trên query thật |
 | Chunk chung vừa tokenizer encoder | Leader / D03-L | Title + body ≤ 220 tokens; encoder limit 256 |
-| Docs-QA có gate retrieval-risk | Cầu + Leader / D03-C | Ngưỡng dev riêng từng retriever/artifact; error = gold absent top-5 |
+| Docs-QA có gate retrieval-risk | Leader đã làm v0.4; Cầu review code dùng chung | Coverage 70% trên dev; error = gold absent top-3; báo risk thật |
 | num_ctx tường minh, token audit, TTFT | Leader + Tuấn / D01-L, D03-T | raw probe, token count mismatch, 600-token top-3 profile |
 | R4/R5 và đo thời gian bằng smoke run | Leader / backlog bên dưới | Không mặc định phải chạy đêm hoặc mất vài giờ |
 

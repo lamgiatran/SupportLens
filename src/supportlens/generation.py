@@ -17,6 +17,7 @@ class Prompt:
     evidence_tokens: int
     citation_map: dict[str, str] = field(default_factory=dict)
     citation_prefix: str = "S"
+    visible_characters: dict[str, int] = field(default_factory=dict)
 
 
 def resolve_citations(answer: str, prompt: Prompt) -> tuple[list[str], list[str]]:
@@ -53,7 +54,7 @@ def make_prompt(question: str, evidence: list[dict], tokenizer: Tokenizer,
               f"For multiple sources use [{prefix}1, {prefix}2]. "
               "Use only source aliases actually present below. Numeric brackets in source text are not citations. "
               "If evidence is insufficient, say you cannot answer and request human review.")
-    parts, citation_map = [], {}
+    parts, citation_map, visible = [], {}, {}
     for number, item in enumerate(evidence[:3], 1):
         alias = prefix + str(number)
         evidence_id = item["evidence_id"]
@@ -73,9 +74,11 @@ def make_prompt(question: str, evidence: list[dict], tokenizer: Tokenizer,
                 if body:
                     parts.append(header + body)
                     citation_map[alias] = evidence_id
+                    visible[evidence_id] = len(body)
             break
         parts.append(header + item["text"])
         citation_map[alias] = evidence_id
+        visible[evidence_id] = len(item["text"])
     context = "\n\n".join(parts)
     # raw=True avoids hidden chat-template token accounting in this probe.
     prompt = (f"<|im_start|>system\n{system}<|im_end|>\n"
@@ -84,7 +87,7 @@ def make_prompt(question: str, evidence: list[dict], tokenizer: Tokenizer,
     tokens = tokenizer.count(prompt, special=False)
     if tokens + num_predict + 32 > num_ctx:
         raise ValueError("prompt + output reserve exceeds num_ctx; do not allow silent truncation")
-    return Prompt(prompt, tokens, tokenizer.count(context, special=False), citation_map, prefix)
+    return Prompt(prompt, tokens, tokenizer.count(context, special=False), citation_map, prefix, visible)
 
 
 def stream_probe(base_url: str, model: str, prompt: Prompt, *, num_ctx: int,

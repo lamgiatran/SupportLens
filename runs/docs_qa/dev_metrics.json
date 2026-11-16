@@ -1,6 +1,6 @@
 {
   "split": "dev",
-  "artifact_version": "R1-chunk-022261dfebcd67bc",
+  "artifact_version": "R1-chunk-b3ba5da19294491c",
   "scope": "full dev, own token-bounded passages; not published-baseline reproduction",
   "queries_considered": 2213,
   "valid_queries_retrieved": 2213,
@@ -8,28 +8,33 @@
     "strict": {
       "evaluated_queries_with_positive_gold": 2213,
       "queries_without_positive_gold": 0,
-      "hit_at_5": 0.5363759602349751,
-      "gold_recall_at_5": 0.5051965657478535,
-      "mrr_at_10": 0.3881719851670145
+      "hit_at_1": 0.2919114324446453,
+      "hit_at_3": 0.46678716674197923,
+      "hit_at_5": 0.5377315860822413,
+      "gold_recall_at_5": 0.5061003163126977,
+      "mrr_at_10": 0.3977691347664235
     },
     "lenient": {
       "evaluated_queries_with_positive_gold": 2213,
       "queries_without_positive_gold": 0,
-      "hit_at_5": 0.5408947130591957,
-      "gold_recall_at_5": 0.49887031179394487,
-      "mrr_at_10": 0.3936828911410927
+      "hit_at_1": 0.3000451875282422,
+      "hit_at_3": 0.4753727971079982,
+      "hit_at_5": 0.5472209670131044,
+      "gold_recall_at_5": 0.5031631269769543,
+      "mrr_at_10": 0.40646898916216584
     }
   },
   "metric_definitions": {
+    "hit_at_3": "at least one annotated positive among top-3 candidates; prompt packing may trim them",
     "hit_at_5": "at least one annotated positive in top-5",
     "gold_recall_at_5": "fraction of all annotated gold chunks retrieved in top-5, macro over queries",
     "mrr_at_10": "reciprocal rank of first positive within top-10"
   },
   "latency_ms": {
     "scope": "retrieval of prepared query only; one query per sample; warm BM25 index",
-    "p50": 88.65059999516234,
-    "p95": 209.31256000185385,
-    "note": "development run on a shared machine; not an isolated hardware or end-to-end benchmark"
+    "note": "development run on a shared machine; not an isolated hardware or end-to-end benchmark",
+    "p50": 1.206599990837276,
+    "p95": 1.4780799916479737
   },
   "unmapped_policy": "undefined gold queries excluded from that relevance metric and counted explicitly",
   "heldout_retrieval_run": false,

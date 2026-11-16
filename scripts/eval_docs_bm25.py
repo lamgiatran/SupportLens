@@ -47,7 +47,9 @@ def main():
                 continue
             hits = len(gold & set(ids[:5]))
             rr = next((1 / rank for rank, key in enumerate(ids, 1) if key in gold), 0.0)
-            value = {"hit_at_5": float(hits > 0), "gold_recall_at_5": hits / len(gold), "mrr_at_10": rr}
+            value = {"hit_at_1": float(bool(gold & set(ids[:1]))),
+                     "hit_at_3": float(bool(gold & set(ids[:3]))),
+                     "hit_at_5": float(hits > 0), "gold_recall_at_5": hits / len(gold), "mrr_at_10": rr}
             values[relevance].append(value)
             record[relevance] = value
         records.append(record)
@@ -56,11 +58,12 @@ def main():
         metrics[relevance] = {"evaluated_queries_with_positive_gold": len(rows),
             "queries_without_positive_gold": len(records) - len(rows),
             **{key: float(np.mean([r[key] for r in rows])) if rows else None
-               for key in ("hit_at_5", "gold_recall_at_5", "mrr_at_10")}}
+               for key in ("hit_at_1", "hit_at_3", "hit_at_5", "gold_recall_at_5", "mrr_at_10")}}
     report = {"split": "dev", "artifact_version": retriever.version,
         "scope": "smoke subset" if args.limit else "full dev, own token-bounded passages; not published-baseline reproduction",
         "queries_considered": len(queries), "valid_queries_retrieved": len(records), "metrics": metrics,
-        "metric_definitions": {"hit_at_5": "at least one annotated positive in top-5",
+        "metric_definitions": {"hit_at_3": "at least one annotated positive among top-3 candidates; prompt packing may trim them",
+                               "hit_at_5": "at least one annotated positive in top-5",
                                "gold_recall_at_5": "fraction of all annotated gold chunks retrieved in top-5, macro over queries",
                                "mrr_at_10": "reciprocal rank of first positive within top-10"},
         "latency_ms": {"scope": "retrieval of prepared query only; one query per sample; warm BM25 index",

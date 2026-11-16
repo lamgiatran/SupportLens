@@ -19,6 +19,8 @@ def main():
                         help="include the verified, untracked NPZ in this handoff ZIP only")
     parser.add_argument("--include-docs-bundle", action="store_true",
                         help="include the verified passage/qrels bundle and its small tokenizer")
+    parser.add_argument("--include-docs-dense", action="store_true",
+                        help="include verified corpus embeddings, without encoder model weights")
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
     if git("status", "--porcelain").strip():
@@ -58,10 +60,29 @@ def main():
             add_shared("data/processed/docs_qa/" + name, expected)
         add_shared("data/tokenizers/minilm/tokenizer.json", manifest["tokenizer_sha256"])
         add_shared("data/processed/docs_qa/manifest.json", hashlib.sha256(manifest_path.read_bytes()).hexdigest())
+    if args.include_docs_dense:
+        if not args.include_docs_bundle:
+            raise ValueError("include the passage bundle with its dense cache")
+        import sys
+        sys.path.insert(0, str(root / "src"))
+        from supportlens.dense import DenseEncoder, DenseEncoderConfig, load_corpus_cache
+        from supportlens.retrieval import BM25Chunks
+        base = BM25Chunks.from_bundle(root / "data/processed/docs_qa", root / "data/tokenizers/minilm/tokenizer.json")
+        encoder = DenseEncoder(DenseEncoderConfig.load(root / "configs/docs_encoder.json"), local_files_only=True)
+        _, dense_manifest = load_corpus_cache(base, encoder, root / "data/processed/docs_dense")
+        add_shared("data/processed/docs_dense/corpus.npz", dense_manifest["npz_sha256"])
     bundle = destination.with_suffix(".bundle")
-    subprocess.run(["git", "bundle", "create", str(bundle), "--all"], cwd=root, check=True)
+    # Ship only this release lineage, never unpublished drafts of other owners' work.
+    branch = git("branch", "--show-current").decode().strip()
+    reachable_tags = git("tag", "--merged", "HEAD").decode().splitlines()
+    refs = ["HEAD"] + ([branch] if branch else []) + ["refs/tags/" + tag for tag in reachable_tags]
+    subprocess.run(["git", "bundle", "create", str(bundle), *refs], cwd=root, check=True)
     commit = git("rev-parse", "HEAD").decode().strip()
     tags = git("tag", "--points-at", "HEAD").decode().splitlines()
+    try:
+        remote = git("remote", "get-url", "origin").decode().strip()
+    except subprocess.CalledProcessError:
+        remote = None
     with zipfile.ZipFile(destination, "w", zipfile.ZIP_DEFLATED) as archive:
         for name in tracked:
             archive.write(root / name, "SupportLens/" + name)
@@ -69,14 +90,14 @@ def main():
             archive.write(root / asset["path"], "SupportLens/" + asset["path"])
         archive.write(bundle, "SupportLens.history.bundle")
         archive.writestr("PACKAGE.json", json.dumps({"commit": commit, "tags": tags,
-                                                    "source_files": len(tracked),
+                                                    "source_files": len(tracked), "remote": remote,
                                                     "shared_assets": shared_assets}, indent=2))
         archive.writestr("OPEN_FIRST.txt", "Source: SupportLens/README.md\n"
-                          "Docs-QA run steps: SupportLens/docs/RUN_DOCS_QA.md\n"
+                          "Docs-QA run steps: SupportLens/docs/RUN_DENSE.md\n"
                           "Team tasks: SupportLens/docs/TEAM_HANDOFF.md and SupportLens/issues/\n"
                           "Optional Git history/tag restore:\n"
                           "git clone SupportLens.history.bundle SupportLens-with-history\n"
-                          "No remote GitHub repository has been created.\n"
+                          f"Configured remote: {remote or 'none'}. This archive is not proof of a successful push.\n"
                           "Raw data, model weights and virtualenv are excluded.\n"
                           "Explicit runtime assets (when included) are listed in PACKAGE.json.\n"
                           "After cloning the bundle, copy runtime assets from the extracted SupportLens folder.\n")

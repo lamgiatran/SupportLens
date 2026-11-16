@@ -23,10 +23,13 @@ def documents(path: str | Path) -> Iterator[Document]:
             yield Document(domain, doc_id, doc["title"], doc["doc_text"])
 
 
-def examples(path: str | Path) -> Iterator[dict]:
+def examples(path: str | Path, *, dialogue_ids: set[str] | None = None) -> Iterator[dict]:
     raw = json.loads(Path(path).read_text(encoding="utf-8"))["dial_data"]
     for domain, dialogues in raw.items():
         for dialogue in dialogues:
+            # Filter before constructing examples: ablations never evaluate held-out turns.
+            if dialogue_ids is not None and dialogue["dial_id"] not in dialogue_ids:
+                continue
             history = []
             turns = dialogue["turns"]
             for i, turn in enumerate(turns):

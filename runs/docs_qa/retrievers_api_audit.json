@@ -1,0 +1,596 @@
+{
+  "status": "pass",
+  "split": "dev",
+  "queries": 26,
+  "requests": 78,
+  "scope": "in-process API smoke with real per-request encoder; not a latency benchmark or generation evaluation",
+  "startup": {
+    "status": "ok",
+    "docs_retrieval_ready": true,
+    "docs_methods": [
+      "R1",
+      "R2",
+      "R3"
+    ],
+    "docs_encoder_ready": true,
+    "cold_encoder_warmup_ms": [
+      44392.986999999266
+    ],
+    "docs_generator_ready": false,
+    "banking_model_ready": false
+  },
+  "all_top5_and_decisions_match_offline": true,
+  "maximum_score_abs_difference": {
+    "R1": 0.0,
+    "R2": 1.1920928955078125e-07,
+    "R3": 1.1920928955078125e-07
+  },
+  "sample_retrieve_ms_including_query_encode": {
+    "R1": {
+      "median": 2.985950020956807,
+      "max": 205.12400000006892
+    },
+    "R2": {
+      "median": 16.066500000306405,
+      "max": 31.514599977526814
+    },
+    "R3": {
+      "median": 18.818550001014955,
+      "max": 33.12890001689084
+    }
+  },
+  "decisions": {
+    "retrieved": 52,
+    "handoff": 26
+  },
+  "samples": [
+    {
+      "query_id": "1409501a35697e0ce68561e29577b90a:1",
+      "domain": "dmv",
+      "method": "R1",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "1409501a35697e0ce68561e29577b90a:1",
+      "domain": "dmv",
+      "method": "R2",
+      "decision": "handoff",
+      "score_abs_delta": 2.9802322387695312e-08
+    },
+    {
+      "query_id": "1409501a35697e0ce68561e29577b90a:1",
+      "domain": "dmv",
+      "method": "R3",
+      "decision": "handoff",
+      "score_abs_delta": 2.9802322387695312e-08
+    },
+    {
+      "query_id": "1409501a35697e0ce68561e29577b90a:3",
+      "domain": "dmv",
+      "method": "R1",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "1409501a35697e0ce68561e29577b90a:3",
+      "domain": "dmv",
+      "method": "R2",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "1409501a35697e0ce68561e29577b90a:3",
+      "domain": "dmv",
+      "method": "R3",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "1409501a35697e0ce68561e29577b90a:5",
+      "domain": "dmv",
+      "method": "R1",
+      "decision": "handoff",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "1409501a35697e0ce68561e29577b90a:5",
+      "domain": "dmv",
+      "method": "R2",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "1409501a35697e0ce68561e29577b90a:5",
+      "domain": "dmv",
+      "method": "R3",
+      "decision": "handoff",
+      "score_abs_delta": 5.960464477539063e-08
+    },
+    {
+      "query_id": "1409501a35697e0ce68561e29577b90a:7",
+      "domain": "dmv",
+      "method": "R1",
+      "decision": "handoff",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "1409501a35697e0ce68561e29577b90a:7",
+      "domain": "dmv",
+      "method": "R2",
+      "decision": "handoff",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "1409501a35697e0ce68561e29577b90a:7",
+      "domain": "dmv",
+      "method": "R3",
+      "decision": "handoff",
+      "score_abs_delta": 5.960464477539063e-08
+    },
+    {
+      "query_id": "789a3cb94cf8871ba6ace0a4923851e2:10",
+      "domain": "dmv",
+      "method": "R1",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "789a3cb94cf8871ba6ace0a4923851e2:10",
+      "domain": "dmv",
+      "method": "R2",
+      "decision": "handoff",
+      "score_abs_delta": 5.960464477539063e-08
+    },
+    {
+      "query_id": "789a3cb94cf8871ba6ace0a4923851e2:10",
+      "domain": "dmv",
+      "method": "R3",
+      "decision": "handoff",
+      "score_abs_delta": 5.960464477539063e-08
+    },
+    {
+      "query_id": "95579929c304d6bcdebc9afea7675135:18",
+      "domain": "dmv",
+      "method": "R1",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "95579929c304d6bcdebc9afea7675135:18",
+      "domain": "dmv",
+      "method": "R2",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "95579929c304d6bcdebc9afea7675135:18",
+      "domain": "dmv",
+      "method": "R3",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "08a4c73e6eece0ee2b3a64a3949ee0ff:1",
+      "domain": "ssa",
+      "method": "R1",
+      "decision": "handoff",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "08a4c73e6eece0ee2b3a64a3949ee0ff:1",
+      "domain": "ssa",
+      "method": "R2",
+      "decision": "retrieved",
+      "score_abs_delta": 1.1920928955078125e-07
+    },
+    {
+      "query_id": "08a4c73e6eece0ee2b3a64a3949ee0ff:1",
+      "domain": "ssa",
+      "method": "R3",
+      "decision": "retrieved",
+      "score_abs_delta": 1.1920928955078125e-07
+    },
+    {
+      "query_id": "08a4c73e6eece0ee2b3a64a3949ee0ff:3",
+      "domain": "ssa",
+      "method": "R1",
+      "decision": "handoff",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "08a4c73e6eece0ee2b3a64a3949ee0ff:3",
+      "domain": "ssa",
+      "method": "R2",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "08a4c73e6eece0ee2b3a64a3949ee0ff:3",
+      "domain": "ssa",
+      "method": "R3",
+      "decision": "retrieved",
+      "score_abs_delta": 5.960464477539063e-08
+    },
+    {
+      "query_id": "08a4c73e6eece0ee2b3a64a3949ee0ff:5",
+      "domain": "ssa",
+      "method": "R1",
+      "decision": "handoff",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "08a4c73e6eece0ee2b3a64a3949ee0ff:5",
+      "domain": "ssa",
+      "method": "R2",
+      "decision": "retrieved",
+      "score_abs_delta": 1.1920928955078125e-07
+    },
+    {
+      "query_id": "08a4c73e6eece0ee2b3a64a3949ee0ff:5",
+      "domain": "ssa",
+      "method": "R3",
+      "decision": "retrieved",
+      "score_abs_delta": 1.1920928955078125e-07
+    },
+    {
+      "query_id": "08a4c73e6eece0ee2b3a64a3949ee0ff:7",
+      "domain": "ssa",
+      "method": "R1",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "08a4c73e6eece0ee2b3a64a3949ee0ff:7",
+      "domain": "ssa",
+      "method": "R2",
+      "decision": "retrieved",
+      "score_abs_delta": 5.960464477539063e-08
+    },
+    {
+      "query_id": "08a4c73e6eece0ee2b3a64a3949ee0ff:7",
+      "domain": "ssa",
+      "method": "R3",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "8dc956a239a7d24ab97945d718a34313:17",
+      "domain": "ssa",
+      "method": "R1",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "8dc956a239a7d24ab97945d718a34313:17",
+      "domain": "ssa",
+      "method": "R2",
+      "decision": "handoff",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "8dc956a239a7d24ab97945d718a34313:17",
+      "domain": "ssa",
+      "method": "R3",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "d8497aeb50040fbd3ce358ece5ae697b:3",
+      "domain": "ssa",
+      "method": "R1",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "d8497aeb50040fbd3ce358ece5ae697b:3",
+      "domain": "ssa",
+      "method": "R2",
+      "decision": "handoff",
+      "score_abs_delta": 5.960464477539063e-08
+    },
+    {
+      "query_id": "d8497aeb50040fbd3ce358ece5ae697b:3",
+      "domain": "ssa",
+      "method": "R3",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "553b5cfaacc679ac992a651481e2cfc4:7",
+      "domain": "ssa",
+      "method": "R1",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "553b5cfaacc679ac992a651481e2cfc4:7",
+      "domain": "ssa",
+      "method": "R2",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "553b5cfaacc679ac992a651481e2cfc4:7",
+      "domain": "ssa",
+      "method": "R3",
+      "decision": "retrieved",
+      "score_abs_delta": 5.960464477539063e-08
+    },
+    {
+      "query_id": "0d7580a2c992d4d3f1a0255f178d16dc:10",
+      "domain": "ssa",
+      "method": "R1",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "0d7580a2c992d4d3f1a0255f178d16dc:10",
+      "domain": "ssa",
+      "method": "R2",
+      "decision": "retrieved",
+      "score_abs_delta": 5.960464477539063e-08
+    },
+    {
+      "query_id": "0d7580a2c992d4d3f1a0255f178d16dc:10",
+      "domain": "ssa",
+      "method": "R3",
+      "decision": "retrieved",
+      "score_abs_delta": 5.960464477539063e-08
+    },
+    {
+      "query_id": "80eba80595a3509dc4dc3e26babf83b3:1",
+      "domain": "va",
+      "method": "R1",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "80eba80595a3509dc4dc3e26babf83b3:1",
+      "domain": "va",
+      "method": "R2",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "80eba80595a3509dc4dc3e26babf83b3:1",
+      "domain": "va",
+      "method": "R3",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "80eba80595a3509dc4dc3e26babf83b3:3",
+      "domain": "va",
+      "method": "R1",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "80eba80595a3509dc4dc3e26babf83b3:3",
+      "domain": "va",
+      "method": "R2",
+      "decision": "retrieved",
+      "score_abs_delta": 1.1920928955078125e-07
+    },
+    {
+      "query_id": "80eba80595a3509dc4dc3e26babf83b3:3",
+      "domain": "va",
+      "method": "R3",
+      "decision": "retrieved",
+      "score_abs_delta": 1.1920928955078125e-07
+    },
+    {
+      "query_id": "80eba80595a3509dc4dc3e26babf83b3:5",
+      "domain": "va",
+      "method": "R1",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "80eba80595a3509dc4dc3e26babf83b3:5",
+      "domain": "va",
+      "method": "R2",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "80eba80595a3509dc4dc3e26babf83b3:5",
+      "domain": "va",
+      "method": "R3",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "80eba80595a3509dc4dc3e26babf83b3:7",
+      "domain": "va",
+      "method": "R1",
+      "decision": "handoff",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "80eba80595a3509dc4dc3e26babf83b3:7",
+      "domain": "va",
+      "method": "R2",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "80eba80595a3509dc4dc3e26babf83b3:7",
+      "domain": "va",
+      "method": "R3",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "9fd9ac67b01535b3e3ee084c54afe47b:9",
+      "domain": "va",
+      "method": "R1",
+      "decision": "handoff",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "9fd9ac67b01535b3e3ee084c54afe47b:9",
+      "domain": "va",
+      "method": "R2",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "9fd9ac67b01535b3e3ee084c54afe47b:9",
+      "domain": "va",
+      "method": "R3",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "9fd9ac67b01535b3e3ee084c54afe47b:19",
+      "domain": "va",
+      "method": "R1",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "9fd9ac67b01535b3e3ee084c54afe47b:19",
+      "domain": "va",
+      "method": "R2",
+      "decision": "retrieved",
+      "score_abs_delta": 1.1920928955078125e-07
+    },
+    {
+      "query_id": "9fd9ac67b01535b3e3ee084c54afe47b:19",
+      "domain": "va",
+      "method": "R3",
+      "decision": "retrieved",
+      "score_abs_delta": 1.1920928955078125e-07
+    },
+    {
+      "query_id": "66446833577d5ccdf3b979b19045f443:5",
+      "domain": "va",
+      "method": "R1",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "66446833577d5ccdf3b979b19045f443:5",
+      "domain": "va",
+      "method": "R2",
+      "decision": "handoff",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "66446833577d5ccdf3b979b19045f443:5",
+      "domain": "va",
+      "method": "R3",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "40dffec1f37241d6ba631901f00aedd7:1",
+      "domain": "studentaid",
+      "method": "R1",
+      "decision": "handoff",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "40dffec1f37241d6ba631901f00aedd7:1",
+      "domain": "studentaid",
+      "method": "R2",
+      "decision": "handoff",
+      "score_abs_delta": 5.960464477539063e-08
+    },
+    {
+      "query_id": "40dffec1f37241d6ba631901f00aedd7:1",
+      "domain": "studentaid",
+      "method": "R3",
+      "decision": "handoff",
+      "score_abs_delta": 5.960464477539063e-08
+    },
+    {
+      "query_id": "40dffec1f37241d6ba631901f00aedd7:4",
+      "domain": "studentaid",
+      "method": "R1",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "40dffec1f37241d6ba631901f00aedd7:4",
+      "domain": "studentaid",
+      "method": "R2",
+      "decision": "handoff",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "40dffec1f37241d6ba631901f00aedd7:4",
+      "domain": "studentaid",
+      "method": "R3",
+      "decision": "handoff",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "40dffec1f37241d6ba631901f00aedd7:7",
+      "domain": "studentaid",
+      "method": "R1",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "40dffec1f37241d6ba631901f00aedd7:7",
+      "domain": "studentaid",
+      "method": "R2",
+      "decision": "handoff",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "40dffec1f37241d6ba631901f00aedd7:7",
+      "domain": "studentaid",
+      "method": "R3",
+      "decision": "handoff",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "40dffec1f37241d6ba631901f00aedd7:9",
+      "domain": "studentaid",
+      "method": "R1",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "40dffec1f37241d6ba631901f00aedd7:9",
+      "domain": "studentaid",
+      "method": "R2",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "40dffec1f37241d6ba631901f00aedd7:9",
+      "domain": "studentaid",
+      "method": "R3",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "d5ac71b2545702fcc615ddf94baa9197:17",
+      "domain": "studentaid",
+      "method": "R1",
+      "decision": "retrieved",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "d5ac71b2545702fcc615ddf94baa9197:17",
+      "domain": "studentaid",
+      "method": "R2",
+      "decision": "handoff",
+      "score_abs_delta": 0.0
+    },
+    {
+      "query_id": "d5ac71b2545702fcc615ddf94baa9197:17",
+      "domain": "studentaid",
+      "method": "R3",
+      "decision": "handoff",
+      "score_abs_delta": 5.960464477539063e-08
+    }
+  ],
+  "heldout_retrieval_run": false,
+  "generation_run": false
+}

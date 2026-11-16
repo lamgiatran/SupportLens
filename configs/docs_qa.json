@@ -6,5 +6,6 @@
   "strict_min_span_coverage": 0.5,
   "dedup_overlap": 0.5,
   "validation_dev_fraction": 0.5,
-  "seed": 42
+  "seed": 42,
+  "history_turns": 2
 }

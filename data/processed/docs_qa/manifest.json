@@ -1,6 +1,6 @@
 {
   "corpus": "multidoc2dial",
-  "artifact_version": "R1-chunk-022261dfebcd67bc",
+  "artifact_version": "R1-chunk-b3ba5da19294491c",
   "config": {
     "chunk_max_tokens": 220,
     "chunk_overlap": 32,
@@ -9,7 +9,8 @@
     "strict_min_span_coverage": 0.5,
     "dedup_overlap": 0.5,
     "validation_dev_fraction": 0.5,
-    "seed": 42
+    "seed": 42,
+    "history_turns": 2
   },
   "relevance": {
     "strict": "at least 50% of any one referenced span, half-open raw character offsets",
@@ -35,7 +36,7 @@
     "train": {
       "queries": 22806,
       "invalid_inputs": 0,
-      "truncated": 1910,
+      "truncated": 1,
       "current_question_truncated": 0,
       "with_strict": 22806,
       "with_lenient": 22806,
@@ -45,7 +46,7 @@
     "dev": {
       "queries": 2213,
       "invalid_inputs": 0,
-      "truncated": 191,
+      "truncated": 0,
       "current_question_truncated": 0,
       "with_strict": 2213,
       "with_lenient": 2213,
@@ -55,7 +56,7 @@
     "heldout": {
       "queries": 2214,
       "invalid_inputs": 0,
-      "truncated": 169,
+      "truncated": 0,
       "current_question_truncated": 0,
       "with_strict": 2214,
       "with_lenient": 2214,
@@ -69,13 +70,13 @@
     "splits.json": "1aaa0c9c2c0bec8ce18321533ed01512b254ec9f21eac12a39e1124c94303f17",
     "qrels_issues.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "qrels_audit.jsonl": "a4ffea387a222dcace960e13cf8b7511c0e06aa4e697bdcf2b49eece35b25e49",
-    "queries.train.jsonl": "0896f3e6615f27e400128fd02b97a2139534b8e32944ef65fed58a9202c855e4",
+    "queries.train.jsonl": "4f7389070251468d8de28dad71ded520cdbc6bab16b8f1d29e488547e7e204f3",
     "qrels.train.jsonl": "be4a6ac9f3de672db2e63bff34b97140dd7c7abcbf8d64bb8f91facfc0c8c651",
-    "queries.dev.jsonl": "3a6e8ce877b94cd9b07b83e6dc05e7c3a463f93658d78e110ee53c486b1710c4",
+    "queries.dev.jsonl": "db8b45cd2753cab6a33f39c4804f676ce1eabd16facb8e0e9a4bc9053dc21a1f",
     "qrels.dev.jsonl": "9c973b5f04827f91661ea8092451c00d700b873d736f49e77dd2d9f41649e08a",
-    "queries.heldout.jsonl": "eda935545592886dc413eb1bdd33bf6264740c81829752a1278c68b9635f5ab7",
+    "queries.heldout.jsonl": "f69d71329b6dfaf860b36557adf86acef66b794dd11cd1013bd7999aaf50d2b1",
     "qrels.heldout.jsonl": "54b52a716ea5b307eef3703991e729769618c11d110b1fce3222972d76691936"
   },
-  "build_seconds": 34.1560293000075,
+  "build_seconds": 9.529051099991193,
   "evaluation_status": "no heldout retrieval run; qrels construction is a data audit"
 }

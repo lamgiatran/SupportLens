@@ -1,0 +1,135 @@
+{
+  "split": "dev",
+  "scope": "full dev",
+  "queries": 2213,
+  "one_turn_means": "one preceding message (user or assistant), not a user-agent exchange",
+  "input_hashes": {
+    "raw_validation": "ce063938b53d96f6128275d76c0ba967a435e3d865d011aaeb6461c2538b2ce4",
+    "chunks": "635eb734ab8eaef072598757fbcc648f1820219817197327d64f38d374826d61",
+    "qrels_dev": "9c973b5f04827f91661ea8092451c00d700b873d736f49e77dd2d9f41649e08a"
+  },
+  "policies": {
+    "current": {
+      "history_turns": 0,
+      "artifact_version": "R1-chunk-c6f548a9e16d38cb",
+      "metrics": {
+        "strict": {
+          "evaluated_queries_with_positive_gold": 2213,
+          "queries_without_positive_gold": 0,
+          "hit_at_1": 0.2227745142340714,
+          "hit_at_3": 0.3497514685946679,
+          "hit_at_5": 0.41211025756891095,
+          "gold_recall_at_5": 0.39154993221870765,
+          "mrr_at_10": 0.3027587703254219
+        },
+        "lenient": {
+          "evaluated_queries_with_positive_gold": 2213,
+          "queries_without_positive_gold": 0,
+          "hit_at_1": 0.22774514234071397,
+          "hit_at_3": 0.35562584726615454,
+          "hit_at_5": 0.4175327609579756,
+          "gold_recall_at_5": 0.38567555354722094,
+          "mrr_at_10": 0.30773011569441755
+        }
+      },
+      "query_tokens_mean": 16.267510167193855,
+      "truncated": 0,
+      "seconds": 3.8071170000184793
+    },
+    "last1": {
+      "history_turns": 1,
+      "artifact_version": "R1-chunk-a9e629131bbffe0a",
+      "metrics": {
+        "strict": {
+          "evaluated_queries_with_positive_gold": 2213,
+          "queries_without_positive_gold": 0,
+          "hit_at_1": 0.272028920018075,
+          "hit_at_3": 0.44328965205603255,
+          "hit_at_5": 0.5223678264798916,
+          "gold_recall_at_5": 0.48983280614550384,
+          "mrr_at_10": 0.3791999297082894
+        },
+        "lenient": {
+          "evaluated_queries_with_positive_gold": 2213,
+          "queries_without_positive_gold": 0,
+          "hit_at_1": 0.2783551739719837,
+          "hit_at_3": 0.45549028468142794,
+          "hit_at_5": 0.5323090826931767,
+          "gold_recall_at_5": 0.48712155445097155,
+          "mrr_at_10": 0.387368292700421
+        }
+      },
+      "query_tokens_mean": 34.2028920018075,
+      "truncated": 0,
+      "seconds": 4.045982100011315
+    },
+    "last2": {
+      "history_turns": 2,
+      "artifact_version": "R1-chunk-b3ba5da19294491c",
+      "metrics": {
+        "strict": {
+          "evaluated_queries_with_positive_gold": 2213,
+          "queries_without_positive_gold": 0,
+          "hit_at_1": 0.2919114324446453,
+          "hit_at_3": 0.46678716674197923,
+          "hit_at_5": 0.5377315860822413,
+          "gold_recall_at_5": 0.5061003163126977,
+          "mrr_at_10": 0.3977691347664235
+        },
+        "lenient": {
+          "evaluated_queries_with_positive_gold": 2213,
+          "queries_without_positive_gold": 0,
+          "hit_at_1": 0.3000451875282422,
+          "hit_at_3": 0.4753727971079982,
+          "hit_at_5": 0.5472209670131044,
+          "gold_recall_at_5": 0.5031631269769543,
+          "mrr_at_10": 0.40646898916216584
+        }
+      },
+      "query_tokens_mean": 46.79620424762766,
+      "truncated": 0,
+      "seconds": 4.471485799993388
+    },
+    "all": {
+      "history_turns": null,
+      "artifact_version": "R1-chunk-022261dfebcd67bc",
+      "metrics": {
+        "strict": {
+          "evaluated_queries_with_positive_gold": 2213,
+          "queries_without_positive_gold": 0,
+          "hit_at_1": 0.27654767284229553,
+          "hit_at_3": 0.46181653863533667,
+          "hit_at_5": 0.5363759602349751,
+          "gold_recall_at_5": 0.5051965657478535,
+          "mrr_at_10": 0.3881719851670145
+        },
+        "lenient": {
+          "evaluated_queries_with_positive_gold": 2213,
+          "queries_without_positive_gold": 0,
+          "hit_at_1": 0.2824220515137822,
+          "hit_at_3": 0.46588341617713513,
+          "hit_at_5": 0.5408947130591957,
+          "gold_recall_at_5": 0.49887031179394487,
+          "mrr_at_10": 0.3936828911410927
+        }
+      },
+      "query_tokens_mean": 118.74604609127881,
+      "truncated": 191,
+      "seconds": 6.207849700003862
+    }
+  },
+  "last2_minus_all_mrr10": {
+    "delta_left_minus_right": 0.009597149599408978,
+    "ci95": [
+      -0.004648427316770104,
+      0.023622267761853152
+    ],
+    "unit": "dialogue",
+    "estimator": "query-weighted mean after cluster resampling",
+    "dialogues": 329,
+    "repeats": 2000,
+    "seed": 42
+  },
+  "heldout_retrieval_run": false,
+  "generation_run": false
+}

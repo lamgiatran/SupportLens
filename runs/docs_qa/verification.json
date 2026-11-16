@@ -1,7 +1,23 @@
 {
-  "release": "v0.3",
-  "returncode": 0,
-  "stdout": "...................................................                      [100%]\n51 passed in 1.94s\n",
-  "stderr": "",
-  "scope": "regression plus real tokenizer; includes Git CRLF/LF checkout regression"
+  "release": "0.4.1",
+  "source_tests": {
+    "passed": 64,
+    "skipped": 0
+  },
+  "real_encoder_api_smoke": {
+    "queries": 26,
+    "requests": 78,
+    "top5_and_gate_match": true
+  },
+  "dev_queries": 2213,
+  "artifact_versions": {
+    "R1": "R1-chunk-b3ba5da19294491c",
+    "R2": "R2-chunk-7ec3b2ece5168978",
+    "R3": "R3-chunk-e9ee2f3856c1be9a"
+  },
+  "corpus_cache_npz_sha256": "c8c8360708adb9eb6c9b03cdcd4df804e127e40c424d8d2ca1f5a4afde70eddc",
+  "heldout_retrieval_run": false,
+  "generation_run": false,
+  "banking_training_run": false,
+  "ownership_audit": "docs/verification/ownership_audit.json"
 }

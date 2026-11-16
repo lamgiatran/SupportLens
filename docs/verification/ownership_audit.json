@@ -1,0 +1,19 @@
+{
+  "compared_to": "starter-v0.3",
+  "frozen_files_match_base": {
+    "ui/app.py": true,
+    "src/supportlens/evaluation.py": true,
+    "src/supportlens/banking.py": true,
+    "src/supportlens/banking_data.py": true,
+    "scripts/build_banking_embeddings.py": true,
+    "src/supportlens/contracts.py": true,
+    "src/supportlens/request_logging.py": true
+  },
+  "api_banking_branch_ast_unchanged": true,
+  "docs_gate_isolated_in": "src/supportlens/docs_gate.py",
+  "new_ui_selector_history_excluded": true,
+  "hung_course77_training_implemented": false,
+  "cau_banking_head_or_calibration_implemented": false,
+  "private_runtime_assets_excluded_from_git": true,
+  "publication_permission": "user authorized Leader-owned changes after scope review"
+}

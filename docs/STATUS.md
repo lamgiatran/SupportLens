@@ -1,4 +1,12 @@
-# Day-one verification — 15/11/2026
+# Current status — 16/11/2026
+
+Current evidence: [VERIFICATION_v0.4.md](VERIFICATION_v0.4.md). Shared passage
+corpus, strict/lenient qrels, dialogue splits, R1/R2/R3, dev ablations, coverage
+gates and Dense startup warm-up are implemented. Generation/cache/deadline,
+Banking C-01/C-02/head and R4/R5 remain pending. GitHub remote exists; push is
+authorized after ownership review; actual remote verification is reported separately.
+
+The day-one snapshot below is historical, not the current feature checklist.
 
 The plan snapshot is frozen. This report records implementation checks, not new
 scope commitments or model-quality claims.

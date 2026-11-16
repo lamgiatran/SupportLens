@@ -1,0 +1,23 @@
+{
+  "identity": {
+    "chunks": "fd40ab126f68c4d38d5f86dd1f0b2bccf43e36f6557a8306085542a704bb51cd",
+    "encoder": {
+      "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "max_seq_length": 256,
+      "dimension": 384,
+      "normalize_embeddings": true,
+      "text_policy": "strip_supplied_text_v1"
+    },
+    "tokenizer_sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037"
+  },
+  "cache_id": "4810cff123c22b2fdcdf3bc0ca61b63c8837ac89da7a400f478e285e4b059ff2",
+  "npz_sha256": "c8c8360708adb9eb6c9b03cdcd4df804e127e40c424d8d2ca1f5a4afde70eddc",
+  "matrix_sha256": "578870b1cbe4cb6512aaa8d108fcd00f44b1d94669aa64c2a89b34acb120b873",
+  "rows": 2837,
+  "dimension": 384,
+  "encode_seconds": 59.41612399998121,
+  "warmup_ms": 6443.654299975606,
+  "training_run": false,
+  "contains": "corpus only; no query vectors or labels"
+}

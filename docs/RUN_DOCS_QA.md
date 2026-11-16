@@ -1,4 +1,7 @@
-# Docs-QA v0.3 — chạy phần đã được đo
+# Docs-QA — chạy phần đã được đo
+
+V0.4: xem [RUN_DENSE.md](RUN_DENSE.md) để chạy R1/R2/R3 với gate. Các bước BM25
+bên dưới vẫn dùng được; `score_method` hiện là `bm25_top1_per_term_v1`.
 
 ZIP đầy đủ đã kèm chunks, qrels, split IDs và tokenizer nhỏ. Giải nén và mở
 terminal tại `SupportLens`; không cần cài torch để chạy BM25 passage.
@@ -17,7 +20,7 @@ Terminal thứ hai, tại cùng thư mục:
 .\.venv\Scripts\python.exe -m streamlit run ui/app.py
 ```
 
-API trả evidence `unit=chunk` và `score_method=R1_chunk_bm25`; chưa tạo câu trả lời
+API trả evidence `unit=chunk` và `score_method=bm25_top1_per_term_v1`; chưa tạo câu trả lời
 bằng LLM. Request có history dùng cùng query builder current-first với offline.
 Biến `SUPPORTLENS_DOCS_BUNDLE` ưu tiên hơn cấu hình BM25 document cũ.
 
@@ -27,7 +30,7 @@ Biến `SUPPORTLENS_DOCS_BUNDLE` ưu tiên hơn cấu hình BM25 document cũ.
 .\.venv\Scripts\python.exe scripts/eval_docs_bm25.py
 ```
 
-Kết quả ở `runs/docs_qa/dev_metrics.json`: hit@5, tỷ lệ toàn bộ gold chunks được
+Kết quả ở `runs/docs_qa/dev_metrics.json`: hit@3, hit@5, tỷ lệ toàn bộ gold chunks được
 tìm trong top-5 và MRR@10, báo riêng strict/lenient. Đọc đúng định nghĩa từng metric;
 đây là dev với segmentation riêng, không phải số test hoặc tái lập paper gốc.
 Latency chỉ là truy xuất query đã chuẩn bị trên index ấm, không phải độ trễ UI/LLM.
@@ -58,7 +61,7 @@ Citation dùng `[S1]`, `[S1, S2]` (cũng nhận `[S1, 2]`). Dấu số trần `[
 là ký hiệu trong nguồn, không tự đổi thành citation. Nếu nguồn đã chứa `[S1]`,
 prompt dùng namespace ngắn khác như `[SS1]`; parser đọc đúng namespace đó.
 Trả lời không có alias hợp lệ phải được tính là thiếu citation; việc alias hợp lệ
-chưa chứng minh nguồn hỗ trợ nội dung. Gate và generation/deadline vẫn làm tiếp.
+chưa chứng minh nguồn hỗ trợ nội dung. Gate coverage đã có; generation/deadline vẫn làm tiếp.
 
 Nguồn: https://doc2dial.github.io/multidoc2dial/ và
 https://huggingface.co/datasets/IBM/multidoc2dial.
