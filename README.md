@@ -1,66 +1,68 @@
-# SupportLens
+# Natural Language Processing (CO3085)
 
-SupportLens là dự án NLP xây dựng ứng dụng hỗ trợ khách hàng với hai chế độ:
-tra cứu tài liệu có nguồn và phân luồng yêu cầu ngân hàng theo độ tin cậy.
-Dự án kết hợp thực nghiệm mô hình với API, giao diện và kiểm tra toàn luồng.
+SupportLens course project for class CC01, CLC_HK261, Semester 261, at Ho Chi Minh City University of Technology (HCMUT), VNU-HCM.
 
-## Mục tiêu sản phẩm
+## Course and team
 
-| Chế độ | Luồng sử dụng hướng tới | Cách đánh giá |
+**Course:** Natural Language Processing (CO3085)  
+**Instructor:** Trương Vĩnh Lân  
+**Class:** CC01  
+**Program and semester:** CLC_HK261
+
+| Member | Student ID | Role | Responsibilities |
+|---|---|---|---|
+| [Trần Gia Lâm](https://github.com/lamgiatran) | 2352670 | Leader | Docs-QA data preparation, retrieval and generation pipeline, retriever fine-tuning when the core system is stable, evaluation, technical review and final integration. |
+| [Nguyễn Hữu Cầu](https://github.com/cau26) | 2352129 | Member | Handoff-50 data audit, shared encoding and prediction pipeline, classifier training, calibration, confidence methods and out-of-scope analysis. |
+| Phan Trần Quốc Tuấn | — | Member | API and UI integration, model loading, conversation state, streaming, error handling and end-to-end smoke testing. |
+| Nguyễn Tấn Hưng | — | Member | BANKING77 preprocessing, BoW/TF-IDF classification baselines, controlled comparisons, error analysis and qrels review. |
+
+Student IDs for Tuấn and Hưng will be added after confirmation.
+
+## Project — SupportLens
+
+SupportLens combines document question answering with evidence and confidence-based banking request triage. Users select a mode; both modes share the application interface, API and request logging.
+
+| Component | Task | Methods | Evaluation |
+|---|---|---|---|
+| Docs-QA | Retrieve supporting passages and answer with citations or hand off when evidence is insufficient | BM25, frozen dense retrieval, hybrid RRF; local generation | Passage hit@3/hit@5, MRR, retrieval risk–coverage and citation review |
+| Banking | Predict one of 50 supported intents and decide whether to accept or hand off | Frozen encoder with Logistic Regression; H1–H4 confidence methods | Classification results, risk–coverage, OOS false acceptance and error analysis |
+| Course-77 study | Compare text representations and classifiers for the course requirements | BoW/TF-IDF with Logistic Regression and Linear SVM | Accuracy, macro-F1, confusion matrices and preprocessing ablation |
+
+The document corpus and retrieval evaluation use MultiDoc2Dial. The Banking application uses Handoff-50; the 77-label study is a separate course experiment. A 77-label classifier is not used to claim that the remaining 27 intents were unseen.
+
+## Work packages
+
+Each member works in blocks of roughly two to three one-hour sessions. A first working module is handed over before the final model or threshold is selected, so integration can proceed in parallel.
+
+| Package | Main outcome | Handoff |
 |---|---|---|
-| Docs-QA | Câu hỏi và lịch sử → tìm bằng chứng → trả lời có trích dẫn hoặc yêu cầu hỗ trợ thêm | Truy xuất trên MultiDoc2Dial; kiểm tra bằng chứng trong context và citation |
-| Banking | Yêu cầu → dự đoán intent → chấp nhận hoặc chuyển người theo ngưỡng | Handoff-50: độ chính xác, risk–coverage và khả năng từ chối yêu cầu ngoài phạm vi |
+| A — Prepare | Reviewed data, split rules and agreed input/output examples | Hưng sends qrels review to Lâm; Cầu completes the Banking data audit; Tuấn starts with the Docs API and agreed examples. |
+| B — Integrate a first version | Baselines and a working Banking pipeline | Cầu sends a text-to-prediction pipeline to Tuấn; Tuấn checks standalone/API agreement. |
+| C — Complete behavior | Dev-selected configuration, confidence thresholds and answer streaming | Cầu sends the selected Banking configuration; Lâm supplies generation/cache/deadline behavior; Tuấn integrates both modes. |
+| D — Evaluate and deliver | Frozen evaluations, smoke tests, report sections and reproducible instructions | Members submit measured outputs and explanations; Lâm reviews and integrates the final submission. |
 
-Hai chế độ dùng chung API, giao diện và request log. Người dùng chọn chế độ;
-classifier ngân hàng không được dùng để lọc câu hỏi tài liệu.
+See [team tasks and handoffs](docs/TEAM_HANDOFF.md) and the [task board](issues/README.md) for inputs, expected outputs and acceptance conditions.
 
-## Thiết kế
+## Retrieval progress
 
-- **Retrieval:** BM25, dense MiniLM và hybrid RRF trên cùng corpus/chunks.
-- **Banking:** một pipeline encoding và dự đoán, dùng frozen encoder cùng Logistic Regression 50 nhãn.
-- **Ứng dụng:** FastAPI và Streamlit; mô hình và cấu hình được nạp theo phiên bản.
-- **Generation:** hướng phát triển dùng Ollama, trả lời theo bằng chứng và lưu kết quả để đánh giá lại.
-- **Thực nghiệm môn học:** BoW/TF-IDF với Logistic Regression và Linear SVM trên BANKING77 77 nhãn.
+Dev evaluation is available for BM25, frozen dense retrieval and hybrid RRF. On 2,213 dev queries, strict hit@3 is 0.4668, 0.4062 and 0.4803, respectively. The confidence interval for the hybrid–BM25 difference includes zero.
 
-## Phát triển cùng nhóm
+These are passage retrieval results on dev. They do not measure final answer quality. The configuration, context-packing audit and limitations are recorded in [the retrieval verification report](docs/VERIFICATION_v0.4.md).
 
-| Thành viên | Module phụ trách | Đầu ra chính |
-|---|---|---|
-| Leader | Docs-QA và thực nghiệm retriever | Pipeline tài liệu, generator/cache, đánh giá; fine-tune retriever khi luồng lõi ổn |
-| Hưng | Dữ liệu và baseline Course-77 | Pipeline preprocessing/train/evaluate, bảng so sánh và phân tích lỗi |
-| Cầu | Banking Handoff-50 | Pipeline encode/predict, calibration, confidence và cấu hình chuyển người |
-| Tuấn | Serving và giao diện | Ghép module thật vào API/UI, streaming, xử lý lỗi và kiểm tra toàn luồng |
+Banking training and calibration, application integration and end-to-end generation are being developed through the assigned work packages. Retriever fine-tuning is the main extension after the core workflow is stable.
 
-[Gói công việc của từng thành viên](docs/TEAM_HANDOFF.md) ghi đầu vào, hướng làm,
-đầu ra và người sử dụng kết quả. [Bảng công việc](issues/README.md) là nơi theo dõi
-tiến độ. Mỗi thành viên phát triển phần mình và gửi commit/PR cùng cách kiểm tra.
+## Reproduction
 
-## Chạy và tái lập
+Use Python 3.11 or later. Follow [the Docs-QA run guide](docs/RUN_DENSE.md) to install dependencies, prepare runtime assets and run the API/UI.
 
-Python 3.11 trở lên. Cài môi trường phát triển:
+Data split IDs, experiment configurations, metrics and manifests are kept with the source. Raw datasets, pretrained weights and large vector caches are downloaded or rebuilt through the documented scripts.
 
-```powershell
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -e ".[dev,ui]"
-```
+The [experiment plan](docs/plan-v1.0.md) defines the data splits, model comparisons and evaluation procedure. Configuration and threshold selection use dev; held-out evaluation follows the final freeze.
 
-Tiếp tục theo [hướng dẫn chạy Docs-QA](docs/RUN_DENSE.md) để chuẩn bị dữ liệu,
-chọn cấu hình và khởi động API/UI. Weights và các cache lớn được tải hoặc tạo
-theo hướng dẫn; split IDs, cấu hình và metrics nhỏ được quản lý trong Git.
+## AI Usage Disclosure
 
-```powershell
-.\.venv\Scripts\python.exe -m pytest -q
-```
+ [AI_USAGE.md](docs/AI_USAGE.md).
 
-## Tiến độ và kết quả
+## Submission
 
-Dự án đang phát triển. Nhánh Docs-QA đã có truy xuất R1/R2/R3 và đánh giá dev;
-các gói Banking, ứng dụng và generation được hoàn thiện theo bảng công việc.
-
-Kết quả dev hiện tại: strict hit@3 của BM25 / dense / hybrid là
-**0.4668 / 0.4062 / 0.4803** trên 2.213 query. Khoảng tin cậy cho chênh lệch
-hybrid–BM25 chứa 0. Đọc [thiết lập và kết quả thực nghiệm](docs/VERIFICATION_v0.4.md)
-trước khi so sánh hoặc sử dụng số liệu. Đây là số đo retrieval trên dev.
-
-Xem thêm [thiết kế và protocol](docs/plan-v1.0.md), cùng
-[ghi nhận công cụ hỗ trợ](docs/AI_USAGE.md).
+The final deliverables will include source code, a report, experiment outputs, run instructions and a demonstration. Complete the required LMS submission separately; publishing files on GitHub does not submit the assignment to the LMS.

@@ -3,13 +3,7 @@
 Mở terminal ở thư mục `SupportLens`. Gói đầy đủ có chunks/qrels, tokenizer MiniLM,
 cache corpus R2 và cache Banking. Weights encoder và LLM không nằm trong ZIP.
 Không cần raw để chạy API từ ZIP; raw dùng khi tái tạo/audit dữ liệu.
-Nếu clone GitHub, chạy ba lệnh tạo runtime bên dưới trước bước chuẩn bị encoder:
-
-```powershell
-.\.venv\Scripts\python.exe scripts/download_data.py --dataset multidoc2dial
-.\.venv\Scripts\python.exe scripts/fetch_tokenizers.py
-.\.venv\Scripts\python.exe scripts/build_docs_bundle.py
-```
+Nếu clone GitHub, cài môi trường ở bước 1 trước rồi tạo runtime assets bên dưới.
 
 ## 1. Cài và kiểm tra
 
@@ -18,6 +12,16 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e ".[dev,ui]"
 .\.venv\Scripts\python.exe -m pytest -q
 ```
+
+Nếu clone GitHub và chưa có runtime assets, chạy sau khi đã cài môi trường:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/download_data.py --dataset multidoc2dial
+.\.venv\Scripts\python.exe scripts/fetch_tokenizers.py
+.\.venv\Scripts\python.exe scripts/build_docs_bundle.py
+```
+
+Test tokenizer thật có thể skip trước khi tải tokenizer; ghi rõ lý do skip.
 
 Chỉ dùng BM25 thì bỏ qua bước 2. Chạy R2/R3 cần cài thêm ML và tải model một lần:
 

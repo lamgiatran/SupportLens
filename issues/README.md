@@ -13,9 +13,12 @@ Bảng này là kế hoạch giao việc, chưa xác nhận thành viên đã th
 
 ## Ticket chi tiết dùng ngay
 
+- [Nhóm clone và chạy test](ONBOARDING.md) — mỗi bạn làm trong phiên đầu tiên.
 - [C-01 Kiểm tra trùng lặp](C-01-DUPLICATES.md) — Cầu.
 - [C-02 Tách calibration](C-02-CALIBRATION.md) — Cầu, sau C-01.
 - [H-01 Kiểm tra qrels](H-01-QRELS-REVIEW.md) — Hưng, làm sớm song song baseline.
+- [H-02 Baseline E1](H-02-COURSE77-E1.md) — Hưng.
+- [T-02 UI hai chế độ và mock stream](T-02-UI-MOCK-STREAM.md) — Tuấn.
 - [T-01 Nạp và warm-up Banking](T-01-WARMUP.md) — Tuấn, có thể test mock trước khi nhận pipeline.
 
 Các ticket D01/D02/D03 lưu làm lịch sử chuẩn bị; không dùng chúng để giao việc
