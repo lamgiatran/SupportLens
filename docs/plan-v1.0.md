@@ -1,34 +1,36 @@
 # SupportLens — Kế hoạch 15 ngày cho nhóm 4 người
 
-Cập nhật: 15/11/2026. Leader làm nhiều hơn; ba thành viên còn lại khoảng 1 giờ/ngày. Giờ công trong kế hoạch là giờ làm chủ động; thời gian máy train/fine-tune qua đêm ghi riêng. Tài liệu gồm bản tóm tắt để giao việc và phụ lục để tra cứu.
+Cập nhật: 16/11/2026. Công việc được gom theo chặng A–D, thống nhất với Word phân công, [TEAM_HANDOFF.md](TEAM_HANDOFF.md) và [bảng công việc](../issues/README.md). Mỗi chặng gồm vài phiên làm, chuyển tiếp theo đầu ra đã nhận được. Các mốc ngày 2, 5 và 8 chỉ dùng kiểm tra tiến độ và điều chỉnh phạm vi.
+
+Leader làm nhiều hơn; ba thành viên còn lại khoảng 1 giờ/ngày. Giờ công là giờ làm chủ động; thời gian máy tự train/fine-tune được ghi riêng. Phần A và E dùng điều phối, phần D giữ protocol thực nghiệm. Trạng thái code và số đo đã có xem [VERIFICATION_v0.4.md](VERIFICATION_v0.4.md).
 
 ## A. Bản tóm tắt cho nhóm
 
 **Mục tiêu:** nộp một ứng dụng có luồng chạy hoàn chỉnh, phần thực nghiệm đáp ứng đề NLP và số đo gắn với đúng cấu hình được demo.
 
-**Quỹ giờ:** Hưng, Cầu, Tuấn mỗi người 15 giờ trong 15 ngày. Tạm lập lịch cho leader 3 giờ/ngày = 45 giờ, tổng nhóm 90 giờ. Đây là giả định kế hoạch, chưa phải thời gian leader đã xác nhận. Bản lõi dành 13 giờ tổng cộng cho dự phòng; fine-tune retriever dùng tối đa 5 giờ chủ động từ phần dự phòng của leader. Thời gian máy chạy qua đêm không cộng vào 90 giờ này.
+**Quỹ giờ:** Hưng, Cầu, Tuấn mỗi người 15 giờ trong 15 ngày: khoảng 12 giờ cho A–D, 1 giờ ghép bài/hỏi chéo và 2 giờ dự phòng. Leader tạm dự trù 3 giờ/ngày = 45 giờ, tổng nhóm 90 giờ; đây vẫn là giả định kế hoạch. Dự phòng tổng cộng 14 giờ, gồm 8 giờ của leader và 2 giờ của mỗi bạn. Fine-tune retriever chỉ dùng tối đa 5 giờ chủ động từ dự phòng của leader khi luồng lõi ổn. Giờ máy tự chạy không cộng vào quỹ chủ động.
 
 | Người | Trách nhiệm chính | Bàn giao |
 |---|---|---|
-| Leader (bạn), 45 giờ chủ động | Dữ liệu tài liệu, retrieval, generator/cache và tích hợp | Docs-QA; BM25/dense/hybrid; fine-tune retriever là mục nâng cao chính; số đo và demo |
-| Hưng, 15 giờ | BANKING77, baseline và công cụ đánh giá | E1–E3; E4 dùng embeddings chung nếu kịp; metrics/plots; audit qrels; phần báo cáo |
-| Cầu, 15 giờ | Handoff-50 bằng mô hình nhẹ | H1–H4, ngưỡng dev, risk–coverage; phân tích ID-OOS và độ nhạy tỷ lệ OOS |
-| Tuấn, 15 giờ | Serving và giao diện | FastAPI, Streamlit, log JSONL, timeout, lệnh chạy; phần hướng dẫn và smoke test |
+| Leader (bạn), 45 giờ chủ động | Docs-QA, generator/cache, công cụ đánh giá dùng chung và nghiệm thu | Giao Tuấn retrieval trước, generator/stream sau; nhận metrics và phân tích các nhánh để ghép báo cáo. R4/R5 là mục nâng cao |
+| Hưng, 15 giờ | Course-77 và review qrels | E1–E3, một ablation preprocessing, metrics/confusion, phân tích lỗi và báo cáo; gửi leader nhận xét 20 ca qrels sớm. E4 chỉ mở khi còn giờ |
+| Cầu, 15 giờ | Trọn Banking Handoff-50, từ encode đến predict | Audit/calibration, LR 50 nhãn và H1–H4; giao Tuấn pipeline nhận text ở bản đầu và cấu hình/ngưỡng ở bản chốt; giao leader phân tích OOS |
+| Tuấn, 15 giờ | API/UI, nạp model, hội thoại, streaming và kiểm tra tích hợp | Ghép module của Cầu/leader; giao ứng dụng chạy local, kết quả smoke, timing và hướng dẫn chạy |
 
 **Bản nộp:** Docs-QA tìm và trả lời có nguồn trực tiếp trên corpus MultiDoc2Dial; chế độ phân luồng ngân hàng dùng đúng Handoff-50 đã đo; E1–E3 cho phần học phần; 40 kịch bản kiểm tra toàn luồng. Course-77 xuất hiện ở phần thí nghiệm.
 
-| Hạn | Điều phải chạy được |
-|---|---|
-| Cuối ngày 2 | UI → API → BM25 mức tài liệu trên raw text → bằng chứng; chưa cần qrels |
-| Ngày 3–4 | Chunks, mapping grounding span và qrels; audit trước khi đánh giá |
-| Cuối ngày 6 | E1–E3, dense/hybrid và Handoff-50 baseline có kết quả dev |
-| Cuối ngày 8 | Hai chế độ chạy qua cùng UI/API; generation cache và kiểm tra citation ID hoạt động |
-| Cuối ngày 12 | Hoàn tất đánh giá cuối và bản nháp báo cáo; khóa tính năng |
-| Ngày 13–15 | Sửa lỗi, chạy từ môi trường mới, quay video, tập trình bày, nộp |
+| Chặng | Đầu ra để chuyển tiếp | Mốc phối hợp |
+|---|---|---|
+| A Chuẩn bị | Input, split/rule và ví dụ request/response rõ; Tuấn gọi API Docs hiện có; Cầu/Hưng bắt đầu phần riêng | Khoảng 2–3 phiên đầu; mốc ngày 2 kiểm tra đường UI → API → evidence |
+| B Ghép bản đầu | Cầu giao predict(text) thật để Tuấn nối Banking; Hưng có E2/E3; leader thử generator độc lập | Khoảng 2–3 phiên tiếp; mốc ngày 5 kiểm tra module thật qua API |
+| C Hoàn thiện trên dev | Chốt score/ngưỡng và cấu hình bằng dev; nối stream, cache, nguồn và lỗi; thử hai chế độ | Khoảng 2–3 phiên tiếp; mốc ngày 8 quyết định giữ/cắt R4/R5 theo giờ còn lại |
+| D Đánh giá và bàn giao | Freeze, benchmark cuối, 40 smoke, báo cáo và cách chạy lại; mỗi người giải thích được phần mình | Các phiên còn lại; khóa tính năng trước ngày 13, dành ngày 13–15 sửa lỗi và bảo vệ |
 
-**Mục nâng cao chính của leader:** fine-tune dense retriever từ query–grounding passage của public train MultiDoc2Dial, chạy máy qua đêm, so R4 với R2 frozen. Gate ngày 8: luồng lõi ổn và còn đủ 5 giờ chủ động để chuẩn bị/đánh giá; nếu chưa đạt, làm ngay sau nộp. Fine-tuning classifier 50/77 nhãn, reranker, NLI, MLflow và triển khai public để sau nộp.
+Docs-QA đã có parser, chunks/qrels và R1/R2/R3 trên dev. Dùng tiếp nền hiện có và audit phần liên quan; không lập lại các bước ngày đầu đã hoàn thành. Các chặng A–D có thể chạy song song giữa các thành viên, không đợi cả nhóm xong một chặng mới bắt đầu việc độc lập.
 
-**Hoàn thành khi:** người khác chạy được theo README, nhập câu ra bằng chứng/câu trả lời hoặc lý do chuyển người, có số liệu thật và hiểu rõ giới hạn. Mỗi người viết phần mình từ ngày 3.
+**Mục nâng cao chính của leader:** fine-tune dense retriever từ query–grounding passage của public train MultiDoc2Dial trên Colab, GPU mục tiêu A100. So R4 với R2; nếu phục vụ hybrid thì so thêm R5 = BM25 + R4 với R3. Smoke run quyết định giờ máy. Tại mốc ngày 8, chỉ mở mục này khi luồng lõi ổn và còn đủ 5 giờ chủ động; nếu chưa đạt, chuyển sau nộp. Fine-tuning classifier 50/77 nhãn, reranker, NLI, MLflow và triển khai public để sau nộp.
+
+**Hoàn thành khi:** người khác chạy được theo hướng dẫn, nhập câu ra bằng chứng/câu trả lời hoặc lý do chuyển người, có số liệu thật và hiểu rõ giới hạn. Mỗi người viết phần mình từ khi có kết quả đầu tiên, giao leader ở D.
 
 ---
 
@@ -39,11 +41,11 @@ Cập nhật: 15/11/2026. Leader làm nhiều hơn; ba thành viên còn lại k
 | Người | Phân bổ dự kiến | Tổng |
 |---|---|---:|
 | Leader | Dữ liệu/chunks/qrels và retrieval 14h; generator/cache 5h; tích hợp/review 6h; đánh giá/phân tích 5h; báo cáo/video 7h; dự phòng 8h | 45h |
-| Hưng | Dữ liệu, preprocessing, E1–E3/E4 6h; metrics và audit qrels 3h; phân tích/báo cáo/review 4h; dự phòng 2h | 15h |
-| Cầu | Split và mô hình 50 nhãn 4h; H1–H4/plots 4h; phân tích lỗi và báo cáo 5h; dự phòng 2h | 15h |
-| Tuấn | API 4h; UI 4h; log/timeout 2h; đóng gói/hướng dẫn/kiểm tra 4h; dự phòng 1h | 15h |
+| Hưng | A–B dữ liệu/E1–E3, ablation và review qrels 6h; C–D phân tích, đánh giá và báo cáo 6h; ghép bài/hỏi chéo 1h; dự phòng 2h | 15h |
+| Cầu | A–B audit/calibration và pipeline LR/H1 6h; C–D H2–H4, OOS và báo cáo 6h; ghép bài/hỏi chéo 1h; dự phòng 2h | 15h |
+| Tuấn | A–B UI/contract và nối Banking 6h; C–D stream, trạng thái, smoke và hướng dẫn 6h; ghép bài/hỏi chéo 1h; dự phòng 2h | 15h |
 
-Leader dự kiến làm khoảng một nửa số giờ chủ động của nhóm, đồng thời sở hữu retrieval/RAG và tích hợp. Chunks/qrels được dành riêng khoảng 4–6 giờ trong ngân sách dữ liệu/retrieval. Fine-tune retriever dự kiến cần thêm tối đa 5 giờ chủ động: chuẩn bị/audit cặp train 2h, cấu hình và smoke run 1h, kiểm tra checkpoint/re-index/so sánh 2h; lấy từ 8h dự phòng của leader. Nếu mở mục này, nhóm còn 8h dự phòng tổng cộng. Đây là ước lượng công việc, không tự chuyển thành tỷ lệ chấm điểm cá nhân.
+Leader dự kiến làm khoảng một nửa số giờ chủ động của nhóm, đồng thời sở hữu retrieval/RAG và nghiệm thu tích hợp. Ngân sách dữ liệu/retrieval bao gồm phần chunks/qrels đã có, không giao làm lại. Fine-tune retriever dùng tối đa 5 giờ chủ động: chuẩn bị/audit cặp train 2h, cấu hình và smoke run 1h, kiểm tra checkpoint/re-index/so sánh 2h; lấy từ 8h dự phòng của leader. Nếu mở mục này, nhóm còn 9h dự phòng tổng cộng. Đây là ước lượng công việc, không tự chuyển thành tỷ lệ chấm điểm cá nhân.
 
 | Loại thời gian | Tính vào giờ công chủ động? | Ví dụ |
 |---|---|---|
@@ -53,9 +55,9 @@ Leader dự kiến làm khoảng một nửa số giờ chủ động của nhó
 
 Ví dụ một đêm máy chạy 3 giờ và bạn dùng 30 phút kiểm tra thì ghi 3 giờ máy và 0,5 giờ công, không trừ 3,5 giờ khỏi quỹ chủ động. Thời gian máy vẫn chiếm lịch trước deadline; train lâu hoặc lỗi đêm có thể làm trễ mốc ngày hôm sau.
 
-Mỗi đầu việc của ba thành viên được gói trong 45–60 phút, có input và output cụ thể. Trong một giờ: khoảng 5 phút đọc cập nhật, 45 phút thực hiện, 10 phút commit/ghi kết quả và blocker. Trao đổi bất đồng bộ nằm trong giờ này.
+Mỗi gói A–D của ba thành viên kéo dài khoảng 2–3 phiên, mỗi phiên 45–60 phút. Có thể tiếp tục cùng tác vụ qua nhiều phiên đến khi đạt đầu ra. Trong một giờ: khoảng 5 phút đọc cập nhật, 45 phút thực hiện, 10 phút commit/ghi kết quả và blocker. Trao đổi bất đồng bộ nằm trong giờ này.
 
-Một issue nên có một owner, một artifact và cách kiểm tra: chẳng hạn “chạy evaluate trên file dự đoán mẫu, xuất metrics.json”. Leader chuẩn bị contract và dữ liệu mẫu để các bạn làm độc lập; commit sau mỗi phần chạy được, cập nhật lệnh chạy và artifact manifest để Tuấn có thể khởi động nhánh tích hợp khi cần. Nếu vướng quá 15 phút, ghi lỗi để leader hỗ trợ ở phiên tích hợp; các bạn vẫn giữ trách nhiệm hoàn thiện phần được giao.
+Một lần bàn giao chỉ cần commit/PR, một cách kiểm tra và ba ví dụ input/output. Người nhận chạy khớp rồi thử qua API. Manifest của model/index được cập nhật khi artifact đổi; không viết thêm README/manifest cho mỗi lần gửi. Leader duy trì công cụ đánh giá dùng chung; Hưng dùng công cụ phù hợp để đo Course-77 và review qrels. Nếu vướng quá 15 phút, ghi lỗi tái hiện để leader hỗ trợ; owner tiếp tục sửa phần mình.
 
 Nếu leader chỉ có 2h/ngày, tổng còn 75h: giữ E1–E3, giảm generation review xuống 20–30 câu, bỏ E4 và chuyển fine-tune retriever sang sau nộp vì vẫn cần giờ chủ động chuẩn bị/đánh giá. Nếu có 4h/ngày, tổng 105h: ưu tiên kiểm tra chạy lại và phân tích lỗi trước khi mở thêm mô hình. Các số này là kịch bản lập lịch.
 
@@ -68,7 +70,7 @@ Nếu leader chỉ có 2h/ngày, tổng còn 75h: giữ E1–E3, giảm generati
 - Accuracy, Precision/Recall/F1, confusion matrix, so sánh và phân tích lỗi.
 - Báo cáo đủ tám phần; source preprocessing/train/evaluate; bảng đóng góp.
 - Demo được khuyến khích. Fine-tuning transformer không phải điều kiện bắt buộc trong đề.
-- Hạn chính thức lấy trên LMS; Ngày 1–15 là lịch tương đối của nhóm, không tự suy ra ngày nộp.
+- Hạn chính thức lấy trên LMS; khung 15 ngày và các mốc kiểm tra là lịch tương đối của nhóm, không tự suy ra ngày nộp.
 
 ## C. Sản phẩm, tài nguyên và độ trễ
 
@@ -86,9 +88,11 @@ Contract tối thiểu gồm request_id, mode, artifact_version, decision/reason
 
 ### C2. Chốt generator sớm
 
-Chốt runtime mặc định ngay ngày 1: Ollama local với qwen2.5:1.5b, bản Q4_K_M hiện được phân phối chính thức. Ghi model digest, quantization, Ollama version và cấu hình máy; tag chỉ là tên thuận tiện, digest dùng nhận diện phiên bản. Leader phụ trách generator adapter; Tuấn nối stream từ API tới UI. Không lấy Transformers fp32 CPU làm cấu hình demo mặc định. Colab dành cho train/fine-tune, không là dependency bắt buộc của inference demo.
+**App và LLM lúc demo chạy local:** API/UI, retrieval, Banking và Ollama ở máy demo. Runtime dự kiến là Ollama với qwen2.5:1.5b, cấu hình lượng tử hóa Q4_K_M. Ghi model digest, quantization thực tế, Ollama version và cấu hình máy; tag không thay cho digest. Leader phụ trách generator adapter; Tuấn nối stream từ API tới UI. Chuẩn bị weights trước khi khởi động, không tải model trong request người dùng.
 
-Thử ít nhất 10 câu dev, context tối đa khoảng 1.500 token, đầu ra tối đa 128 token, decoding cố định. Bật streaming từ generator qua API tới UI, hiện evidence sớm rồi hiển thị dần nội dung trả lời. Ngày 2 chốt cấu hình và đo TTFT. Nếu phần cứng không chạy ổn, bản nộp chuyển sang trả đoạn trích có nguồn và ghi đúng là chế độ trích xuất; generator trở thành phần nâng cấp. Không gọi đoạn trích là câu trả lời sinh bởi LLM.
+**Huấn luyện tách khỏi app:** Colab với GPU mục tiêu A100 dùng fine-tune retriever R4 và tạo embeddings/index khi cần. Ghi tên GPU thực tế của từng run; đây là môi trường dự kiến, chưa có notebook/run R4 được kiểm chứng. Sau huấn luyện, xuất checkpoint, cấu hình, mapping và manifest; dựng lại corpus vectors bằng đúng encoder rồi đưa artifact về máy demo. Các baseline LR/SVM có thể train bằng CPU. App không cần một phiên Colab đang chạy để trả lời người dùng.
+
+Trong A–B, thử ít nhất 10 câu dev, context tối đa khoảng 1.500 token, đầu ra tối đa 128 token, decoding cố định. Evidence mặc định top-3/tối đa 600 token; ngân sách toàn prompt còn gồm system, query/history và output reserve. Bật streaming từ generator qua API tới UI, hiện evidence sớm rồi hiển thị dần câu trả lời. Chốt cấu hình dựa trên TTFT đo ở máy local. Nếu phần cứng không chạy ổn, bản nộp chuyển sang trả đoạn trích có nguồn và ghi đúng là chế độ trích xuất; generator trở thành phần nâng cấp.
 
 Mọi generation thành công và lỗi đều ghi JSONL. Khóa cache bao gồm model/revision, prompt version, câu hỏi và lịch sử, evidence IDs/content hash, decoding parameters. Lưu raw response, citations, timing gồm TTFT/tổng thời gian, trạng thái, token usage nếu runtime cung cấp. Stream bị ngắt phải lưu partial response và cờ incomplete, không cache như một câu trả lời hoàn chỉnh. Đổi metric hoặc review lại dùng output đã lưu; đổi prompt/evidence tạo entry mới.
 
@@ -96,7 +100,7 @@ Cache dùng để tái đánh giá; báo riêng cache hit, cache miss và chế 
 
 ### C3. Latency budget khởi đầu
 
-Các mức sau là mục tiêu thiết kế, chưa phải kết quả đo hay cam kết phần cứng. Ngày 1 ghi CPU/GPU/RAM/runtime, ngày 2 chốt target theo máy demo; sau đó giữ làm điểm quy chiếu.
+Các mức sau là mục tiêu thiết kế, chưa phải kết quả đo hay cam kết phần cứng. Ghi CPU/GPU/RAM/runtime trong A, đo probe trong A–B rồi chốt target theo máy demo local; sau đó giữ làm điểm quy chiếu.
 
 | Thành phần | Target p95 khi đã warm-up, batch 1, concurrency 1 |
 |---|---:|
@@ -121,7 +125,7 @@ Chọn BM25/dense/hybrid theo chất lượng dev và budget. Hybrid không cả
 | E1 | BoW | Logistic Regression | Bắt buộc |
 | E2 | TF-IDF | Logistic Regression | Bắt buộc |
 | E3 | TF-IDF | Linear SVM | Bắt buộc |
-| E4 | Frozen all-MiniLM-L6-v2 | Logistic Regression | Thêm nếu hoàn thành trước ngày 5 |
+| E4 | Frozen all-MiniLM-L6-v2 | Logistic Regression | Thêm nếu E1–E3 đã ổn và còn giờ |
 
 E1–E3 đều có huấn luyện tham số Logistic Regression/Linear SVM; frozen encoder chỉ có nghĩa phần encoder không được cập nhật. Mục nâng cao R4 bổ sung việc fine-tune encoder của leader.
 
@@ -157,13 +161,13 @@ Hai phân tích ngắn bắt buộc, dùng lại file dự đoán:
 
 R1 = BM25; R2 = dense MiniLM; R3 = hybrid RRF. Dùng cùng corpus, chunks, query IDs, candidate pool và qrels. Mặc định tìm trên toàn corpus, không cấp gold domain/doc ID cho retriever.
 
-Ngày 1 chỉ xác nhận raw document/dialogue JSON đọc được và chọn cách chia passage; việc đối chiếu script token/structure của IBM nằm trong phiên chunks ngày 3, giới hạn tối đa một giờ. Ưu tiên cấu trúc đoạn có sẵn nếu dùng được; nếu phải viết adapter, lưu chunk-to-span mapping và config. Chỉ đặt cạnh số công bố khi cả segmentation, query/history, corpus, split và metric tương thích; cùng cách chia passage riêng lẻ chưa đủ để gọi là tái lập.
+Dùng tiếp parser, chunks/qrels và split đã có trong v0.4.1. Nếu cần đối chiếu cách chia passage của IBM hoặc sửa adapter, giới hạn phiên khảo sát tối đa một giờ, lưu chunk-to-span mapping và config, rồi chạy lại phần bị ảnh hưởng. Chỉ đặt cạnh số công bố khi segmentation, query/history, corpus, split và metric tương thích; cùng cách chia passage riêng lẻ chưa đủ để gọi là tái lập.
 
 Lấy query từ lượt user và lịch sử đã có trước câu trả lời cần dự đoán. Target response và grounding của nó chỉ dùng dựng nhãn đánh giá. Không index các câu trả lời hội thoại.
 
 Public test trong bản dữ liệu này là dummy; chia public validation theo dialogue ID thành dev và held-out evaluation, giữ tỷ lệ domain nếu có thể, lưu danh sách cố định. Corpus tài liệu được dùng chung theo thiết lập retrieval, còn hội thoại đánh giá phải tách biệt.
 
-Ngày 2 chỉ BM25 mức document từ raw text để nối sản phẩm; chưa có qrels và chưa công bố retrieval metrics. Ngày 3–4 mới dựng chunks, giữ doc_id/character offsets và ánh xạ grounding span sang chunk để tạo qrels. Span qua biên có thể có nhiều chunk liên quan; nhiều reference giữ thành tập positives, không bỏ tùy tiện. Audit khoảng 20 ca gồm cả hai tình huống này, lưu quy tắc relevance/coverage và thống kê span không ánh xạ được. Grounding không phải danh sách đầy đủ mọi đoạn đúng. Chạy retrieval trên toàn query held-out đã chọn, báo Recall@5, MRR@10 và latency; nêu rõ cách tính relevance và số query.
+Tuấn dùng API retrieval hiện có để nối UI ngay ở A; leader không chờ làm lại BM25 mức tài liệu. Hưng audit khoảng 20 ca qrels trong A hoặc B, gồm span qua biên và nhiều reference; leader xử lý nhận xét trước tạo train pairs hoặc đánh giá cuối. Giữ doc_id/character offsets, tập positives và quy tắc strict/lenient đã ghi trong cấu hình. Grounding không phải danh sách đầy đủ mọi đoạn đúng. Sau freeze mới chạy held-out; báo hit@3/hit@5 strict–lenient, MRR@10 và latency, ghi rõ số query và định nghĩa metric.
 
 Generation dùng retriever đã chọn trên dev, cùng model/prompt/config của ứng dụng. Chọn cố định 40 query held-out có phân bố domain để review; thêm BM25 đối chứng trên cùng 40 query nếu còn giờ. Đây là đánh giá nhỏ với giới hạn sample size rõ ràng.
 
@@ -186,35 +190,28 @@ R4 = cùng encoder MiniLM của R2 được fine-tune bằng MultipleNegativesRa
 - Tách theo dialogue ID, kiểm tra train không giao dev/held-out; audit query trùng chính xác hoặc gần trùng giữa các split. Dev chỉ chọn cấu hình/checkpoint, held-out dùng đánh giá cuối. Không dùng gold answers/grounding dev hoặc held-out để tạo training pairs hay hard negatives.
 - Grounding của target response chỉ dùng gán positive cho query từ user/history trước response đó. Lưu toàn bộ positives đã biết của query. Văn bản corpus chung được index như thiết lập retrieval; tách hội thoại không đồng nghĩa đánh giá trên tài liệu chưa từng thấy.
 - MNRL coi passage của cặp khác trong batch là negative. Dùng NO_DUPLICATES, đồng thời lọc xung đột positive đã biết; tránh passage trùng/giao nhau hoặc positive khác của cùng query xuất hiện như negative. Sampler loại trùng không tự giải quyết mọi false negative; nếu phải chọn một positive/query, lưu quy tắc và phân tích giới hạn.
-- Khởi đầu một cấu hình nhỏ, chẳng hạn 1 epoch, batch thực 16–32 tùy VRAM, LR 2e-5; kiểm tra 10–20 bước trước khi để máy chạy đêm. Đây là cấu hình thử, không phải cam kết tối ưu. Lưu max sequence length và bảo đảm passage positive không bị tokenizer cắt mất phần bằng chứng.
+- Khởi đầu một cấu hình nhỏ trên Colab A100, chẳng hạn 1 epoch, batch thực 16–32 tùy VRAM, LR 2e-5; kiểm tra 10–20 bước trước khi để máy tự chạy. Đây là cấu hình thử, không phải cam kết tối ưu hay runtime. Lưu max sequence length và bảo đảm passage positive không bị tokenizer cắt mất phần bằng chứng.
 - Mỗi run lưu config, split hash, seed, train loss, checkpoint, optimizer/scheduler state nếu cần resume. Xuất checkpoint/log khỏi vùng tạm của Colab. Ghi giờ GPU, phần cứng và số cặp train riêng với giờ công.
 - Sau fine-tune, encode lại cả corpus và query bằng cùng checkpoint R4; không dùng index R2 với query encoder R4. Cache/index key chứa checkpoint và corpus/chunk hash. Encoder cho Banking triage giữ artifact frozen riêng.
-- Ưu tiên ba seed 42/43/44 với cấu hình đã chốt, chạy tuần tự qua đêm nếu tài nguyên cho phép; báo mean ± std. Nếu chỉ hoàn thành một seed, ghi kết quả thăm dò, không nhận đã đo độ ổn định. Bootstrap theo dialogue cho chênh lệch R4–R2 là CI do mẫu đánh giá, khác biến thiên do seed.
-- Báo Recall@5, MRR@10 và latency p95 trên cùng phần cứng; có thể không cải thiện. Chọn phương pháp/seed phục vụ trước khi xem held-out; mặc định seed 42 nếu giữ R4. Đổi retriever phải cập nhật generation cache và đánh giá pipeline đúng artifact mới.
+- Ưu tiên ba seed 42/43/44 với cấu hình đã chốt, chỉ chạy thêm seed khi smoke run và giờ còn lại cho phép; báo mean ± std. Nếu chỉ hoàn thành một seed, ghi kết quả thăm dò, không nhận đã đo độ ổn định. Bootstrap theo dialogue cho chênh lệch R4–R2 là CI do mẫu đánh giá, khác biến thiên do seed.
+- Báo hit@3/hit@5, MRR@10 và latency p95 trên cùng phần cứng phục vụ; có thể không cải thiện. R4 so R2; R5 so R3 nếu chọn hybrid. Chọn phương pháp/seed phục vụ trước khi xem held-out; mặc định seed 42 nếu giữ R4. Đổi retriever phải cập nhật generation cache và đánh giá pipeline đúng artifact mới.
 
-Tối ngày 8: chỉ mở full run nếu luồng lõi đã ổn và còn đủ giờ chủ động trong budget. Dự kiến đêm 8 chạy seed 42, ngày 9 kiểm tra/re-index/dev, đêm 9 chạy seed còn lại cùng cấu hình nếu kịp. Không cam kết “xong trong 1–2 giờ” trước khi đo trên số cặp và GPU thực tế. Nếu gate không đạt hoặc cần sửa quá ngân sách, fine-tune retriever là việc đầu tiên sau nộp.
+Tại mốc ngày 8 của chặng C, chỉ mở full run nếu luồng lõi ổn và còn đủ 5 giờ chủ động. Thứ tự là tạo/audit pairs → smoke run → train → re-index → so dev → quyết định giữ/cắt; không gán từng seed vào một đêm cố định. Giờ máy có thể để buổi tối nhưng thời lượng do smoke run quyết định. Nếu không đủ điều kiện hoặc vượt ngân sách, fine-tune retriever chuyển sau nộp.
 
-## E. Lịch thực hiện theo đầu việc
+## E. Công việc theo chặng A–D
 
-| Ngày | Leader, khoảng 3h chủ động | Hưng, khoảng 1h | Cầu, khoảng 1h | Tuấn, khoảng 1h |
+Mỗi bạn làm khoảng 2–3 phiên một giờ cho một chặng. Dùng đầu ra và điều kiện nghiệm thu để chuyển tiếp; các mốc ngày chỉ giúp kiểm tra tiến độ. Chi tiết nhận gì, giao ai và ví dụ bàn giao nằm trong [TEAM_HANDOFF.md](TEAM_HANDOFF.md).
+
+| Chặng | Leader | Hưng | Cầu | Tuấn |
 |---|---|---|---|---|
-| 1 | Repo/contracts; đọc raw Docs; Ollama Q4 và probe TTFT | Tải/audit BANKING77 | Tải/audit split OOS | API trả response mẫu |
-| 2 | BM25 document-level; ghép UI/API/evidence, chưa qrels | Preprocessing + E1 | Split/calibration manifest | UI nhập và hiện evidence |
-| 3 | Chunks và offsets; kiểm tra parser/script gốc | E2 | Fit classifier 50 | API gọi artifact mẫu |
-| 4 | Qrels, span qua biên/nhiều reference; audit | E3 | H1/H2/H4, ghi giả thuyết | Log, lỗi đầu vào |
-| 5 | Dense và cache embeddings sau khi mapping ổn | Metrics; E4 nếu kịp | H3 và ngưỡng dev | UI evidence; nhận stream |
-| 6 | Hybrid, retrieval dev; generator với evidence thật | Confusion/errors | Risk–coverage | Nối stream API tới UI |
-| 7 | Cache/citation; chuẩn bị train pairs nếu kịp | Eval harness | Sensitivity từ predictions | Timeout và stream ngắt |
-| 8 | Hai mode chạy; gate retriever FT, smoke 10–20 bước | Audit qrels/train-pair sample | Ma trận ID-OOS | Smoke test bản đầu |
-| 9 | Kiểm tra run đêm; re-index/dev; chốt retriever/prompt | Bảng kết quả dev | Chốt handoff config | README/lệnh chạy |
-| 10 | Freeze artifacts; chạy held-out; R4 chỉ khi sẵn sàng | Metrics cuối | Chạy test OOS | Kiểm tra schema/log |
-| 11 | Review citation; TTFT/latency; phân tích R2/R4 | Review/viết báo cáo | Phân tích lỗi/viết | Chạy lại 40 ca |
-| 12 | Tổng hợp báo cáo, khóa tính năng | Hoàn thiện phần mình | Hoàn thiện phần mình | Hướng dẫn/đóng gói |
-| 13 | Môi trường mới và sửa blocker | Kiểm tra bảng/nguồn | Kiểm tra model/split | Cài theo README |
-| 14 | Video; mỗi người giải thích module người khác | Giải thích Handoff của Cầu | Giải thích retrieval của leader | Giải thích baseline của Hưng |
-| 15 | Kiểm tra gói nộp, nộp sớm | Rà báo cáo | Rà artifacts | Rà hướng dẫn |
+| A Chuẩn bị | Giao API Docs/ví dụ đã có; chọn 20 qrels để Hưng review; probe Ollama local; review audit của Cầu | Audit/splits, preprocessing, E1; review H-01 và gửi leader nhận xét qrels | C-01/C-02; chốt split/mask và calibration trước fit | UI/contract hai chế độ; gọi Docs thật; làm mock Banking/stream để không chờ model |
+| B Ghép bản đầu | Adapter generator độc lập, citation/cache/deadline; tiếp nhận qrels review | E2/E3 và ablation cùng split; giao bảng dev ban đầu | Fit LR, chọn C; giao Tuấn predict(text), model/config và ba ví dụ H1 | Thử predict độc lập rồi nối Banking vào API/UI; warm-up/nạp một lần |
+| C Hoàn thiện trên dev | Chốt Docs config/gate/prompt; giao generator thật cho Tuấn; tại mốc ngày 8 cân nhắc R4/R5 | Chọn cấu hình dev, confusion và ca lỗi; pipeline load lại được | H2–H4, đường cong và ngưỡng dev; giao Tuấn bản chốt accept/handoff | Nối generator/stream và nguồn; hội thoại/reset/hủy/lỗi; thay Banking artifact đã chốt |
+| D Đánh giá và bàn giao | Freeze, held-out, review citation, công cụ đánh giá dùng chung và ghép báo cáo | Test sau freeze; metrics, phân tích và phần báo cáo giao leader | Test sau freeze; ma trận ID-OOS, reweight 5/10/20%, báo cáo | 40 smoke cùng nhóm; latency/cold start, môi trường mới, hướng dẫn chạy và phần triển khai |
 
-Báo cáo viết dần từ ngày 3. Bảng giờ là giờ chủ động, gồm trao đổi, cấu hình run và viết tài liệu; máy train qua đêm ghi ở log riêng. Leader giải thích module serving của Tuấn trong vòng hỏi chéo ngày 14; bốn người đổi vai trong cùng phiên tập bảo vệ, không phát sinh họp ngoài quỹ giờ. Đến ngày 8 chưa có luồng ổn thì cắt model/tính năng mở rộng, dùng dự phòng để tích hợp. Ngày 13–15 chỉ sửa lỗi bàn giao.
+Hưng phụ trách kết quả Course-77 và review qrels; công cụ đánh giá dùng chung do leader duy trì từ nền hiện có. Cầu chịu trách nhiệm phương pháp/score của Banking, Tuấn kiểm tra kết quả khi đi qua API/UI. Mỗi owner viết phần báo cáo từ kết quả thật của mình.
+
+Ở mốc ngày 2 kiểm tra UI → API → evidence; mốc ngày 5 kiểm tra Banking thật qua API; mốc ngày 8 kiểm tra hai chế độ và quyết định phạm vi nâng cao. Khóa tính năng trước ngày 13, dành ngày 13–15 chạy lại, sửa lỗi, quay video và bảo vệ. Buổi đầu dành 15 phút đi qua code/ví dụ; cuối D mỗi người giải thích module của một bạn khác trong giờ ghép bài đã dự trù.
 
 ## F. Sau nộp và phần đóng góp của leader
 
@@ -237,6 +234,6 @@ Bàn giao v1 gồm source/config/split IDs, model artifacts hoặc cách lấy, 
 - [Ollama streaming API](https://docs.ollama.com/api/streaming).
 - [Sentence Transformers — MNRL](https://www.sbert.net/docs/package_reference/sentence_transformer/losses.html#sentence_transformers.losses.MultipleNegativesRankingLoss).
 - [Sentence Transformers — batch samplers](https://www.sbert.net/docs/package_reference/sentence_transformer/sampler.html).
-- [Dataset card MultiDoc2Dial](https://huggingface.co/datasets/IBM/multidoc2dial): metadata và mục Licensing Information hiện ghi khác nhau. Ngày 1 đối chiếu notice kèm bản tải, lưu revision/attribution; repo dùng downloader/manifest.
+- [Dataset card MultiDoc2Dial](https://huggingface.co/datasets/IBM/multidoc2dial): đối chiếu notice kèm bản tải trong bước audit, lưu revision/attribution; repo dùng downloader/manifest.
 
-Đây là kế hoạch đã điều chỉnh, chưa có code, model huấn luyện hay kết quả benchmark được tạo trong lần cập nhật này. Mọi latency, TTFT và giờ công ở trên là mục tiêu/ước lượng. Thời gian train/fine-tune không giám sát qua đêm được tách khỏi giờ chủ động, nhưng vẫn chịu mốc lịch và tài nguyên thực tế. Các nguồn dữ liệu cần được tải và audit trong giai đoạn thực hiện.
+Đây là kế hoạch thực hiện từ nền v0.4.1. Retrieval R1/R2/R3 và số đo dev đã có; Banking head/calibration, Course-77, generator phục vụ thật/cache/deadline và R4/R5 vẫn là công việc được giao, chưa được coi là hoàn thành. Trạng thái và giới hạn số đo xem [VERIFICATION_v0.4.md](VERIFICATION_v0.4.md). Latency, TTFT, A100 và giờ công trong plan là mục tiêu/môi trường dự kiến, không phải kết quả đã đo. Giờ máy tự train ghi riêng; chuẩn bị, theo dõi, sửa lỗi và đánh giá vẫn tính vào giờ chủ động.

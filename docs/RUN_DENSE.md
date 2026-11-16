@@ -5,6 +5,11 @@ cache corpus R2 và cache Banking. Weights encoder và LLM không nằm trong ZI
 Không cần raw để chạy API từ ZIP; raw dùng khi tái tạo/audit dữ liệu.
 Nếu clone GitHub, cài môi trường ở bước 1 trước rồi tạo runtime assets bên dưới.
 
+App demo chạy local: API/UI, retrieval, Banking và Ollama ở máy demo. Colab với
+GPU mục tiêu A100 dành cho train/fine-tune và chuẩn bị artifact; sau đó chuyển
+checkpoint/config/index về máy local. Notebook/run fine-tune R4 chưa có trong
+bản hiện tại. Không cần duy trì phiên Colab để app trả lời người dùng.
+
 ## 1. Cài và kiểm tra
 
 ```powershell
@@ -101,6 +106,5 @@ Coverage 70% là cấu hình thử nghiệm. Risk đo được vẫn cao; đọc
 [VERIFICATION_v0.4.md](VERIFICATION_v0.4.md) trước khi mô tả chất lượng. Chưa chạy
 retrieval held-out, fine-tuning R4/R5, generation, cache generation hay TTFT LLM.
 
-GitHub: https://github.com/lamgiatran/SupportLens (riêng tư). Source được commit cục
-bộ khi đóng gói; trạng thái push thực tế được báo riêng sau khi kiểm tra remote. Chia việc dùng
-[TEAM_HANDOFF.md](TEAM_HANDOFF.md), không tạo thêm checklist bàn giao riêng.
+Repo GitHub hiện public: https://github.com/lamgiatran/SupportLens. Chia việc dùng
+[TEAM_HANDOFF.md](TEAM_HANDOFF.md) và [bảng công việc A–D](../issues/README.md).
