@@ -7,7 +7,7 @@ SupportLens course project for class CC01, CLC_HK261, Semester 261, at Ho Chi Mi
 **Course:** Natural Language Processing (CO3085)  
 **Instructor:** Trương Vĩnh Lân  
 **Class:** CC01  
-**Program and semester:** CLC_HK261
+**Semester:** HK261
 
 | Member | Student ID | Role | Responsibilities |
 |---|---|---|---|
