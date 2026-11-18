@@ -1,0 +1,142 @@
+{
+  "model_scope": "course77",
+  "dataset": "banking77",
+  "source_sha256": {
+    "train.csv": "b06e26ac675513959a63135f11b94ea7786ed02da65db93a5650d8838cbc664b",
+    "test.csv": "d12d6e3bc4c3103966ae786dc435913c0c563dfa328f5a3646d0e62cfeeb474d",
+    "categories.json": "53261da888122daf2d120d925458631d9619e15d82e56052e7a42e535ce32b63"
+  },
+  "seed": 42,
+  "dev_ratio": 0.2,
+  "raw_counts": {
+    "train": 10003,
+    "test": 3080,
+    "labels": 77,
+    "train_blanks": 0,
+    "test_blanks": 0
+  },
+  "duplicates_and_overlap": {
+    "train_internal_duplicate_extra_rows": 4,
+    "train_internal_duplicates": [
+      {
+        "duplicate_sample_id": "train/1290",
+        "kept_sample_id": "train/1246",
+        "label": "card_not_working",
+        "normalized_text": "i can't seem to be able to use my card"
+      },
+      {
+        "duplicate_sample_id": "train/1724",
+        "kept_sample_id": "train/1710",
+        "label": "pin_blocked",
+        "normalized_text": "i put the wrong pin too many times and now it is blocked. can you help me unblock it?"
+      },
+      {
+        "duplicate_sample_id": "train/4595",
+        "kept_sample_id": "train/4594",
+        "label": "atm_support",
+        "normalized_text": "where can i withdraw money from?"
+      },
+      {
+        "duplicate_sample_id": "train/6965",
+        "kept_sample_id": "train/6910",
+        "label": "change_pin",
+        "normalized_text": "do i need to go to a physical bank to change my pin?"
+      }
+    ],
+    "test_internal_duplicate_groups": 1,
+    "train_test_normalized_overlap_count": 6,
+    "train_test_overlaps": [
+      {
+        "train_sample_id": "train/1722",
+        "train_label": "pin_blocked",
+        "normalized_text": "how do i unblock my pin?",
+        "test_matches": [
+          {
+            "sample_id": "test/554",
+            "label": "pin_blocked"
+          }
+        ]
+      },
+      {
+        "train_sample_id": "train/3103",
+        "train_label": "card_acceptance",
+        "normalized_text": "what businesses accept this card?",
+        "test_matches": [
+          {
+            "sample_id": "test/976",
+            "label": "card_acceptance"
+          }
+        ]
+      },
+      {
+        "train_sample_id": "train/3116",
+        "train_label": "card_acceptance",
+        "normalized_text": "where can i use my card?",
+        "test_matches": [
+          {
+            "sample_id": "test/977",
+            "label": "card_acceptance"
+          }
+        ]
+      },
+      {
+        "train_sample_id": "train/4476",
+        "train_label": "compromised_card",
+        "normalized_text": "there are a few transaction that i don't recognize, i think someone managed to get my card details and use it.",
+        "test_matches": [
+          {
+            "sample_id": "test/1432",
+            "label": "compromised_card"
+          }
+        ]
+      },
+      {
+        "train_sample_id": "train/4576",
+        "train_label": "atm_support",
+        "normalized_text": "at which atms can i use this card?",
+        "test_matches": [
+          {
+            "sample_id": "test/1474",
+            "label": "atm_support"
+          }
+        ]
+      },
+      {
+        "train_sample_id": "train/6984",
+        "train_label": "change_pin",
+        "normalized_text": "which cash machines will allow me to change my pin?",
+        "test_matches": [
+          {
+            "sample_id": "test/2149",
+            "label": "change_pin"
+          }
+        ]
+      }
+    ],
+    "policy": "Official test is preserved unchanged. 6 train rows overlapping official test (after strip+casefold) and 4 extra internal duplicate train rows are marked eligible=False and excluded from train_fit/dev to prevent leakage."
+  },
+  "split_counts": {
+    "train_fit": 7994,
+    "dev": 1999,
+    "excluded": 10,
+    "test": 3080
+  },
+  "disjoint_normalized_text_verified": true,
+  "per_split_label_coverage": {
+    "train_fit_labels": 77,
+    "train_fit_min_max": [
+      28,
+      149
+    ],
+    "dev_labels": 77,
+    "dev_min_max": [
+      7,
+      38
+    ],
+    "test_labels": 77,
+    "test_min_max": [
+      40,
+      40
+    ]
+  }
+}
