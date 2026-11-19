@@ -24,5 +24,14 @@ Giao Leader/Cầu: một commit gồm `runs/handoff50/duplicate_audit.json`, dan
 cặp cần review và quy tắc ngắn trong issue này. Nếu thay mask, giữ nguyên thứ tự
 ID và vector, cập nhật manifest/hash. Không dùng số LR kiểm tra nhanh làm metric.
 
+### Quy tắc chốt trước fit (Action Rule - Cau):
+1. Giữ nguyên tập test và dev (in-scope và OOS) để đảm bảo tính khách quan của benchmark.
+2. Loại bỏ hoàn toàn khỏi `fit_eligible`:
+   - 2 dòng rỗng do lỗi định dạng nguồn: `id/train/3996`, `id/train/4017`.
+   - 2 mẫu rò rỉ nguyên văn từ train sang valid/test: `id/train/3997` (trùng dev), `id/train/4018` (trùng test).
+   - 1 mẫu mâu thuẫn nhãn/trùng token: `id/train/2128` (trùng token với `id/test/721` nhưng nhãn trái ngược).
+3. Tuyệt đối không xóa dòng vật lý khỏi file raw nhằm giữ nguyên ánh xạ 1-1 của `sample_id` và thứ tự vector.
+4. Tổng số mẫu `fit_eligible` của tập train sạch là 5,900 / 5,905 mẫu.
+
 Xong khi: đối chiếu được 8 cặp được báo (hoặc giải thích khác biệt), giữ đủ IDs,
 có quy tắc tái lập. Kết quả mở đường cho C-02; chưa phải một run benchmark.

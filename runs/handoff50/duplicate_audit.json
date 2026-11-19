@@ -1,0 +1,616 @@
+{
+  "audit_version": "v1.1",
+  "owner": "Nguyen Huu Cau (2352129)",
+  "action_rule": {
+    "rule_summary": "1. Preserve official test and dev partitions intact. 2. Exclude critical train leakage samples from fit_eligible: ['id/train/3997', 'id/train/4018', 'id/train/2128']. 3. Exclude blank lines from fit_eligible: ['id/train/3996', 'id/train/4017']. 4. Never delete rows physically from source files to maintain exact 1-to-1 sample ID alignment.",
+    "excluded_from_fit_eligible": {
+      "blank_lines": [
+        "id/train/3996",
+        "id/train/4017"
+      ],
+      "leak_and_conflict_lines": [
+        "id/train/3997",
+        "id/train/4018",
+        "id/train/2128"
+      ],
+      "total_excluded_from_train": 5,
+      "resulting_fit_eligible_count": 5900
+    }
+  },
+  "suspicious_lines_inspection": {
+    "train": {
+      "python_idx_3995": {
+        "physical_lf_line": 3996,
+        "text": "can i change my pin?",
+        "repr": "'can i change my pin?'",
+        "length": 20,
+        "unicode_codepoints": "U+0063 U+0061 U+006E U+0020 U+0069 U+0020 U+0063 U+0068 U+0061 U+006E U+0067 U+0065 U+0020 U+006D U+0079 U+0020 U+0070 U+0069 U+006E U+003F",
+        "is_empty": false
+      },
+      "python_idx_3996": {
+        "physical_lf_line": 3997,
+        "text": "",
+        "repr": "''",
+        "length": 0,
+        "unicode_codepoints": "<EMPTY>",
+        "is_empty": true
+      },
+      "python_idx_3997": {
+        "physical_lf_line": 3998,
+        "text": "do i need to go to a physical bank to change my pin?",
+        "repr": "'do i need to go to a physical bank to change my pin?'",
+        "length": 52,
+        "unicode_codepoints": "U+0064 U+006F U+0020 U+0069 U+0020 U+006E U+0065 U+0065 U+0064 U+0020 U+0074 U+006F U+0020 U+0067 U+006F U+0020 U+0074 U+006F U+0020 U+0061 U+0020 U+0070 U+0068 U+0079 U+0073 U+0069 U+0063 U+0061 U+006C U+0020 U+0062 U+0061 U+006E U+006B U+0020 U+0074 U+006F U+0020 U+0063 U+0068 U+0061 U+006E U+0067 U+0065 U+0020 U+006D U+0079 U+0020 U+0070 U+0069 U+006E U+003F",
+        "is_empty": false
+      },
+      "python_idx_4016": {
+        "physical_lf_line": 4017,
+        "text": "i am on vacation in spain and need to change my pin.",
+        "repr": "'i am on vacation in spain and need to change my pin.'",
+        "length": 52,
+        "unicode_codepoints": "U+0069 U+0020 U+0061 U+006D U+0020 U+006F U+006E U+0020 U+0076 U+0061 U+0063 U+0061 U+0074 U+0069 U+006F U+006E U+0020 U+0069 U+006E U+0020 U+0073 U+0070 U+0061 U+0069 U+006E U+0020 U+0061 U+006E U+0064 U+0020 U+006E U+0065 U+0065 U+0064 U+0020 U+0074 U+006F U+0020 U+0063 U+0068 U+0061 U+006E U+0067 U+0065 U+0020 U+006D U+0079 U+0020 U+0070 U+0069 U+006E U+002E",
+        "is_empty": false
+      },
+      "python_idx_4017": {
+        "physical_lf_line": 4018,
+        "text": "",
+        "repr": "''",
+        "length": 0,
+        "unicode_codepoints": "<EMPTY>",
+        "is_empty": true
+      },
+      "python_idx_4018": {
+        "physical_lf_line": 4019,
+        "text": "which cash machines will allow me to change my pin?",
+        "repr": "'which cash machines will allow me to change my pin?'",
+        "length": 51,
+        "unicode_codepoints": "U+0077 U+0068 U+0069 U+0063 U+0068 U+0020 U+0063 U+0061 U+0073 U+0068 U+0020 U+006D U+0061 U+0063 U+0068 U+0069 U+006E U+0065 U+0073 U+0020 U+0077 U+0069 U+006C U+006C U+0020 U+0061 U+006C U+006C U+006F U+0077 U+0020 U+006D U+0065 U+0020 U+0074 U+006F U+0020 U+0063 U+0068 U+0061 U+006E U+0067 U+0065 U+0020 U+006D U+0079 U+0020 U+0070 U+0069 U+006E U+003F",
+        "is_empty": false
+      }
+    },
+    "id_oos/valid": {
+      "python_idx_287": {
+        "physical_lf_line": 288,
+        "text": "someone might be using my card.  what should i do?",
+        "repr": "'someone might be using my card.  what should i do?'",
+        "length": 50,
+        "unicode_codepoints": "U+0073 U+006F U+006D U+0065 U+006F U+006E U+0065 U+0020 U+006D U+0069 U+0067 U+0068 U+0074 U+0020 U+0062 U+0065 U+0020 U+0075 U+0073 U+0069 U+006E U+0067 U+0020 U+006D U+0079 U+0020 U+0063 U+0061 U+0072 U+0064 U+002E U+0020 U+0020 U+0077 U+0068 U+0061 U+0074 U+0020 U+0073 U+0068 U+006F U+0075 U+006C U+0064 U+0020 U+0069 U+0020 U+0064 U+006F U+003F",
+        "is_empty": false
+      },
+      "python_idx_288": {
+        "physical_lf_line": 289,
+        "text": "there are a few transaction that i don't recognize, i think someone managed to get my card details and use it.",
+        "repr": "\"there are a few transaction that i don't recognize, i think someone managed to get my card details and use it.\"",
+        "length": 110,
+        "unicode_codepoints": "U+0074 U+0068 U+0065 U+0072 U+0065 U+0020 U+0061 U+0072 U+0065 U+0020 U+0061 U+0020 U+0066 U+0065 U+0077 U+0020 U+0074 U+0072 U+0061 U+006E U+0073 U+0061 U+0063 U+0074 U+0069 U+006F U+006E U+0020 U+0074 U+0068 U+0061 U+0074 U+0020 U+0069 U+0020 U+0064 U+006F U+006E U+0027 U+0074 U+0020 U+0072 U+0065 U+0063 U+006F U+0067 U+006E U+0069 U+007A U+0065 U+002C U+0020 U+0069 U+0020 U+0074 U+0068 U+0069 U+006E U+006B U+0020 U+0073 U+006F U+006D U+0065 U+006F U+006E U+0065 U+0020 U+006D U+0061 U+006E U+0061 U+0067 U+0065 U+0064 U+0020 U+0074 U+006F U+0020 U+0067 U+0065 U+0074 U+0020 U+006D U+0079 U+0020 U+0063 U+0061 U+0072 U+0064 U+0020 U+0064 U+0065 U+0074 U+0061 U+0069 U+006C U+0073 U+0020 U+0061 U+006E U+0064 U+0020 U+0075 U+0073 U+0065 U+0020 U+0069 U+0074 U+002E",
+        "is_empty": false
+      },
+      "python_idx_289": {
+        "physical_lf_line": 290,
+        "text": "",
+        "repr": "''",
+        "length": 0,
+        "unicode_codepoints": "<EMPTY>",
+        "is_empty": true
+      },
+      "python_idx_290": {
+        "physical_lf_line": 291,
+        "text": "i think someone has hacked my card!",
+        "repr": "'i think someone has hacked my card!'",
+        "length": 35,
+        "unicode_codepoints": "U+0069 U+0020 U+0074 U+0068 U+0069 U+006E U+006B U+0020 U+0073 U+006F U+006D U+0065 U+006F U+006E U+0065 U+0020 U+0068 U+0061 U+0073 U+0020 U+0068 U+0061 U+0063 U+006B U+0065 U+0064 U+0020 U+006D U+0079 U+0020 U+0063 U+0061 U+0072 U+0064 U+0021",
+        "is_empty": false
+      },
+      "python_idx_308": {
+        "physical_lf_line": 309,
+        "text": "will any atm's decline my card?",
+        "repr": "\"will any atm's decline my card?\"",
+        "length": 31,
+        "unicode_codepoints": "U+0077 U+0069 U+006C U+006C U+0020 U+0061 U+006E U+0079 U+0020 U+0061 U+0074 U+006D U+0027 U+0073 U+0020 U+0064 U+0065 U+0063 U+006C U+0069 U+006E U+0065 U+0020 U+006D U+0079 U+0020 U+0063 U+0061 U+0072 U+0064 U+003F",
+        "is_empty": false
+      },
+      "python_idx_309": {
+        "physical_lf_line": 310,
+        "text": "",
+        "repr": "''",
+        "length": 0,
+        "unicode_codepoints": "<EMPTY>",
+        "is_empty": true
+      },
+      "python_idx_310": {
+        "physical_lf_line": 311,
+        "text": "at which atms can i use this card?",
+        "repr": "'at which atms can i use this card?'",
+        "length": 34,
+        "unicode_codepoints": "U+0061 U+0074 U+0020 U+0077 U+0068 U+0069 U+0063 U+0068 U+0020 U+0061 U+0074 U+006D U+0073 U+0020 U+0063 U+0061 U+006E U+0020 U+0069 U+0020 U+0075 U+0073 U+0065 U+0020 U+0074 U+0068 U+0069 U+0073 U+0020 U+0063 U+0061 U+0072 U+0064 U+003F",
+        "is_empty": false
+      }
+    },
+    "id_oos/test": {
+      "python_idx_416": {
+        "physical_lf_line": 417,
+        "text": "does this card work everywhere?",
+        "repr": "'does this card work everywhere?'",
+        "length": 31,
+        "unicode_codepoints": "U+0064 U+006F U+0065 U+0073 U+0020 U+0074 U+0068 U+0069 U+0073 U+0020 U+0063 U+0061 U+0072 U+0064 U+0020 U+0077 U+006F U+0072 U+006B U+0020 U+0065 U+0076 U+0065 U+0072 U+0079 U+0077 U+0068 U+0065 U+0072 U+0065 U+003F",
+        "is_empty": false
+      },
+      "python_idx_417": {
+        "physical_lf_line": 418,
+        "text": "",
+        "repr": "''",
+        "length": 0,
+        "unicode_codepoints": "<EMPTY>",
+        "is_empty": true
+      },
+      "python_idx_418": {
+        "physical_lf_line": 419,
+        "text": "",
+        "repr": "''",
+        "length": 0,
+        "unicode_codepoints": "<EMPTY>",
+        "is_empty": true
+      },
+      "python_idx_419": {
+        "physical_lf_line": 420,
+        "text": "what businesses accept this card?",
+        "repr": "'what businesses accept this card?'",
+        "length": 33,
+        "unicode_codepoints": "U+0077 U+0068 U+0061 U+0074 U+0020 U+0062 U+0075 U+0073 U+0069 U+006E U+0065 U+0073 U+0073 U+0065 U+0073 U+0020 U+0061 U+0063 U+0063 U+0065 U+0070 U+0074 U+0020 U+0074 U+0068 U+0069 U+0073 U+0020 U+0063 U+0061 U+0072 U+0064 U+003F",
+        "is_empty": false
+      }
+    }
+  },
+  "splitlines_vs_physical_lf": {
+    "id-oos/test/seq.in": {
+      "splitlines_count": 1080,
+      "physical_lf_count": 1080,
+      "raw_lf_terminator_parts": 1081,
+      "ends_with_newline": true,
+      "has_crlf": false,
+      "matches_1to1": true
+    },
+    "id-oos/train/seq.in": {
+      "splitlines_count": 2062,
+      "physical_lf_count": 2062,
+      "raw_lf_terminator_parts": 2063,
+      "ends_with_newline": true,
+      "has_crlf": false,
+      "matches_1to1": true
+    },
+    "id-oos/valid/seq.in": {
+      "splitlines_count": 530,
+      "physical_lf_count": 530,
+      "raw_lf_terminator_parts": 531,
+      "ends_with_newline": true,
+      "has_crlf": false,
+      "matches_1to1": true
+    },
+    "ood-oos/test/seq.in": {
+      "splitlines_count": 1000,
+      "physical_lf_count": 1000,
+      "raw_lf_terminator_parts": 1001,
+      "ends_with_newline": true,
+      "has_crlf": false,
+      "matches_1to1": true
+    },
+    "ood-oos/valid/seq.in": {
+      "splitlines_count": 200,
+      "physical_lf_count": 200,
+      "raw_lf_terminator_parts": 201,
+      "ends_with_newline": true,
+      "has_crlf": false,
+      "matches_1to1": true
+    },
+    "test/seq.in": {
+      "splitlines_count": 2000,
+      "physical_lf_count": 2000,
+      "raw_lf_terminator_parts": 2001,
+      "ends_with_newline": true,
+      "has_crlf": false,
+      "matches_1to1": true
+    },
+    "train/seq.in": {
+      "splitlines_count": 5905,
+      "physical_lf_count": 5905,
+      "raw_lf_terminator_parts": 5906,
+      "ends_with_newline": true,
+      "has_crlf": false,
+      "matches_1to1": true
+    },
+    "valid/seq.in": {
+      "splitlines_count": 1506,
+      "physical_lf_count": 1506,
+      "raw_lf_terminator_parts": 1507,
+      "ends_with_newline": true,
+      "has_crlf": false,
+      "matches_1to1": true
+    }
+  },
+  "truncation_check": {
+    "max_seq_length": 256,
+    "max_tokens_found": 96,
+    "truncated_count": 0
+  },
+  "reviewer_8_pairs_verification": [
+    {
+      "pair": "id/train/3997 vs id/valid/1017",
+      "description": "Cross-split leak: Train -> Dev",
+      "sample_a": {
+        "id": "id/train/3997",
+        "text": "do i need to go to a physical bank to change my pin?",
+        "label": "change_pin",
+        "original_intent": "change_pin",
+        "tokens": [
+          "do",
+          "i",
+          "need",
+          "to",
+          "go",
+          "to",
+          "a",
+          "physical",
+          "bank",
+          "to",
+          "change",
+          "my",
+          "pin",
+          "?"
+        ]
+      },
+      "sample_b": {
+        "id": "id/valid/1017",
+        "text": "do i need to go to a physical bank to change my pin?",
+        "label": "change_pin",
+        "original_intent": "change_pin",
+        "tokens": [
+          "do",
+          "i",
+          "need",
+          "to",
+          "go",
+          "to",
+          "a",
+          "physical",
+          "bank",
+          "to",
+          "change",
+          "my",
+          "pin",
+          "?"
+        ]
+      },
+      "exact_match": true,
+      "normalized_match": true,
+      "token_match": true,
+      "label_conflict": false,
+      "action": "Exclude sample_a from fit_eligible"
+    },
+    {
+      "pair": "id/train/4018 vs id/test/1353",
+      "description": "Cross-split leak: Train -> Test",
+      "sample_a": {
+        "id": "id/train/4018",
+        "text": "which cash machines will allow me to change my pin?",
+        "label": "change_pin",
+        "original_intent": "change_pin",
+        "tokens": [
+          "which",
+          "cash",
+          "machines",
+          "will",
+          "allow",
+          "me",
+          "to",
+          "change",
+          "my",
+          "pin",
+          "?"
+        ]
+      },
+      "sample_b": {
+        "id": "id/test/1353",
+        "text": "which cash machines will allow me to change my pin?",
+        "label": "change_pin",
+        "original_intent": "change_pin",
+        "tokens": [
+          "which",
+          "cash",
+          "machines",
+          "will",
+          "allow",
+          "me",
+          "to",
+          "change",
+          "my",
+          "pin",
+          "?"
+        ]
+      },
+      "exact_match": true,
+      "normalized_match": true,
+      "token_match": true,
+      "label_conflict": false,
+      "action": "Exclude sample_a from fit_eligible"
+    },
+    {
+      "pair": "id/train/2128 vs id/test/721",
+      "description": "Token duplicate & Label conflict: Train -> Test",
+      "sample_a": {
+        "id": "id/train/2128",
+        "text": "how do i change my address ?",
+        "label": "edit_personal_details",
+        "original_intent": "edit_personal_details",
+        "tokens": [
+          "how",
+          "do",
+          "i",
+          "change",
+          "my",
+          "address",
+          "?"
+        ]
+      },
+      "sample_b": {
+        "id": "id/test/721",
+        "text": "how do i change my address?",
+        "label": "why_verify_identity",
+        "original_intent": "why_verify_identity",
+        "tokens": [
+          "how",
+          "do",
+          "i",
+          "change",
+          "my",
+          "address",
+          "?"
+        ]
+      },
+      "exact_match": false,
+      "normalized_match": false,
+      "token_match": true,
+      "label_conflict": true,
+      "action": "Exclude sample_a from fit_eligible"
+    },
+    {
+      "pair": "id_oos/train/480 vs id_oos/test/234",
+      "description": "OOS Cross-split duplicate: Train -> Test",
+      "sample_a": {
+        "id": "id_oos/train/480",
+        "text": "how do i unblock my pin?",
+        "label": "oos",
+        "original_intent": "pin_blocked",
+        "tokens": [
+          "how",
+          "do",
+          "i",
+          "unblock",
+          "my",
+          "pin",
+          "?"
+        ]
+      },
+      "sample_b": {
+        "id": "id_oos/test/234",
+        "text": "how do i unblock my pin?",
+        "label": "oos",
+        "original_intent": "pin_blocked",
+        "tokens": [
+          "how",
+          "do",
+          "i",
+          "unblock",
+          "my",
+          "pin",
+          "?"
+        ]
+      },
+      "exact_match": true,
+      "normalized_match": true,
+      "token_match": true,
+      "label_conflict": false,
+      "action": "Keep test/dev intact, note in audit"
+    },
+    {
+      "pair": "id_oos/train/795 vs id_oos/test/420",
+      "description": "OOS Cross-split duplicate: Train -> Test",
+      "sample_a": {
+        "id": "id_oos/train/795",
+        "text": "where can i use my card?",
+        "label": "oos",
+        "original_intent": "card_acceptance",
+        "tokens": [
+          "where",
+          "can",
+          "i",
+          "use",
+          "my",
+          "card",
+          "?"
+        ]
+      },
+      "sample_b": {
+        "id": "id_oos/test/420",
+        "text": "where can i use my card?",
+        "label": "oos",
+        "original_intent": "card_acceptance",
+        "tokens": [
+          "where",
+          "can",
+          "i",
+          "use",
+          "my",
+          "card",
+          "?"
+        ]
+      },
+      "exact_match": true,
+      "normalized_match": true,
+      "token_match": true,
+      "label_conflict": false,
+      "action": "Keep test/dev intact, note in audit"
+    },
+    {
+      "pair": "id_oos/valid/211 vs id_oos/test/419",
+      "description": "OOS Cross-split duplicate: Dev -> Test",
+      "sample_a": {
+        "id": "id_oos/valid/211",
+        "text": "what businesses accept this card?",
+        "label": "oos",
+        "original_intent": "card_acceptance",
+        "tokens": [
+          "what",
+          "businesses",
+          "accept",
+          "this",
+          "card",
+          "?"
+        ]
+      },
+      "sample_b": {
+        "id": "id_oos/test/419",
+        "text": "what businesses accept this card?",
+        "label": "oos",
+        "original_intent": "card_acceptance",
+        "tokens": [
+          "what",
+          "businesses",
+          "accept",
+          "this",
+          "card",
+          "?"
+        ]
+      },
+      "exact_match": true,
+      "normalized_match": true,
+      "token_match": true,
+      "label_conflict": false,
+      "action": "Keep test/dev intact, note in audit"
+    },
+    {
+      "pair": "id_oos/valid/288 vs id_oos/test/595",
+      "description": "OOS Cross-split duplicate: Dev -> Test",
+      "sample_a": {
+        "id": "id_oos/valid/288",
+        "text": "there are a few transaction that i don't recognize, i think someone managed to get my card details and use it.",
+        "label": "oos",
+        "original_intent": "compromised_card",
+        "tokens": [
+          "there",
+          "are",
+          "a",
+          "few",
+          "transaction",
+          "that",
+          "i",
+          "don",
+          "'",
+          "t",
+          "recognize",
+          ",",
+          "i",
+          "think",
+          "someone",
+          "managed",
+          "to",
+          "get",
+          "my",
+          "card",
+          "details",
+          "and",
+          "use",
+          "it",
+          "."
+        ]
+      },
+      "sample_b": {
+        "id": "id_oos/test/595",
+        "text": "there are a few transaction that i don't recognize, i think someone managed to get my card details and use it.",
+        "label": "oos",
+        "original_intent": "compromised_card",
+        "tokens": [
+          "there",
+          "are",
+          "a",
+          "few",
+          "transaction",
+          "that",
+          "i",
+          "don",
+          "'",
+          "t",
+          "recognize",
+          ",",
+          "i",
+          "think",
+          "someone",
+          "managed",
+          "to",
+          "get",
+          "my",
+          "card",
+          "details",
+          "and",
+          "use",
+          "it",
+          "."
+        ]
+      },
+      "exact_match": true,
+      "normalized_match": true,
+      "token_match": true,
+      "label_conflict": false,
+      "action": "Keep test/dev intact, note in audit"
+    },
+    {
+      "pair": "id_oos/valid/310 vs id_oos/test/638",
+      "description": "OOS Cross-split duplicate: Dev -> Test",
+      "sample_a": {
+        "id": "id_oos/valid/310",
+        "text": "at which atms can i use this card?",
+        "label": "oos",
+        "original_intent": "atm_support",
+        "tokens": [
+          "at",
+          "which",
+          "atms",
+          "can",
+          "i",
+          "use",
+          "this",
+          "card",
+          "?"
+        ]
+      },
+      "sample_b": {
+        "id": "id_oos/test/638",
+        "text": "at which atms can i use this card?",
+        "label": "oos",
+        "original_intent": "atm_support",
+        "tokens": [
+          "at",
+          "which",
+          "atms",
+          "can",
+          "i",
+          "use",
+          "this",
+          "card",
+          "?"
+        ]
+      },
+      "exact_match": true,
+      "normalized_match": true,
+      "token_match": true,
+      "label_conflict": false,
+      "action": "Keep test/dev intact, note in audit"
+    }
+  ],
+  "summary": {
+    "total_samples": 14283,
+    "in_scope_train_samples": 5905,
+    "in_scope_valid_samples": 1506,
+    "in_scope_test_samples": 2000,
+    "fit_eligible_clean_samples": 5900
+  }
+}
