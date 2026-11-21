@@ -8,6 +8,7 @@ from dataclasses import asdict, dataclass
 import hashlib
 import json
 from pathlib import Path
+from threading import Lock
 from typing import Callable, Literal, Sequence
 
 import numpy as np
@@ -44,15 +45,24 @@ class BankingEncoder:
         self.config, self.device = config, device
         self._backend = backend
         self.local_files_only = local_files_only
+        self._load_lock = Lock()
+
+    def _create_backend(self):
+        from sentence_transformers import SentenceTransformer
+        return SentenceTransformer(
+            self.config.model_id, revision=self.config.revision, device=self.device,
+            trust_remote_code=False, local_files_only=self.local_files_only)
 
     def _load(self):
-        if self._backend is None:
-            from sentence_transformers import SentenceTransformer
-            self._backend = SentenceTransformer(
-                self.config.model_id, revision=self.config.revision, device=self.device,
-                trust_remote_code=False, local_files_only=self.local_files_only)
-        self._backend.max_seq_length = self.config.max_seq_length
-        return self._backend
+        # Publish only a fully configured backend; concurrent callers share it.
+        with self._load_lock:
+            if self._backend is None:
+                backend = self._create_backend()
+                backend.max_seq_length = self.config.max_seq_length
+                self._backend = backend
+            else:
+                self._backend.max_seq_length = self.config.max_seq_length
+            return self._backend
 
     def encode(self, texts: Sequence[str], *, batch_size: int = 32) -> np.ndarray:
         if isinstance(texts, str) or batch_size < 1:
@@ -91,6 +101,12 @@ class BankingPipeline:
             raise ValueError("head and live encoder do not match")
         self.encoder = encoder
         self.predict_from_embedding = predict_from_embedding
+
+    def load(self):
+        """Eager serving load. Cache-building encode() keeps its own download policy."""
+        if self.encoder._backend is None and not self.encoder.local_files_only:
+            raise ValueError("Banking serving requires prepared weights and local_files_only=True")
+        self.encoder._load()
 
     def encode(self, texts: Sequence[str], *, batch_size: int = 32) -> np.ndarray:
         return self.encoder.encode(texts, batch_size=batch_size)

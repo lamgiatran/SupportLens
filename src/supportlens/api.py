@@ -1,6 +1,7 @@
 """Working document-retrieval slice. Missing model artifacts return explicit 503."""
 
 import json
+import logging
 import os
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -14,11 +15,17 @@ from .evaluation import Gate
 from .docs_gate import DocsGate
 from .retrieval import BM25Chunks, BM25Documents
 from .request_logging import RequestLogMiddleware
+from .banking_serving import BankingRuntime, runtime_from_env
 
 
 def create_app(retriever=None, docs_gate: Gate | None = None,
                log_path: str | Path | None = None, *, log_questions: bool = False,
-               banking=None, retrievers: dict | None = None, docs_gates: dict | None = None) -> FastAPI:
+               banking=None, banking_loader=None, banking_runtime=None,
+               retrievers: dict | None = None, docs_gates: dict | None = None) -> FastAPI:
+    if sum(value is not None for value in (banking, banking_loader, banking_runtime)) > 1:
+        raise ValueError("Supply only one of banking, banking_loader or banking_runtime")
+    runtime = banking_runtime if banking_runtime is not None else BankingRuntime(
+        banking_loader if banking_loader is not None else (lambda: banking) if banking is not None else None)
     registry = dict(retrievers or {})
     if retriever is not None:
         registry.setdefault(getattr(retriever, "method", "R1"), retriever)
@@ -38,9 +45,11 @@ def create_app(retriever=None, docs_gate: Gate | None = None,
         # R2 and R3 share a single encoder; first request never downloads weights.
         for encoder, tokenizer in encoders.values():
             encoder.warmup(tokenizer)
+        runtime.start()
         yield
 
     app = FastAPI(title="SupportLens", version="0.4.1", lifespan=lifespan)
+    app.state.banking_runtime = runtime
     if log_path:
         app.add_middleware(RequestLogMiddleware, path=log_path, log_questions=log_questions)
 
@@ -49,18 +58,35 @@ def create_app(retriever=None, docs_gate: Gate | None = None,
         return {"status": "ok", "docs_retrieval_ready": bool(registry), "docs_methods": sorted(registry),
                 "docs_encoder_ready": all(e.ready for e, _ in encoders.values()) if encoders else None,
                 "cold_encoder_warmup_ms": [e.warmup_ms for e, _ in encoders.values()],
-                "docs_generator_ready": False, "banking_model_ready": banking is not None}
+                "docs_generator_ready": False, "banking_model_ready": runtime.ready,
+                "banking_serving": runtime.snapshot()}
+
+    @app.get("/ready/banking")
+    def banking_readiness():
+        if not runtime.ready:
+            raise HTTPException(503, detail={"code": runtime.unavailable_code,
+                                             "banking_serving": runtime.snapshot()})
+        return {"status": "ready", "banking_serving": runtime.snapshot()}
 
     @app.post("/v1/assist", response_model=AssistResponse)
     def assist(request: AssistRequest, http_request: Request):
         start = perf_counter()
         request_id = getattr(http_request.state, "request_id", None) or str(uuid4())
+        http_request.state.request_id = request_id
         http_request.state.response_record = {"mode": request.mode}
         if isinstance(request, BankingRequest):
-            if banking is None:
-                raise HTTPException(503, detail={"code": "handoff50_artifact_missing",
-                                            "message": "Train and load the separate 50-label model first."})
-            result = banking.predict(request.question, method=request.score_method)
+            if not runtime.ready:
+                code = runtime.unavailable_code
+                http_request.state.response_record.update(
+                    error_code=code, error_type=runtime.error_type, banking_state=runtime.state)
+                logging.getLogger(__name__).warning(
+                    "Banking unavailable request_id=%s code=%s startup_error_type=%s",
+                    request_id, code, runtime.error_type)
+                message = ("Train and load the separate 50-label model first." if runtime.state == "missing"
+                           else "Banking is not ready; check startup logs and restart after fixing the model configuration.")
+                raise HTTPException(503, detail={"code": code, "message": message},
+                                    headers={"X-Request-ID": request_id})
+            result = runtime.pipeline.predict(request.question, method=request.score_method)
             elapsed = (perf_counter() - start) * 1000
             response = AssistResponse(
                 request_id=request_id, mode=request.mode, model_scope="handoff50",
@@ -145,6 +171,7 @@ def app_from_env():
         for method in registry:
             gates[method] = DocsGate(**json.loads((Path(gate_dir) / (method + ".json")).read_text(encoding="utf-8"))["gate"])
     return create_app(retriever, docs_gate=gate,
+                      banking_runtime=runtime_from_env(os.environ),
                       retrievers=registry, docs_gates=gates,
                       log_path=os.environ.get("SUPPORTLENS_LOG", "runs/api_requests.jsonl"),
                       log_questions=os.environ.get("SUPPORTLENS_LOG_QUESTIONS", "0") == "1")

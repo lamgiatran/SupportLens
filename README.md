@@ -53,6 +53,10 @@ Banking training and calibration, application integration and end-to-end generat
 
 Use Python 3.11 or later. Follow [the Docs-QA run guide](docs/RUN_DENSE.md) to install dependencies, prepare runtime assets and run the API/UI.
 
+For the UI branch review, follow [the local setup and three demo cases](docs/RUN_UI_DEMOS.md): real Docs-QA, Banking missing-model handling (503), and mock stream completion/error/cancellation.
+
+For Banking startup/readiness tests with an explicit mock and the later switch to Cau's real pipeline, see [the T-01 serving guide](docs/RUN_BANKING_SERVING.md).
+
 Data split IDs, experiment configurations, metrics and manifests are kept with the source. Raw datasets, pretrained weights and large vector caches are downloaded or rebuilt through the documented scripts.
 
 The [experiment plan](docs/plan-v1.0.md) defines the data splits, model comparisons and evaluation procedure. Configuration and threshold selection use dev; held-out evaluation follows the final freeze.

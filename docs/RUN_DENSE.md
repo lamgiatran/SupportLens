@@ -67,13 +67,15 @@ Terminal thứ hai:
 .\.venv\Scripts\python.exe -m streamlit run ui/app.py
 ```
 
-UI hiện là scaffold câu hỏi đơn/R1; Tuấn tự bổ sung chọn retriever và history.
-Để Leader kiểm tra R2/R3 ngay, mở http://127.0.0.1:8000/docs, POST /v1/assist với
-retriever R2 hoặc R3. API lấy câu hiện tại trước, rồi tối đa hai tin nhắn quá khứ
+UI trên nhánh `feat/tuan-ui-mock-stream` có hai chế độ, bộ chọn retriever và
+history; xem [hướng dẫn 3 demo local](RUN_UI_DEMOS.md) để review. Chỉ chọn R2/R3
+khi encoder/cache đã được nạp. Cũng có thể mở http://127.0.0.1:8000/docs,
+POST /v1/assist với retriever R2 hoặc R3. API lấy câu hiện tại trước, rồi tối đa hai tin nhắn quá khứ
 mới nhất. Trạng thái retrieved chỉ là tìm evidence, chưa sinh câu trả lời bằng LLM.
 
 `GET /health` báo methods, encoder ready và thời gian load/warm-up riêng.
-Banking còn trả 503 cho đến khi Cầu giao head và Tuấn nạp pipeline thật.
+Banking mặc định trả 503 khi chưa cấu hình pipeline. Cách bật mock serving để
+test T-01 và thay bằng pipeline thật của Cầu: [RUN_BANKING_SERVING.md](RUN_BANKING_SERVING.md).
 
 ## 4. Tái lập phép đo (Leader)
 

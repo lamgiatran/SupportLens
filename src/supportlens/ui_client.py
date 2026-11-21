@@ -18,6 +18,10 @@ def fetch_health(base_url: str) -> tuple[dict | None, str | None]:
                 or any(not isinstance(m, str) for m in value["docs_methods"])
                 or not isinstance(value.get("banking_model_ready"), bool)):
             return None, "Phản hồi /health không đúng cấu trúc SupportLens."
+        if "banking_serving" in value:
+            serving = value["banking_serving"]
+            if not isinstance(serving, dict) or not isinstance(serving.get("is_mock"), bool):
+                return None, "Phản hồi /health không đúng cấu trúc SupportLens."
         return value, None
     except (httpx.HTTPError, ValueError, UnicodeDecodeError) as error:
         return None, f"Không đọc được trạng thái API: {error}"

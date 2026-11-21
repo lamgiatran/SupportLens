@@ -13,3 +13,11 @@ Mục tiêu là hoàn thiện serving, không thay cách train/calibrate của C
 
 Giao Leader: commit + kết quả smoke, cập nhật cách khởi động. Đây là phần việc
 serving trước demo Banking, không phải việc chặn Leader làm chunks/qrels.
+
+## Triển khai trên nhánh UI
+
+Đã bổ sung lifecycle bằng factory trong lifespan, warm-up encoder/head, lock
+cho lazy encoder, readiness/503 và timing/log. Xem
+[cách kiểm tra bằng mock và nối model thật](../docs/RUN_BANKING_SERVING.md).
+Các test ở `tests/test_banking_serving.py` dùng double offline; nghiệm thu
+pipeline H1 thật và ba câu đối chiếu còn chờ Cầu bàn giao.

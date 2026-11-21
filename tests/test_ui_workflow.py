@@ -36,6 +36,39 @@ def test_health_handles_non_json_and_wrong_shape(monkeypatch, body):
     assert value is None and error
 
 
+@pytest.mark.parametrize("serving", [None, [], "unexpected", 1, {},
+                                     {"is_mock": "false"}, {"is_mock": 1}])
+def test_health_rejects_malformed_banking_serving(monkeypatch, serving):
+    payload = {"docs_methods": ["R1"], "banking_model_ready": False, "banking_serving": serving}
+    monkeypatch.setattr(httpx, "get", lambda *a, **k: httpx.Response(
+        200, json=payload, request=httpx.Request("GET", "http://test/health")))
+    value, error = fetch_health("http://test")
+    assert value is None and error
+
+
+@pytest.mark.parametrize("serving", [None, [], "unexpected"])
+def test_ui_handles_malformed_health_without_crashing(monkeypatch, serving):
+    st = pytest.importorskip("streamlit")
+    from streamlit.testing.v1 import AppTest
+
+    payload = {"docs_methods": ["R1"], "banking_model_ready": False, "banking_serving": serving}
+    monkeypatch.setattr(httpx, "get", lambda *a, **k: httpx.Response(
+        200, json=payload, request=httpx.Request("GET", "http://test/health")))
+    st.cache_data.clear()
+    try:
+        app = AppTest.from_file(str(Path(__file__).resolve().parents[1] / "ui" / "app.py"))
+        app.run(timeout=10)
+        assert not app.exception
+        assert any("Chưa xác định được trạng thái API" in warning.value for warning in app.warning)
+        # The unavailable health response must not prevent local demo use.
+        app.radio(key="transport").set_value("Mock stream · Demo").run()
+        app.text_area[0].input("test mock").run()
+        button(app, "Chạy mock stream").click().run()
+        assert not app.exception and app.session_state["mock_stream"].status == "running"
+    finally:
+        st.cache_data.clear()
+
+
 def test_assist_transport_errors_and_html_errors(monkeypatch):
     def offline(*a, **k):
         raise httpx.ConnectError("offline")

@@ -105,6 +105,8 @@ with st.sidebar:
         methods = ", ".join(health["docs_methods"]) or "chưa có"
         st.caption(f"Retriever sẵn sàng: {methods}")
         st.caption("Banking: " + ("đã nạp model" if health["banking_model_ready"] else "chưa nạp model"))
+        if health.get("banking_serving", {}).get("is_mock"):
+            st.warning("Banking API đang dùng MOCK để thử serving; không phải model thật.")
     if st.button("Kiểm tra lại kết nối", use_container_width=True):
         capabilities.clear()
         st.rerun()
