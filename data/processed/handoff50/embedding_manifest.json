@@ -41,6 +41,8 @@
     "test/id_oos": 1080,
     "test/ood": 1000
   },
+  "fit_rows": 5308,
+  "calibration_rows": 591,
   "encoded_rows": 12213,
   "invalid_input_ids": [
     "id/train/3996",
@@ -52,19 +54,22 @@
     "id_oos/test/418",
     "id_oos/test/624"
   ],
+  "excluded_train_leak_ids": [
+    "id/train/2128",
+    "id/train/3997",
+    "id/train/4018",
+    "id/train/5823"
+  ],
+  "excluded_dev_duplicate_ids": [
+    "id/valid/1091",
+    "id_oos/valid/211",
+    "id_oos/valid/288",
+    "id_oos/valid/310"
+  ],
   "invalid_input_policy": "zero sentinel, not an embedding; never fit/score/reference-bank; retain IDs and count forced handoff separately in evaluation",
-  "encode_seconds": 91.63594560002093,
+  "encode_seconds": 111.43930709999404,
   "device": "cpu",
-  "npz_sha256": "0001b29bec902ff10231b9b851dbdd898faca046e3e3a7ae3c3e6ead5e599631",
-  "fit_rule": "fit_eligible = (split=train AND group=id AND valid_input); dev selects; test reports",
   "timing_scope": "encode call includes first model load and any required download; excludes environment setup",
-  "runtime_versions": {
-    "sentence-transformers": "5.7.0",
-    "torch": "2.10.0",
-    "transformers": "5.6.2",
-    "huggingface-hub": "1.12.0",
-    "tokenizers": "0.22.2",
-    "numpy": "2.4.2",
-    "scikit-learn": "1.8.0"
-  }
+  "npz_sha256": "5dd13d2419f33b36939e6973dcebc328123858592f26660ce341831cc5f80e8a",
+  "fit_rule": "fit_eligible = (split=train AND group=id AND valid_input AND not C-01 leak AND not C-02 calibration); calibration = 10% group-stratified ID train (seed=42); dev selects (excluding C-01 dev dups); test reports"
 }
