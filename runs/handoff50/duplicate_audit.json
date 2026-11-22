@@ -1,0 +1,1488 @@
+{
+  "audit_version": "v2.0-minilm-token-ids",
+  "owner": "Nguyen Huu Cau (2352129)",
+  "tokenizer": {
+    "path": "data/tokenizers/minilm/tokenizer.json",
+    "sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+    "max_seq_length": 256,
+    "text_policy": "strip_current_question_only_v1"
+  },
+  "action_rule": {
+    "rule_summary": "1. Keep official test intact without modifying labels or dropping rows. 2. Exclude blank rows from fit/eval (2 in id/train: 3996, 4017). 3. Exclude id/train duplicates/conflicts against dev/test from fit_eligible: ['id/train/2128', 'id/train/3997', 'id/train/4018', 'id/train/5823']. 4. Exclude id/valid and id_oos/valid duplicates against test from dev selection/thresholding: ['id/valid/1091', 'id_oos/valid/211', 'id_oos/valid/288', 'id_oos/valid/310']. 5. Never physically delete rows from source files or embeddings cache to preserve ID alignment. 6. For C-02, keep any internal id/train token-ID duplicate groups in the same partition (fit or calibration).",
+    "excluded_from_fit_eligible": {
+      "blank_lines": [
+        "id/train/3996",
+        "id/train/4017"
+      ],
+      "cross_split_leaks_and_conflicts": [
+        "id/train/2128",
+        "id/train/3997",
+        "id/train/4018",
+        "id/train/5823"
+      ],
+      "total_excluded_from_id_train": 6,
+      "resulting_fit_eligible_before_calibration": 5899
+    },
+    "excluded_from_dev_selection": [
+      "id/valid/1091",
+      "id_oos/valid/211",
+      "id_oos/valid/288",
+      "id_oos/valid/310"
+    ]
+  },
+  "suspicious_lines_inspection": {
+    "train": {
+      "python_idx_3995": {
+        "physical_lf_line": 3996,
+        "text": "can i change my pin?",
+        "repr": "'can i change my pin?'",
+        "length": 20,
+        "unicode_codepoints": "U+0063 U+0061 U+006E U+0020 U+0069 U+0020 U+0063 U+0068 U+0061 U+006E U+0067 U+0065 U+0020 U+006D U+0079 U+0020 U+0070 U+0069 U+006E U+003F",
+        "is_empty": false
+      },
+      "python_idx_3996": {
+        "physical_lf_line": 3997,
+        "text": "",
+        "repr": "''",
+        "length": 0,
+        "unicode_codepoints": "<EMPTY>",
+        "is_empty": true
+      },
+      "python_idx_3997": {
+        "physical_lf_line": 3998,
+        "text": "do i need to go to a physical bank to change my pin?",
+        "repr": "'do i need to go to a physical bank to change my pin?'",
+        "length": 52,
+        "unicode_codepoints": "U+0064 U+006F U+0020 U+0069 U+0020 U+006E U+0065 U+0065 U+0064 U+0020 U+0074 U+006F U+0020 U+0067 U+006F U+0020 U+0074 U+006F U+0020 U+0061 U+0020 U+0070 U+0068 U+0079 U+0073 U+0069 U+0063 U+0061 U+006C U+0020 U+0062 U+0061 U+006E U+006B U+0020 U+0074 U+006F U+0020 U+0063 U+0068 U+0061 U+006E U+0067 U+0065 U+0020 U+006D U+0079 U+0020 U+0070 U+0069 U+006E U+003F",
+        "is_empty": false
+      },
+      "python_idx_4016": {
+        "physical_lf_line": 4017,
+        "text": "i am on vacation in spain and need to change my pin.",
+        "repr": "'i am on vacation in spain and need to change my pin.'",
+        "length": 52,
+        "unicode_codepoints": "U+0069 U+0020 U+0061 U+006D U+0020 U+006F U+006E U+0020 U+0076 U+0061 U+0063 U+0061 U+0074 U+0069 U+006F U+006E U+0020 U+0069 U+006E U+0020 U+0073 U+0070 U+0061 U+0069 U+006E U+0020 U+0061 U+006E U+0064 U+0020 U+006E U+0065 U+0065 U+0064 U+0020 U+0074 U+006F U+0020 U+0063 U+0068 U+0061 U+006E U+0067 U+0065 U+0020 U+006D U+0079 U+0020 U+0070 U+0069 U+006E U+002E",
+        "is_empty": false
+      },
+      "python_idx_4017": {
+        "physical_lf_line": 4018,
+        "text": "",
+        "repr": "''",
+        "length": 0,
+        "unicode_codepoints": "<EMPTY>",
+        "is_empty": true
+      },
+      "python_idx_4018": {
+        "physical_lf_line": 4019,
+        "text": "which cash machines will allow me to change my pin?",
+        "repr": "'which cash machines will allow me to change my pin?'",
+        "length": 51,
+        "unicode_codepoints": "U+0077 U+0068 U+0069 U+0063 U+0068 U+0020 U+0063 U+0061 U+0073 U+0068 U+0020 U+006D U+0061 U+0063 U+0068 U+0069 U+006E U+0065 U+0073 U+0020 U+0077 U+0069 U+006C U+006C U+0020 U+0061 U+006C U+006C U+006F U+0077 U+0020 U+006D U+0065 U+0020 U+0074 U+006F U+0020 U+0063 U+0068 U+0061 U+006E U+0067 U+0065 U+0020 U+006D U+0079 U+0020 U+0070 U+0069 U+006E U+003F",
+        "is_empty": false
+      }
+    },
+    "id_oos/valid": {
+      "python_idx_287": {
+        "physical_lf_line": 288,
+        "text": "someone might be using my card.  what should i do?",
+        "repr": "'someone might be using my card.  what should i do?'",
+        "length": 50,
+        "unicode_codepoints": "U+0073 U+006F U+006D U+0065 U+006F U+006E U+0065 U+0020 U+006D U+0069 U+0067 U+0068 U+0074 U+0020 U+0062 U+0065 U+0020 U+0075 U+0073 U+0069 U+006E U+0067 U+0020 U+006D U+0079 U+0020 U+0063 U+0061 U+0072 U+0064 U+002E U+0020 U+0020 U+0077 U+0068 U+0061 U+0074 U+0020 U+0073 U+0068 U+006F U+0075 U+006C U+0064 U+0020 U+0069 U+0020 U+0064 U+006F U+003F",
+        "is_empty": false
+      },
+      "python_idx_288": {
+        "physical_lf_line": 289,
+        "text": "there are a few transaction that i don't recognize, i think someone managed to get my card details and use it.",
+        "repr": "\"there are a few transaction that i don't recognize, i think someone managed to get my card details and use it.\"",
+        "length": 110,
+        "unicode_codepoints": "U+0074 U+0068 U+0065 U+0072 U+0065 U+0020 U+0061 U+0072 U+0065 U+0020 U+0061 U+0020 U+0066 U+0065 U+0077 U+0020 U+0074 U+0072 U+0061 U+006E U+0073 U+0061 U+0063 U+0074 U+0069 U+006F U+006E U+0020 U+0074 U+0068 U+0061 U+0074 U+0020 U+0069 U+0020 U+0064 U+006F U+006E U+0027 U+0074 U+0020 U+0072 U+0065 U+0063 U+006F U+0067 U+006E U+0069 U+007A U+0065 U+002C U+0020 U+0069 U+0020 U+0074 U+0068 U+0069 U+006E U+006B U+0020 U+0073 U+006F U+006D U+0065 U+006F U+006E U+0065 U+0020 U+006D U+0061 U+006E U+0061 U+0067 U+0065 U+0064 U+0020 U+0074 U+006F U+0020 U+0067 U+0065 U+0074 U+0020 U+006D U+0079 U+0020 U+0063 U+0061 U+0072 U+0064 U+0020 U+0064 U+0065 U+0074 U+0061 U+0069 U+006C U+0073 U+0020 U+0061 U+006E U+0064 U+0020 U+0075 U+0073 U+0065 U+0020 U+0069 U+0074 U+002E",
+        "is_empty": false
+      },
+      "python_idx_289": {
+        "physical_lf_line": 290,
+        "text": "",
+        "repr": "''",
+        "length": 0,
+        "unicode_codepoints": "<EMPTY>",
+        "is_empty": true
+      },
+      "python_idx_290": {
+        "physical_lf_line": 291,
+        "text": "i think someone has hacked my card!",
+        "repr": "'i think someone has hacked my card!'",
+        "length": 35,
+        "unicode_codepoints": "U+0069 U+0020 U+0074 U+0068 U+0069 U+006E U+006B U+0020 U+0073 U+006F U+006D U+0065 U+006F U+006E U+0065 U+0020 U+0068 U+0061 U+0073 U+0020 U+0068 U+0061 U+0063 U+006B U+0065 U+0064 U+0020 U+006D U+0079 U+0020 U+0063 U+0061 U+0072 U+0064 U+0021",
+        "is_empty": false
+      },
+      "python_idx_308": {
+        "physical_lf_line": 309,
+        "text": "will any atm's decline my card?",
+        "repr": "\"will any atm's decline my card?\"",
+        "length": 31,
+        "unicode_codepoints": "U+0077 U+0069 U+006C U+006C U+0020 U+0061 U+006E U+0079 U+0020 U+0061 U+0074 U+006D U+0027 U+0073 U+0020 U+0064 U+0065 U+0063 U+006C U+0069 U+006E U+0065 U+0020 U+006D U+0079 U+0020 U+0063 U+0061 U+0072 U+0064 U+003F",
+        "is_empty": false
+      },
+      "python_idx_309": {
+        "physical_lf_line": 310,
+        "text": "",
+        "repr": "''",
+        "length": 0,
+        "unicode_codepoints": "<EMPTY>",
+        "is_empty": true
+      },
+      "python_idx_310": {
+        "physical_lf_line": 311,
+        "text": "at which atms can i use this card?",
+        "repr": "'at which atms can i use this card?'",
+        "length": 34,
+        "unicode_codepoints": "U+0061 U+0074 U+0020 U+0077 U+0068 U+0069 U+0063 U+0068 U+0020 U+0061 U+0074 U+006D U+0073 U+0020 U+0063 U+0061 U+006E U+0020 U+0069 U+0020 U+0075 U+0073 U+0065 U+0020 U+0074 U+0068 U+0069 U+0073 U+0020 U+0063 U+0061 U+0072 U+0064 U+003F",
+        "is_empty": false
+      }
+    },
+    "id_oos/test": {
+      "python_idx_416": {
+        "physical_lf_line": 417,
+        "text": "does this card work everywhere?",
+        "repr": "'does this card work everywhere?'",
+        "length": 31,
+        "unicode_codepoints": "U+0064 U+006F U+0065 U+0073 U+0020 U+0074 U+0068 U+0069 U+0073 U+0020 U+0063 U+0061 U+0072 U+0064 U+0020 U+0077 U+006F U+0072 U+006B U+0020 U+0065 U+0076 U+0065 U+0072 U+0079 U+0077 U+0068 U+0065 U+0072 U+0065 U+003F",
+        "is_empty": false
+      },
+      "python_idx_417": {
+        "physical_lf_line": 418,
+        "text": "",
+        "repr": "''",
+        "length": 0,
+        "unicode_codepoints": "<EMPTY>",
+        "is_empty": true
+      },
+      "python_idx_418": {
+        "physical_lf_line": 419,
+        "text": "",
+        "repr": "''",
+        "length": 0,
+        "unicode_codepoints": "<EMPTY>",
+        "is_empty": true
+      },
+      "python_idx_419": {
+        "physical_lf_line": 420,
+        "text": "what businesses accept this card?",
+        "repr": "'what businesses accept this card?'",
+        "length": 33,
+        "unicode_codepoints": "U+0077 U+0068 U+0061 U+0074 U+0020 U+0062 U+0075 U+0073 U+0069 U+006E U+0065 U+0073 U+0073 U+0065 U+0073 U+0020 U+0061 U+0063 U+0063 U+0065 U+0070 U+0074 U+0020 U+0074 U+0068 U+0069 U+0073 U+0020 U+0063 U+0061 U+0072 U+0064 U+003F",
+        "is_empty": false
+      }
+    }
+  },
+  "splitlines_vs_physical_lf": {
+    "id-oos/test/seq.in": {
+      "splitlines_count": 1080,
+      "physical_lf_count": 1080,
+      "raw_lf_terminator_parts": 1081,
+      "ends_with_newline": true,
+      "has_crlf": false,
+      "matches_1to1": true
+    },
+    "id-oos/train/seq.in": {
+      "splitlines_count": 2062,
+      "physical_lf_count": 2062,
+      "raw_lf_terminator_parts": 2063,
+      "ends_with_newline": true,
+      "has_crlf": false,
+      "matches_1to1": true
+    },
+    "id-oos/valid/seq.in": {
+      "splitlines_count": 530,
+      "physical_lf_count": 530,
+      "raw_lf_terminator_parts": 531,
+      "ends_with_newline": true,
+      "has_crlf": false,
+      "matches_1to1": true
+    },
+    "ood-oos/test/seq.in": {
+      "splitlines_count": 1000,
+      "physical_lf_count": 1000,
+      "raw_lf_terminator_parts": 1001,
+      "ends_with_newline": true,
+      "has_crlf": false,
+      "matches_1to1": true
+    },
+    "ood-oos/valid/seq.in": {
+      "splitlines_count": 200,
+      "physical_lf_count": 200,
+      "raw_lf_terminator_parts": 201,
+      "ends_with_newline": true,
+      "has_crlf": false,
+      "matches_1to1": true
+    },
+    "test/seq.in": {
+      "splitlines_count": 2000,
+      "physical_lf_count": 2000,
+      "raw_lf_terminator_parts": 2001,
+      "ends_with_newline": true,
+      "has_crlf": false,
+      "matches_1to1": true
+    },
+    "train/seq.in": {
+      "splitlines_count": 5905,
+      "physical_lf_count": 5905,
+      "raw_lf_terminator_parts": 5906,
+      "ends_with_newline": true,
+      "has_crlf": false,
+      "matches_1to1": true
+    },
+    "valid/seq.in": {
+      "splitlines_count": 1506,
+      "physical_lf_count": 1506,
+      "raw_lf_terminator_parts": 1507,
+      "ends_with_newline": true,
+      "has_crlf": false,
+      "matches_1to1": true
+    }
+  },
+  "truncation_check": {
+    "max_seq_length": 256,
+    "max_tokens_found": 98,
+    "truncated_count": 0
+  },
+  "reviewer_cross_split_pairs_verification": [
+    {
+      "pair": "id/train/3997 vs id/valid/1017",
+      "description": "In-cache: ID Train -> ID Dev exact & token duplicate",
+      "in_handoff50_cache": true,
+      "sample_a": {
+        "id": "id/train/3997",
+        "text": "do i need to go to a physical bank to change my pin?",
+        "label": "change_pin",
+        "original_intent": "change_pin"
+      },
+      "sample_b": {
+        "id": "id/valid/1017",
+        "text": "do i need to go to a physical bank to change my pin?",
+        "label": "change_pin",
+        "original_intent": "change_pin"
+      },
+      "exact_match": true,
+      "minilm_token_id_match": true,
+      "label_conflict": false,
+      "token_ids": [
+        101,
+        2079,
+        1045,
+        2342,
+        2000,
+        2175,
+        2000,
+        1037,
+        3558,
+        2924,
+        2000,
+        2689,
+        2026,
+        9231,
+        1029,
+        102
+      ]
+    },
+    {
+      "pair": "id/train/4018 vs id/test/1353",
+      "description": "In-cache: ID Train -> ID Test exact & token duplicate",
+      "in_handoff50_cache": true,
+      "sample_a": {
+        "id": "id/train/4018",
+        "text": "which cash machines will allow me to change my pin?",
+        "label": "change_pin",
+        "original_intent": "change_pin"
+      },
+      "sample_b": {
+        "id": "id/test/1353",
+        "text": "which cash machines will allow me to change my pin?",
+        "label": "change_pin",
+        "original_intent": "change_pin"
+      },
+      "exact_match": true,
+      "minilm_token_id_match": true,
+      "label_conflict": false,
+      "token_ids": [
+        101,
+        2029,
+        5356,
+        6681,
+        2097,
+        3499,
+        2033,
+        2000,
+        2689,
+        2026,
+        9231,
+        1029,
+        102
+      ]
+    },
+    {
+      "pair": "id/train/2128 vs id/test/721",
+      "description": "In-cache: ID Train -> ID Test token duplicate & label conflict",
+      "in_handoff50_cache": true,
+      "sample_a": {
+        "id": "id/train/2128",
+        "text": "how do i change my address ?",
+        "label": "edit_personal_details",
+        "original_intent": "edit_personal_details"
+      },
+      "sample_b": {
+        "id": "id/test/721",
+        "text": "how do i change my address?",
+        "label": "why_verify_identity",
+        "original_intent": "why_verify_identity"
+      },
+      "exact_match": false,
+      "minilm_token_id_match": true,
+      "label_conflict": true,
+      "token_ids": [
+        101,
+        2129,
+        2079,
+        1045,
+        2689,
+        2026,
+        4769,
+        1029,
+        102
+      ]
+    },
+    {
+      "pair": "id/train/5823 vs id/test/1994",
+      "description": "In-cache: ID Train -> ID Test token duplicate (double space)",
+      "in_handoff50_cache": true,
+      "sample_a": {
+        "id": "id/train/5823",
+        "text": "i don't live in the uk. can i still get a card?",
+        "label": "country_support",
+        "original_intent": "country_support"
+      },
+      "sample_b": {
+        "id": "id/test/1994",
+        "text": "i don't live in the uk.  can i still get a card?",
+        "label": "country_support",
+        "original_intent": "country_support"
+      },
+      "exact_match": false,
+      "minilm_token_id_match": true,
+      "label_conflict": false,
+      "token_ids": [
+        101,
+        1045,
+        2123,
+        1005,
+        1056,
+        2444,
+        1999,
+        1996,
+        2866,
+        1012,
+        2064,
+        1045,
+        2145,
+        2131,
+        1037,
+        4003,
+        1029,
+        102
+      ]
+    },
+    {
+      "pair": "id/valid/1091 vs id/test/1415",
+      "description": "In-cache: ID Dev -> ID Test token duplicate (space before ?)",
+      "in_handoff50_cache": true,
+      "sample_a": {
+        "id": "id/valid/1091",
+        "text": "why am i being charged a fee for transferring money ?",
+        "label": "transfer_fee_charged",
+        "original_intent": "transfer_fee_charged"
+      },
+      "sample_b": {
+        "id": "id/test/1415",
+        "text": "why am i being charged a fee for transferring money?",
+        "label": "transfer_fee_charged",
+        "original_intent": "transfer_fee_charged"
+      },
+      "exact_match": false,
+      "minilm_token_id_match": true,
+      "label_conflict": false,
+      "token_ids": [
+        101,
+        2339,
+        2572,
+        1045,
+        2108,
+        5338,
+        1037,
+        7408,
+        2005,
+        14391,
+        2769,
+        1029,
+        102
+      ]
+    },
+    {
+      "pair": "id_oos/valid/211 vs id_oos/test/419",
+      "description": "In-cache: ID-OOS Dev -> ID-OOS Test exact & token duplicate",
+      "in_handoff50_cache": true,
+      "sample_a": {
+        "id": "id_oos/valid/211",
+        "text": "what businesses accept this card?",
+        "label": "oos",
+        "original_intent": "card_acceptance"
+      },
+      "sample_b": {
+        "id": "id_oos/test/419",
+        "text": "what businesses accept this card?",
+        "label": "oos",
+        "original_intent": "card_acceptance"
+      },
+      "exact_match": true,
+      "minilm_token_id_match": true,
+      "label_conflict": false,
+      "token_ids": [
+        101,
+        2054,
+        5661,
+        5138,
+        2023,
+        4003,
+        1029,
+        102
+      ]
+    },
+    {
+      "pair": "id_oos/valid/288 vs id_oos/test/595",
+      "description": "In-cache: ID-OOS Dev -> ID-OOS Test exact & token duplicate",
+      "in_handoff50_cache": true,
+      "sample_a": {
+        "id": "id_oos/valid/288",
+        "text": "there are a few transaction that i don't recognize, i think someone managed to get my card details and use it.",
+        "label": "oos",
+        "original_intent": "compromised_card"
+      },
+      "sample_b": {
+        "id": "id_oos/test/595",
+        "text": "there are a few transaction that i don't recognize, i think someone managed to get my card details and use it.",
+        "label": "oos",
+        "original_intent": "compromised_card"
+      },
+      "exact_match": true,
+      "minilm_token_id_match": true,
+      "label_conflict": false,
+      "token_ids": [
+        101,
+        2045,
+        2024,
+        1037,
+        2261,
+        12598,
+        2008,
+        1045,
+        2123,
+        1005,
+        1056,
+        6807,
+        1010,
+        1045,
+        2228,
+        2619,
+        3266,
+        2000,
+        2131,
+        2026,
+        4003,
+        4751,
+        1998,
+        2224,
+        2009,
+        1012,
+        102
+      ]
+    },
+    {
+      "pair": "id_oos/valid/310 vs id_oos/test/638",
+      "description": "In-cache: ID-OOS Dev -> ID-OOS Test exact & token duplicate",
+      "in_handoff50_cache": true,
+      "sample_a": {
+        "id": "id_oos/valid/310",
+        "text": "at which atms can i use this card?",
+        "label": "oos",
+        "original_intent": "atm_support"
+      },
+      "sample_b": {
+        "id": "id_oos/test/638",
+        "text": "at which atms can i use this card?",
+        "label": "oos",
+        "original_intent": "atm_support"
+      },
+      "exact_match": true,
+      "minilm_token_id_match": true,
+      "label_conflict": false,
+      "token_ids": [
+        101,
+        2012,
+        2029,
+        27218,
+        2015,
+        2064,
+        1045,
+        2224,
+        2023,
+        4003,
+        1029,
+        102
+      ]
+    },
+    {
+      "pair": "id_oos/train/480 vs id_oos/test/234",
+      "description": "Outside cache: ID-OOS Train -> ID-OOS Test exact & token duplicate",
+      "in_handoff50_cache": false,
+      "sample_a": {
+        "id": "id_oos/train/480",
+        "text": "how do i unblock my pin?",
+        "label": "oos",
+        "original_intent": "pin_blocked"
+      },
+      "sample_b": {
+        "id": "id_oos/test/234",
+        "text": "how do i unblock my pin?",
+        "label": "oos",
+        "original_intent": "pin_blocked"
+      },
+      "exact_match": true,
+      "minilm_token_id_match": true,
+      "label_conflict": false,
+      "token_ids": [
+        101,
+        2129,
+        2079,
+        1045,
+        4895,
+        23467,
+        2026,
+        9231,
+        1029,
+        102
+      ]
+    },
+    {
+      "pair": "id_oos/train/795 vs id_oos/test/420",
+      "description": "Outside cache: ID-OOS Train -> ID-OOS Test exact & token duplicate",
+      "in_handoff50_cache": false,
+      "sample_a": {
+        "id": "id_oos/train/795",
+        "text": "where can i use my card?",
+        "label": "oos",
+        "original_intent": "card_acceptance"
+      },
+      "sample_b": {
+        "id": "id_oos/test/420",
+        "text": "where can i use my card?",
+        "label": "oos",
+        "original_intent": "card_acceptance"
+      },
+      "exact_match": true,
+      "minilm_token_id_match": true,
+      "label_conflict": false,
+      "token_ids": [
+        101,
+        2073,
+        2064,
+        1045,
+        2224,
+        2026,
+        4003,
+        1029,
+        102
+      ]
+    }
+  ],
+  "all_cross_split_token_id_clusters": [
+    {
+      "count": 2,
+      "partitions": [
+        "id/test",
+        "id/train"
+      ],
+      "all_in_handoff50_cache": true,
+      "label_conflict": true,
+      "labels": [
+        "edit_personal_details",
+        "why_verify_identity"
+      ],
+      "original_intents": [
+        "edit_personal_details",
+        "why_verify_identity"
+      ],
+      "token_count": 9,
+      "token_ids": [
+        101,
+        2129,
+        2079,
+        1045,
+        2689,
+        2026,
+        4769,
+        1029,
+        102
+      ],
+      "samples": [
+        {
+          "sample_id": "id/train/2128",
+          "partition": "id/train",
+          "in_handoff50_cache": true,
+          "text": "how do i change my address ?",
+          "label": "edit_personal_details",
+          "original_intent": "edit_personal_details"
+        },
+        {
+          "sample_id": "id/test/721",
+          "partition": "id/test",
+          "in_handoff50_cache": true,
+          "text": "how do i change my address?",
+          "label": "why_verify_identity",
+          "original_intent": "why_verify_identity"
+        }
+      ]
+    },
+    {
+      "count": 2,
+      "partitions": [
+        "id/train",
+        "id/valid"
+      ],
+      "all_in_handoff50_cache": true,
+      "label_conflict": false,
+      "labels": [
+        "change_pin"
+      ],
+      "original_intents": [
+        "change_pin"
+      ],
+      "token_count": 16,
+      "token_ids": [
+        101,
+        2079,
+        1045,
+        2342,
+        2000,
+        2175,
+        2000,
+        1037,
+        3558,
+        2924,
+        2000,
+        2689,
+        2026,
+        9231,
+        1029,
+        102
+      ],
+      "samples": [
+        {
+          "sample_id": "id/train/3997",
+          "partition": "id/train",
+          "in_handoff50_cache": true,
+          "text": "do i need to go to a physical bank to change my pin?",
+          "label": "change_pin",
+          "original_intent": "change_pin"
+        },
+        {
+          "sample_id": "id/valid/1017",
+          "partition": "id/valid",
+          "in_handoff50_cache": true,
+          "text": "do i need to go to a physical bank to change my pin?",
+          "label": "change_pin",
+          "original_intent": "change_pin"
+        }
+      ]
+    },
+    {
+      "count": 2,
+      "partitions": [
+        "id/test",
+        "id/train"
+      ],
+      "all_in_handoff50_cache": true,
+      "label_conflict": false,
+      "labels": [
+        "change_pin"
+      ],
+      "original_intents": [
+        "change_pin"
+      ],
+      "token_count": 13,
+      "token_ids": [
+        101,
+        2029,
+        5356,
+        6681,
+        2097,
+        3499,
+        2033,
+        2000,
+        2689,
+        2026,
+        9231,
+        1029,
+        102
+      ],
+      "samples": [
+        {
+          "sample_id": "id/train/4018",
+          "partition": "id/train",
+          "in_handoff50_cache": true,
+          "text": "which cash machines will allow me to change my pin?",
+          "label": "change_pin",
+          "original_intent": "change_pin"
+        },
+        {
+          "sample_id": "id/test/1353",
+          "partition": "id/test",
+          "in_handoff50_cache": true,
+          "text": "which cash machines will allow me to change my pin?",
+          "label": "change_pin",
+          "original_intent": "change_pin"
+        }
+      ]
+    },
+    {
+      "count": 2,
+      "partitions": [
+        "id/test",
+        "id/train"
+      ],
+      "all_in_handoff50_cache": true,
+      "label_conflict": false,
+      "labels": [
+        "country_support"
+      ],
+      "original_intents": [
+        "country_support"
+      ],
+      "token_count": 18,
+      "token_ids": [
+        101,
+        1045,
+        2123,
+        1005,
+        1056,
+        2444,
+        1999,
+        1996,
+        2866,
+        1012,
+        2064,
+        1045,
+        2145,
+        2131,
+        1037,
+        4003,
+        1029,
+        102
+      ],
+      "samples": [
+        {
+          "sample_id": "id/train/5823",
+          "partition": "id/train",
+          "in_handoff50_cache": true,
+          "text": "i don't live in the uk. can i still get a card?",
+          "label": "country_support",
+          "original_intent": "country_support"
+        },
+        {
+          "sample_id": "id/test/1994",
+          "partition": "id/test",
+          "in_handoff50_cache": true,
+          "text": "i don't live in the uk.  can i still get a card?",
+          "label": "country_support",
+          "original_intent": "country_support"
+        }
+      ]
+    },
+    {
+      "count": 2,
+      "partitions": [
+        "id/test",
+        "id/valid"
+      ],
+      "all_in_handoff50_cache": true,
+      "label_conflict": false,
+      "labels": [
+        "transfer_fee_charged"
+      ],
+      "original_intents": [
+        "transfer_fee_charged"
+      ],
+      "token_count": 13,
+      "token_ids": [
+        101,
+        2339,
+        2572,
+        1045,
+        2108,
+        5338,
+        1037,
+        7408,
+        2005,
+        14391,
+        2769,
+        1029,
+        102
+      ],
+      "samples": [
+        {
+          "sample_id": "id/valid/1091",
+          "partition": "id/valid",
+          "in_handoff50_cache": true,
+          "text": "why am i being charged a fee for transferring money ?",
+          "label": "transfer_fee_charged",
+          "original_intent": "transfer_fee_charged"
+        },
+        {
+          "sample_id": "id/test/1415",
+          "partition": "id/test",
+          "in_handoff50_cache": true,
+          "text": "why am i being charged a fee for transferring money?",
+          "label": "transfer_fee_charged",
+          "original_intent": "transfer_fee_charged"
+        }
+      ]
+    },
+    {
+      "count": 2,
+      "partitions": [
+        "id/test",
+        "id_oos/train"
+      ],
+      "all_in_handoff50_cache": false,
+      "label_conflict": true,
+      "labels": [
+        "failed_transfer",
+        "oos"
+      ],
+      "original_intents": [
+        "failed_transfer",
+        "transfer_into_account"
+      ],
+      "token_count": 33,
+      "token_ids": [
+        101,
+        1996,
+        4651,
+        7906,
+        7989,
+        1010,
+        1045,
+        2699,
+        2000,
+        4651,
+        2070,
+        2769,
+        2000,
+        2814,
+        2023,
+        2851,
+        2021,
+        2009,
+        7906,
+        2893,
+        5837,
+        2005,
+        2070,
+        3114,
+        1010,
+        2052,
+        2017,
+        3531,
+        4638,
+        1996,
+        3277,
+        1029,
+        102
+      ],
+      "samples": [
+        {
+          "sample_id": "id/test/1462",
+          "partition": "id/test",
+          "in_handoff50_cache": true,
+          "text": "the transfer keeps failing , i tried to transfer some money to friends this morning but it keeps getting rejected for some reason, would you please check the issue ?",
+          "label": "failed_transfer",
+          "original_intent": "failed_transfer"
+        },
+        {
+          "sample_id": "id_oos/train/1607",
+          "partition": "id_oos/train",
+          "in_handoff50_cache": false,
+          "text": "the transfer keeps failing , i tried to transfer some money to friends this morning but it keeps getting rejected for some reason, would you please check the issue?",
+          "label": "oos",
+          "original_intent": "transfer_into_account"
+        }
+      ]
+    },
+    {
+      "count": 2,
+      "partitions": [
+        "id_oos/test",
+        "id_oos/train"
+      ],
+      "all_in_handoff50_cache": false,
+      "label_conflict": false,
+      "labels": [
+        "oos"
+      ],
+      "original_intents": [
+        "pin_blocked"
+      ],
+      "token_count": 10,
+      "token_ids": [
+        101,
+        2129,
+        2079,
+        1045,
+        4895,
+        23467,
+        2026,
+        9231,
+        1029,
+        102
+      ],
+      "samples": [
+        {
+          "sample_id": "id_oos/train/480",
+          "partition": "id_oos/train",
+          "in_handoff50_cache": false,
+          "text": "how do i unblock my pin?",
+          "label": "oos",
+          "original_intent": "pin_blocked"
+        },
+        {
+          "sample_id": "id_oos/test/234",
+          "partition": "id_oos/test",
+          "in_handoff50_cache": true,
+          "text": "how do i unblock my pin?",
+          "label": "oos",
+          "original_intent": "pin_blocked"
+        }
+      ]
+    },
+    {
+      "count": 2,
+      "partitions": [
+        "id_oos/test",
+        "id_oos/train"
+      ],
+      "all_in_handoff50_cache": false,
+      "label_conflict": false,
+      "labels": [
+        "oos"
+      ],
+      "original_intents": [
+        "card_acceptance"
+      ],
+      "token_count": 9,
+      "token_ids": [
+        101,
+        2073,
+        2064,
+        1045,
+        2224,
+        2026,
+        4003,
+        1029,
+        102
+      ],
+      "samples": [
+        {
+          "sample_id": "id_oos/train/795",
+          "partition": "id_oos/train",
+          "in_handoff50_cache": false,
+          "text": "where can i use my card?",
+          "label": "oos",
+          "original_intent": "card_acceptance"
+        },
+        {
+          "sample_id": "id_oos/test/420",
+          "partition": "id_oos/test",
+          "in_handoff50_cache": true,
+          "text": "where can i use my card?",
+          "label": "oos",
+          "original_intent": "card_acceptance"
+        }
+      ]
+    },
+    {
+      "count": 2,
+      "partitions": [
+        "id_oos/train",
+        "id_oos/valid"
+      ],
+      "all_in_handoff50_cache": false,
+      "label_conflict": false,
+      "labels": [
+        "oos"
+      ],
+      "original_intents": [
+        "passcode_forgotten"
+      ],
+      "token_count": 10,
+      "token_ids": [
+        101,
+        2129,
+        2064,
+        1045,
+        25141,
+        2026,
+        3413,
+        16044,
+        1029,
+        102
+      ],
+      "samples": [
+        {
+          "sample_id": "id_oos/train/1263",
+          "partition": "id_oos/train",
+          "in_handoff50_cache": false,
+          "text": "how can i reset my passcode?",
+          "label": "oos",
+          "original_intent": "passcode_forgotten"
+        },
+        {
+          "sample_id": "id_oos/valid/327",
+          "partition": "id_oos/valid",
+          "in_handoff50_cache": true,
+          "text": "how can i reset my passcode ?",
+          "label": "oos",
+          "original_intent": "passcode_forgotten"
+        }
+      ]
+    },
+    {
+      "count": 2,
+      "partitions": [
+        "id_oos/test",
+        "id_oos/valid"
+      ],
+      "all_in_handoff50_cache": true,
+      "label_conflict": false,
+      "labels": [
+        "oos"
+      ],
+      "original_intents": [
+        "card_acceptance"
+      ],
+      "token_count": 8,
+      "token_ids": [
+        101,
+        2054,
+        5661,
+        5138,
+        2023,
+        4003,
+        1029,
+        102
+      ],
+      "samples": [
+        {
+          "sample_id": "id_oos/valid/211",
+          "partition": "id_oos/valid",
+          "in_handoff50_cache": true,
+          "text": "what businesses accept this card?",
+          "label": "oos",
+          "original_intent": "card_acceptance"
+        },
+        {
+          "sample_id": "id_oos/test/419",
+          "partition": "id_oos/test",
+          "in_handoff50_cache": true,
+          "text": "what businesses accept this card?",
+          "label": "oos",
+          "original_intent": "card_acceptance"
+        }
+      ]
+    },
+    {
+      "count": 2,
+      "partitions": [
+        "id_oos/test",
+        "id_oos/valid"
+      ],
+      "all_in_handoff50_cache": true,
+      "label_conflict": false,
+      "labels": [
+        "oos"
+      ],
+      "original_intents": [
+        "compromised_card"
+      ],
+      "token_count": 27,
+      "token_ids": [
+        101,
+        2045,
+        2024,
+        1037,
+        2261,
+        12598,
+        2008,
+        1045,
+        2123,
+        1005,
+        1056,
+        6807,
+        1010,
+        1045,
+        2228,
+        2619,
+        3266,
+        2000,
+        2131,
+        2026,
+        4003,
+        4751,
+        1998,
+        2224,
+        2009,
+        1012,
+        102
+      ],
+      "samples": [
+        {
+          "sample_id": "id_oos/valid/288",
+          "partition": "id_oos/valid",
+          "in_handoff50_cache": true,
+          "text": "there are a few transaction that i don't recognize, i think someone managed to get my card details and use it.",
+          "label": "oos",
+          "original_intent": "compromised_card"
+        },
+        {
+          "sample_id": "id_oos/test/595",
+          "partition": "id_oos/test",
+          "in_handoff50_cache": true,
+          "text": "there are a few transaction that i don't recognize, i think someone managed to get my card details and use it.",
+          "label": "oos",
+          "original_intent": "compromised_card"
+        }
+      ]
+    },
+    {
+      "count": 2,
+      "partitions": [
+        "id_oos/test",
+        "id_oos/valid"
+      ],
+      "all_in_handoff50_cache": true,
+      "label_conflict": false,
+      "labels": [
+        "oos"
+      ],
+      "original_intents": [
+        "atm_support"
+      ],
+      "token_count": 12,
+      "token_ids": [
+        101,
+        2012,
+        2029,
+        27218,
+        2015,
+        2064,
+        1045,
+        2224,
+        2023,
+        4003,
+        1029,
+        102
+      ],
+      "samples": [
+        {
+          "sample_id": "id_oos/valid/310",
+          "partition": "id_oos/valid",
+          "in_handoff50_cache": true,
+          "text": "at which atms can i use this card?",
+          "label": "oos",
+          "original_intent": "atm_support"
+        },
+        {
+          "sample_id": "id_oos/test/638",
+          "partition": "id_oos/test",
+          "in_handoff50_cache": true,
+          "text": "at which atms can i use this card?",
+          "label": "oos",
+          "original_intent": "atm_support"
+        }
+      ]
+    }
+  ],
+  "internal_same_split_token_id_clusters": [
+    {
+      "count": 2,
+      "partitions": [
+        "id/train"
+      ],
+      "all_in_handoff50_cache": true,
+      "label_conflict": false,
+      "labels": [
+        "declined_card_payment"
+      ],
+      "original_intents": [
+        "declined_card_payment"
+      ],
+      "token_count": 25,
+      "token_ids": [
+        101,
+        2339,
+        2079,
+        2017,
+        2562,
+        13993,
+        2026,
+        7909,
+        1029,
+        1045,
+        2699,
+        2195,
+        2335,
+        2525,
+        2007,
+        2023,
+        4003,
+        1998,
+        2009,
+        2003,
+        2074,
+        2025,
+        2551,
+        1012,
+        102
+      ],
+      "samples": [
+        {
+          "sample_id": "id/train/3389",
+          "partition": "id/train",
+          "in_handoff50_cache": true,
+          "text": "why do you keep declining my payment?i tried several times already with this card and it is just not working.",
+          "label": "declined_card_payment",
+          "original_intent": "declined_card_payment"
+        },
+        {
+          "sample_id": "id/train/3401",
+          "partition": "id/train",
+          "in_handoff50_cache": true,
+          "text": "why do you keep declining my payment? i tried several times already with this card and it is just not working.",
+          "label": "declined_card_payment",
+          "original_intent": "declined_card_payment"
+        }
+      ]
+    },
+    {
+      "count": 2,
+      "partitions": [
+        "id_oos/train"
+      ],
+      "all_in_handoff50_cache": false,
+      "label_conflict": false,
+      "labels": [
+        "oos"
+      ],
+      "original_intents": [
+        "card_not_working"
+      ],
+      "token_count": 14,
+      "token_ids": [
+        101,
+        1045,
+        2064,
+        1005,
+        1056,
+        4025,
+        2000,
+        2022,
+        2583,
+        2000,
+        2224,
+        2026,
+        4003,
+        102
+      ],
+      "samples": [
+        {
+          "sample_id": "id_oos/train/182",
+          "partition": "id_oos/train",
+          "in_handoff50_cache": false,
+          "text": "i can't seem to be able to use my card",
+          "label": "oos",
+          "original_intent": "card_not_working"
+        },
+        {
+          "sample_id": "id_oos/train/245",
+          "partition": "id_oos/train",
+          "in_handoff50_cache": false,
+          "text": "i can't seem to be able to use my card",
+          "label": "oos",
+          "original_intent": "card_not_working"
+        }
+      ]
+    },
+    {
+      "count": 2,
+      "partitions": [
+        "id_oos/train"
+      ],
+      "all_in_handoff50_cache": false,
+      "label_conflict": false,
+      "labels": [
+        "oos"
+      ],
+      "original_intents": [
+        "pin_blocked"
+      ],
+      "token_count": 24,
+      "token_ids": [
+        101,
+        1045,
+        2404,
+        1996,
+        3308,
+        9231,
+        2205,
+        2116,
+        2335,
+        1998,
+        2085,
+        2009,
+        2003,
+        8534,
+        1012,
+        2064,
+        2017,
+        2393,
+        2033,
+        4895,
+        23467,
+        2009,
+        1029,
+        102
+      ],
+      "samples": [
+        {
+          "sample_id": "id_oos/train/504",
+          "partition": "id_oos/train",
+          "in_handoff50_cache": false,
+          "text": "i put the wrong pin too many times and now it is blocked. can you help me unblock it?",
+          "label": "oos",
+          "original_intent": "pin_blocked"
+        },
+        {
+          "sample_id": "id_oos/train/510",
+          "partition": "id_oos/train",
+          "in_handoff50_cache": false,
+          "text": "i put the wrong pin too many times and now it is blocked. can you help me unblock it?",
+          "label": "oos",
+          "original_intent": "pin_blocked"
+        }
+      ]
+    },
+    {
+      "count": 2,
+      "partitions": [
+        "id_oos/train"
+      ],
+      "all_in_handoff50_cache": false,
+      "label_conflict": false,
+      "labels": [
+        "oos"
+      ],
+      "original_intents": [
+        "atm_support"
+      ],
+      "token_count": 9,
+      "token_ids": [
+        101,
+        2073,
+        2064,
+        1045,
+        10632,
+        2769,
+        2013,
+        1029,
+        102
+      ],
+      "samples": [
+        {
+          "sample_id": "id_oos/train/1181",
+          "partition": "id_oos/train",
+          "in_handoff50_cache": false,
+          "text": "where can i withdraw money from?",
+          "label": "oos",
+          "original_intent": "atm_support"
+        },
+        {
+          "sample_id": "id_oos/train/1198",
+          "partition": "id_oos/train",
+          "in_handoff50_cache": false,
+          "text": "where can i withdraw money from?",
+          "label": "oos",
+          "original_intent": "atm_support"
+        }
+      ]
+    },
+    {
+      "count": 2,
+      "partitions": [
+        "id_oos/test"
+      ],
+      "all_in_handoff50_cache": true,
+      "label_conflict": false,
+      "labels": [
+        "oos"
+      ],
+      "original_intents": [
+        "atm_support"
+      ],
+      "token_count": 9,
+      "token_ids": [
+        101,
+        2029,
+        27218,
+        2015,
+        5138,
+        2023,
+        4003,
+        1029,
+        102
+      ],
+      "samples": [
+        {
+          "sample_id": "id_oos/test/604",
+          "partition": "id_oos/test",
+          "in_handoff50_cache": true,
+          "text": "which atms accept this card?",
+          "label": "oos",
+          "original_intent": "atm_support"
+        },
+        {
+          "sample_id": "id_oos/test/625",
+          "partition": "id_oos/test",
+          "in_handoff50_cache": true,
+          "text": "which atms accept this card?",
+          "label": "oos",
+          "original_intent": "atm_support"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_raw_samples": 14283,
+    "valid_samples": 14267,
+    "invalid_blank_samples": 16,
+    "cross_split_clusters_all_raw": 12,
+    "cross_split_clusters_in_handoff50_cache": 8,
+    "internal_same_split_clusters": 5,
+    "fit_eligible_clean_samples_before_calibration": 5899
+  }
+}
