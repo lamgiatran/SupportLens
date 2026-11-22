@@ -1,0 +1,101 @@
+{
+  "package": "B",
+  "model_scope": "course77",
+  "eval_split": "dev",
+  "official_test_touched": false,
+  "splits_sha256": "18a707b4b7047a9f24d0d0fff6cc81516a444478436583d87a9d8b2d88a77693",
+  "reproduce_command": ".\\.venv\\Scripts\\python.exe scripts/run_course77.py --suite package_b",
+  "comparison_table": [
+    {
+      "experiment_id": "E1",
+      "representation": "BoW (CountVectorizer unigram, min_df=1)",
+      "classifier": "LogisticRegression(C=1.0, max_iter=1000, random_state=42)",
+      "lemmatize": true,
+      "vocab_size": 1584,
+      "accuracy": 0.870935,
+      "macro_precision": 0.878228,
+      "macro_recall": 0.86974,
+      "macro_f1": 0.870725,
+      "weighted_f1": 0.87088,
+      "error_count": 258,
+      "train_seconds": 3.4334,
+      "eval_seconds": 0.2379,
+      "artifact_path": "artifacts/course77/e1_bow_lr.joblib",
+      "metrics_path": "runs/course77/e1_dev_metrics.json"
+    },
+    {
+      "experiment_id": "E2",
+      "representation": "TF-IDF (TfidfVectorizer unigram, min_df=1)",
+      "classifier": "LogisticRegression(C=1.0, max_iter=1000, random_state=42)",
+      "lemmatize": true,
+      "vocab_size": 1584,
+      "accuracy": 0.870935,
+      "macro_precision": 0.884879,
+      "macro_recall": 0.862796,
+      "macro_f1": 0.867826,
+      "weighted_f1": 0.870516,
+      "error_count": 258,
+      "train_seconds": 1.2803,
+      "eval_seconds": 0.2368,
+      "artifact_path": "artifacts/course77/e2_tfidf_lr.joblib",
+      "metrics_path": "runs/course77/e2_dev_metrics.json"
+    },
+    {
+      "experiment_id": "E3",
+      "representation": "TF-IDF (TfidfVectorizer unigram, min_df=1)",
+      "classifier": "LinearSVC(C=1.0, max_iter=2000, random_state=42)",
+      "lemmatize": true,
+      "vocab_size": 1584,
+      "accuracy": 0.886943,
+      "macro_precision": 0.892415,
+      "macro_recall": 0.885636,
+      "macro_f1": 0.886393,
+      "weighted_f1": 0.886923,
+      "error_count": 226,
+      "train_seconds": 0.7585,
+      "eval_seconds": 0.2349,
+      "artifact_path": "artifacts/course77/e3_tfidf_svm.joblib",
+      "metrics_path": "runs/course77/e3_dev_metrics.json"
+    },
+    {
+      "experiment_id": "E2_no_lemma",
+      "representation": "TF-IDF (TfidfVectorizer unigram, min_df=1)",
+      "classifier": "LogisticRegression(C=1.0, max_iter=1000, random_state=42)",
+      "lemmatize": false,
+      "vocab_size": 2127,
+      "accuracy": 0.858929,
+      "macro_precision": 0.874083,
+      "macro_recall": 0.852461,
+      "macro_f1": 0.857982,
+      "weighted_f1": 0.859433,
+      "error_count": 282,
+      "train_seconds": 1.1556,
+      "eval_seconds": 0.0622,
+      "artifact_path": "artifacts/course77/e2_tfidf_lr_no_lemma.joblib",
+      "metrics_path": "runs/course77/e2_no_lemma_dev_metrics.json"
+    }
+  ],
+  "controlled_comparisons": {
+    "representation_tfidf_vs_bow": {
+      "base": "E1",
+      "variant": "E2",
+      "changed_factor": "CountVectorizer -> TfidfVectorizer (LogisticRegression fixed)",
+      "delta_accuracy": 0.0,
+      "delta_macro_f1": -0.002899
+    },
+    "classifier_svm_vs_lr": {
+      "base": "E2",
+      "variant": "E3",
+      "changed_factor": "LogisticRegression -> LinearSVC (TfidfVectorizer fixed)",
+      "delta_accuracy": 0.016008,
+      "delta_macro_f1": 0.018567
+    },
+    "ablation_lemmatize_off_vs_on_e2": {
+      "base": "E2",
+      "variant": "E2_no_lemma",
+      "changed_factor": "lemmatize=True -> lemmatize=False (E2 TF-IDF+LR fixed)",
+      "delta_accuracy": -0.012006,
+      "delta_macro_f1": -0.009844
+    }
+  }
+}

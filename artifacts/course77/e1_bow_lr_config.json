@@ -16,20 +16,21 @@
   "preprocessing_motivation": {
     "normalization": "Unicode NFKC, whitespace collapse, lowercasing, and contraction expansion (preserving negation) reduce surface sparsity.",
     "tokenization": "Alphanumeric token extraction cleanly separates punctuation while retaining banking terms (pin, atm, 2fa).",
-    "lemmatization": "WordNet verb+noun lemmatization collapses inflectional variants (cards->card, charged->charge) to improve BoW generalization."
+    "lemmatization": "WordNet verb+noun lemmatization collapses inflectional variants (cards->card, charged->charge); toggled off in ablation to measure exact impact."
   },
   "vocab_size": 1584,
   "train_fit_samples": 7994,
   "dev_samples": 1999,
   "splits_sha256": "18a707b4b7047a9f24d0d0fff6cc81516a444478436583d87a9d8b2d88a77693",
   "artifact_path": "artifacts/course77/e1_bow_lr.joblib",
-  "artifact_sha256": "c2e675fbcaa4b6edeb95e6dfa380f15c7807fa69bb4e1744c4cc156f174bd4e2",
+  "artifact_sha256": "bc09e5ed530b4b291478efd6e0c83301b244000a5fbac0a36d2746b2a2ce1468",
   "smoke_examples": [
     {
       "sample_id": "train/1",
       "text": "What can I do if my card still hasn't arrived after 2 weeks?",
       "gold": "card_arrival",
       "predicted": "card_arrival",
+      "score_kind": "probability",
       "confidence": 0.854446
     },
     {
@@ -37,6 +38,7 @@
       "text": "My card doesn't work. I can't get cash out at an ATM",
       "gold": "declined_cash_withdrawal",
       "predicted": "declined_cash_withdrawal",
+      "score_kind": "probability",
       "confidence": 0.922065
     },
     {
@@ -44,6 +46,7 @@
       "text": "Are cards available in the EU?",
       "gold": "country_support",
       "predicted": "country_support",
+      "score_kind": "probability",
       "confidence": 0.906216
     }
   ]
