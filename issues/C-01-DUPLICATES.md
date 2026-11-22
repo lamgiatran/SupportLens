@@ -25,13 +25,15 @@ cặp cần review và quy tắc ngắn trong issue này. Nếu thay mask, giữ
 ID và vector, cập nhật manifest/hash. Không dùng số LR kiểm tra nhanh làm metric.
 
 ### Quy tắc chốt trước fit (Action Rule - Cau):
-1. Giữ nguyên tập test và dev (in-scope và OOS) để đảm bảo tính khách quan của benchmark.
-2. Loại bỏ hoàn toàn khỏi `fit_eligible`:
+1. Giữ nguyên tập test và dev (in-scope và OOS) để đảm bảo tính khách quan của benchmark; không xóa dòng vật lý khỏi file raw hoặc cache để giữ ánh xạ 1-1 `sample_id` và thứ tự vector.
+2. Loại bỏ hoàn toàn khỏi `fit_eligible` (tổng 6 mẫu trong `id/train`, còn **5,899 / 5,905** mẫu hợp lệ trước khi tách calibration):
    - 2 dòng rỗng do lỗi định dạng nguồn: `id/train/3996`, `id/train/4017`.
-   - 2 mẫu rò rỉ nguyên văn từ train sang valid/test: `id/train/3997` (trùng dev), `id/train/4018` (trùng test).
-   - 1 mẫu mâu thuẫn nhãn/trùng token: `id/train/2128` (trùng token với `id/test/721` nhưng nhãn trái ngược).
-3. Tuyệt đối không xóa dòng vật lý khỏi file raw nhằm giữ nguyên ánh xạ 1-1 của `sample_id` và thứ tự vector.
-4. Tổng số mẫu `fit_eligible` của tập train sạch là 5,900 / 5,905 mẫu.
+   - 3 mẫu rò rỉ nguyên văn / token-ID MiniLM từ train sang dev/test: `id/train/3997` (trùng `id/valid/1017`), `id/train/4018` (trùng `id/test/1353`), `id/train/5823` (trùng token-ID MiniLM với `id/test/1994` do double space).
+   - 1 mẫu trùng token-ID MiniLM & mâu thuẫn nhãn: `id/train/2128` (trùng token-ID với `id/test/721` nhưng nhãn trái ngược).
+3. Đánh dấu loại khỏi `dev_selection` (khi chọn siêu tham số $C$ và ngưỡng trên dev, giữ nguyên test):
+   - `id/valid/1091` (trùng token-ID MiniLM với `id/test/1415` do khoảng trắng trước `?`).
+   - `id_oos/valid/211`, `id_oos/valid/288`, `id_oos/valid/310` (trùng với `id_oos/test/419, 595, 638`).
+4. Lưu ý cho C-02: Nhóm trùng token-ID nội bộ trong `id/train` (`id/train/3389` và `id/train/3401`) phải được giữ cùng một phân vùng (`fit` hoặc `calibration`).
 
 Xong khi: đối chiếu được 8 cặp được báo (hoặc giải thích khác biệt), giữ đủ IDs,
 có quy tắc tái lập. Kết quả mở đường cho C-02; chưa phải một run benchmark.
