@@ -37,13 +37,17 @@ def test_cache_and_live_predictions_share_identical_preprocessing_and_vectors(tm
     with np.load(tmp_path / "embeddings.npz", allow_pickle=False) as cache:
         expected = cache["embeddings"][0]
         assert cache["sample_id"].tolist() == ["id/train/0"]
+    seen = []
     def head(vector, *, method):
-        np.testing.assert_allclose(vector, expected, atol=1e-6)
+        seen.append(vector)
         return BankingPrediction("card", 0.8, "accepted", "dev_gate_passed", "fake-test-head")
     pipeline = BankingPipeline(encoder, head, expected_encoder_fingerprint=manifest["encoder_fingerprint"])
-    result = TestClient(create_app(banking=pipeline)).post("/v1/assist", json={
-        "mode": "banking_triage", "question": rows[0]["text"]})
+    with TestClient(create_app(banking=pipeline)) as client:
+        result = client.post("/v1/assist", json={
+            "mode": "banking_triage", "question": rows[0]["text"]})
     assert result.status_code == 200 and result.json()["predicted_intent"] == "card"
+    assert len(seen) == 2  # startup warm-up, then the user's request
+    np.testing.assert_allclose(seen[-1], expected, atol=1e-6)
     assert manifest["npz_sha256"] == hashlib.sha256((tmp_path / "embeddings.npz").read_bytes()).hexdigest()
 
 

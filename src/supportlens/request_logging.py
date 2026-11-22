@@ -41,7 +41,8 @@ class RequestLogMiddleware:
             if event["type"] == "http.response.start":
                 status = event["status"]
                 event = dict(event)
-                event["headers"] = list(event.get("headers", [])) + [
+                event["headers"] = [(key, value) for key, value in event.get("headers", [])
+                                    if key.lower() != b"x-request-id"] + [
                     (b"x-request-id", request_id.encode("ascii"))]
             await send(event)
 
