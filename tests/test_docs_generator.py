@@ -229,3 +229,16 @@ def test_stream_without_generator_still_returns_evidence(docs_rows):
     assert [e["event"] for e in events] == ["start", "done"]
     assert events[0]["generating"] is False
     assert events[-1]["response"]["reason"].startswith("retrieval_only_generator_not_loaded")
+
+
+def test_v2_prompt_asks_for_sentence_citations_and_v1_is_unchanged(tokenizer):
+    v2 = make_generator(tokenizer, [])
+    v1 = make_generator(tokenizer, [], config={"prompt_policy": "v1"})
+    ev = evidence(("doc-a", "alpha"))
+    p1, p2 = v1.build_prompt("current question", ev), v2.build_prompt("current question", ev)
+    assert "Answer only using the supplied evidence" in p1.text and "{p}" not in p2.text
+    assert "End every sentence" in p2.text and p2.text.index("Question:") < p2.text.rindex("[S1]")
+    assert p1.citation_map == p2.citation_map == {"S1": "doc-a"}
+    assert v1.version != v2.version
+    with pytest.raises(ValueError):
+        GeneratorConfig(prompt_policy="v9")

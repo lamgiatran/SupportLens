@@ -35,12 +35,20 @@ def main():
     parser.add_argument("--gate", type=Path, default=Path("artifacts/docs_gates/R1.json"))
     parser.add_argument("--limit", type=int, default=50)
     parser.add_argument("--deadline", type=float, default=None)
+    parser.add_argument("--model", default=None, help="override the Ollama model, e.g. qwen2.5:3b")
+    parser.add_argument("--prompt-policy", default=None, choices=["v1", "v2"])
+    parser.add_argument("--num-predict", type=int, default=None)
     parser.add_argument("--out", type=Path, default=Path("runs/docs_qa/generation_dev.json"))
     args = parser.parse_args()
     if args.limit < 1:
         raise SystemExit("--limit must be positive")
 
-    config = GeneratorConfig.load(args.config, deadline_seconds=args.deadline)
+    config = GeneratorConfig.load(args.config, deadline_seconds=args.deadline, model=args.model,
+                                  prompt_policy=args.prompt_policy, num_predict=args.num_predict)
+    if args.out == parser.get_default("out"):
+        # One file per configuration so variants on the same dev sample can be compared side by side.
+        tag = f"{config.model.replace(':', '-')}_{config.prompt_policy}_n{config.num_predict}"
+        args.out = args.out.with_name(f"generation_dev_{tag}.json")
     generator = OllamaGenerator(config, JsonTokenizer(args.generator_tokenizer))
     generator.start()
     report = {"split": "dev", "generator": generator.snapshot(), "config": config.__dict__,
@@ -63,7 +71,7 @@ def main():
                      key=lambda q: hashlib.sha256(q["query_id"].encode()).hexdigest())[:args.limit]
 
     rows = []
-    predictions = args.out.with_name("generation_predictions.dev.jsonl")
+    predictions = args.out.with_name(args.out.stem.replace("generation_dev", "generation_predictions") + ".dev.jsonl")
     with predictions.open("w", encoding="utf-8", newline="\n") as handle:
         for q in queries:
             evidence, score = retriever.retrieve(q["query_text"], k=5)

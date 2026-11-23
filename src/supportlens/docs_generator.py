@@ -23,7 +23,21 @@ from .generation import Prompt, make_prompt, resolve_citations
 from .text import Tokenizer
 
 LOGGER = logging.getLogger("uvicorn.error.supportlens.docs_generator")
-PROMPT_POLICY = "chatml_raw_cited_top3_v1"
+# Prompt policies are selected on dev. v1 is the original instruction; v2 asks for short,
+# sentence-level citations with one example, repeated right after the question, because
+# qwen2.5:1.5b answered from the evidence but rarely emitted labels under v1 (dev run 24/11).
+PROMPTS = {
+    "v1": (None, None),
+    "v2": ("You answer questions using only the numbered sources below.\n"
+           "Rules:\n"
+           "1. Answer in at most 3 short sentences.\n"
+           "2. End every sentence with the label of the source it came from, like [{p}1] or [{p}1, {p}2].\n"
+           "3. Use only labels that appear below. Numbers inside the source text are not labels.\n"
+           "4. If the sources do not contain the answer, reply exactly: "
+           "I cannot answer from these sources; please request human review.\n"
+           "Example answer: You can renew online or at an office [{p}1]. The fee is $25 [{p}2].",
+           "Answer in at most 3 sentences and end each sentence with its source label, e.g. [{p}1]."),
+}
 WARMUP_QUESTION = "Which source explains this demo?"
 WARMUP_EVIDENCE = [{"evidence_id": "warmup-1", "text": "This synthetic passage only warms up the generator."}]
 REFUSAL = re.compile(r"cannot answer|can't answer|unable to answer|not enough information|"
@@ -45,8 +59,11 @@ class GeneratorConfig:
     deadline_seconds: float = 30.0
     connect_timeout_seconds: float = 3.0
     cache_size: int = 256
+    prompt_policy: str = "v2"
 
     def __post_init__(self):
+        if self.prompt_policy not in PROMPTS:
+            raise ValueError(f"prompt_policy must be one of {sorted(PROMPTS)}")
         if self.evidence_top_k < 1 or self.evidence_top_k > 3:
             raise ValueError("make_prompt packs at most 3 passages; evidence_top_k must be 1..3")
         if self.deadline_seconds <= 0 or self.connect_timeout_seconds <= 0:
@@ -67,7 +84,7 @@ class GeneratorConfig:
     def version(self) -> str:
         identity = {k: v for k, v in asdict(self).items()
                     if k not in {"base_url", "deadline_seconds", "connect_timeout_seconds", "cache_size"}}
-        identity["prompt_policy"] = PROMPT_POLICY
+        identity["prompt_template"] = "chatml_raw_cited_top3"
         digest = hashlib.sha256(json.dumps(identity, sort_keys=True).encode()).hexdigest()
         return "G-" + digest[:16]
 
@@ -154,8 +171,10 @@ class OllamaGenerator:
     def build_prompt(self, question: str, evidence: list) -> Prompt:
         items = [e if isinstance(e, dict) else {"evidence_id": e.evidence_id, "text": e.text}
                  for e in evidence[:self.config.evidence_top_k]]
+        system, suffix = PROMPTS[self.config.prompt_policy]
         return make_prompt(question, items, self.tokenizer, self.config.num_ctx,
-                           self.config.num_predict, self.config.evidence_budget_tokens)
+                           self.config.num_predict, self.config.evidence_budget_tokens,
+                           system=system, suffix=suffix)
 
     def _cache_key(self, prompt: Prompt) -> str:
         return hashlib.sha256((self.version + "\n" + prompt.text).encode()).hexdigest()
