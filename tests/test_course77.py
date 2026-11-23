@@ -2,6 +2,7 @@ import builtins
 import csv
 import json
 import sys
+from types import SimpleNamespace
 
 import pytest
 
@@ -55,7 +56,7 @@ def test_preprocess_missing_wordnet_raises_clear_error(monkeypatch):
     def fake_ensure_loaded():
         raise LookupError("mocked missing wordnet")
 
-    monkeypatch.setattr(nltk_corpus.wordnet, "ensure_loaded", fake_ensure_loaded)
+    monkeypatch.setattr(nltk_corpus, "wordnet", SimpleNamespace(ensure_loaded=fake_ensure_loaded))
     with pytest.raises(LookupError, match=r"nltk\.download\('wordnet'\)"):
         preprocess_text("cards", PreprocessConfig(lemmatize=True))
 
