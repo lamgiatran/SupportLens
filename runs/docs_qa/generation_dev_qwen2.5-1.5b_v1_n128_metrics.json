@@ -1,0 +1,59 @@
+{
+  "split": "dev",
+  "generator": {
+    "state": "ready",
+    "model": "qwen2.5:1.5b",
+    "version": "G-3dcd431a98f0d13c",
+    "error_type": null,
+    "warmup_ms": 1932.2848999872804,
+    "deadline_seconds": 30.0,
+    "cache_entries": 0
+  },
+  "config": {
+    "base_url": "http://127.0.0.1:11434",
+    "model": "qwen2.5:1.5b",
+    "num_ctx": 2048,
+    "num_predict": 128,
+    "evidence_budget_tokens": 600,
+    "evidence_top_k": 3,
+    "temperature": 0,
+    "deadline_seconds": 30.0,
+    "connect_timeout_seconds": 3.0,
+    "cache_size": 256,
+    "prompt_policy": "v1"
+  },
+  "metric_scope": "dev sample; citation-vs-strict-qrels is a proxy, not answer correctness",
+  "status": "complete",
+  "retrieval_artifact": "R1-chunk-b3ba5da19294491c",
+  "gate": {
+    "method": "R1",
+    "threshold": 1.7201206380771543
+  },
+  "queries": 50,
+  "generated": 38,
+  "status_counts": {
+    "no_citation": 35,
+    "retrieval_handoff": 12,
+    "answer": 2,
+    "refused": 1
+  },
+  "decision_counts": {
+    "retrieved": 35,
+    "handoff": 13,
+    "answer": 2
+  },
+  "answer_rate_of_generated": 0.05263157894736842,
+  "answers_citing_strict_gold": 1.0,
+  "answers_citing_gold_when_gold_in_prompt": 1.0,
+  "mean_citation_precision_vs_strict_gold": 0.5,
+  "ttft_ms": {
+    "p50": 82.01625000219792,
+    "p95": 103.39483500429196
+  },
+  "generate_ms": {
+    "p50": 477.87385000265203,
+    "p95": 662.8646449986263
+  },
+  "predictions": "runs/docs_qa/generation_predictions_qwen2.5-1.5b_v1_n128.dev.jsonl",
+  "note": "Run on commit 5e31a6a, before prompt policies existed; that prompt is now policy v1."
+}

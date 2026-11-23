@@ -45,10 +45,10 @@ def main():
 
     config = GeneratorConfig.load(args.config, deadline_seconds=args.deadline, model=args.model,
                                   prompt_policy=args.prompt_policy, num_predict=args.num_predict)
+    tag = f"{config.model.replace(':', '-')}_{config.prompt_policy}_n{config.num_predict}"
     if args.out == parser.get_default("out"):
-        # One file per configuration so variants on the same dev sample can be compared side by side.
-        tag = f"{config.model.replace(':', '-')}_{config.prompt_policy}_n{config.num_predict}"
-        args.out = args.out.with_name(f"generation_dev_{tag}.json")
+        # One tracked metrics file per configuration so variants on the same dev sample can be compared.
+        args.out = args.out.with_name(f"generation_dev_{tag}_metrics.json")
     generator = OllamaGenerator(config, JsonTokenizer(args.generator_tokenizer))
     generator.start()
     report = {"split": "dev", "generator": generator.snapshot(), "config": config.__dict__,
@@ -71,7 +71,7 @@ def main():
                      key=lambda q: hashlib.sha256(q["query_id"].encode()).hexdigest())[:args.limit]
 
     rows = []
-    predictions = args.out.with_name(args.out.stem.replace("generation_dev", "generation_predictions") + ".dev.jsonl")
+    predictions = args.out.with_name(f"generation_predictions_{tag}.dev.jsonl")  # not committed
     with predictions.open("w", encoding="utf-8", newline="\n") as handle:
         for q in queries:
             evidence, score = retriever.retrieve(q["query_text"], k=5)

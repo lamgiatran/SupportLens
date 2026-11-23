@@ -9,7 +9,8 @@
   },
   "generator": {
     "base_url": "http://127.0.0.1:11434",
-    "model": "qwen2.5:1.5b",
+    "model": "qwen2.5:3b",
+    "prompt_policy": "v2",
     "num_ctx": 2048,
     "num_predict": 128,
     "evidence_budget_tokens": 600,

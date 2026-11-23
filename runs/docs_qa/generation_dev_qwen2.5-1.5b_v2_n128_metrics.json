@@ -1,0 +1,58 @@
+{
+  "split": "dev",
+  "generator": {
+    "state": "ready",
+    "model": "qwen2.5:1.5b",
+    "version": "G-09b22d5a48e38ed0",
+    "error_type": null,
+    "warmup_ms": 2865.0875999883283,
+    "deadline_seconds": 30.0,
+    "cache_entries": 0
+  },
+  "config": {
+    "base_url": "http://127.0.0.1:11434",
+    "model": "qwen2.5:1.5b",
+    "num_ctx": 2048,
+    "num_predict": 128,
+    "evidence_budget_tokens": 600,
+    "evidence_top_k": 3,
+    "temperature": 0,
+    "deadline_seconds": 30.0,
+    "connect_timeout_seconds": 3.0,
+    "cache_size": 256,
+    "prompt_policy": "v2"
+  },
+  "metric_scope": "dev sample; citation-vs-strict-qrels is a proxy, not answer correctness",
+  "status": "complete",
+  "retrieval_artifact": "R1-chunk-b3ba5da19294491c",
+  "gate": {
+    "method": "R1",
+    "threshold": 1.7201206380771543
+  },
+  "queries": 50,
+  "generated": 38,
+  "status_counts": {
+    "answer": 31,
+    "retrieval_handoff": 12,
+    "no_citation": 5,
+    "refused": 2
+  },
+  "decision_counts": {
+    "answer": 31,
+    "handoff": 14,
+    "retrieved": 5
+  },
+  "answer_rate_of_generated": 0.8157894736842105,
+  "answers_citing_strict_gold": 0.2903225806451613,
+  "answers_citing_gold_when_gold_in_prompt": 0.6,
+  "mean_citation_precision_vs_strict_gold": 0.27419354838709675,
+  "ttft_ms": {
+    "p50": 82.3472999909427,
+    "p95": 106.43941999442177
+  },
+  "generate_ms": {
+    "p50": 271.267349991831,
+    "p95": 751.2022899783914
+  },
+  "predictions": "runs/docs_qa/generation_predictions_qwen2.5-1.5b_v2_n128.dev.jsonl"
+}

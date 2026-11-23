@@ -36,3 +36,4 @@ runs/**
 *.pt
 *.pth
 *.zip
+.pytest_tmp/
