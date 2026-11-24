@@ -1,0 +1,54 @@
+{
+  "owner": "Nguyen Huu Cau (2352129)",
+  "package": "B",
+  "artifact_version": "handoff50-lr-h1-v1",
+  "fit_rows": 5308,
+  "calibration_rows_untouched": 591,
+  "dev_id_rows": 1505,
+  "dev_eligible_rows": 2230,
+  "c_grid_results": [
+    {
+      "C": 0.1,
+      "dev_id_accuracy": 0.8305647840531561,
+      "dev_id_macro_f1": 0.8311366205023496,
+      "dev_id_nll": 2.049715566109867
+    },
+    {
+      "C": 1.0,
+      "dev_id_accuracy": 0.8750830564784053,
+      "dev_id_macro_f1": 0.87652949605403,
+      "dev_id_nll": 0.7987570351619306
+    },
+    {
+      "C": 10.0,
+      "dev_id_accuracy": 0.8817275747508305,
+      "dev_id_macro_f1": 0.883220811622769,
+      "dev_id_nll": 0.48104386800669907
+    },
+    {
+      "C": 100.0,
+      "dev_id_accuracy": 0.8704318936877077,
+      "dev_id_macro_f1": 0.8728157467421735,
+      "dev_id_nll": 0.5054112866604743
+    }
+  ],
+  "selected_C": 10.0,
+  "selected_dev_id_metrics": {
+    "C": 10.0,
+    "dev_id_accuracy": 0.8817275747508305,
+    "dev_id_macro_f1": 0.883220811622769,
+    "dev_id_nll": 0.48104386800669907
+  },
+  "h1_dev_eligible_gate": {
+    "method": "H1",
+    "target_risk": 0.1,
+    "threshold": 0.752946408449283,
+    "aurc": 0.1452898312188008,
+    "coverage_all": 0.5170403587443946,
+    "risk_all": 0.0997398091934085,
+    "id_coverage": 0.707641196013289,
+    "id_selective_accuracy": 0.9746478873239437,
+    "oos_false_acceptance_rate": 0.12137931034482759
+  },
+  "smoke_samples_count": 3
+}
