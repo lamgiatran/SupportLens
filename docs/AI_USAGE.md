@@ -8,6 +8,11 @@ cache, deadline, huỷ stream), nối vào API (`decision="answer"`, endpoint
 RUN_GENERATION.md. Lâm chọn phạm vi, review code và chạy với model thật; số đo
 generation chỉ lấy từ lần chạy thật trên máy demo, không có số nào được điền sẵn.
 
+Codex hỗ trợ Lâm sửa cache phát lại từ đĩa, deadline khi stream dừng nhả token
+và phép chấm phần bằng chứng thực sự hiện trong prompt. Ba cấu hình được chạy
+lại trên 50 câu dev với Ollama local. Bài kiểm tra khởi động lại dùng hai tiến
+trình API độc lập.
+
 ## T-01 Banking serving và hướng dẫn demo — 21/11/2026
 
 Codex hỗ trợ triển khai lifecycle nạp/warm-up Banking, khóa khởi tạo encoder,

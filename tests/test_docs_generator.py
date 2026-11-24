@@ -1,7 +1,9 @@
 """Docs-QA generation against a fake Ollama server: no model, no network."""
 
+import asyncio
 import json
 from threading import Event
+from time import monotonic
 
 import httpx
 import pytest
@@ -107,6 +109,64 @@ def test_server_error_falls_back(tokenizer):
                           tokenizer, transport=fake_ollama([], status=500))
     result = gen.generate("current question", evidence(("doc-a", "alpha")))
     assert result.status == "error" and result.error_type == "HTTPStatusError"
+
+
+def test_journal_replay_requires_model_history_and_real_source_ids(tokenizer, tmp_path):
+    calls = []
+    config = GeneratorConfig(model=MODEL, num_ctx=512, num_predict=32, evidence_budget_tokens=200)
+    def instance(digest):
+        transport = fake_ollama([["Alpha [S1]."]] * 6, calls=calls)
+        gen = OllamaGenerator(config, tokenizer, transport=transport, journal_dir=tmp_path)
+        gen.model_digest = digest
+        return gen
+    ev = evidence(("id-a", "same source text"))
+    gen = instance("digest-a")
+    assert gen.generate("Where?", ev).cache_status == "miss"
+    assert gen.generate("Where?", ev).cache_status == "hit"
+    restarted = instance("digest-a")
+    result = restarted.generate("Where?", ev)
+    assert result.cache_status == "replay" and result.ttft_ms is None
+    assert result.citations == ["id-a"] and len(calls) == 1
+    moved = restarted.generate("Where?", evidence(("id-b", "same source text")))
+    assert moved.cache_status == "miss" and moved.citations == ["id-b"]
+    assert restarted.generate("Where?", ev, history=[{"role": "user", "text": "other"}]).cache_status == "miss"
+    assert restarted.generate("Where?", ev, retrieval_version="different").cache_status == "miss"
+    assert instance("digest-b").generate("Where?", ev).cache_status == "miss"
+    assert len(calls) == len(list(tmp_path.rglob("*.jsonl"))) == 5
+    for file in tmp_path.rglob("*.jsonl"):
+        row = json.loads(file.read_text(encoding="utf-8"))
+        assert "text" not in row["prompt"] and "input" not in row and "question" not in row["identity"]
+
+
+def test_wall_deadline_cancels_a_stalled_read_and_journals_partial_only(tokenizer, tmp_path):
+    closed = Event()
+    class Stalled(httpx.AsyncByteStream):
+        async def __aiter__(self):
+            yield b'{"response":"partial","done":false}\n'
+            await asyncio.sleep(10)
+        async def aclose(self):
+            closed.set()
+    config = GeneratorConfig(model=MODEL, deadline_seconds=0.4)
+    gen = OllamaGenerator(config, tokenizer, journal_dir=tmp_path,
+                          transport=httpx.MockTransport(lambda _: httpx.Response(200, stream=Stalled())))
+    before = monotonic()
+    result = gen.generate("Where?", evidence(("p", "alpha")))
+    assert monotonic() - before < 1.5 and closed.is_set()
+    assert result.status == "timeout" and result.answer == "" and not result.citations
+    row = json.loads(next(tmp_path.rglob("*.timeout.jsonl")).read_text(encoding="utf-8"))
+    assert row["raw_text"] == "partial" and row["result"]["answer"] == ""
+    assert gen.journal.replay(row["key"]) is None
+
+
+def test_abandoned_stream_preserves_partial_without_replay(tokenizer, tmp_path):
+    gen = OllamaGenerator(GeneratorConfig(model=MODEL), tokenizer, journal_dir=tmp_path,
+                          transport=fake_ollama([["first ", "second [S1]."]]))
+    stream = gen.stream("Where?", evidence(("p", "alpha")))
+    assert next(stream)["text"] == "first "
+    stream.close()
+    row = json.loads(next(tmp_path.rglob("*.cancelled.jsonl")).read_text(encoding="utf-8"))
+    assert row["raw_text"] == "first " and row["result"]["answer"] == ""
+    assert gen.journal.replay(row["key"]) is None
 
 
 def test_startup_requires_pulled_model_and_never_pulls(tokenizer):

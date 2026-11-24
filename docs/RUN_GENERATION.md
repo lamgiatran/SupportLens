@@ -47,12 +47,24 @@ $env:SUPPORTLENS_GENERATOR = 'ollama'
 Startup kiểm tra model có trong `ollama list` rồi sinh một câu warm-up để nạp
 model vào RAM. Xem `/health` → `docs_generator_ready`, `docs_generator.warmup_ms`.
 
-Cache: câu trả lời hợp lệ (`answer`, `refused`) được giữ trong RAM theo
-(model + cấu hình + prompt), tối đa 256 mục. Response ghi `cache_status`
-`miss`/`hit`. Câu trả lời lỗi, quá giờ hoặc thiếu nguồn không được cache.
+Mỗi lần gọi Ollama thật ghi một bản JSONL vào `runs/generation_cache/`. Có thể
+đổi thư mục bằng `SUPPORTLENS_GENERATION_DIR`. Khóa gồm digest model, cấu hình
+và tokenizer, prompt, câu hỏi, lịch sử, phiên bản retrieval cùng ID, thứ tự và
+hash nội dung của từng đoạn đã chọn. Mặc định câu hỏi và lịch sử chỉ góp hash.
+`SUPPORTLENS_LOG_QUESTIONS=1` cho phép lưu cả đầu vào và prompt để rà soát.
 
-Deadline: kiểm tra theo wall-clock ở mỗi token và bằng read timeout của HTTP.
-Quá deadline thì bỏ phần chữ đã sinh, trả `retrieved` với lý do timeout.
+| `cache_status` | Điều đã xảy ra |
+|---|---|
+| `miss` | Ollama vừa sinh cho yêu cầu này. Nhật ký lưu cả lần lỗi, bị hủy và chữ sinh dở. |
+| `hit` | Lấy kết quả đã hoàn tất từ RAM. |
+| `replay` | Đọc kết quả đã hoàn tất từ đĩa, kể cả sau khi khởi động lại. |
+
+Chỉ `answer` và `refused` được dùng lại. Báo TTFT và thời gian sinh live trên
+các lượt `miss`. Hai loại đọc cache có TTFT bằng `null`. Thư mục nhật ký ở máy local.
+
+Deadline tính từ lúc bắt đầu tạo prompt, bao gồm lúc chờ kết nối, chờ byte đầu
+và khoảng im lặng giữa hai token. Hết giờ, API đóng luồng Ollama và trả bằng
+chứng với quyết định `retrieved`. Chữ sinh dở chỉ dùng để điều tra lỗi.
 
 ## 3. Endpoint stream cho UI (giao Tuấn)
 
@@ -70,7 +82,7 @@ chưa sẵn sàng…) vẫn là HTTP 503 như `/v1/assist`.
 Quy tắc cho UI:
 - Nếu `done.response.decision != "answer"`, **xoá phần chữ đã stream** và hiện
   đoạn văn/chuyển người theo `reason`. Chữ đã stream có thể chứa nguồn bịa.
-- Huỷ = đóng kết nối. Server dừng gọi Ollama ở token kế tiếp.
+- Huỷ bằng cách đóng kết nối. Server hủy lượt đọc Ollama và ghi trạng thái `cancelled` cho lượt đang sinh.
 - Banking qua endpoint này chỉ có `start` rồi `done`.
 
 Ví dụ (rút gọn):
@@ -97,39 +109,39 @@ curl.exe -N -X POST http://127.0.0.1:8000/v1/assist/stream -H "Content-Type: app
 .\.venv\Scripts\python.exe scripts/eval_docs_generation.py --limit 50 --model qwen2.5:1.5b --prompt-policy v1
 ```
 
-Lấy 50 câu dev theo thứ tự hash (rải đều qua các hội thoại), chạy R1 → gate dev
-→ generator, không dùng cache. Ghi:
-- `runs/docs_qa/generation_dev_<model>_<prompt>_n<num_predict>_metrics.json`: tỉ lệ từng status, tỉ lệ `answer`, tỉ lệ
-  câu trả lời trích đúng đoạn gold (strict qrels), TTFT/latency p50–p95.
-- `runs/docs_qa/generation_predictions_<cấu hình>.dev.jsonl`: từng câu, để review nguồn bằng mắt (không commit).
+Script chọn 50 câu dev theo hash ID và ghi hash của danh sách này vào metrics.
+Cả ba cấu hình dùng cùng câu hỏi và cùng gate R1. Mỗi lượt qua gate gọi Ollama
+thật. Phép đo loại warm-up và lượt phát lại. Hai file raw cần có trong
+`data/raw/multidoc2dial/` là `multidoc2dial_doc.json` và
+`multidoc2dial_dial_validation.json`. Script kiểm tra hash và chỉ lấy chú thích
+của các lượt thuộc mẫu dev.
 
-"Trích đúng đoạn gold" là proxy cho grounding, không phải độ đúng của câu trả
-lời. Không chạy script này trên held-out trước khi freeze cấu hình.
+- `generation_dev_*_metrics.json` ghi số đếm, mẫu số, latency và hash file dự đoán.
+- `generation_predictions_*.dev.jsonl` ghi ID đoạn được chọn, ID thực sự vào prompt, nguồn model trích và quyết định cuối.
+- `generation_journal/` nằm cạnh file metrics và lưu prompt, output, số token và độ dài phần hiện được của từng đoạn cho bộ dev công khai.
 
-## 5. Kết quả dev và cấu hình đã chọn (24/11/2026)
+## 5. Kết quả dev trên máy local của Lâm (24/11/2026)
 
-Cùng 50 câu dev, R1 + gate dev (12 câu bị gate chuyển người, 38 câu vào generator;
-18/38 câu có đoạn gold strict nằm trong 3 đoạn đưa vào prompt). Máy demo của Lâm.
+Gate chuyển người 12/50 câu. Trong 38 lượt gửi sang Ollama, 18 lượt có đoạn
+gold trong top-3, nhưng chỉ **16/38** lượt giữ được ít nhất một nửa span gold
+trong phần văn bản đã đóng vào prompt 600 token. Bộ chấm đối chiếu offset trên
+văn bản nguồn và loại phần tiêu đề. Một trích dẫn đạt tiêu chí khi chính nguồn
+model trích còn chứa đủ span đó.
 
-| Cấu hình | Trả lời có nguồn | Trả lời khi gold có trong prompt | Trích đúng gold (khi có trong prompt) | Trả lời khi gold KHÔNG có | Từ chối | Không nguồn | generate p50 / p95 |
-|---|---|---|---|---|---|---|---|
-| 1.5B, prompt v1 | 2/38 | 2/18 | 2/2 | 0/20 | 1 | 35 | 478 / 663 ms |
-| 1.5B, prompt v2 | 31/38 | 15/18 | 9/15 | 16/20 | 2 | 5 | 271 / 751 ms |
-| **3B, prompt v2** | 29/38 | 17/18 | 13/17 | 12/20 | 8 | 1 | 612 / 1097 ms |
+| Model và prompt | Xuất câu trả lời có citation | Trả lời khi thấy gold | Trong số đó, trích nguồn còn đủ gold | Từ chối | Thiếu citation | Thời gian sinh p50 / p95 |
+|---|---:|---:|---:|---:|---:|---:|
+| Qwen 1.5B v1 | 3/38 | 2/16 | 2/2 | 1 | 34 | 491 / 675 ms |
+| Qwen 1.5B v2 | 34/38 | 14/16 | 10/14 | 1 | 3 | 269 / 687 ms |
+| **Qwen 3B v2** | **29/38** | **15/16** | **11/15** | **8** | **1** | **434 / 912 ms** |
 
-- v1 → v2: model 1.5B trả lời đúng nội dung nhưng hầu như không ghi nhãn nguồn, và
-  câu dài bị cắt ở 128 token. Prompt v2 (≤3 câu, mỗi câu kết thúc bằng nhãn, có ví dụ)
-  sửa được cả hai.
-- Chọn 3B + v2: khi gold có trong prompt, 3B trả lời 17/18 và trích đúng 13/17; khi gold
-  không có, 3B từ chối 8/20 (cả 8 đều là ca gold không có trong prompt) thay vì trả lời
-  như 1.5B (16/20). TTFT p50 146 ms, generate p95 ≈ 1,1 s trên máy demo.
-- Mẫu nhỏ (50 câu): khoảng tin cậy rộng, chỉ dùng để chọn cấu hình. "Trích đúng gold"
-  là proxy theo qrels strict; câu trả lời khi gold không có trong prompt chưa chắc sai
-  (có thể đoạn khác cũng chứa câu trả lời) — cần review bằng mắt file predictions.
+Giữ **3B v2** cho demo. Model trích nguồn còn đủ gold trong 11 trên 29 câu
+trả lời và chuyển người 8 lần sau bước retrieval. Bảng tính trên một lần chạy
+của từng cấu hình ở cùng mẫu dev. Với 3B, TTFT p50/p95 là 65/77 ms, đo ở
+generator đã warm-up. Các lần sinh lại có thể cho câu khác. Dùng hash predictions
+trong file metrics để nhận diện lần chạy.
 
-## Giới hạn hiện tại
+Các tỉ lệ trên đo mức giao với chú thích nguồn. Độ đúng của từng phát biểu cần
+người đọc kiểm tra. Generator chỉ thấy câu hỏi hiện tại và tối đa ba đoạn trong
+ngân sách 600 token. Lịch sử hội thoại được dùng ở bước truy xuất.
 
-- Prompt chỉ dùng câu hỏi hiện tại (retrieval vẫn dùng history). Câu hỏi phụ
-  thuộc ngữ cảnh hội thoại có thể bị trả lời thiếu.
-- Tối đa 3 đoạn văn đầu, tổng 600 token evidence.
-- Cache nằm trong RAM, mất khi khởi động lại API.
+[Metrics 1.5B v1](../runs/docs_qa/generation_dev_qwen2.5-1.5b_v1_n128_metrics.json) · [Metrics 1.5B v2](../runs/docs_qa/generation_dev_qwen2.5-1.5b_v2_n128_metrics.json) · [Metrics 3B v2](../runs/docs_qa/generation_dev_qwen2.5-3b_v2_n128_metrics.json)

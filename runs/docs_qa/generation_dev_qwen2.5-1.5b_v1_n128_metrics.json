@@ -3,9 +3,10 @@
   "generator": {
     "state": "ready",
     "model": "qwen2.5:1.5b",
-    "version": "G-3dcd431a98f0d13c",
+    "version": "G-de65db96447d1ed6",
+    "model_digest": "65ec06548149b04c096a120e4a6da9d4017ea809c91734ea5631e89f96ddc57b",
     "error_type": null,
-    "warmup_ms": 1932.2848999872804,
+    "warmup_ms": 322.70150003023446,
     "deadline_seconds": 30.0,
     "cache_entries": 0
   },
@@ -25,6 +26,9 @@
   "metric_scope": "dev sample; citation-vs-strict-qrels is a proxy, not answer correctness",
   "status": "complete",
   "retrieval_artifact": "R1-chunk-b3ba5da19294491c",
+  "support_rule": "At least half of one annotated raw span is in the visible passage body.",
+  "sample_query_ids_sha256": "7005e31b6d5fb88c9b987ce3575404b684929bf2b065a2df096fd4f04ea56df4",
+  "predictions_sha256": "80537b6b463c13638ccafc77661525f75ebf879c043fee915bd7d0058a925783",
   "gate": {
     "method": "R1",
     "threshold": 1.7201206380771543
@@ -32,28 +36,34 @@
   "queries": 50,
   "generated": 38,
   "status_counts": {
-    "no_citation": 35,
+    "no_citation": 34,
     "retrieval_handoff": 12,
-    "answer": 2,
+    "answer": 3,
     "refused": 1
   },
   "decision_counts": {
-    "retrieved": 35,
+    "retrieved": 34,
     "handoff": 13,
-    "answer": 2
+    "answer": 3
   },
-  "answer_rate_of_generated": 0.05263157894736842,
-  "answers_citing_strict_gold": 1.0,
+  "answer_rate_of_generated": 0.07894736842105263,
+  "support_counts": {
+    "generated_with_gold_in_selected": 18,
+    "generated_with_visible_gold": 16,
+    "answers_with_visible_gold": 2,
+    "answers_citing_gold_id": 2,
+    "answers_citing_visible_gold": 2
+  },
+  "answers_citing_strict_gold": 0.6666666666666666,
   "answers_citing_gold_when_gold_in_prompt": 1.0,
-  "mean_citation_precision_vs_strict_gold": 0.5,
+  "mean_citation_precision_vs_strict_gold": 0.3333333333333333,
   "ttft_ms": {
-    "p50": 82.01625000219792,
-    "p95": 103.39483500429196
+    "p50": 63.7688499991782,
+    "p95": 80.03051503619643
   },
   "generate_ms": {
-    "p50": 477.87385000265203,
-    "p95": 662.8646449986263
+    "p50": 491.396800003713,
+    "p95": 675.4978000186384
   },
-  "predictions": "runs/docs_qa/generation_predictions_qwen2.5-1.5b_v1_n128.dev.jsonl",
-  "note": "Run on commit 5e31a6a, before prompt policies existed; that prompt is now policy v1."
+  "predictions": "runs/docs_qa/generation_predictions_qwen2.5-1.5b_v1_n128.dev.jsonl"
 }

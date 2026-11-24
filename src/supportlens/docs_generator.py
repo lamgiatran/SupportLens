@@ -6,20 +6,24 @@ citation resolves to a passage that was visible in the prompt. Anything else
 retrieved passages or a human handoff; the generator never fabricates sources.
 """
 
+import asyncio
 from collections import OrderedDict
-from dataclasses import asdict, dataclass, field, fields
+from dataclasses import asdict, dataclass, field, fields, replace
 import hashlib
 import json
 import logging
 from pathlib import Path
+from queue import Empty, SimpleQueue
 import re
 from threading import Event, Lock
 from time import perf_counter
 from typing import Callable, Iterator, Literal
 
 import httpx
+from anyio.from_thread import start_blocking_portal
 
 from .generation import Prompt, make_prompt, resolve_citations
+from .generation_journal import GenerationJournal, identity_hash
 from .text import Tokenizer
 
 LOGGER = logging.getLogger("uvicorn.error.supportlens.docs_generator")
@@ -95,7 +99,7 @@ class GenerationResult:
     answer: str = ""
     citations: list[str] = field(default_factory=list)
     invalid_citations: list[str] = field(default_factory=list)
-    cache_status: Literal["miss", "hit"] = "miss"
+    cache_status: Literal["miss", "hit", "replay"] = "miss"
     ttft_ms: float | None = None
     generate_ms: float = 0.0
     error_type: str | None = None
@@ -124,11 +128,17 @@ class OllamaGenerator:
     """Streams from a local Ollama server. Startup checks the model once; requests never pull."""
 
     def __init__(self, config: GeneratorConfig, tokenizer: Tokenizer, *,
-                 transport: httpx.BaseTransport | None = None,
-                 clock: Callable[[], float] = perf_counter):
+                 transport: httpx.MockTransport | None = None, journal_dir: str | Path | None = None,
+                 include_prompt: bool = False, clock: Callable[[], float] = perf_counter):
         self.config, self.tokenizer, self.clock = config, tokenizer, clock
+        self.transport = transport
+        self.journal = GenerationJournal(journal_dir) if journal_dir is not None else None
+        self.include_prompt = include_prompt
+        self.model_digest = None
+        # Reuse TLS trust roots across per-request event loops, especially on Windows.
+        self._verify = httpx.create_ssl_context() if transport is None else True
         self.client = httpx.Client(
-            base_url=config.base_url.rstrip("/"), transport=transport,
+            base_url=config.base_url.rstrip("/"), transport=transport, verify=self._verify,
             timeout=httpx.Timeout(config.deadline_seconds, connect=config.connect_timeout_seconds))
         self.version = config.version
         self.state, self.error_type = "pending", None
@@ -142,6 +152,7 @@ class OllamaGenerator:
 
     def snapshot(self) -> dict:
         return {"state": self.state, "model": self.config.model, "version": self.version,
+                "model_digest": self.model_digest,
                 "error_type": self.error_type, "warmup_ms": self.warmup_ms,
                 "deadline_seconds": self.config.deadline_seconds, "cache_entries": len(self._cache)}
 
@@ -154,10 +165,11 @@ class OllamaGenerator:
             try:
                 tags = self.client.get("/api/tags", timeout=self.config.connect_timeout_seconds)
                 tags.raise_for_status()
-                names = {m.get("name") for m in tags.json().get("models", [])}
-                if self.config.model not in names:
+                models = {m.get("name"): m.get("digest") for m in tags.json().get("models", [])}
+                if self.config.model not in models:
                     raise LookupError(f"model {self.config.model!r} is not pulled; run: ollama pull {self.config.model}")
-                result = self.generate(WARMUP_QUESTION, WARMUP_EVIDENCE, use_cache=False)
+                self.model_digest = models[self.config.model]
+                result = self.generate(WARMUP_QUESTION, WARMUP_EVIDENCE, use_cache=False, warmup=True)
                 if result.status in {"timeout", "error"}:
                     raise RuntimeError(f"warm-up generation ended with {result.status}: {result.error_type}")
                 self.warmup_ms = (self.clock() - started) * 1000
@@ -176,84 +188,157 @@ class OllamaGenerator:
                            self.config.num_predict, self.config.evidence_budget_tokens,
                            system=system, suffix=suffix)
 
-    def _cache_key(self, prompt: Prompt) -> str:
-        return hashlib.sha256((self.version + "\n" + prompt.text).encode()).hexdigest()
+    async def _read_ollama(self, payload, timeout, messages):
+        # The scope includes connecting, waiting for headers and waiting between tokens.
+        try:
+            async with asyncio.timeout(timeout):
+                async with httpx.AsyncClient(base_url=self.config.base_url, transport=self.transport, verify=self._verify,
+                                             timeout=self.client.timeout) as client:
+                    async with client.stream("POST", "/api/generate", json=payload) as response:
+                        response.raise_for_status()
+                        async for line in response.aiter_lines():
+                            if not line:
+                                continue
+                            event = json.loads(line)
+                            if "error" in event:
+                                raise RuntimeError(event["error"])
+                            messages.put(event)
+                            if event.get("done"):
+                                return
+            raise RuntimeError("StreamEndedWithoutDone")
+        except (TimeoutError, httpx.TimeoutException) as error:
+            messages.put(("timeout", type(error).__name__))
+        except (httpx.HTTPError, ValueError, RuntimeError) as error:
+            messages.put(("error", str(error) if str(error) == "StreamEndedWithoutDone" else type(error).__name__))
+        finally:
+            messages.put(None)
+
+    def _live_events(self, payload, deadline, cancel):
+        """Bridge the cancellable HTTP stream to the sync API and CLI."""
+        messages = SimpleQueue()
+        with start_blocking_portal() as portal:
+            reader = portal.start_task_soon(self._read_ollama, payload, max(0, deadline - self.clock()), messages)
+            try:
+                while True:
+                    if cancel is not None and cancel.is_set():
+                        yield ("cancelled", None)
+                        break
+                    remaining = deadline - self.clock()
+                    if remaining <= 0:
+                        yield ("timeout", "TimeoutError")
+                        break
+                    try:
+                        event = messages.get(timeout=min(remaining, 0.05))
+                    except Empty:
+                        continue
+                    if event is None:
+                        break
+                    yield event
+                    if isinstance(event, tuple) or event.get("done"):
+                        break
+            finally:
+                reader.cancel()
+
+    def _remember(self, key, result):
+        with self._cache_lock:
+            self._cache[key] = result
+            self._cache.move_to_end(key)
+            while len(self._cache) > self.config.cache_size:
+                self._cache.popitem(last=False)
+
+    def _lookup(self, key):
+        with self._cache_lock:
+            cached = self._cache.get(key)
+            if cached is not None:
+                self._cache.move_to_end(key)
+                return replace(cached, cache_status="hit")
+        if self.journal is not None and self.model_digest:
+            saved = self.journal.replay(key)
+            if saved is not None:
+                result = GenerationResult(**saved)
+                self._remember(key, result)
+                return replace(result, cache_status="replay")
+        return None
 
     def stream(self, question: str, evidence: list, *, cancel: Event | None = None,
-               use_cache: bool = True) -> Iterator[dict]:
-        """Yield {"event": "delta", "text"} items, then exactly one {"event": "result", "result"}."""
+               use_cache: bool = True, history=(), retrieval_version=None, warmup=False) -> Iterator[dict]:
+        """Yield provisional deltas followed by one terminal result."""
         started = self.clock()
-        try:
-            prompt = self.build_prompt(question, evidence)
-        except ValueError as error:
-            yield {"event": "result", "result": GenerationResult("error", error_type=type(error).__name__)}
-            return
-        key = self._cache_key(prompt)
-        if use_cache and self.config.cache_size:
-            with self._cache_lock:
-                cached = self._cache.get(key)
-                if cached is not None:
-                    self._cache.move_to_end(key)
-            if cached is not None:
-                yield {"event": "delta", "text": cached.answer}
-                hit = GenerationResult(**{**asdict(cached), "cache_status": "hit", "ttft_ms": 0.0,
-                                          "generate_ms": (self.clock() - started) * 1000})
-                yield {"event": "result", "result": hit}
-                return
-        payload = {"model": self.config.model, "prompt": prompt.text, "raw": True, "stream": True,
-                   "options": {"num_ctx": self.config.num_ctx, "num_predict": self.config.num_predict,
-                               "temperature": self.config.temperature}}
+        items = [e if isinstance(e, dict) else {"evidence_id": e.evidence_id, "text": e.text}
+                 for e in evidence[:self.config.evidence_top_k]]
+        identity = {"schema": 1, "generator": self.version, "model": self.config.model,
+                    "model_digest": self.model_digest, "tokenizer": getattr(self.tokenizer, "fingerprint", None),
+                    "retrieval_version": retrieval_version, "question_sha256": identity_hash(question),
+                    "history_sha256": identity_hash(list(history)),
+                    "evidence": [[e["evidence_id"], identity_hash(e["text"])] for e in items]}
+        prompt, final = None, {}
         text, first, status, error_type = "", None, None, None
+        journal = self.journal if not warmup else None
         try:
-            with self.client.stream("POST", "/api/generate", json=payload) as response:
-                response.raise_for_status()
-                for line in response.iter_lines():
-                    if cancel is not None and cancel.is_set():
-                        status = "cancelled"
-                        break
-                    if self.clock() - started > self.config.deadline_seconds:
-                        status = "timeout"
-                        break
-                    if not line:
-                        continue
-                    event = json.loads(line)
-                    if "error" in event:
-                        raise RuntimeError(event["error"])
-                    token = event.get("response", "")
-                    if token:
-                        if first is None:
-                            first = (self.clock() - started) * 1000
-                        text += token
-                        yield {"event": "delta", "text": token}
-                    if event.get("done"):
-                        break
-                else:
-                    status = "error"
-                    error_type = "StreamEndedWithoutDone"
-        except httpx.TimeoutException as error:
-            status, error_type = "timeout", type(error).__name__
-        except (httpx.HTTPError, ValueError, RuntimeError) as error:
+            prompt = self.build_prompt(question, items)
+        except ValueError as error:
             status, error_type = "error", type(error).__name__
-        elapsed = (self.clock() - started) * 1000
-        if status is None:
-            status, citations, invalid = classify(text, prompt)
-        else:
+        identity["prompt_sha256"] = identity_hash(prompt.text) if prompt else None
+        key = identity_hash(identity)
+        caching = use_cache and self.config.cache_size > 0 and prompt is not None
+        cached = self._lookup(key) if caching else None
+        if cached is not None:
+            yield {"event": "delta", "text": cached.answer}
+            yield {"event": "result", "result": replace(cached, ttft_ms=None, generate_ms=(self.clock() - started) * 1000)}
+            return
+
+        try:
+            if prompt is not None:
+                payload = {"model": self.config.model, "prompt": prompt.text, "raw": True, "stream": True,
+                           "options": {"num_ctx": self.config.num_ctx, "num_predict": self.config.num_predict,
+                                       "temperature": self.config.temperature}}
+                events = self._live_events(payload, started + self.config.deadline_seconds, cancel)
+                try:
+                    for event in events:
+                        if isinstance(event, tuple):
+                            status, error_type = event
+                            break
+                        token = event.get("response", "")
+                        if token:
+                            if first is None:
+                                first = (self.clock() - started) * 1000
+                            text += token
+                            yield {"event": "delta", "text": token}
+                        if event.get("done"):
+                            final = event
+                finally:
+                    events.close()
+                if status is None and not final:
+                    status, error_type = "error", "StreamEndedWithoutDone"
+        except GeneratorExit:
+            status = "cancelled"
+            raise
+        finally:
             citations, invalid = [], []
-        result = GenerationResult(status, text if status not in {"timeout", "cancelled", "error"} else "",
-                                  citations, invalid, "miss", first, elapsed, error_type)
-        if use_cache and self.config.cache_size and status in {"answer", "refused"}:
-            with self._cache_lock:
-                self._cache[key] = result
-                while len(self._cache) > self.config.cache_size:
-                    self._cache.popitem(last=False)
+            if status is None:
+                status, citations, invalid = classify(text, prompt)
+            result = GenerationResult(status, "" if status in {"timeout", "cancelled", "error"} else text,
+                                      citations, invalid, "miss", first, (self.clock() - started) * 1000, error_type)
+            if journal is not None:
+                packed = asdict(prompt) if prompt else {}
+                if not self.include_prompt:
+                    packed.pop("text", None)
+                row = {"key": key, "identity": identity, "options": asdict(self.config), "prompt": packed,
+                       "raw_text": text, "ollama": {k: final.get(k) for k in ("prompt_eval_count", "eval_count",
+                                    "load_duration", "prompt_eval_duration", "eval_duration", "done_reason")},
+                       "result": asdict(result)}
+                if self.include_prompt:
+                    row["input"] = {"question": question, "history": list(history)}
+                journal.save(key, row)
+        if caching and status in {"answer", "refused"}:
+            self._remember(key, result)
         yield {"event": "result", "result": result}
 
-    def generate(self, question: str, evidence: list, *, use_cache: bool = True) -> GenerationResult:
-        result = None
-        for event in self.stream(question, evidence, use_cache=use_cache):
+    def generate(self, question: str, evidence: list, **kwargs) -> GenerationResult:
+        for event in self.stream(question, evidence, **kwargs):
             if event["event"] == "result":
-                result = event["result"]
-        return result
+                return event["result"]
+        raise RuntimeError("missing terminal generation result")
 
 
 def generator_from_env(environ) -> OllamaGenerator | None:
@@ -269,4 +354,5 @@ def generator_from_env(environ) -> OllamaGenerator | None:
                                   base_url=environ.get("SUPPORTLENS_OLLAMA_URL"),
                                   deadline_seconds=float(deadline) if deadline else None)
     tokenizer = JsonTokenizer(environ.get("SUPPORTLENS_GENERATOR_TOKENIZER", "data/tokenizers/qwen/tokenizer.json"))
-    return OllamaGenerator(config, tokenizer)
+    return OllamaGenerator(config, tokenizer, journal_dir=environ.get("SUPPORTLENS_GENERATION_DIR", "runs/generation_cache"),
+                           include_prompt=environ.get("SUPPORTLENS_LOG_QUESTIONS", "0") == "1")

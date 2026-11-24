@@ -4,8 +4,9 @@
     "state": "ready",
     "model": "qwen2.5:3b",
     "version": "G-9e467e2c950faf6b",
+    "model_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
     "error_type": null,
-    "warmup_ms": 2689.889800007222,
+    "warmup_ms": 577.8462999733165,
     "deadline_seconds": 30.0,
     "cache_entries": 0
   },
@@ -25,6 +26,9 @@
   "metric_scope": "dev sample; citation-vs-strict-qrels is a proxy, not answer correctness",
   "status": "complete",
   "retrieval_artifact": "R1-chunk-b3ba5da19294491c",
+  "support_rule": "At least half of one annotated raw span is in the visible passage body.",
+  "sample_query_ids_sha256": "7005e31b6d5fb88c9b987ce3575404b684929bf2b065a2df096fd4f04ea56df4",
+  "predictions_sha256": "eacd0452baae6f2f0790b85d75ad05d0aba7d36df30609cb37074a902ee7e6ee",
   "gate": {
     "method": "R1",
     "threshold": 1.7201206380771543
@@ -43,16 +47,23 @@
     "retrieved": 1
   },
   "answer_rate_of_generated": 0.7631578947368421,
-  "answers_citing_strict_gold": 0.4482758620689655,
-  "answers_citing_gold_when_gold_in_prompt": 0.7647058823529411,
-  "mean_citation_precision_vs_strict_gold": 0.3160919540229885,
+  "support_counts": {
+    "generated_with_gold_in_selected": 18,
+    "generated_with_visible_gold": 16,
+    "answers_with_visible_gold": 15,
+    "answers_citing_gold_id": 12,
+    "answers_citing_visible_gold": 11
+  },
+  "answers_citing_strict_gold": 0.41379310344827586,
+  "answers_citing_gold_when_gold_in_prompt": 0.7333333333333333,
+  "mean_citation_precision_vs_strict_gold": 0.30459770114942525,
   "ttft_ms": {
-    "p50": 145.85044998966623,
-    "p95": 195.25189501582645
+    "p50": 65.46855001943186,
+    "p95": 76.64237999997566
   },
   "generate_ms": {
-    "p50": 611.8520000018179,
-    "p95": 1096.9025849946775
+    "p50": 434.4720499939285,
+    "p95": 911.7728150100446
   },
   "predictions": "runs/docs_qa/generation_predictions_qwen2.5-3b_v2_n128.dev.jsonl"
 }

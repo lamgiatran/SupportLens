@@ -190,7 +190,11 @@ def create_app(retriever=None, docs_gate: Gate | None = None,
         if isinstance(request, BankingRequest):
             return banking_response(request, request_id, http_request, start)
         retrieval = docs_retrieval(request)
-        result = generator.generate(request.question, retrieval["evidence"]) if wants_generation(retrieval) else None
+        result = None
+        if wants_generation(retrieval):
+            result = generator.generate(request.question, retrieval["evidence"],
+                                        history=[turn.model_dump() for turn in request.history],
+                                        retrieval_version=retrieval["active"].version)
         response = docs_response(request_id, retrieval, start, result,
                                  generator_unavailable=generator is not None and not generator.ready)
         record(http_request, response, retrieval, result)
@@ -224,7 +228,9 @@ def create_app(retriever=None, docs_gate: Gate | None = None,
                             "evidence": [e.model_dump(mode="json") for e in retrieval["evidence"]],
                             "retrieve_ms": retrieval["retrieve_ms"], "generating": wants_generation(retrieval)})
                 if wants_generation(retrieval):
-                    events = generator.stream(request.question, retrieval["evidence"], cancel=cancel)
+                    events = generator.stream(request.question, retrieval["evidence"], cancel=cancel,
+                                              history=[turn.model_dump() for turn in request.history],
+                                              retrieval_version=retrieval["active"].version)
                     async for event in iterate_in_threadpool(events):
                         if await http_request.is_disconnected():
                             cancel.set()

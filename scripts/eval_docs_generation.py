@@ -15,7 +15,7 @@ import sys
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-from supportlens.docs_eval import load_dev, write_report
+from supportlens.docs_eval import load_dev, load_dev_grounding, prompt_support, write_report
 from supportlens.docs_gate import DocsGate
 from supportlens.docs_generator import GeneratorConfig, OllamaGenerator
 from supportlens.retrieval import BM25Chunks
@@ -29,6 +29,7 @@ def percentile(values, q):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--bundle", type=Path, default=Path("data/processed/docs_qa"))
+    parser.add_argument("--raw-dir", type=Path, default=Path("data/raw/multidoc2dial"))
     parser.add_argument("--retrieval-tokenizer", type=Path, default=Path("data/tokenizers/minilm/tokenizer.json"))
     parser.add_argument("--generator-tokenizer", type=Path, default=Path("data/tokenizers/qwen/tokenizer.json"))
     parser.add_argument("--config", type=Path, default=Path("configs/default.json"))
@@ -49,7 +50,9 @@ def main():
     if args.out == parser.get_default("out"):
         # One tracked metrics file per configuration so variants on the same dev sample can be compared.
         args.out = args.out.with_name(f"generation_dev_{tag}_metrics.json")
-    generator = OllamaGenerator(config, JsonTokenizer(args.generator_tokenizer))
+    args.out.parent.mkdir(parents=True, exist_ok=True)
+    generator = OllamaGenerator(config, JsonTokenizer(args.generator_tokenizer),
+                                journal_dir=args.out.parent / "generation_journal", include_prompt=True)
     generator.start()
     report = {"split": "dev", "generator": generator.snapshot(), "config": config.__dict__,
               "metric_scope": "dev sample; citation-vs-strict-qrels is a proxy, not answer correctness"}
@@ -65,10 +68,12 @@ def main():
         gate = DocsGate(**json.loads(args.gate.read_text(encoding="utf-8"))["gate"])
         if gate.artifact_version != retriever.version:
             raise SystemExit("gate artifact does not match the R1 bundle")
-    _, queries, qrels = load_dev(args.bundle)
+    manifest, queries, qrels = load_dev(args.bundle)
     # Hash order spreads the sample across dialogues instead of taking the first few.
     queries = sorted((q for q in queries if q["valid_input"]),
                      key=lambda q: hashlib.sha256(q["query_id"].encode()).hexdigest())[:args.limit]
+    raw_docs, raw = load_dev_grounding(args.raw_dir, manifest, queries)
+    chunks = {c.chunk_id: c for c in retriever.chunks}
 
     rows = []
     predictions = args.out.with_name(f"generation_predictions_{tag}.dev.jsonl")  # not committed
@@ -76,16 +81,28 @@ def main():
         for q in queries:
             evidence, score = retriever.retrieve(q["query_text"], k=5)
             gold = set(qrels[q["query_id"]]["strict"])
-            shown = [e.evidence_id for e in evidence[:config.evidence_top_k]]
+            selected = [e.evidence_id for e in evidence[:config.evidence_top_k]]
             row = {"query_id": q["query_id"], "question": q["question"], "retrieval_score": score,
-                   "gold_in_prompt": bool(gold & set(shown)), "prompt_evidence_ids": shown}
+                   "selected_evidence_ids": selected, "gold_in_selected": bool(gold & set(selected)),
+                   "gold_in_prompt": None, "prompt_evidence_ids": []}
             if not evidence or (gate is not None and not gate.accepts(score)):
                 row.update(status="retrieval_handoff", decision="handoff")
             else:
-                result = generator.generate(q["question"], evidence, use_cache=False)
+                example = raw[q["query_id"]]
+                result = generator.generate(q["question"], evidence, use_cache=False,
+                                            history=example["history"], retrieval_version=retriever.version)
+                try:
+                    prompt = generator.build_prompt(q["question"], evidence)
+                except ValueError:
+                    if result.status != "error":
+                        raise
+                    prompt = None
+                visible, cited_visible = prompt_support(prompt, result.citations, chunks, example, raw_docs)
                 decision, reason = result.decision()
                 row.update(status=result.status, decision=decision, reason=reason, answer=result.answer,
                            citations=result.citations, invalid_citations=result.invalid_citations,
+                           prompt_evidence_ids=list(prompt.visible_characters) if prompt else [],
+                           gold_in_prompt=visible, cited_visible_gold=cited_visible,
                            cited_gold=bool(gold & set(result.citations)),
                            citation_precision=(len(gold & set(result.citations)) / len(result.citations)
                                                if result.citations else None),
@@ -101,13 +118,21 @@ def main():
     total = [r["generate_ms"] for r in generated]
     report.update({
         "status": "complete", "retrieval_artifact": retriever.version,
+        "support_rule": "At least half of one annotated raw span is in the visible passage body.",
+        "sample_query_ids_sha256": hashlib.sha256("\n".join(r["query_id"] for r in rows).encode()).hexdigest(),
+        "predictions_sha256": hashlib.sha256(predictions.read_bytes()).hexdigest(),
         "gate": None if gate is None else {"method": gate.method, "threshold": gate.threshold},
         "queries": len(rows), "generated": len(generated),
         "status_counts": dict(Counter(r["status"] for r in rows)),
         "decision_counts": dict(Counter(r["decision"] for r in rows)),
         "answer_rate_of_generated": len(answers) / len(generated) if generated else None,
+        "support_counts": {"generated_with_gold_in_selected": sum(r["gold_in_selected"] for r in generated),
+                           "generated_with_visible_gold": sum(r["gold_in_prompt"] for r in generated),
+                           "answers_with_visible_gold": len(with_gold),
+                           "answers_citing_gold_id": sum(r["cited_gold"] for r in answers),
+                           "answers_citing_visible_gold": sum(r["cited_visible_gold"] for r in answers)},
         "answers_citing_strict_gold": sum(r["cited_gold"] for r in answers) / len(answers) if answers else None,
-        "answers_citing_gold_when_gold_in_prompt": (sum(r["cited_gold"] for r in with_gold) / len(with_gold)
+        "answers_citing_gold_when_gold_in_prompt": (sum(r["cited_visible_gold"] for r in with_gold) / len(with_gold)
                                                     if with_gold else None),
         "mean_citation_precision_vs_strict_gold": (float(np.mean([r["citation_precision"] for r in answers]))
                                                    if answers else None),

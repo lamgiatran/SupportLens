@@ -13,7 +13,7 @@ from supportlens.dense import (DenseEncoder, DenseEncoderConfig, DenseChunks, Hy
 from supportlens.api import create_app
 from supportlens.evaluation import Gate
 from supportlens.generation import Prompt, make_prompt
-from supportlens.docs_eval import visible_gold_hit
+from supportlens.docs_eval import prompt_support, visible_gold_hit
 from fastapi.testclient import TestClient
 
 
@@ -167,6 +167,11 @@ def test_prompt_support_audit_excludes_title_and_trimmed_evidence(tokenizer):
     chunk = Chunk("c", "d", "doc", "alpha", "alpha\nabcdefghij", 0, 10, 12)
     raw = {"d": {"doc": {"doc_text": "abcdefghij", "spans": {"s": {"start_sp": 6, "end_sp": 10}}}}}
     refs = [{"doc_id": "doc", "id_sp": "s"}]
+    example = {"domain": "d", "gold_references": refs}
+    # Both IDs point to a gold passage. Only source b exposes enough of it in the prompt.
+    packed = Prompt("", 0, 0, visible_characters={"a": len("alpha\nabcdef"), "b": len(chunk.text)})
+    assert prompt_support(packed, ["a"], {"a": chunk, "b": chunk}, example, raw) == (True, False)
+    assert prompt_support(packed, ["b"], {"a": chunk, "b": chunk}, example, raw) == (True, True)
     # Visible title + first six body chars do not reach the gold span at all.
     prompt = Prompt("", 0, 0, visible_characters={"c": len("alpha\nabcdef")})
     assert not visible_gold_hit(prompt, {"c": chunk}, "d", refs, raw)
