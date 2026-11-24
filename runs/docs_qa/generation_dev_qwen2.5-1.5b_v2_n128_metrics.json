@@ -1,0 +1,69 @@
+{
+  "split": "dev",
+  "generator": {
+    "state": "ready",
+    "model": "qwen2.5:1.5b",
+    "version": "G-09b22d5a48e38ed0",
+    "model_digest": "65ec06548149b04c096a120e4a6da9d4017ea809c91734ea5631e89f96ddc57b",
+    "error_type": null,
+    "warmup_ms": 321.96480000857264,
+    "deadline_seconds": 30.0,
+    "cache_entries": 0
+  },
+  "config": {
+    "base_url": "http://127.0.0.1:11434",
+    "model": "qwen2.5:1.5b",
+    "num_ctx": 2048,
+    "num_predict": 128,
+    "evidence_budget_tokens": 600,
+    "evidence_top_k": 3,
+    "temperature": 0,
+    "deadline_seconds": 30.0,
+    "connect_timeout_seconds": 3.0,
+    "cache_size": 256,
+    "prompt_policy": "v2"
+  },
+  "metric_scope": "dev sample; citation-vs-strict-qrels is a proxy, not answer correctness",
+  "status": "complete",
+  "retrieval_artifact": "R1-chunk-b3ba5da19294491c",
+  "support_rule": "At least half of one annotated raw span is in the visible passage body.",
+  "sample_query_ids_sha256": "7005e31b6d5fb88c9b987ce3575404b684929bf2b065a2df096fd4f04ea56df4",
+  "predictions_sha256": "35a18cba33134898d7e0bc09b1cd2472474d5019b2ff7740cddabb8096920959",
+  "gate": {
+    "method": "R1",
+    "threshold": 1.7201206380771543
+  },
+  "queries": 50,
+  "generated": 38,
+  "status_counts": {
+    "answer": 34,
+    "retrieval_handoff": 12,
+    "no_citation": 3,
+    "refused": 1
+  },
+  "decision_counts": {
+    "answer": 34,
+    "handoff": 13,
+    "retrieved": 3
+  },
+  "answer_rate_of_generated": 0.8947368421052632,
+  "support_counts": {
+    "generated_with_gold_in_selected": 18,
+    "generated_with_visible_gold": 16,
+    "answers_with_visible_gold": 14,
+    "answers_citing_gold_id": 11,
+    "answers_citing_visible_gold": 10
+  },
+  "answers_citing_strict_gold": 0.3235294117647059,
+  "answers_citing_gold_when_gold_in_prompt": 0.7142857142857143,
+  "mean_citation_precision_vs_strict_gold": 0.3088235294117647,
+  "ttft_ms": {
+    "p50": 65.17910002730787,
+    "p95": 80.71619001275394
+  },
+  "generate_ms": {
+    "p50": 268.8310999656096,
+    "p95": 686.9573050382314
+  },
+  "predictions": "runs/docs_qa/generation_predictions_qwen2.5-1.5b_v2_n128.dev.jsonl"
+}

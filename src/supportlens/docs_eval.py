@@ -1,6 +1,7 @@
 """Dev-only retrieval experiments; dialogue-cluster bootstrap preserves dependence."""
 
 from collections import defaultdict
+from dataclasses import replace
 import hashlib
 import json
 from pathlib import Path
@@ -62,6 +63,22 @@ def query_metrics(ids, gold):
     return {**{f"hit_at_{k}": float(bool(gold & set(ids[:k]))) for k in (1, 3, 5)},
             "gold_recall_at_5": len(gold & set(ids[:5])) / len(gold),
             "mrr_at_10": next((1 / i for i, key in enumerate(ids[:10], 1) if key in gold), 0.0)}
+
+
+def load_dev_grounding(raw_dir, manifest, dev_queries):
+    """Load source offsets only for the requested, already-verified dev query IDs."""
+    docs_path = Path(raw_dir) / "multidoc2dial_doc.json"
+    val_path = Path(raw_dir) / "multidoc2dial_dial_validation.json"
+    for path, role in [(docs_path, "documents"), (val_path, "validation")]:
+        if hashlib.sha256(path.read_bytes()).hexdigest() != manifest["sources_sha256"][role]:
+            raise ValueError("raw source hash mismatch")
+    raw_docs = json.loads(docs_path.read_text(encoding="utf-8"))["doc_data"]
+    ids = {q["query_id"] for q in dev_queries}
+    dialogues = {q["dialogue_id"] for q in dev_queries}
+    raw = {r["query_id"]: r for r in examples(val_path, dialogue_ids=dialogues) if r["query_id"] in ids}
+    if raw.keys() != ids:
+        raise ValueError("grounding references do not match the selected dev queries")
+    return raw_docs, raw
 
 
 def aggregate_metrics(rows):
@@ -140,3 +157,13 @@ def visible_gold_hit(prompt, chunks_by_id, domain, references, raw_docs, *, mini
             if overlap / (end - start) >= minimum:
                 return True
     return False
+
+
+def prompt_support(prompt, citations, chunks, example, docs):
+    """Return strict gold support among the visible prefixes and among the cited prefixes."""
+    if prompt is None:
+        return False, False
+    cited = replace(prompt, visible_characters={k: n for k, n in prompt.visible_characters.items()
+                                                if k in citations})
+    args = chunks, example["domain"], example["gold_references"], docs
+    return visible_gold_hit(prompt, *args), visible_gold_hit(cited, *args)

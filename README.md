@@ -55,6 +55,8 @@ Use Python 3.11 or later. Follow [the Docs-QA run guide](docs/RUN_DENSE.md) to i
 
 For the UI branch review, follow [the local setup and three demo cases](docs/RUN_UI_DEMOS.md): real Docs-QA, Banking missing-model handling (503), and mock stream completion/error/cancellation.
 
+For cited answer generation with a local Ollama model, streaming events for the UI and the dev generation check, see [the generation guide](docs/RUN_GENERATION.md).
+
 For Banking startup/readiness tests with an explicit mock and the later switch to Cau's real pipeline, see [the T-01 serving guide](docs/RUN_BANKING_SERVING.md).
 
 Data split IDs, experiment configurations, metrics and manifests are kept with the source. Raw datasets, pretrained weights and large vector caches are downloaded or rebuilt through the documented scripts.

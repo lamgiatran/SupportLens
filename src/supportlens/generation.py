@@ -43,17 +43,21 @@ def resolve_citations(answer: str, prompt: Prompt) -> tuple[list[str], list[str]
 
 def make_prompt(question: str, evidence: list[dict], tokenizer: Tokenizer,
                 num_ctx: int = 2048, num_predict: int = 128,
-                evidence_budget: int = 600) -> Prompt:
+                evidence_budget: int = 600, *, system: str | None = None,
+                suffix: str | None = None) -> Prompt:
+    """`system`/`suffix` are templates with `{p}` for the citation prefix; None keeps the v1 prompt."""
     # No namespace is inherently impossible in arbitrary source text. Reserve a
     # short one absent from the supplied text; never edit raw document brackets.
     original = question + "\n" + "\n".join(item["text"] for item in evidence[:3])
     prefix = "S"
     while re.search(rf"\[[^\[\]\r\n]*\b{prefix}\s*\d", original, re.I):
         prefix += "S"
-    system = (f"Answer only using the supplied evidence. Cite sources as [{prefix}1] or [{prefix}2]. "
+    default_system = (f"Answer only using the supplied evidence. Cite sources as [{prefix}1] or [{prefix}2]. "
               f"For multiple sources use [{prefix}1, {prefix}2]. "
               "Use only source aliases actually present below. Numeric brackets in source text are not citations. "
               "If evidence is insufficient, say you cannot answer and request human review.")
+    system = default_system if system is None else system.format(p=prefix)
+    tail = "" if suffix is None else "\n" + suffix.format(p=prefix)
     parts, citation_map, visible = [], {}, {}
     for number, item in enumerate(evidence[:3], 1):
         alias = prefix + str(number)
@@ -82,7 +86,7 @@ def make_prompt(question: str, evidence: list[dict], tokenizer: Tokenizer,
     context = "\n\n".join(parts)
     # raw=True avoids hidden chat-template token accounting in this probe.
     prompt = (f"<|im_start|>system\n{system}<|im_end|>\n"
-              f"<|im_start|>user\nEvidence:\n{context}\n\nQuestion: {question}<|im_end|>\n"
+              f"<|im_start|>user\nEvidence:\n{context}\n\nQuestion: {question}{tail}<|im_end|>\n"
               "<|im_start|>assistant\n")
     tokens = tokenizer.count(prompt, special=False)
     if tokens + num_predict + 32 > num_ctx:

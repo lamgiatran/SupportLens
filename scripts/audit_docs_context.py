@@ -2,14 +2,12 @@
 
 import argparse
 from collections import defaultdict
-import hashlib
 import json
 from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-from supportlens.data import examples
-from supportlens.docs_eval import load_dev, visible_gold_hit, write_report
+from supportlens.docs_eval import load_dev, load_dev_grounding, visible_gold_hit, write_report
 from supportlens.generation import make_prompt
 from supportlens.retrieval import BM25Chunks
 from supportlens.text import JsonTokenizer
@@ -17,14 +15,7 @@ from supportlens.text import JsonTokenizer
 
 def run(bundle, tokenizer, qwen_tokenizer, raw_dir, predictions, out):
     manifest, queries, qrels = load_dev(bundle)
-    dev_ids = {q["dialogue_id"] for q in queries}
-    docs_path = Path(raw_dir) / "multidoc2dial_doc.json"
-    val_path = Path(raw_dir) / "multidoc2dial_dial_validation.json"
-    for path, role in [(docs_path, "documents"), (val_path, "validation")]:
-        if hashlib.sha256(path.read_bytes()).hexdigest() != manifest["sources_sha256"][role]:
-            raise ValueError("raw source hash mismatch")
-    raw_docs = json.loads(docs_path.read_text(encoding="utf-8"))["doc_data"]
-    raw = {r["query_id"]: r for r in examples(val_path, dialogue_ids=dev_ids)}
+    raw_docs, raw = load_dev_grounding(raw_dir, manifest, queries)
     base = BM25Chunks.from_bundle(bundle, tokenizer)
     chunks = {c.chunk_id: c for c in base.chunks}
     qwen = JsonTokenizer(qwen_tokenizer)
