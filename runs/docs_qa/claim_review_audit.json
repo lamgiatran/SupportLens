@@ -1,0 +1,2562 @@
+{
+  "reviewer": "Codex, single unblinded AI review, no independent human labels",
+  "model_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+  "retriever": "R1-chunk-b3ba5da19294491c",
+  "cached_predictions_sha256": "eacd0452baae6f2f0790b85d75ad05d0aba7d36df30609cb37074a902ee7e6ee",
+  "prior_50_dialogues": [
+    "1722740f9da53fc02ff23fca433b7165",
+    "17f3ec8efd2242b66ff0908b67cff441",
+    "17fed87112a4632a9f53502cd360bb19",
+    "22f09d83124d20a43bba04cb73ece366",
+    "2a650c272308ff84d93c5955adb46078",
+    "2d4a552a1314552c5d4d1420a6300dde",
+    "2e76f32d20ed5665c0a51cb00ee7a41b",
+    "2f9587c9ea2cd7290452861ed79b9ab2",
+    "317bfd6479722e96bc7a57fdbf5ad2b2",
+    "553b5cfaacc679ac992a651481e2cfc4",
+    "596f5c4d1a31d870d4384ff952914d98",
+    "5f0164902465a37044261c2b701de9d0",
+    "74a3ad414c25be1c5fbd52c2f1b717c0",
+    "7928bb291db86c0314f3f7aeab1617e5",
+    "82f480a37c4e64eb7ba658d7e45aac6b",
+    "85e086e272f6964333bb891e6447f673",
+    "8aef9f5bbda9f388a2b7e511aa6d8044",
+    "8c272b00a28c9412a1baa948a4dec9ea",
+    "8d64637b8ab455244015fc7581f40181",
+    "8e710e7d85e0c80fc2ae038b5f89c7ed",
+    "903f99d828a215c2e1c1ffee315d74d4",
+    "9449ebf0924645a487b5f55caf588970",
+    "96cb2354ec1db343f5230f5b172fc22a",
+    "987ea1800f994d3b2609d830aaed343e",
+    "9c5699eb3d3c82e9108d8e8c72d6d962",
+    "9fd9ac67b01535b3e3ee084c54afe47b",
+    "a571c5b97f35262ffb7c3b5ae165784f",
+    "a615d75b02952e505ac238ee688a963f",
+    "affd0f2e4fa08b1d43955733b9a093e1",
+    "b023e676deaf2ba9bbcb694f7f0f1930",
+    "b11b921e733c30a62366889c0131c88c",
+    "bdffbd6b00f5b1c30836b6d0c974f13e",
+    "d2045199a9351c5d02f5b2a7557ab8f5",
+    "d652eabb0bfe367b38df42bb30c9675b",
+    "d8497aeb50040fbd3ce358ece5ae697b",
+    "d8f465cc44734431c9878e786102473c",
+    "debdb257ee48c078c9c9fab93bc274b0",
+    "eb193ba9fc1f7043957739df3ee95997",
+    "ed292a47df11fed29cc3bf09ee5a6410",
+    "eedfdf848bc86c30ba8d75b70374df0c",
+    "ef4671e634343ab12abfafc855f15478",
+    "f313a5dc5aa5245025877a081c9535df",
+    "f33ebe04c6c6fc36825253952db3380a",
+    "f6e3549ea2a6bd4f26cd61baacea81db",
+    "f92ca2c6a334cdc200e8ff8659582f49",
+    "fc3a1f32406408addcff117b13932d1b"
+  ],
+  "discovery": [
+    {
+      "query_id": "a571c5b97f35262ffb7c3b5ae165784f:3",
+      "dialogue_id": "a571c5b97f35262ffb7c3b5ae165784f",
+      "question": "What are the conditions I need to meet to be able to transfer benefits then?",
+      "sources": {
+        "[S1]": {
+          "chunk": "f25d7e5f4620891beac6",
+          "visible_chars": 1092,
+          "sha256": "519b1b967ee1889eb923adeb44446e9ffff565b7389d02bbdcb585b0ea6076f8"
+        },
+        "[S2]": {
+          "chunk": "34ada6041bef85125809",
+          "visible_chars": 988,
+          "sha256": "2bf87b9d3e7470117e16a1e9b1a291fc07ef1444484b495808b386c3a7e10180"
+        },
+        "[S3]": {
+          "chunk": "d257f70fd2f0f743684a",
+          "visible_chars": 526,
+          "sha256": "51f240437f439046a47ecaee7f9b4aef159b09d95dbbfb38e67eb9cbbbdf0987"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": false,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "Hai nhánh thời gian phục vụ 6/10 năm khớp S1. Thiếu điều kiện nhập DEERS và tình trạng phục vụ nên câu trả lời chưa đủ."
+          }
+        ],
+        "answer": "You must have completed at least 6 years of service on the date your request is approved and agree to add 4 more years of service, or you must have completed at least 10 years of service and cannot commit to add 4 more years due to policy or statute, but agree to serve for the maximum amount of time allowed. [S1]"
+      }
+    },
+    {
+      "query_id": "b023e676deaf2ba9bbcb694f7f0f1930:1",
+      "dialogue_id": "b023e676deaf2ba9bbcb694f7f0f1930",
+      "question": "I need to get a real ID to travel and want to know if it costs more than a regular ID",
+      "sources": {
+        "[S1]": {
+          "chunk": "9d3f52664d48df5141db",
+          "visible_chars": 976,
+          "sha256": "3e6ec8c17af2e44e75de22f4d32c5f09e132d14b7b78eb249d4ab47a97531d4f"
+        },
+        "[S2]": {
+          "chunk": "a2bb3bc9d440211bda1b",
+          "visible_chars": 1148,
+          "sha256": "e6ccfda11681f644124843113b3d28899fe76cdb79ec2725455b4a03266eeeec"
+        },
+        "[S3]": {
+          "chunk": "7042735678058c04864e",
+          "visible_chars": 536,
+          "sha256": "915dafcee81dad47b8e39f0be79a241ba5de7912bf9c0b394352cb74cba67d09"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S2 mô tả giấy tờ và chụp ảnh."
+          },
+          {
+            "label": "wrong_source",
+            "note": "Cả phí REAL ID và phụ phí Enhanced nằm ở S2, câu nói về phí gắn S1."
+          }
+        ],
+        "answer": "To get a REAL ID, you need to provide specific identification documents and may need to take a new photo. [S2] The cost for a REAL ID is no additional cost compared to a regular ID, but there is an extra $30 fee for an Enhanced Driver License or Enhanced ID Card. [S1]"
+      }
+    },
+    {
+      "query_id": "f92ca2c6a334cdc200e8ff8659582f49:14",
+      "dialogue_id": "f92ca2c6a334cdc200e8ff8659582f49",
+      "question": "can I take classes at 2 schools at the same time if I still have benefits leftover?",
+      "sources": {
+        "[S1]": {
+          "chunk": "02b7e72dd68e4e073b18",
+          "visible_chars": 268,
+          "sha256": "5a910a444c6b78bdae7f513ab97f1962f916379a1f1318891598c7e4df064666"
+        },
+        "[S2]": {
+          "chunk": "64b3eb688323e4215756",
+          "visible_chars": 1027,
+          "sha256": "33b432ba54f7d5dd58a649cca66ab2b991f49a4101ff3c76f2cc7bb1eeb68026"
+        },
+        "[S3]": {
+          "chunk": "d257f70fd2f0f743684a",
+          "visible_chars": 1084,
+          "sha256": "f8217e3df398ac3fa93a2db28dd8b74f2b6c67521b097a8a7eca75aad995ab16"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "insufficient",
+            "note": "Không nguồn nào xác nhận học hai trường đồng thời hoặc chỉ thanh toán cho một trường mỗi lần."
+          },
+          {
+            "label": "supported",
+            "note": "S3 nói có thể chuyển quyền lợi chưa dùng cho gia đình."
+          }
+        ],
+        "answer": "You can take classes at two schools simultaneously if you have leftover benefits, but you must use the benefits to cover your tuition and fees at one school at a time. Unused benefits can be transferred to your spouse or dependent children. [S3]"
+      }
+    },
+    {
+      "query_id": "1722740f9da53fc02ff23fca433b7165:4",
+      "dialogue_id": "1722740f9da53fc02ff23fca433b7165",
+      "question": "Yes",
+      "sources": {
+        "[S1]": {
+          "chunk": "cd71e1856e74063ec385",
+          "visible_chars": 1188,
+          "sha256": "1842b71003db82a3cb6c4481cf09ca96cf875dab588142920c2d2d32aa5ed084"
+        },
+        "[S2]": {
+          "chunk": "32e325f4854464c58e6f",
+          "visible_chars": 1219,
+          "sha256": "2f303c3d07f5779f5b36c71133fffc9810e4d3be5b47f86278c68c732c658e4c"
+        },
+        "[S3]": {
+          "chunk": "1d4c4e0a565b29946da9",
+          "visible_chars": 740,
+          "sha256": "97ef0debe53c2ecaadf3ce81af19d95626399a92764466d563331dccd25d3f08"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": false,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S3 nói về điều trị miễn phí cho tình trạng liên quan đến phục vụ."
+          },
+          {
+            "label": "supported",
+            "note": "S3 nêu tư vấn tái thích nghi và sức khỏe tâm thần. Người dùng vừa xác nhận có vấn đề sức khỏe, chưa xác định bệnh hay chi phí."
+          }
+        ],
+        "answer": "Yes, you can get free VA health care for any illness or injury related to your military service. Additionally, you may receive free services like readjustment counseling and related mental health services. [S3]"
+      }
+    },
+    {
+      "query_id": "85e086e272f6964333bb891e6447f673:1",
+      "dialogue_id": "85e086e272f6964333bb891e6447f673",
+      "question": "Is there  special enrollment period for applying for medicare only?",
+      "sources": {
+        "[S1]": {
+          "chunk": "2559ada6ce3c50accae0",
+          "visible_chars": 1075,
+          "sha256": "7b3e7cbec2ea6a1f3a7b4fd48deef69637f28ba328826e483c90048d37ae01cd"
+        },
+        "[S2]": {
+          "chunk": "97c7a37d246b6d1dd073",
+          "visible_chars": 1061,
+          "sha256": "815b05f963ffd302ae7376a592721c120e676835814ca0292f1b4b6184dba405"
+        },
+        "[S3]": {
+          "chunk": "9a9eb828606158cfe23d",
+          "visible_chars": 755,
+          "sha256": "4cd802f7ea151c1016093f5b5a495371abad0428591898b0b5c89dcfd8bf0d93"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S3 xác nhận SEP Part B cho người có bảo hiểm nhóm theo việc làm."
+          },
+          {
+            "label": "supported",
+            "note": "S3 cho thời hạn 8 tháng theo sự kiện kết thúc sớm hơn."
+          }
+        ],
+        "answer": "Yes, there is a Special Enrollment Period (SEP) for applying for Medicare Part B. This period allows individuals to enroll in Medicare Part B during certain months when they are still covered under a group health plan based on their employment. The SEP covers months when the individual remains covered under the group health plan and their employment continues, or the 8-month period starting from the month after their group health plan coverage or employment ends, whichever comes first. [S3]"
+      }
+    },
+    {
+      "query_id": "17f3ec8efd2242b66ff0908b67cff441:9",
+      "dialogue_id": "17f3ec8efd2242b66ff0908b67cff441",
+      "question": "can you also link me to where I can view my case?",
+      "sources": {
+        "[S1]": {
+          "chunk": "c4a5511d9d64279839fb",
+          "visible_chars": 939,
+          "sha256": "ff2a898f5dc579e15c096e59714997fa5560412b999ce79ca8440330d9cd1f74"
+        },
+        "[S2]": {
+          "chunk": "1a659a6b01fd03fe6d06",
+          "visible_chars": 1076,
+          "sha256": "e3bb400e2fc25e8b44c73c4600b9b5f1f093bb24b2834f525a0ed7e396b6ab8e"
+        },
+        "[S3]": {
+          "chunk": "3b613a36506399d1e10b",
+          "visible_chars": 776,
+          "sha256": "934a220d384f4834f984831fc444364f4430300ee4d65c415820d6edb1e51ec1"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": false,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S2 cho phép đăng nhập để xem, theo dõi và cập nhật hồ sơ. Người dùng xin link, câu trả lời không đưa link."
+          }
+        ],
+        "answer": "You can manage your cases by logging in to your account. From there, you can view, track, or update your case. [S2]"
+      }
+    },
+    {
+      "query_id": "9fd9ac67b01535b3e3ee084c54afe47b:7",
+      "dialogue_id": "9fd9ac67b01535b3e3ee084c54afe47b",
+      "question": "I must admit that substance use ruined my life a bit, I may not be able to pay the mortgage of the house, what if there is the possibility of losing my home? What should I do?",
+      "sources": {
+        "[S1]": {
+          "chunk": "12726120589bd2eef0ea",
+          "visible_chars": 928,
+          "sha256": "aa39b9089356d03aa8d83981bee9df535dad33cd5e8ce08952f9ba6ad233ebac"
+        },
+        "[S2]": {
+          "chunk": "5ca0a3a2a527631c5670",
+          "visible_chars": 991,
+          "sha256": "1057d8f00fd851a6d8ae9f84595d82118bb0e64a669073f5397ea3d74076f1b5"
+        },
+        "[S3]": {
+          "chunk": "85374b0aad62f2c1edd3",
+          "visible_chars": 823,
+          "sha256": "e6a239e9a5ba042d00c022ee7984ce1ecc2adfb69e98e0c0e1bee21ed9f15e0d"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": false,
+        "review_units": [
+          {
+            "label": "insufficient",
+            "note": "S1 nói về PTSD, không chỉ định tư vấn tâm lý là bước đầu để giữ nhà."
+          },
+          {
+            "label": "insufficient",
+            "note": "Không có hướng dẫn ở S1 về xử lý khoản vay qua tư vấn viên."
+          },
+          {
+            "label": "insufficient",
+            "note": "Tên Benefits Processing Center không được S1 chứng minh."
+          }
+        ],
+        "answer": "If you are facing financial difficulties due to substance use, you should first seek help from a VA counselor or a VA mental health provider. They can provide guidance on VA services and benefits that might help you manage your situation. Additionally, you can contact the VA's Benefits Processing Center for assistance in accessing VA services and benefits. [S1]"
+      }
+    },
+    {
+      "query_id": "eedfdf848bc86c30ba8d75b70374df0c:7",
+      "dialogue_id": "eedfdf848bc86c30ba8d75b70374df0c",
+      "question": "Do I get the same benefits completing an I-PIRP course as I would a classroom PIRP course?",
+      "sources": {
+        "[S1]": {
+          "chunk": "89fa0751ea05a3b88ade",
+          "visible_chars": 1058,
+          "sha256": "135bc00f73df2bad22f0c8650e0e57d7ea1e7f9cf5bd334defe19de27bf08bd8"
+        },
+        "[S2]": {
+          "chunk": "28ceeeb339aeead02125",
+          "visible_chars": 1000,
+          "sha256": "c6b2b32da0a0e8e47900b08e24707be9dc4e1d6d619ac59cbb0e7d465a3ad8ef"
+        },
+        "[S3]": {
+          "chunk": "99350af82d66b0101d32",
+          "visible_chars": 727,
+          "sha256": "f1cca2da2f7e562a15af3cf184ccbdf4aac796fa7dec66e2c9c82c85abaf61f1"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S2 khẳng định học online và học trên lớp có cùng quyền lợi."
+          },
+          {
+            "label": "supported",
+            "note": "S2 nêu giảm tối đa bốn điểm và tiết kiệm 10% phí."
+          }
+        ],
+        "answer": "Yes, you receive the same benefits including reducing your driver violation point total by a maximum of four points and saving ten percent on your auto liability and collision insurance premiums, as you would with a classroom PIRP course. [S2]"
+      }
+    },
+    {
+      "query_id": "96cb2354ec1db343f5230f5b172fc22a:1",
+      "dialogue_id": "96cb2354ec1db343f5230f5b172fc22a",
+      "question": "Hi, I was wondering if I can qualify to have the entire federal loan canceled?",
+      "sources": {
+        "[S1]": {
+          "chunk": "f15504134679c9c12e6a",
+          "visible_chars": 1251,
+          "sha256": "68cf24648cc9d2febf8fbb45280b5ecd419bad975f45383dca103527728482e0"
+        },
+        "[S2]": {
+          "chunk": "b2a27dc5d7877e84660d",
+          "visible_chars": 1076,
+          "sha256": "7949ae7a2f021c69c641e83376ccb2203de1e11f6e57b8151e26408568b1881c"
+        },
+        "[S3]": {
+          "chunk": "8cc77440289fedf76c7a",
+          "visible_chars": 685,
+          "sha256": "aeb78d411037feaccd956492075edf080dec486be125c05b7cbac760e160298c"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S1 cho phép xóa đến 100% riêng khoản Perkins khi đáp ứng điều kiện, có lịch phần trăm theo năm."
+          },
+          {
+            "label": "supported",
+            "note": "S2 nêu 5 năm dạy và mức tối đa 17.500 USD."
+          },
+          {
+            "label": "uncited",
+            "note": "Kết luận cuối về không đủ điều kiện bị ngắt và không có nguồn."
+          }
+        ],
+        "answer": "You can have up to 100 percent of your Perkins Loan canceled for teaching service, up to 100 percent, in increments of 15, 20, and 30 percent per year for the first five years. [S1] For Teacher Loan Forgiveness, you must teach full-time for five consecutive academic years in a low-income school and meet other qualifications. [S2] If you meet the criteria for Teacher Loan Forgiveness, you may be eligible for up to $17,500 in loan forgiveness. [S2] If not, you may not qualify for loan cancellation"
+      }
+    },
+    {
+      "query_id": "7928bb291db86c0314f3f7aeab1617e5:1",
+      "dialogue_id": "7928bb291db86c0314f3f7aeab1617e5",
+      "question": "What age should I start my benefits?",
+      "sources": {
+        "[S1]": {
+          "chunk": "a84455b0afbbf5688093",
+          "visible_chars": 1242,
+          "sha256": "1d16945e61e4bca91f6af64a2e392341cc23fa6ea945b88f828547fc43a27b5a"
+        },
+        "[S2]": {
+          "chunk": "1994d39e72af847171d1",
+          "visible_chars": 1101,
+          "sha256": "cce4ead9004441fc7c97dd93467ec601648b5a12ea03976e28951a1f944ce413"
+        },
+        "[S3]": {
+          "chunk": "62e347d4bd25e59b25ba",
+          "visible_chars": 589,
+          "sha256": "97d3da0fcbf3863939d2800ea42dac4cba4a9bae32f4bfc7bf4447541173d0d0"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": false,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S2 nêu khoảng tuổi 62–70."
+          },
+          {
+            "label": "supported",
+            "note": "S3 lặp đúng khoảng tuổi. Câu hỏi xin tư vấn cách chọn tuổi, câu trả lời chỉ nhắc lại khoảng tuổi."
+          }
+        ],
+        "answer": "You may start receiving benefits as early as age 62 or as late as age 70. [S2] When you can start benefits -You may start receiving benefits as early as age 62 or as late as age 70. [S3]"
+      }
+    },
+    {
+      "query_id": "ef4671e634343ab12abfafc855f15478:3",
+      "dialogue_id": "ef4671e634343ab12abfafc855f15478",
+      "question": "I did read it , can you fix it",
+      "sources": {
+        "[S1]": {
+          "chunk": "ca3d65dbcca0a7492eee",
+          "visible_chars": 1074,
+          "sha256": "87979e9e692b774c5c255091605069bde15f4a40f127d4ae944982bf1a877957"
+        },
+        "[S2]": {
+          "chunk": "6d5433aa670aa042869e",
+          "visible_chars": 1028,
+          "sha256": "df68f64616ce1a24a252a5ed6791ad273e6c431957d7ce580a9024c534f35496"
+        },
+        "[S3]": {
+          "chunk": "3b7982d67b385cd4c0d4",
+          "visible_chars": 713,
+          "sha256": "5ed9ba680532272204d48464bfd4b0885022cea4cef943216040620ac9414960"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S2 ghi cách xử lý khi còn bảo hiểm."
+          },
+          {
+            "label": "supported",
+            "note": "S2 ghi nộp lại đăng ký và biển số khi không có bảo hiểm."
+          }
+        ],
+        "answer": "If you have insurance, follow the instructions in the letter and contact your company or agent about the problem. If you don't have insurance, you need to surrender your vehicle registration and plates to the DMV immediately. [S2]"
+      }
+    },
+    {
+      "query_id": "debdb257ee48c078c9c9fab93bc274b0:11",
+      "dialogue_id": "debdb257ee48c078c9c9fab93bc274b0",
+      "question": "Can I use it if I qualify for benefits?",
+      "sources": {
+        "[S1]": {
+          "chunk": "1ae9ba6ad4dca2b1aaa8",
+          "visible_chars": 1140,
+          "sha256": "d91dfe7cdf7021eafdfce51c4ef661fc0b4bba2a84df947c0185121afa8455a2"
+        },
+        "[S2]": {
+          "chunk": "1c9d356c2ec413c606aa",
+          "visible_chars": 1147,
+          "sha256": "2d4c612c7a876f55257e99876f204750dcaa91133539c68241819dc0289d2db5"
+        },
+        "[S3]": {
+          "chunk": "c92292f943dfbf71aa7c",
+          "visible_chars": 768,
+          "sha256": "c0ab07e04eaea49d95fc4652d0f4a9f61fd81eaef712834d8c410df7ad16f785"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S1/S2 liệt kê số tín chỉ và các trường hợp loại trừ; S3 không bổ sung bằng chứng cho công cụ."
+          }
+        ],
+        "answer": "Yes, you can use the Retirement Estimator if you have enough Social Security credits to qualify for benefits and you are not in any of the specified situations. [S1] [S2] [S3]"
+      }
+    },
+    {
+      "query_id": "2e76f32d20ed5665c0a51cb00ee7a41b:12",
+      "dialogue_id": "2e76f32d20ed5665c0a51cb00ee7a41b",
+      "question": "What about limited resource and income for receiving medicare?",
+      "sources": {
+        "[S1]": {
+          "chunk": "728b25f7bb0ca16da6ac",
+          "visible_chars": 1037,
+          "sha256": "d0648d2f2aeedd7d7f8884dfb03f49513bf493191e40a865a360e47d304a73de"
+        },
+        "[S2]": {
+          "chunk": "4454b3e261daf7a74443",
+          "visible_chars": 1080,
+          "sha256": "f96690bd4e46e4140262be3f5f2c3a2e96120205fd7f5e29408c0e4cc7656b76"
+        },
+        "[S3]": {
+          "chunk": "e2aade61f8868ea12b3d",
+          "visible_chars": 674,
+          "sha256": "9badd30e96e6bd52b77325533ce837a838551be5e011972c63a620de57c45f5f"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S1/S2 nêu Extra Help cho chi phí thuốc."
+          },
+          {
+            "label": "insufficient",
+            "note": "Quyết định của tiểu bang và đầu mối Medicaid thuộc chương trình hỗ trợ chi phí khác trong cùng đoạn."
+          }
+        ],
+        "answer": "For limited resource and income, you may be eligible for Extra Help with Medicare Prescription Drug Plan Costs. This assistance is decided by your state and can be contacted through state welfare offices or Medicaid agencies. [S1, S2]"
+      }
+    },
+    {
+      "query_id": "eb193ba9fc1f7043957739df3ee95997:7",
+      "dialogue_id": "eb193ba9fc1f7043957739df3ee95997",
+      "question": "I'd like to ask regarding VA nursing homes, assisted living, and home health care.",
+      "sources": {
+        "[S1]": {
+          "chunk": "3d32ea89ad746e240bb7",
+          "visible_chars": 1075,
+          "sha256": "7acad407b6fdd57f2c79aa30840726078c17e3241835044486ca497b05e2c6b6"
+        },
+        "[S2]": {
+          "chunk": "66e0257bf33482f13d44",
+          "visible_chars": 1081,
+          "sha256": "b7cd315016ca4a4db4dfa032e7324f183298c5f805004e13672088215c7b3734"
+        },
+        "[S3]": {
+          "chunk": "d1f8cbc2de77d0777aed",
+          "visible_chars": 602,
+          "sha256": "aaee6a8ef7a24ffeb99b276e54d1a744574ad925960c28b4b0b804574615d09a"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S3 liệt kê dịch vụ chăm sóc dài hạn."
+          },
+          {
+            "label": "supported",
+            "note": "S3 nêu đối tượng cựu chiến binh ốm hoặc khuyết tật."
+          },
+          {
+            "label": "insufficient",
+            "note": "S3 chỉ nói tìm hiểu cách tiếp cận, không xác nhận thủ tục nộp qua hệ thống VA."
+          }
+        ],
+        "answer": "VA offers long-term care services including 24/7 nursing and medical care, physical therapy, help with daily tasks, comfort care, and support for caregivers. These services are available for sick or disabled Veterans. To access these services, you may need to apply through the VA system. [S3]"
+      }
+    },
+    {
+      "query_id": "b11b921e733c30a62366889c0131c88c:9",
+      "dialogue_id": "b11b921e733c30a62366889c0131c88c",
+      "question": "yes",
+      "sources": {
+        "[S1]": {
+          "chunk": "adbbd1c13ed304190992",
+          "visible_chars": 443,
+          "sha256": "1bc2fd82293880ff64fb6af9c271bed3368f249fd48e082d4d4fc35e4f58dbdc"
+        },
+        "[S2]": {
+          "chunk": "27563be95fbd303e2226",
+          "visible_chars": 596,
+          "sha256": "0f35b6a491f3fd9ba357ce6df783cc7383bf6a19aa45df17c7f5d5287c29a51f"
+        },
+        "[S3]": {
+          "chunk": "efd454ea9e1884a0cb5d",
+          "visible_chars": 962,
+          "sha256": "8620c06c9f306c6059e05458435ad0b724dcac427232a6fba82adeb4b85868cd"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": false,
+        "review_units": [
+          {
+            "label": "insufficient",
+            "note": "S1 tách mẫu cho bệnh giai đoạn cuối với mẫu tử tuất, câu trả lời gộp hai trường hợp."
+          },
+          {
+            "label": "insufficient",
+            "note": "S2 cũng tách mẫu tạm ứng với mẫu báo tử và nhận quyền lợi tử tuất."
+          },
+          {
+            "label": "uncited",
+            "note": "Câu cuối về hỗ trợ ngắn hạn bị cắt giữa chừng."
+          }
+        ],
+        "answer": "For a service member who is terminally ill, a family member would file a Claim for Accelerated Benefits SGLV 8284 and a Claim for Death Benefits SGLV 8283. [S1] For a spouse who is terminally ill, a service member would file a Claim for Accelerated Benefits SGLV 8284A, a Report of Death of Family Member SGLV 8700, and a Claim for Family Coverage Death Benefits SGLV 8283A. [S2] For a service member needing short-term financial support due to a"
+      }
+    },
+    {
+      "query_id": "f313a5dc5aa5245025877a081c9535df:9",
+      "dialogue_id": "f313a5dc5aa5245025877a081c9535df",
+      "question": "No, I do no have an employment barrier or handicap.",
+      "sources": {
+        "[S1]": {
+          "chunk": "9b85678752059c170c55",
+          "visible_chars": 1067,
+          "sha256": "506ddcb8a3f8f084c8984eb199932da7f3b5dcae657ed1200189def122787077"
+        },
+        "[S2]": {
+          "chunk": "4dee5643837ce0942644",
+          "visible_chars": 1088,
+          "sha256": "e501acbab4f10396338048924d681ac5696d30595af588fe3d87b484a7798424"
+        },
+        "[S3]": {
+          "chunk": "d187c08c235e38fd624e",
+          "visible_chars": 748,
+          "sha256": "22b597aaa05954cc968e5962373963c3e8ae9c40f557801e340eda7699b23290"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S1 quy định phải có rào cản việc làm."
+          },
+          {
+            "label": "supported",
+            "note": "Do người hỏi phủ nhận rào cản, S1 hỗ trợ kết luận không đủ điều kiện theo nhánh này."
+          }
+        ],
+        "answer": "You are not eligible for the VR&E Self-Employment track as you do not have an employment barrier or handicap. [S1] Therefore, you cannot get help starting your own business through this track. [S1]"
+      }
+    },
+    {
+      "query_id": "d2045199a9351c5d02f5b2a7557ab8f5:1",
+      "dialogue_id": "d2045199a9351c5d02f5b2a7557ab8f5",
+      "question": "For what reasons does Social Security provide people with benefits?",
+      "sources": {
+        "[S1]": {
+          "chunk": "eccb4f318e787efb3df5",
+          "visible_chars": 1125,
+          "sha256": "b1f221ae17210d26b1ab8af6e013664f80caf2ed8705906929ef2e7015d0e9db"
+        },
+        "[S2]": {
+          "chunk": "7e35ef060c81d177a54c",
+          "visible_chars": 1151,
+          "sha256": "b3cd2401224196724db8c917beffbb84d112c0b3a5aef45c6fa4b0cb7f59c8e6"
+        },
+        "[S3]": {
+          "chunk": "9d3a906f911946833600",
+          "visible_chars": 738,
+          "sha256": "1cd9e4b9c096f3af10aec8a00b245c2056a22779ada8b27390f8cff597e687f9"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": false,
+        "review_units": [
+          {
+            "label": "insufficient",
+            "note": "S1 mô tả lý do từ chối hồ sơ, không lập danh sách toàn bộ lý do cấp quyền lợi."
+          },
+          {
+            "label": "supported",
+            "note": "S1 mô tả khiếu nại quyết định từ chối vì lý do y tế."
+          },
+          {
+            "label": "uncited",
+            "note": "Ý cuối về liên hệ văn phòng không gắn nhãn dù có trong S1."
+          }
+        ],
+        "answer": "Social Security provides benefits based on financial need, medical reasons, or non-medical reasons such as lawful admission status or state/local laws. [S1] For medical reasons, individuals can request an appeal by submitting an Appeal Request and Appeal Disability Report. [S1] For non-medical reasons, individuals should contact their local Social Security Office for a review."
+      }
+    },
+    {
+      "query_id": "f33ebe04c6c6fc36825253952db3380a:1",
+      "dialogue_id": "f33ebe04c6c6fc36825253952db3380a",
+      "question": "how to change address and mailing information",
+      "sources": {
+        "[S1]": {
+          "chunk": "7bbbf77137ba81c42c73",
+          "visible_chars": 1057,
+          "sha256": "db086e84668f9a1815b11cf5ad7c6124ee9239edacd2e6ae6bf7d9efc648d5c3"
+        },
+        "[S2]": {
+          "chunk": "374debda139827f80604",
+          "visible_chars": 1149,
+          "sha256": "2108d798f30e8d2880c11a1fcc57e6c6f91c12678d8c9af377004d00b32e8b8c"
+        },
+        "[S3]": {
+          "chunk": "ac2b6bbfbc81a457a3e5",
+          "visible_chars": 663,
+          "sha256": "5f3afe6fea9dcc4a191c96a4a575fc5d9a312fc7f2c5481904bbae434e0713be"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": false,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S2 mô tả cập nhật địa chỉ cho Social Security."
+          },
+          {
+            "label": "insufficient",
+            "note": "S3 nói về nơi gửi giấy thay thế, không khẳng định văn phòng DMV cập nhật hồ sơ SSA."
+          },
+          {
+            "label": "supported",
+            "note": "S3 dặn đổi địa chỉ trước khi xin giấy phép thay thế. Câu trả lời lẫn hai cơ quan."
+          }
+        ],
+        "answer": "To change your address and mailing information, you can update it online through my Social Security account. For those who need assistance, you can also change your address at a DMV office. Additionally, if your address changes, ensure you update it before ordering a replacement license or permit. [S2, S3]"
+      }
+    },
+    {
+      "query_id": "affd0f2e4fa08b1d43955733b9a093e1:7",
+      "dialogue_id": "affd0f2e4fa08b1d43955733b9a093e1",
+      "question": "If I want to exchange in an office and keep my document type Standard",
+      "sources": {
+        "[S1]": {
+          "chunk": "76da034056fcc7a0422d",
+          "visible_chars": 548,
+          "sha256": "f1dce8a3c39566b017fdd0cc88fe98cba7d3b5a504b86a0f7f242541f4b725c0"
+        },
+        "[S2]": {
+          "chunk": "0523f46a7285833b0894",
+          "visible_chars": 844,
+          "sha256": "3275f95fb5c2ba10131e81200868d63b6806dfe362e887f46dbac297d2e17880"
+        },
+        "[S3]": {
+          "chunk": "e962d5ca31fc0446947a",
+          "visible_chars": 1031,
+          "sha256": "9c75de81c7b05db2d37b55e4be550d350690dc2ea80a9967950759635d1f25e7"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S1 yêu cầu MV-44 và đến văn phòng."
+          },
+          {
+            "label": "wrong_source",
+            "note": "S1 yêu cầu mang bằng lái hiện có; giấy non-driver xuất hiện ở S2/S3 cho giao dịch khác."
+          },
+          {
+            "label": "supported",
+            "note": "S1 yêu cầu mang lệ phí."
+          }
+        ],
+        "answer": "To exchange in an office and keep your Standard document type, you need to complete the Application for Permit, Driver License or Non - Driver ID Card PDF [4] MV-44 and then come to an office. Bring your current Standard non - driver ID and your application payment. [S1]"
+      }
+    },
+    {
+      "query_id": "2d4a552a1314552c5d4d1420a6300dde:5",
+      "dialogue_id": "2d4a552a1314552c5d4d1420a6300dde",
+      "question": "How do I get these benefits?",
+      "sources": {
+        "[S1]": {
+          "chunk": "89a6846da05f76f261ab",
+          "visible_chars": 1101,
+          "sha256": "d5fe8131fe11ecf4ae60aae4eb5d8f8aa487b7ab66b62cc897aaaf050c08ffd8"
+        },
+        "[S2]": {
+          "chunk": "e9817a2438e839a37eb2",
+          "visible_chars": 1094,
+          "sha256": "1aac6606f38c83396632c4c8461980ebfba360d3435cedc87297580b35227aca"
+        },
+        "[S3]": {
+          "chunk": "36006cec46a09822844b",
+          "visible_chars": 652,
+          "sha256": "b70a5849f47fc88a9eea7a02f1da68a16644241ba5bf03a188b5c571c799fbeb"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": false,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S1 nêu điều kiện phục vụ và chẩn đoán."
+          },
+          {
+            "label": "insufficient",
+            "note": "S1 không nêu liên hệ văn phòng VA địa phương để làm thủ tục."
+          }
+        ],
+        "answer": "To get these benefits, you must meet specific service and health criteria. Contact your local VA office for detailed application procedures and eligibility criteria. [S1]"
+      }
+    }
+  ],
+  "pilot": [
+    {
+      "query_id": "08969be11ae53654480265abab7a3fe7:7",
+      "dialogue_id": "08969be11ae53654480265abab7a3fe7",
+      "question": "What are requirements for pension?",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff"
+      },
+      "quote": {
+        "status": "retrieval_handoff"
+      }
+    },
+    {
+      "query_id": "fc9a100c28fb9569ad0aba4653da3c4f:5",
+      "dialogue_id": "fc9a100c28fb9569ad0aba4653da3c4f",
+      "question": "What would happen if I earned less, like you suggested?",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff"
+      },
+      "quote": {
+        "status": "retrieval_handoff"
+      }
+    },
+    {
+      "query_id": "17bfff3dc3ca6151a017f02990008b16:7",
+      "dialogue_id": "17bfff3dc3ca6151a017f02990008b16",
+      "question": "If I'm going to register my vehicle in New York, is it possible to have someone surrender my vehicle plates on my behalf?",
+      "sources": {
+        "[S1]": {
+          "chunk": "102b04ef4663b703219b",
+          "visible_chars": 1059,
+          "sha256": "c4af00f0365af936326b113b1b68b4b985f4e39450ddaf9082454a19b56bb650"
+        },
+        "[S2]": {
+          "chunk": "9e15288ee259466cec3d",
+          "visible_chars": 1047,
+          "sha256": "2cd94158374ad962c2cdbf2d0b857fbf809b0c10214844ad2c436e99085f9480"
+        },
+        "[S3]": {
+          "chunk": "72419324bc9f9aa8158f",
+          "visible_chars": 741,
+          "sha256": "3e1cc125a8182c63903abe1e438f508ce742801a6364ceca6bec39d1d65c8bdb"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "insufficient",
+            "note": "S1/S2 yêu cầu nộp biển nhưng không cấm người khác nộp hộ."
+          },
+          {
+            "label": "supported",
+            "note": "S2 nói phải nộp ngay khi đăng ký xe ở bang khác."
+          }
+        ],
+        "answer": "No, you must surrender your vehicle registration and plates to the DMV yourself before the New York State liability insurance is cancelled [S1]. If you register your vehicle in another state, you must surrender your vehicle registration and plates to the DMV immediately [S2]. Having someone else surrender your plates is not an option [S2]."
+      },
+      "quote": {
+        "status": "format_error",
+        "raw_sha256": "5853873038186b35d2ef19a53abeac3c81d0015888634b9784cdba8c56849fd6"
+      }
+    },
+    {
+      "query_id": "e0a50eea76d8e6f19f09fd33ccb65aef:15",
+      "dialogue_id": "e0a50eea76d8e6f19f09fd33ccb65aef",
+      "question": "so i have to fill in the requested information",
+      "sources": {
+        "[S1]": {
+          "chunk": "49de77febea895ee1440",
+          "visible_chars": 976,
+          "sha256": "54157e4fb20a10579735836e568f0d412215feae31b8961853cf3994b97cb884"
+        },
+        "[S2]": {
+          "chunk": "e907ee1a5480f2d1afd2",
+          "visible_chars": 898,
+          "sha256": "8da4e8349d9950f0c1a400e38997d9198dbf9010440b16f441af48edbfd83dbf"
+        },
+        "[S3]": {
+          "chunk": "cebcde8dd66930943b79",
+          "visible_chars": 607,
+          "sha256": "bebd2a04365a635321d489f4a0272e2a3e98b19b8b8504bb38e2f9a7b37abc0e"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "wrong_source",
+            "note": "S3 nói điền thông tin; dẫn S2."
+          },
+          {
+            "label": "insufficient",
+            "note": "S2 không liệt kê đủ các trường tên, địa chỉ và chi tiết vi phạm mà câu trả lời tuyên bố bắt buộc."
+          }
+        ],
+        "answer": "You must fill in the requested information on the ticket, which includes your name, address, and the details of the violation. This information is necessary to proceed with your plea or payment. [S2]"
+      },
+      "quote": {
+        "status": "format_error",
+        "raw_sha256": "23500d6898383a6426ca17a00c0ff536b0282bc54922706bd09fab3de6a33f3a"
+      }
+    },
+    {
+      "query_id": "32e3c1e1d6824a9bf68c88cde9b9b91a:1",
+      "dialogue_id": "32e3c1e1d6824a9bf68c88cde9b9b91a",
+      "question": "How do I apply for disability benefits?",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff"
+      },
+      "quote": {
+        "status": "retrieval_handoff"
+      }
+    },
+    {
+      "query_id": "cdc38401d5ca350aedcd2a969be700bf:7",
+      "dialogue_id": "cdc38401d5ca350aedcd2a969be700bf",
+      "question": "Is it necessary for me to apply for Medicare? If that's the case, what are the benefits that I will get?",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff"
+      },
+      "quote": {
+        "status": "retrieval_handoff"
+      }
+    },
+    {
+      "query_id": "b1bcb5e9cc111a0e098eb1b88c6ea9ad:5",
+      "dialogue_id": "b1bcb5e9cc111a0e098eb1b88c6ea9ad",
+      "question": "Not, exactly, but I think they are possible.",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff"
+      },
+      "quote": {
+        "status": "retrieval_handoff"
+      }
+    },
+    {
+      "query_id": "19d4ea0d2611c32433e9c78a1f001385:11",
+      "dialogue_id": "19d4ea0d2611c32433e9c78a1f001385",
+      "question": "and is there health care?",
+      "sources": {
+        "[S1]": {
+          "chunk": "d2902c6e13b1c61e8ccf",
+          "visible_chars": 923,
+          "sha256": "b3c5f122fd4c3db32d3275506736dc133d9d70063f4bf9d0b18959ad2ced47d5"
+        },
+        "[S2]": {
+          "chunk": "5b05bace7d6e79a6e0f5",
+          "visible_chars": 1236,
+          "sha256": "4eb9671188752e6f21c215db9c5796dd464585c1eacd25fab49899be990cd911"
+        },
+        "[S3]": {
+          "chunk": "1b332938a48100b31adb",
+          "visible_chars": 871,
+          "sha256": "4166a226fa50fd352ab884698477255f35206792c617052a18323dc353c1a65a"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S2 liệt kê quản lý y tế online, đơn thuốc, lịch hẹn và xét nghiệm."
+          }
+        ],
+        "answer": "Yes, VA health care can be accessed and managed online. You can refill and track your prescriptions, schedule and view your appointments, and access your lab and test results. [S2]"
+      },
+      "quote": {
+        "status": "format_error",
+        "raw_sha256": "dbbef2d4744fb2d626fb6f8dc20c84bccfe9b07d40664db3a66a169aa29a2453"
+      }
+    },
+    {
+      "query_id": "8e0770d85d9e7f13ee04580aa88fcca3:6",
+      "dialogue_id": "8e0770d85d9e7f13ee04580aa88fcca3",
+      "question": "Can I use my US passport as proof of both being a citizen and my identity?",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff"
+      },
+      "quote": {
+        "status": "retrieval_handoff"
+      }
+    },
+    {
+      "query_id": "be2fb0f758ca7f6452f1ead0eae321b2:13",
+      "dialogue_id": "be2fb0f758ca7f6452f1ead0eae321b2",
+      "question": "Is there any way I can learn more about what happens at crosswalks? I want to know in detail so I will be prepared for the road test.",
+      "sources": {
+        "[S1]": {
+          "chunk": "087ce228ba6432ce2aec",
+          "visible_chars": 990,
+          "sha256": "20a49cf670c076ec01e2dc26b197f9f7971a0d8bdc6777c5b4a51b3ccea3b3be"
+        },
+        "[S2]": {
+          "chunk": "09c3de63a66ac0e12e43",
+          "visible_chars": 1009,
+          "sha256": "c90b8cc35c856cd2d20a11d6139d43dde557f2824a081469a81e0812dc2fb031"
+        },
+        "[S3]": {
+          "chunk": "ff411c8f85e02125a4fa",
+          "visible_chars": 507,
+          "sha256": "265ab85f962d2bb7e71c2d7b9c55be963f183583ef0347fe5e5fff54fa7bff10"
+        }
+      },
+      "v2": {
+        "status": "refused",
+        "raw_sha256": "a0dce1d8a9104ebb299215192160f2081e359373bdc25704082d3a9b2d3c12e0"
+      },
+      "quote": {
+        "status": "format_error",
+        "raw_sha256": "b4dc2a31cf1730e794e46c27845cd58c341515af6b211d623f14ed3f79769441"
+      }
+    },
+    {
+      "query_id": "363758c09c1f25c9edf1f77d76f48857:11",
+      "dialogue_id": "363758c09c1f25c9edf1f77d76f48857",
+      "question": "And if i get suspended?",
+      "sources": {
+        "[S1]": {
+          "chunk": "5bc8a083f6d31d6473ae",
+          "visible_chars": 971,
+          "sha256": "a55e2be4d2b0b0f0c53a1c4ebb7ba251eff0090b7bb67b4d4d34a4f9bfa67ecf"
+        },
+        "[S2]": {
+          "chunk": "745f319739ab8d7dc9a1",
+          "visible_chars": 1052,
+          "sha256": "cc87d092361c3b1542790adc8081aa7f90138b4e86f85e29bb902323faf0027b"
+        },
+        "[S3]": {
+          "chunk": "26f2ab16f54d0c2c08e6",
+          "visible_chars": 806,
+          "sha256": "e41defcdca0296e9ee55d859582ea7ec7854573857ca1eecb006af63cd5f2d38"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "insufficient",
+            "note": "S1 chỉ cho đóng phạt thay nộp biển khi đủ điều kiện; câu trả lời nêu lựa chọn chung."
+          },
+          {
+            "label": "supported",
+            "note": "S2 loại trừ nộp phạt nếu gián đoạn từ 91 ngày."
+          }
+        ],
+        "answer": "If you get suspended, you must either surrender your plates to the DMV or pay the optional civil penalty for the entire length of the lapse. [S1] You cannot pay if your insurance lapse is 91 days or more. [S2]"
+      },
+      "quote": {
+        "status": "format_error",
+        "raw_sha256": "0072519e2087d60327a7c9ff38e5f714016d59498ef3e6c687e5a0b4703a221d"
+      }
+    },
+    {
+      "query_id": "df970a127e19325a01f24c5d61ce3c20:7",
+      "dialogue_id": "df970a127e19325a01f24c5d61ce3c20",
+      "question": "and what law protects my health care coverage?",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff"
+      },
+      "quote": {
+        "status": "retrieval_handoff"
+      }
+    },
+    {
+      "query_id": "a8213be3cdd0d00ab1bc737cd468a523:7",
+      "dialogue_id": "a8213be3cdd0d00ab1bc737cd468a523",
+      "question": "so I can just do the affidavit on the hearing and I won't have to show up?",
+      "sources": {
+        "[S1]": {
+          "chunk": "3e487ccd603b50b567c8",
+          "visible_chars": 1031,
+          "sha256": "1aa2ca95fb9334b7eb2b4c1d36aa9b08c39133aa75e5cafb2e8104eddb4c9c51"
+        },
+        "[S2]": {
+          "chunk": "69a09abb731e4d3bc50d",
+          "visible_chars": 1015,
+          "sha256": "41c836bfb7aaeea69dfa7d39484ce01d0e8c5fcc90c2650e85db4726dac1a9cb"
+        },
+        "[S3]": {
+          "chunk": "d3486e0d78587e5687ac",
+          "visible_chars": 651,
+          "sha256": "de01593f677b5a3a4852f6efa1f736ed95ef754fdef1bf26c00b81ac8a715217"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S3 mô tả điều trần qua giấy thay cho có mặt."
+          },
+          {
+            "label": "supported",
+            "note": "S3 nói thông báo hướng dẫn cách nộp."
+          }
+        ],
+        "answer": "Yes, you can submit an affidavit to request a hearing by affidavit, which allows you to avoid appearing in person at the DMV hearing. The Notice of Registration Suspension will provide instructions on how to submit this affidavit to the DMV. [S3]"
+      },
+      "quote": {
+        "status": "format_error",
+        "raw_sha256": "535236c36101a3b4537adc604c4f8abfd0a648148c4c6e0be33232dff657e99d"
+      }
+    },
+    {
+      "query_id": "a5a1655f5bf11f97e37726f51df46cd9:5",
+      "dialogue_id": "a5a1655f5bf11f97e37726f51df46cd9",
+      "question": "ok thanks, I would also like to know if I apply for higher benefits, since I receive SSI, how do I know if I am eligible for these benefits?",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff"
+      },
+      "quote": {
+        "status": "retrieval_handoff"
+      }
+    },
+    {
+      "query_id": "cc1303e36bd2cc88dfcccc8f22e27366:9",
+      "dialogue_id": "cc1303e36bd2cc88dfcccc8f22e27366",
+      "question": "With regards to this, I was wondering if are the any conditions that I need to meet under the VA Mission Act before I can get community care?",
+      "sources": {
+        "[S1]": {
+          "chunk": "89638125b42d6b0bf544",
+          "visible_chars": 1089,
+          "sha256": "d4420066e2f04a5dc9c1a5076e978657d91ca20622276570d0f01f0299c534e1"
+        },
+        "[S2]": {
+          "chunk": "7e0c426893f754e8a834",
+          "visible_chars": 1099,
+          "sha256": "79d499bc29b863096f8def32b35e186850b4631199db2cf9cd79060fc7609f56"
+        },
+        "[S3]": {
+          "chunk": "6a202e3b1735ea67c90c",
+          "visible_chars": 674,
+          "sha256": "3bc211e04e5084cbc20bcfe7dbf574583df1e627c69236a8f6fd7a90ea1f2b9f"
+        }
+      },
+      "v2": {
+        "status": "refused",
+        "raw_sha256": "a0dce1d8a9104ebb299215192160f2081e359373bdc25704082d3a9b2d3c12e0"
+      },
+      "quote": {
+        "status": "format_error",
+        "raw_sha256": "0ba3bdcd88f5b182ac989c7a7e773f7a6261c8d3e3de008bf774562ab6f9fe02"
+      }
+    },
+    {
+      "query_id": "dacb3b32cdd15c3dde7d8e2efa736a17:7",
+      "dialogue_id": "dacb3b32cdd15c3dde7d8e2efa736a17",
+      "question": "I need to have a copy of my Benefit Verification Letter, how do I go about printing this?",
+      "sources": {
+        "[S1]": {
+          "chunk": "77823d85dde73b4ca251",
+          "visible_chars": 1128,
+          "sha256": "f75ff9613cfda5d45f77d78a3ff4b71eb8251aac8fb276b4a551716cbe03c6ce"
+        },
+        "[S2]": {
+          "chunk": "abd44a3b14709b311910",
+          "visible_chars": 1135,
+          "sha256": "8e7890cf7e1647fa926af22b2a5d0dd6e105a04db1899622ba2a045d2f5cb51a"
+        },
+        "[S3]": {
+          "chunk": "f7db66c258a418476f94",
+          "visible_chars": 822,
+          "sha256": "a8970670c1c0ec278262a13f42cc6d8e799c862acfa42a71bfd59ff879bd5abe"
+        }
+      },
+      "v2": {
+        "status": "refused",
+        "raw_sha256": "a0dce1d8a9104ebb299215192160f2081e359373bdc25704082d3a9b2d3c12e0"
+      },
+      "quote": {
+        "status": "format_error",
+        "raw_sha256": "4bbd29ad726a77dfb2eaa567584a2a7d85a19d7ff0de81797df5539abffd1191"
+      }
+    },
+    {
+      "query_id": "22e12cbb5d39ec9e6006050d7f0fc0ae:1",
+      "dialogue_id": "22e12cbb5d39ec9e6006050d7f0fc0ae",
+      "question": "How do I qualify for Disability?",
+      "sources": {
+        "[S1]": {
+          "chunk": "a3fdaa946d66dc905709",
+          "visible_chars": 1155,
+          "sha256": "db58c1f114d3770beb8de667202438672c190cb225224581d1f850576582062d"
+        },
+        "[S2]": {
+          "chunk": "30cb2d83d7bbfd650236",
+          "visible_chars": 1132,
+          "sha256": "34903846ebca241f6a4b8a97e325f7a7cbbbcc7d08307091d28ead305ad89f95"
+        },
+        "[S3]": {
+          "chunk": "a0237257f3f066066e07",
+          "visible_chars": 636,
+          "sha256": "6084d049c141abb3be5e4c06e37366f2c37be9f48b6e7d15a9573196b7565de2"
+        }
+      },
+      "v2": {
+        "status": "refused",
+        "raw_sha256": "a0dce1d8a9104ebb299215192160f2081e359373bdc25704082d3a9b2d3c12e0"
+      },
+      "quote": {
+        "status": "format_error",
+        "raw_sha256": "d321a30f540356f1c20d62963eb8a95d170d24703fa641996838e9f412f575cd"
+      }
+    },
+    {
+      "query_id": "a04265a404021c51b8830ea6fd834fee:3",
+      "dialogue_id": "a04265a404021c51b8830ea6fd834fee",
+      "question": "No, I don't have a driver license from another state.",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff"
+      },
+      "quote": {
+        "status": "retrieval_handoff"
+      }
+    },
+    {
+      "query_id": "5d5bb0019650ee6eaef9c60da1ceb0b7:1",
+      "dialogue_id": "5d5bb0019650ee6eaef9c60da1ceb0b7",
+      "question": "Hi, show me information about Camp Lejeune water contamination health issues",
+      "sources": {
+        "[S1]": {
+          "chunk": "fb4f9568ec7217ebb49a",
+          "visible_chars": 1119,
+          "sha256": "b7c05d67de84741a40442265fd93827af2b80a5181133fec34b48ea2ed6bb59e"
+        },
+        "[S2]": {
+          "chunk": "89a6846da05f76f261ab",
+          "visible_chars": 1101,
+          "sha256": "d5fe8131fe11ecf4ae60aae4eb5d8f8aa487b7ab66b62cc897aaaf050c08ffd8"
+        },
+        "[S3]": {
+          "chunk": "25be8d3b01f5bc04575f",
+          "visible_chars": 489,
+          "sha256": "3cf4913ded6bad2db6d7ae1d1276a6b83b95ed7b01f736ffb064122c3906f9d5"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S2 nói phơi nhiễm và liên hệ với bệnh về sau."
+          },
+          {
+            "label": "supported",
+            "note": "S2 nêu khả năng có trợ cấp nếu đáp ứng điều kiện phục vụ và chẩn đoán."
+          }
+        ],
+        "answer": "Camp Lejeune water contamination health issues involve exposure to contaminants in the drinking water, which has been linked to certain diseases later on. If you served at Camp Lejeune or MCAS New River and have a qualifying condition, you may be eligible for disability benefits from the VA. [S1, S2]"
+      },
+      "quote": {
+        "status": "format_error",
+        "raw_sha256": "2a9e1f48bd68e1074f6335875a9b3e44cc766a1f08b607212e11f360196e6107"
+      }
+    },
+    {
+      "query_id": "4ec3bc6754b8290e3085ae43b9ea721d:1",
+      "dialogue_id": "4ec3bc6754b8290e3085ae43b9ea721d",
+      "question": "You can help me with benefits for retirement at my age",
+      "sources": {
+        "[S1]": {
+          "chunk": "88e089ef3bae002b6fc2",
+          "visible_chars": 1214,
+          "sha256": "1a74e30cbd497b198c905f12dad5f5432a8c0e7fbc7b6e1818780374b807e0fb"
+        },
+        "[S2]": {
+          "chunk": "65dcf90beb8bd8d24460",
+          "visible_chars": 1148,
+          "sha256": "dd788f5828f74092364eafb975e24a10bf14d19d889727513762f758e864e591"
+        },
+        "[S3]": {
+          "chunk": "dbbafbfd48a2b75499d7",
+          "visible_chars": 631,
+          "sha256": "7e78c0a7efe7903527230906ceedcc2f1d766b517fc324a63c69a706bf13069f"
+        }
+      },
+      "v2": {
+        "status": "refused",
+        "raw_sha256": "a0dce1d8a9104ebb299215192160f2081e359373bdc25704082d3a9b2d3c12e0"
+      },
+      "quote": {
+        "status": "format_error",
+        "raw_sha256": "1d5b11a8497a98b235bf2d39ac8936fc784a31f8d8bf665bef7069808524030a"
+      }
+    },
+    {
+      "query_id": "956351f8a7623e6c13c5cb8060aa5c83:10",
+      "dialogue_id": "956351f8a7623e6c13c5cb8060aa5c83",
+      "question": "I need more information",
+      "sources": {
+        "[S1]": {
+          "chunk": "7e8cd465609ccb19c122",
+          "visible_chars": 1106,
+          "sha256": "4f59029bb399cd2233cdc0f1b89832eb7f504c435a5f32379027973fd01e43f0"
+        },
+        "[S2]": {
+          "chunk": "9564fba9b3297dc8ff6e",
+          "visible_chars": 1142,
+          "sha256": "db2d3b4fa0026de401ad14a92531a81e9948104d0b350ba5661067fd6bc44be2"
+        },
+        "[S3]": {
+          "chunk": "0e08d5946ff81639711e",
+          "visible_chars": 658,
+          "sha256": "087b119cc284d0901309a46bec21b57ccec6eb550f0deb52347a77d1b094d0fe"
+        }
+      },
+      "v2": {
+        "status": "refused",
+        "raw_sha256": "a0dce1d8a9104ebb299215192160f2081e359373bdc25704082d3a9b2d3c12e0"
+      },
+      "quote": {
+        "status": "format_error",
+        "raw_sha256": "e5af0493cc90c98d3a20e5bcbe05e6870c68104963dc1e81290b1e02ac5e3803"
+      }
+    },
+    {
+      "query_id": "0f798471a9e95a974e92bf00aa150c42:1",
+      "dialogue_id": "0f798471a9e95a974e92bf00aa150c42",
+      "question": "What happens if a person goes back to work?",
+      "sources": {
+        "[S1]": {
+          "chunk": "f15308de28632e6a277d",
+          "visible_chars": 1184,
+          "sha256": "b5bc895c6aabe37514a44be14a2f175f88276cda6d7cd029b0b49b618a7b9abe"
+        },
+        "[S2]": {
+          "chunk": "3745f66d9aaeb143e718",
+          "visible_chars": 1181,
+          "sha256": "042cdcbf3f29351953d2b403529939f13fd5ba837b3302fc851c2aade21fe48b"
+        },
+        "[S3]": {
+          "chunk": "293d1d73cff28c30be68",
+          "visible_chars": 521,
+          "sha256": "298da4a4aa2e3c9d5ec96840a4b3ac08a47950a9b122ebe42b5162fc103b1d21"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": false,
+        "review_units": [
+          {
+            "label": "insufficient",
+            "note": "S1 là mục lục nêu chủ đề trở lại làm việc, không xác nhận ý tiếp tục cần nhận tiền như câu trả lời."
+          }
+        ],
+        "answer": "If a person goes back to work, they may need to continue receiving disability benefits depending on their specific situation and the terms of their disability benefits. [S1]"
+      },
+      "quote": {
+        "status": "format_error",
+        "raw_sha256": "712e427c1f32793e5f5134708d2d33aa28ea115d5d9077eee4aabca70b14784d"
+      }
+    },
+    {
+      "query_id": "940a429838e63f485ba1dd0aef65df9e:11",
+      "dialogue_id": "940a429838e63f485ba1dd0aef65df9e",
+      "question": "too late now, so I can do the hearing or the one where I don't have to show up?",
+      "sources": {
+        "[S1]": {
+          "chunk": "3e487ccd603b50b567c8",
+          "visible_chars": 1031,
+          "sha256": "1aa2ca95fb9334b7eb2b4c1d36aa9b08c39133aa75e5cafb2e8104eddb4c9c51"
+        },
+        "[S2]": {
+          "chunk": "69a09abb731e4d3bc50d",
+          "visible_chars": 1015,
+          "sha256": "41c836bfb7aaeea69dfa7d39484ce01d0e8c5fcc90c2650e85db4726dac1a9cb"
+        },
+        "[S3]": {
+          "chunk": "d3486e0d78587e5687ac",
+          "visible_chars": 651,
+          "sha256": "de01593f677b5a3a4852f6efa1f736ed95ef754fdef1bf26c00b81ac8a715217"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S3 mô tả hai cách điều trần."
+          },
+          {
+            "label": "supported",
+            "note": "S3 chỉ ra nơi tìm hướng dẫn."
+          }
+        ],
+        "answer": "You can request an in-person DMV hearing or a hearing by affidavit, where the latter allows you to submit the affidavit to DMV without appearing in person. The Notice of Registration Suspension provides instructions on how to submit the affidavit to DMV for the hearing by affidavit. [S3]"
+      },
+      "quote": {
+        "status": "format_error",
+        "raw_sha256": "cdddbc3a83201f99b3182767ba466d8572fac38933824ffa79e3e1e50c7d8e5f"
+      }
+    },
+    {
+      "query_id": "7076645f07f9821dd7dfc2cc6ab6fad9:1",
+      "dialogue_id": "7076645f07f9821dd7dfc2cc6ab6fad9",
+      "question": "Regarding retirement benefits, how do I apply?",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff"
+      },
+      "quote": {
+        "status": "retrieval_handoff"
+      }
+    }
+  ],
+  "fresh": [
+    {
+      "query_id": "06f571cd8f2587769f658bc145838566:4",
+      "dialogue_id": "06f571cd8f2587769f658bc145838566",
+      "question": "yes",
+      "sources": {
+        "[S1]": {
+          "chunk": "a941297ad74b981b879e",
+          "visible_chars": 1079,
+          "sha256": "3ce52d3306bbfd751af62859b5381eb6f15a5c12a7557962384ce4369a75220b"
+        },
+        "[S2]": {
+          "chunk": "8656b5823a303df09006",
+          "visible_chars": 1073,
+          "sha256": "62d464de5f13fe2846620de85c81fa6b67835476ff598846645a7b81d6405942"
+        },
+        "[S3]": {
+          "chunk": "2f9ca2fb792daf9b00d9",
+          "visible_chars": 617,
+          "sha256": "dfca5dcae8b6cde24763af1810b7af5aa6157ced8f68376b352809a6ffd913dd"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S2 nói liên hệ đơn vị quản lý khoản vay sớm."
+          },
+          {
+            "label": "supported",
+            "note": "S2 nêu hoãn, tạm ngừng hoặc hợp nhất khoản vay."
+          }
+        ],
+        "answer": "If you're having trouble making your loan payment, contact your loan servicer immediately to discuss options. They may offer a deferment or forbearance, or you can ask about loan consolidation. [S2]"
+      },
+      "selector": {
+        "status": "answer",
+        "addresses_request": false,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "Chọn nguyên câu người vay mô tả khó khăn, không đưa hành động."
+          }
+        ],
+        "source": "[S2]",
+        "start": 356,
+        "end": 398,
+        "id_json": "{\"id\":10}"
+      }
+    },
+    {
+      "query_id": "e0124bd609918253219264891a9ba24a:6",
+      "dialogue_id": "e0124bd609918253219264891a9ba24a",
+      "question": "What happens if I have a freeze on my account?",
+      "sources": {
+        "[S1]": {
+          "chunk": "0a7eda7f21baa9ad690d",
+          "visible_chars": 1135,
+          "sha256": "8cf40ce3377e453e6199cb1e28fa91294c2515ae8fe7ed73ae3b77d4d96fbc98"
+        },
+        "[S2]": {
+          "chunk": "abd44a3b14709b311910",
+          "visible_chars": 1135,
+          "sha256": "8e7890cf7e1647fa926af22b2a5d0dd6e105a04db1899622ba2a045d2f5cb51a"
+        },
+        "[S3]": {
+          "chunk": "200dafa9d5017a535e57",
+          "visible_chars": 838,
+          "sha256": "baed77e03892f9fd706dc735fb536564420146eaab1af2d4133927baac5ac4e1"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S1/S2 hướng dẫn tạm mở và liên hệ nhà cung cấp xác minh."
+          },
+          {
+            "label": "supported",
+            "note": "S2 nêu có thể tự động khóa lại."
+          }
+        ],
+        "answer": "If you have a security freeze on your credit report, you can still open a my Social Security account by temporarily lifting it. Contact the Identity Services Provider to request a temporary lift of your security freeze or fraud alert. After the temporary lift expires, the Identity Services Provider may automatically reinstate the freeze. [S1, S2]"
+      },
+      "selector": {
+        "status": "answer",
+        "addresses_request": false,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "Chỉ trích bước khóa lại, không nói có thể mở tài khoản hoặc cách xử lý lúc còn khóa."
+          }
+        ],
+        "source": "[S2]",
+        "start": 75,
+        "end": 166,
+        "id_json": "{\"id\":8}"
+      }
+    },
+    {
+      "query_id": "56c4c30460ae5f13bc0ed1c5ac9862f7:10",
+      "dialogue_id": "56c4c30460ae5f13bc0ed1c5ac9862f7",
+      "question": "How can I find out information on requirments for increase benefits?",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff"
+      },
+      "selector": {
+        "status": "retrieval_handoff"
+      }
+    },
+    {
+      "query_id": "d0cbcaf4a0bd0a2b52c288b2582a0e35:11",
+      "dialogue_id": "d0cbcaf4a0bd0a2b52c288b2582a0e35",
+      "question": "What about health care?",
+      "sources": {
+        "[S1]": {
+          "chunk": "d2902c6e13b1c61e8ccf",
+          "visible_chars": 923,
+          "sha256": "b3c5f122fd4c3db32d3275506736dc133d9d70063f4bf9d0b18959ad2ced47d5"
+        },
+        "[S2]": {
+          "chunk": "0960866e58ce0e53fd71",
+          "visible_chars": 1211,
+          "sha256": "fb641885093ecbffaf63e1ba5513354b41ac0b627be23d33aedfb7b0003fcd51"
+        },
+        "[S3]": {
+          "chunk": "78867093842f81986d6b",
+          "visible_chars": 919,
+          "sha256": "de915fd931958e3e875838f04e6e543cbf65bed07daff72bd2fcc3c2c6d23a1f"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "wrong_source",
+            "note": "Quản lý y tế trực tuyến nằm ở S1, phát biểu gắn S2."
+          },
+          {
+            "label": "insufficient",
+            "note": "S2 chỉ đặt điều phối viên ở trung tâm y tế, không đặt họ ở mọi điểm nêu trong câu trả lời."
+          },
+          {
+            "label": "supported",
+            "note": "S2 giới thiệu Make the Connection."
+          }
+        ],
+        "answer": "VA provides health care through VA facilities where you can access services and manage your health and benefits online. For ongoing support, you can contact specially trained suicide prevention coordinators in VA medical centers, Vet Centers, or Veterans Benefits Administration offices. Additionally, resources like Make the Connection offer information and support for Veterans and their families. [S2]"
+      },
+      "selector": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S1 trả lời trực tiếp về đăng ký và quản lý y tế VA."
+          }
+        ],
+        "source": "[S1]",
+        "start": 313,
+        "end": 415,
+        "id_json": "{\"id\":3}"
+      }
+    },
+    {
+      "query_id": "18bf08172ab578c9595dd6ee8d60fc88:11",
+      "dialogue_id": "18bf08172ab578c9595dd6ee8d60fc88",
+      "question": "How long does creating my Social Security account take?",
+      "sources": {
+        "[S1]": {
+          "chunk": "6a9ba0d457ea71e2065c",
+          "visible_chars": 1214,
+          "sha256": "fb894b3414ee322016cd340cb943cd282954f91f51c42aa39bdcfdc6cfcff50f"
+        },
+        "[S2]": {
+          "chunk": "f3cdc6df9d15450954de",
+          "visible_chars": 1232,
+          "sha256": "9546e428db3fe33330366dc8aea6c16b461d8b09f3e3655f95321c64c0621b25"
+        },
+        "[S3]": {
+          "chunk": "379dcbb8e55dca5cf2f6",
+          "visible_chars": 695,
+          "sha256": "5131b03d6ffd7d68c298b3b8d1e0935084512c6b6c4414a1baae5a053e2cc80c"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S3 ghi thời gian tạo tài khoản dưới mười phút."
+          }
+        ],
+        "answer": "Creating a my Social Security account takes less than 10 minutes [S3]."
+      },
+      "selector": {
+        "status": "refused",
+        "raw_sha256": "f0d9dc55adf56c34697a435bff3e62db6d2b6c7714793b4a497c640db382fef7"
+      }
+    },
+    {
+      "query_id": "450e1bd8483cca2243d3c13bb08de309:5",
+      "dialogue_id": "450e1bd8483cca2243d3c13bb08de309",
+      "question": "What does that plan consist of, please?",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff"
+      },
+      "selector": {
+        "status": "retrieval_handoff"
+      }
+    },
+    {
+      "query_id": "a2e07d7093d79a56f0ca5b307c4cef96:1",
+      "dialogue_id": "a2e07d7093d79a56f0ca5b307c4cef96",
+      "question": "Hey, can you tell me something about my retirement benefits planner?",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff"
+      },
+      "selector": {
+        "status": "retrieval_handoff"
+      }
+    },
+    {
+      "query_id": "a3917a6f199f4abba442d7a1b0ae8b30:3",
+      "dialogue_id": "a3917a6f199f4abba442d7a1b0ae8b30",
+      "question": "Are there resources for help about borrower defense?",
+      "sources": {
+        "[S1]": {
+          "chunk": "631b78ca128abfc9ec55",
+          "visible_chars": 1133,
+          "sha256": "e68718cbe1f0906d4aaf6545586d516e949b46bd563f1023d6d13077e9f95a01"
+        },
+        "[S2]": {
+          "chunk": "c85075f29b21501f3aa7",
+          "visible_chars": 1158,
+          "sha256": "1d51cbcf4ac7dbaa103d8d95bd505adfd65a1200420279cb6fd3eaee77e58dc0"
+        },
+        "[S3]": {
+          "chunk": "d43a7cbe56ae92335823",
+          "visible_chars": 870,
+          "sha256": "dc1464ca46367145ba0aba5a1b1c4e297cf76cfc40e41858aab72a06c268448b"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S1 giới thiệu biểu mẫu borrower defense."
+          },
+          {
+            "label": "supported",
+            "note": "S1 nêu trang thông tin hỗ trợ sinh viên Corinthian."
+          }
+        ],
+        "answer": "Yes, there are resources available for help regarding borrower defense. Borrowers can apply for the borrower defense to repayment through specific forms provided by the U.S. Department of Education. Additionally, the Federal Student Aid website offers information about debt relief for students who attended Corinthian Colleges. [S1, S2]"
+      },
+      "selector": {
+        "status": "answer",
+        "addresses_request": false,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "Mảnh câu trỏ tới các phần bên dưới mà màn hình trích dẫn không cung cấp; thiếu tên tài nguyên có thể dùng độc lập."
+          }
+        ],
+        "source": "[S1]",
+        "start": 1002,
+        "end": 1095,
+        "id_json": "{\"id\":7}"
+      }
+    },
+    {
+      "query_id": "cabe712bae35eb8da8965a64421648ad:5",
+      "dialogue_id": "cabe712bae35eb8da8965a64421648ad",
+      "question": "Yes, only that.",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff"
+      },
+      "selector": {
+        "status": "retrieval_handoff"
+      }
+    },
+    {
+      "query_id": "7a4d5aaabb1aef6616f4466da6a00ef8:3",
+      "dialogue_id": "7a4d5aaabb1aef6616f4466da6a00ef8",
+      "question": "I am age 60 and would like additional information about retirement benefits.",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff"
+      },
+      "selector": {
+        "status": "retrieval_handoff"
+      }
+    },
+    {
+      "query_id": "bf261fbcd6548868fd92399ff4fb2dbc:5",
+      "dialogue_id": "bf261fbcd6548868fd92399ff4fb2dbc",
+      "question": "What if the income and resources of the parents and child are within the allowed limits?",
+      "sources": {
+        "[S1]": {
+          "chunk": "200dafa9d5017a535e57",
+          "visible_chars": 1139,
+          "sha256": "c8591e9c6489aaaece08df9e314be5181d818bd9d6e0f686670da4b8680d68f3"
+        },
+        "[S2]": {
+          "chunk": "0a7eda7f21baa9ad690d",
+          "visible_chars": 1135,
+          "sha256": "8cf40ce3377e453e6199cb1e28fa91294c2515ae8fe7ed73ae3b77d4d96fbc98"
+        },
+        "[S3]": {
+          "chunk": "abd44a3b14709b311910",
+          "visible_chars": 860,
+          "sha256": "28014a3c04ff72542270c0f87f1181995438b1ae43133b1db76fe12225f6f858"
+        }
+      },
+      "v2": {
+        "status": "refused",
+        "raw_sha256": "a0dce1d8a9104ebb299215192160f2081e359373bdc25704082d3a9b2d3c12e0"
+      },
+      "selector": {
+        "status": "refused",
+        "raw_sha256": "f0d9dc55adf56c34697a435bff3e62db6d2b6c7714793b4a497c640db382fef7"
+      }
+    },
+    {
+      "query_id": "6be28d2b3b2858262d2cf4731638e3b3:5",
+      "dialogue_id": "6be28d2b3b2858262d2cf4731638e3b3",
+      "question": "What if I don't want to do the disability report online?",
+      "sources": {
+        "[S1]": {
+          "chunk": "aed7650106d074aa2ecc",
+          "visible_chars": 1089,
+          "sha256": "d996a37652cbb2793fecb12034854ae9d68b9b0ba3ef7c406e28830729f5a1c4"
+        },
+        "[S2]": {
+          "chunk": "ff74a1555daf207cd592",
+          "visible_chars": 1098,
+          "sha256": "114ce001ac9d64d2751538d799480f822bfc38e592cbafd0e41ccee5a38f9b52"
+        },
+        "[S3]": {
+          "chunk": "fc8084b7b46d30f1d25c",
+          "visible_chars": 566,
+          "sha256": "098a42638ef491685901df3ca73d3c003c01c517e6329d23d53bd6344896ef67"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S3 hiện số liên hệ chính."
+          },
+          {
+            "label": "insufficient",
+            "note": "S3 bị cắt trước số dành cho người khiếm thính; không đủ bằng chứng cho số thứ hai."
+          }
+        ],
+        "answer": "If you don't want to do the disability report online, you can call Social Security toll-free at 1-800-772-1213. If you are deaf or hard of hearing, you can call 1-800-325-0778. [S3]"
+      },
+      "selector": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "Câu được chọn nêu trực tiếp cách làm qua điện thoại thay cho online."
+          }
+        ],
+        "source": "[S3]",
+        "start": 405,
+        "end": 520,
+        "id_json": "{\"id\":23}"
+      }
+    },
+    {
+      "query_id": "7f8eebe46f22b15aa5fdd4c17983cbaa:9",
+      "dialogue_id": "7f8eebe46f22b15aa5fdd4c17983cbaa",
+      "question": "no i'm not enrolled",
+      "sources": {
+        "[S1]": {
+          "chunk": "16342e7b8c5a80497aae",
+          "visible_chars": 1108,
+          "sha256": "bbbc614b074298c30986051e8c06dd3d8d9201f1f00f2025f1cccccf2d9efb3c"
+        },
+        "[S2]": {
+          "chunk": "373f7cc422dcb86bb243",
+          "visible_chars": 1153,
+          "sha256": "585c7c44e46d7e181da375a8bfdbc4faa2ede5284ec9f2d758c11fc4c7ab1d14"
+        },
+        "[S3]": {
+          "chunk": "efea9516f9cffa37fb88",
+          "visible_chars": 670,
+          "sha256": "919007a4b75250676a8881931ac102e801b28b3e5a667962e33479964b7436b1"
+        }
+      },
+      "v2": {
+        "status": "refused",
+        "raw_sha256": "a0dce1d8a9104ebb299215192160f2081e359373bdc25704082d3a9b2d3c12e0"
+      },
+      "selector": {
+        "status": "refused",
+        "raw_sha256": "f0d9dc55adf56c34697a435bff3e62db6d2b6c7714793b4a497c640db382fef7"
+      }
+    },
+    {
+      "query_id": "b96347a9e2491441e7a20affd16c3e2b:5",
+      "dialogue_id": "b96347a9e2491441e7a20affd16c3e2b",
+      "question": "and could I request and manage coverage?",
+      "sources": {
+        "[S1]": {
+          "chunk": "f42b9a4fc1a53eb885ea",
+          "visible_chars": 1048,
+          "sha256": "c498b4dd8bd6e31678aa3955e02ed59715720dd2f1e9af2cd2de43c426b45510"
+        },
+        "[S2]": {
+          "chunk": "967a86b1d430382b4688",
+          "visible_chars": 981,
+          "sha256": "8d59b4f5801a88b43efdd86fa51aae5d570cd2680a7499155274d28c1e44efa4"
+        },
+        "[S3]": {
+          "chunk": "72c191c86ffa391ffd64",
+          "visible_chars": 569,
+          "sha256": "7e83253678129c5b541ab8e6f264191a7d7c455150d8130f031bc2612e278912"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S1 nói có thể đăng ký và quản lý bảo hiểm."
+          },
+          {
+            "label": "insufficient",
+            "note": "S1 yêu cầu đã nhận SAH grant, trả lời chỉ nói cần nộp đơn xin grant."
+          }
+        ],
+        "answer": "Yes, you can request and manage your VMLI coverage. You need to meet the eligibility criteria and apply for the SAH grant to qualify. [S1]"
+      },
+      "selector": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "Trong ngữ cảnh VMLI, câu nguồn xác nhận có thể đăng ký và quản lý."
+          }
+        ],
+        "source": "[S1]",
+        "start": 293,
+        "end": 359,
+        "id_json": "{\"id\":2}"
+      }
+    },
+    {
+      "query_id": "62558800a99e9d5cbb67cb915d6f714e:6",
+      "dialogue_id": "62558800a99e9d5cbb67cb915d6f714e",
+      "question": "Can I take the test online?",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff"
+      },
+      "selector": {
+        "status": "retrieval_handoff"
+      }
+    },
+    {
+      "query_id": "c596a74a2eeb470cc192c63ec3fcc640:10",
+      "dialogue_id": "c596a74a2eeb470cc192c63ec3fcc640",
+      "question": "I got it. Another question I have about Life Insurance for Disabled Veterans. if I have a service-connected disability?",
+      "sources": {
+        "[S1]": {
+          "chunk": "8e7af9cbb832f9545ca5",
+          "visible_chars": 995,
+          "sha256": "3f3aea073b46494e658c9196a49f38bc345b7c1df71f5996dc1eebc282e3ceb0"
+        },
+        "[S2]": {
+          "chunk": "cfbb5f71305491a485a7",
+          "visible_chars": 1003,
+          "sha256": "634dac259f73c32015712cbe57ae9e17beb654666ab702b4af9073d3751a55ca"
+        },
+        "[S3]": {
+          "chunk": "f42b9a4fc1a53eb885ea",
+          "visible_chars": 519,
+          "sha256": "5fbc87564fc6bc48d5f99d2bd63172a63ce6d21e90882fd1989aa408465c73e6"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": false,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S3 nêu phạm vi bảo hiểm thế chấp cho người khuyết tật đủ điều kiện."
+          },
+          {
+            "label": "supported",
+            "note": "S1 nêu đối tượng vợ/chồng, con phụ thuộc của FSGLI. Hai chương trình chưa trả lời câu hỏi về bảo hiểm dành cho cựu chiến binh khuyết tật."
+          }
+        ],
+        "answer": "If you have a service-connected disability, you may qualify for Veterans Mortgage Life Insurance (VMLI), which offers mortgage protection insurance to families of Veterans with severe service-connected disabilities who have adapted a home to fit their needs. [S3] To determine if you qualify for Family Servicemembers Group Life Insurance (FSGLI), you need to ensure you meet one of the eligibility requirements, such as being the spouse or dependent child of a service member covered under full-time SGLI. [S1]"
+      },
+      "selector": {
+        "status": "answer",
+        "addresses_request": false,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "Câu về VMLI trỏ đến điều kiện bên dưới, không giải thích bảo hiểm được hỏi."
+          }
+        ],
+        "source": "[S3]",
+        "start": 415,
+        "end": 492,
+        "id_json": "{\"id\":15}"
+      }
+    },
+    {
+      "query_id": "0a7f32262e15436fbd585e360f36c1bc:5",
+      "dialogue_id": "0a7f32262e15436fbd585e360f36c1bc",
+      "question": "Yes, I am a Graduate Student.",
+      "sources": {
+        "[S1]": {
+          "chunk": "a8a5d5f57007ca15e4bb",
+          "visible_chars": 753,
+          "sha256": "edaeb9eb0dbbe4783c2c30eaf7f2198f32c369fe8eba81e1ac2e787bfd49bb1f"
+        },
+        "[S2]": {
+          "chunk": "7ea305956add61a74dd2",
+          "visible_chars": 1037,
+          "sha256": "97e9b3537c2ac52d2ecec205db70399cceaade77cfea8b217b9c36ed33b010fd"
+        },
+        "[S3]": {
+          "chunk": "18fb619b4f012cc03891",
+          "visible_chars": 1128,
+          "sha256": "45ba9793e8294ebbb1483e2d6145266663a23d4aeff6b16b8f41adfb79be307e"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S1 nói dùng Unsubsidized trước PLUS."
+          },
+          {
+            "label": "supported",
+            "note": "S1 yêu cầu mẫu MPN riêng cho từng loại."
+          }
+        ],
+        "answer": "If you are a Graduate Student, you can apply for Direct Unsubsidized Loans up to your full eligibility before borrowing Direct PLUS Loans. You need to complete a Master Promissory Note (MPN) for each loan type you intend to receive. [S1]"
+      },
+      "selector": {
+        "status": "answer",
+        "addresses_request": false,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "Câu chỉ nêu hai loại vay; ngữ cảnh ban đầu hỏi chọn mẫu MPN nào."
+          }
+        ],
+        "source": "[S1]",
+        "start": 228,
+        "end": 335,
+        "id_json": "{\"id\":2}"
+      }
+    },
+    {
+      "query_id": "531e4217ce2f7cb6e3c780d038afe790:9",
+      "dialogue_id": "531e4217ce2f7cb6e3c780d038afe790",
+      "question": "No, but I have proof of U.S. citizenship.",
+      "sources": {
+        "[S1]": {
+          "chunk": "1aa0087a657e7132c7c8",
+          "visible_chars": 1125,
+          "sha256": "a48b9abb4614806469b27c63f590c431a0ca34c3821dc5dd6bf1a22403c880dd"
+        },
+        "[S2]": {
+          "chunk": "2fd58c831bb57bc90863",
+          "visible_chars": 1130,
+          "sha256": "a4dbfa13c3d25917765f0a7fb77a09d64ec186f14e10a593c26cd97f3d884864"
+        },
+        "[S3]": {
+          "chunk": "69a21f697d7ce6038ae1",
+          "visible_chars": 650,
+          "sha256": "3286779cf60c202dadf57a130211699110b5fc1d53764f226542b4e511b635ed"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S3 liệt kê hộ chiếu và chứng nhận quốc tịch."
+          },
+          {
+            "label": "insufficient",
+            "note": "S3 không nêu phải mang bản gốc đến văn phòng."
+          }
+        ],
+        "answer": "You can provide a U.S. passport, Certificate of Naturalization N-550/N-570, or Certificate of Citizenship N-560/N-561 as proof of U.S. citizenship [S3]. If you have any of these documents, you can use them to verify your citizenship status [S3]. Please ensure to bring the original document to the Social Security Administration office [S3]."
+      },
+      "selector": {
+        "status": "answer",
+        "addresses_request": false,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "Trích đoạn bắt đầu sau chữ U.S. và thiếu mục đích danh sách; không xác định tài liệu cho hồ sơ trợ cấp trẻ em."
+          }
+        ],
+        "source": "[S3]",
+        "start": 223,
+        "end": 317,
+        "id_json": "{\"id\":7}"
+      }
+    },
+    {
+      "query_id": "7f137d35b7fdf9963cca1c64549f01ad:12",
+      "dialogue_id": "7f137d35b7fdf9963cca1c64549f01ad",
+      "question": "What does it mean to be granted a partial discharge on my federal student loan?",
+      "sources": {
+        "[S1]": {
+          "chunk": "6296d75dabb5c9e58f06",
+          "visible_chars": 1120,
+          "sha256": "85b59ac1ecf9fb6167a50d576dfec2fe09051dd65878687391a626f5016f6ffb"
+        },
+        "[S2]": {
+          "chunk": "dfd0938ed93a7aa4a9ba",
+          "visible_chars": 1154,
+          "sha256": "25aa29c808f8d54f67f823f13b7b6dfbb15259591070b1889425b9a4b0af635d"
+        },
+        "[S3]": {
+          "chunk": "ccdc7c88f2d5cd132faa",
+          "visible_chars": 823,
+          "sha256": "6f01fbeb19ef8035428a14dcfb7fe1c4eb983d608ed0ff0f8b23e612da2602a0"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S1 nêu trừ số được xóa rồi xác định số dư."
+          },
+          {
+            "label": "insufficient",
+            "note": "Câu áp dụng khoản tiền đã trả cho mọi số dư, bỏ ngoại lệ được S1 nêu và vừa được hội thoại nhắc."
+          }
+        ],
+        "answer": "A partial discharge means that the entire loan balance is not forgiven, but only a portion of it, leaving a remaining balance on your account. Your loan servicer will apply the borrower defense discharge to your student loan account and determine if you still owe any amount after the discharge is applied. If a balance remains, your servicer will apply prior payments to reduce the remaining balance on your account. [S1]"
+      },
+      "selector": {
+        "status": "refused",
+        "raw_sha256": "f0d9dc55adf56c34697a435bff3e62db6d2b6c7714793b4a497c640db382fef7"
+      }
+    },
+    {
+      "query_id": "36430fe0302340962200a27ff456ca67:10",
+      "dialogue_id": "36430fe0302340962200a27ff456ca67",
+      "question": "and where do I get the FS-2 form?",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff"
+      },
+      "selector": {
+        "status": "retrieval_handoff"
+      }
+    },
+    {
+      "query_id": "d94e7057cd554b70e5390278ec062eff:3",
+      "dialogue_id": "d94e7057cd554b70e5390278ec062eff",
+      "question": "And which are this others requirements?",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff"
+      },
+      "selector": {
+        "status": "retrieval_handoff"
+      }
+    },
+    {
+      "query_id": "369ca7f66a942fa5ab24fbf912fa1136:3",
+      "dialogue_id": "369ca7f66a942fa5ab24fbf912fa1136",
+      "question": "yes we both are.",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff"
+      },
+      "selector": {
+        "status": "retrieval_handoff"
+      }
+    },
+    {
+      "query_id": "3855667ae8a93a0ed5e6252f5484f99f:3",
+      "dialogue_id": "3855667ae8a93a0ed5e6252f5484f99f",
+      "question": "How would I know if I am eligible for VA Dental Insurance Program?",
+      "sources": {
+        "[S1]": {
+          "chunk": "b9cbcbc482d3a570feba",
+          "visible_chars": 1041,
+          "sha256": "a088f763023241dddf83867ebbfe81733c908a7d4100ff70272b09a2a0370437"
+        },
+        "[S2]": {
+          "chunk": "4e291e657b3d3261c243",
+          "visible_chars": 1001,
+          "sha256": "f578d49f477f93ccf748ed77735f9b2a1e3d152c285fa74a2415473118ee9fb2"
+        },
+        "[S3]": {
+          "chunk": "8754d871b4d099b95ad9",
+          "visible_chars": 696,
+          "sha256": "c153aa5f87a2f337c7572b28edc3114e6770c4c8645989156bf30f4b03f06701"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S1 nêu hai nhóm đủ điều kiện."
+          },
+          {
+            "label": "supported",
+            "note": "S2 nêu thông tin về đăng ký và quyền lợi."
+          },
+          {
+            "label": "uncited",
+            "note": "Ý cuối về đăng ký bảo hiểm giảm giá đứng sau nhãn cuối và không có citation riêng."
+          }
+        ],
+        "answer": "You may be eligible for VADIP if either of the following descriptions are true for you: you're a Veteran who's enrolled in VA health care, or the current or surviving spouse or dependent child of a Veteran or service member, and you're enrolled in the Civilian Health and Medical Program of the VA (CHAMPVA). [S1] To find out if you're eligible, review the specific requirements and conditions provided by the VA Dental Insurance Program. [S2] If you meet the criteria, you can then enroll in a VADIP plan to receive discounted private dental insurance."
+      },
+      "selector": {
+        "status": "answer",
+        "addresses_request": false,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "Lời mời tìm hiểu điều kiện không đưa bất kỳ điều kiện nào."
+          }
+        ],
+        "source": "[S1]",
+        "start": 238,
+        "end": 328,
+        "id_json": "{\"id\":2}"
+      }
+    },
+    {
+      "query_id": "fc51b2d01c7642964d7a28a5000c5ebd:7",
+      "dialogue_id": "fc51b2d01c7642964d7a28a5000c5ebd",
+      "question": "What are requirements for pension?",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff"
+      },
+      "selector": {
+        "status": "retrieval_handoff"
+      }
+    },
+    {
+      "query_id": "95a7c95147ebb2148200478a459319b8:6",
+      "dialogue_id": "95a7c95147ebb2148200478a459319b8",
+      "question": "I use them but wouldn't care to work on computer related things, anything else?",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff"
+      },
+      "selector": {
+        "status": "retrieval_handoff"
+      }
+    },
+    {
+      "query_id": "f266708fe15830c119e30df5549b6a86:10",
+      "dialogue_id": "f266708fe15830c119e30df5549b6a86",
+      "question": "are all the providers trained in mst?",
+      "sources": {
+        "[S1]": {
+          "chunk": "0b1b5d87b24c7437b972",
+          "visible_chars": 1049,
+          "sha256": "bd28d2014811300375707602deda72c05529844d0490bf9d9ca5888769bf34e7"
+        },
+        "[S2]": {
+          "chunk": "1f6b42dbf8e444b732ba",
+          "visible_chars": 1041,
+          "sha256": "18daf6d9e4662af2d1a8b11f4aaa03df1f8b880a7bff2c3d548e85831cc18846"
+        },
+        "[S3]": {
+          "chunk": "85374b0aad62f2c1edd3",
+          "visible_chars": 725,
+          "sha256": "abff48c48898f03f2d0d8612cc4f85e3517984cbb65d73cd2336a6ec409c5f26"
+        }
+      },
+      "v2": {
+        "status": "no_citation",
+        "raw_sha256": "70ba4d4d5b0940d9b74922476db6188f94ca4773c086b24664ec05023dcf3864"
+      },
+      "selector": {
+        "status": "refused",
+        "raw_sha256": "f0d9dc55adf56c34697a435bff3e62db6d2b6c7714793b4a497c640db382fef7"
+      }
+    },
+    {
+      "query_id": "215073e7606b4ac9975ee830cecf2991:9",
+      "dialogue_id": "215073e7606b4ac9975ee830cecf2991",
+      "question": "Yes, of course. Now I have to inquire about VA. Also, could you assist me with my records?",
+      "sources": {
+        "[S1]": {
+          "chunk": "039723be5ee17f431acd",
+          "visible_chars": 1003,
+          "sha256": "a70fb38a100ea207835d8ca93beecdef77c7377c407cf60cf2bd259c98fec2f9"
+        },
+        "[S2]": {
+          "chunk": "2f9ca2fb792daf9b00d9",
+          "visible_chars": 938,
+          "sha256": "2b5355da48da50dd8a4f180186eb3c424bd62e09dc4b70b3c6cb4a76ebc8c6ee"
+        },
+        "[S3]": {
+          "chunk": "bf3e3145a980d319681a",
+          "visible_chars": 424,
+          "sha256": "67ef2eaa72cc4616a8724a3f26bbc8c1632f41c78f65cccf2506fcf514e4663a"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": false,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S2 có số kỹ thuật viên hỗ trợ khoản vay."
+          },
+          {
+            "label": "insufficient",
+            "note": "S1/S2 không nói kỹ thuật viên đó hỗ trợ lấy hồ sơ VA."
+          }
+        ],
+        "answer": "You can contact a VA Loan Technician at 1 - 877 - 827 - 3702 for assistance with your mortgage and records. [S1, S2]"
+      },
+      "selector": {
+        "status": "answer",
+        "addresses_request": false,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "Câu về quyền sở hữu căn nhà không giải đáp việc lấy hồ sơ."
+          }
+        ],
+        "source": "[S3]",
+        "start": 250,
+        "end": 292,
+        "id_json": "{\"id\":15}"
+      }
+    },
+    {
+      "query_id": "0a268eb90d0e10e63fdd04b9798b9ab3:3",
+      "dialogue_id": "0a268eb90d0e10e63fdd04b9798b9ab3",
+      "question": "No, I'm not.",
+      "sources": {
+        "[S1]": {
+          "chunk": "a8ce4e55d2af4474ffaa",
+          "visible_chars": 979,
+          "sha256": "fb1b69a44d0b717e397bbb381ef111f1d34b452c35ec3071523031b076a6a2cd"
+        },
+        "[S2]": {
+          "chunk": "589c1822f80c8169f56c",
+          "visible_chars": 1007,
+          "sha256": "6ef70424a674b1f62a7202c60073ecae2a0ff415611fdc24d116682ee53b5d07"
+        },
+        "[S3]": {
+          "chunk": "8f68d26551aa068bc9f6",
+          "visible_chars": 771,
+          "sha256": "213df410cdaf51454b0e1d66d3f3a80c27616d585138287c37b3ef5238091bf7"
+        }
+      },
+      "v2": {
+        "status": "refused",
+        "raw_sha256": "a0dce1d8a9104ebb299215192160f2081e359373bdc25704082d3a9b2d3c12e0"
+      },
+      "selector": {
+        "status": "refused",
+        "raw_sha256": "f0d9dc55adf56c34697a435bff3e62db6d2b6c7714793b4a497c640db382fef7"
+      }
+    },
+    {
+      "query_id": "03cab7d6b2798b6d3f467e19451ccc3c:7",
+      "dialogue_id": "03cab7d6b2798b6d3f467e19451ccc3c",
+      "question": "yes",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff"
+      },
+      "selector": {
+        "status": "retrieval_handoff"
+      }
+    },
+    {
+      "query_id": "b64e83589290de676622cde7bb81f420:5",
+      "dialogue_id": "b64e83589290de676622cde7bb81f420",
+      "question": "Yes, I am enrolled for at least three quarters in a college program",
+      "sources": {
+        "[S1]": {
+          "chunk": "16342e7b8c5a80497aae",
+          "visible_chars": 1108,
+          "sha256": "bbbc614b074298c30986051e8c06dd3d8d9201f1f00f2025f1cccccf2d9efb3c"
+        },
+        "[S2]": {
+          "chunk": "eff5c9d79052ca37b613",
+          "visible_chars": 1077,
+          "sha256": "dd4494d416b824a962ceb9324913e430351c666d5af688dc8bcf5730934d54ed"
+        },
+        "[S3]": {
+          "chunk": "373f7cc422dcb86bb243",
+          "visible_chars": 739,
+          "sha256": "496232e6fdeceaa2bbc59045094952d3645cbbb09bd3e164443494074c0b5aa5"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S1 nêu điều kiện học ba phần tư thời gian."
+          },
+          {
+            "label": "supported",
+            "note": "S1 yêu cầu vị trí đang tuyển ở VA hoặc tại trường có liên hệ VA."
+          }
+        ],
+        "answer": "You can take part in the Veterans work-study program if you meet all the requirements listed, including being enrolled at least three-quarters time in a college degree, vocational, or professional program. [S1] Please ensure you have found an open job either at a VA facility or in a VA-related role at your school. [S1]"
+      },
+      "selector": {
+        "status": "answer",
+        "addresses_request": false,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "Trích đúng một câu về Federal Work-Study nhưng người hỏi đang hỏi Veterans Work-Study."
+          }
+        ],
+        "source": "[S3]",
+        "start": 241,
+        "end": 408,
+        "id_json": "{\"id\":14}"
+      }
+    },
+    {
+      "query_id": "ee139ef3feb06a3cf7b9ac9cbe802fb8:11",
+      "dialogue_id": "ee139ef3feb06a3cf7b9ac9cbe802fb8",
+      "question": "I see, about the practical exam, if I pass, will they give me a provisional license while I wait for the official one?",
+      "sources": {
+        "[S1]": {
+          "chunk": "df0fc2258bb36c5f666f",
+          "visible_chars": 1037,
+          "sha256": "0ed5aa8ab0e31d4c3a08266b9f5036a292232a723fe374134a16cbd3c53bf6e0"
+        },
+        "[S2]": {
+          "chunk": "5d60427abc931d15e60f",
+          "visible_chars": 1065,
+          "sha256": "fc0123cdc9d76cefd9ccfb57fc5afb101de220b8621cdaf3c451c2a23e0e4cae"
+        },
+        "[S3]": {
+          "chunk": "307c05bed0c6ed89e113",
+          "visible_chars": 659,
+          "sha256": "0a9869314c386b05975f7371b911658ecdc5b1291e0fcedb27f32bf8a5933852"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "insufficient",
+            "note": "S1 xét cư trú và đổi bằng; không xác nhận đậu kỳ thi sẽ được cấp bằng tạm."
+          }
+        ],
+        "answer": "Yes, if you pass the practical exam, you will receive a provisional license while you wait for your official license. [S1]"
+      },
+      "selector": {
+        "status": "refused",
+        "raw_sha256": "f0d9dc55adf56c34697a435bff3e62db6d2b6c7714793b4a497c640db382fef7"
+      }
+    },
+    {
+      "query_id": "7fa2d3c51405f6bce46adb9925f4a83a:1",
+      "dialogue_id": "7fa2d3c51405f6bce46adb9925f4a83a",
+      "question": "Can you tell me about Service-Disabled Veterans Life Insurance?",
+      "sources": {
+        "[S1]": {
+          "chunk": "03c797a67f95b613675b",
+          "visible_chars": 918,
+          "sha256": "91acbe35bb16e65f2e99e1cf4708af93900f57e03e2659b1dc49679221f8bf83"
+        },
+        "[S2]": {
+          "chunk": "f19fcd9ce7c53176e615",
+          "visible_chars": 998,
+          "sha256": "249df2b5deacc718206a1946b3d3c70e6a864def3b588613056763d67e213fae"
+        },
+        "[S3]": {
+          "chunk": "fbda4fabd0eaf8bbd13d",
+          "visible_chars": 620,
+          "sha256": "15a2031fa4dbaf7d5bada08cdc08c0d1338656cc38b50e6bb3fd6c1e92f0bb00"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "addresses_request": true,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "S2 nêu S-DVI và điều kiện sức khỏe."
+          },
+          {
+            "label": "wrong_source",
+            "note": "Ba yếu tố tính phí nằm ở S3; nhãn gắn S2."
+          }
+        ],
+        "answer": "Service-Disabled Veterans Life Insurance (S-DVI) provides low-cost coverage to eligible service members with service-connected disabilities. You can apply for S-DVI if you meet specific requirements, including having a service-connected disability and being in good health except for service-connected conditions. Premium rates depend on age, the amount of insurance desired, and the coverage plan requested. [S2]"
+      },
+      "selector": {
+        "status": "answer",
+        "addresses_request": false,
+        "review_units": [
+          {
+            "label": "supported",
+            "note": "Câu chọn về SAH và bảo hiểm thế chấp VMLI, khác chương trình S-DVI được hỏi."
+          }
+        ],
+        "source": "[S1]",
+        "start": 765,
+        "end": 884,
+        "id_json": "{\"id\":6}"
+      }
+    }
+  ],
+  "counts": {
+    "discovery": {
+      "v2": {
+        "queries": 20,
+        "states": {
+          "answer": 20
+        },
+        "answers": 20,
+        "fully_supported": 9,
+        "supported_and_responsive": 5,
+        "coverage": 1.0,
+        "fully_supported_per_answer": 0.45,
+        "supported_and_responsive_per_query": 0.25
+      }
+    },
+    "pilot": {
+      "v2": {
+        "queries": 24,
+        "states": {
+          "retrieval_handoff": 10,
+          "answer": 8,
+          "refused": 6
+        },
+        "answers": 8,
+        "fully_supported": 4,
+        "supported_and_responsive": 4,
+        "coverage": 0.3333333333333333,
+        "fully_supported_per_answer": 0.5,
+        "supported_and_responsive_per_query": 0.16666666666666666
+      },
+      "quote": {
+        "queries": 24,
+        "states": {
+          "retrieval_handoff": 10,
+          "format_error": 14
+        },
+        "answers": 0,
+        "fully_supported": 0,
+        "supported_and_responsive": 0,
+        "coverage": 0.0,
+        "fully_supported_per_answer": null,
+        "supported_and_responsive_per_query": 0.0
+      }
+    },
+    "fresh": {
+      "v2": {
+        "queries": 32,
+        "states": {
+          "answer": 16,
+          "retrieval_handoff": 12,
+          "refused": 3,
+          "no_citation": 1
+        },
+        "answers": 16,
+        "fully_supported": 7,
+        "supported_and_responsive": 6,
+        "coverage": 0.5,
+        "fully_supported_per_answer": 0.4375,
+        "supported_and_responsive_per_query": 0.1875
+      },
+      "selector": {
+        "queries": 32,
+        "states": {
+          "answer": 13,
+          "retrieval_handoff": 12,
+          "refused": 7
+        },
+        "answers": 13,
+        "fully_supported": 13,
+        "supported_and_responsive": 3,
+        "coverage": 0.40625,
+        "fully_supported_per_answer": 1.0,
+        "supported_and_responsive_per_query": 0.09375
+      }
+    }
+  }
+}
