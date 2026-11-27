@@ -1,0 +1,440 @@
+{
+  "owner": "Nguyen Huu Cau (2352129)",
+  "package": "C",
+  "artifact_version": "handoff50-pkgc-h1-v1",
+  "selected_method": "H1",
+  "selected_threshold": 0.752946408449283,
+  "dev_eligible_rows": 2230,
+  "dev_id_rows": 1505,
+  "dev_oos_rows": 725,
+  "fit_bank_rows": 5308,
+  "h2_calibration": {
+    "T_opt": 0.74917593452836,
+    "cal_rows": 591,
+    "cal_nll_before_T1": 0.5218151101390036,
+    "cal_nll_after_T": 0.47662794006076337,
+    "cal_ece_before_T1": 0.09729545966869338,
+    "cal_ece_after_T": 0.038802277210172265,
+    "dev_id_nll_H1": 0.48104386800669907,
+    "dev_id_nll_H2": 0.43426728415202115,
+    "dev_id_ece_H1": 0.08761362283692214,
+    "dev_id_ece_H2": 0.029778678071284065
+  },
+  "methods": {
+    "H1": {
+      "aurc": 0.1452898312188008,
+      "at_target_risk_10pct": {
+        "threshold": 0.752946408449283,
+        "coverage": 0.5170403587443946,
+        "accepted": 1153,
+        "errors": 115,
+        "risk": 0.0997398091934085,
+        "oos_false_accepts": 88,
+        "oos_false_accept_rate": 0.12137931034482759
+      },
+      "matched_coverage": [
+        {
+          "target_coverage": 0.4,
+          "actual_coverage": 0.4,
+          "threshold": 0.8438422511700051,
+          "accepted": 892,
+          "errors": 67,
+          "risk": 0.07511210762331838,
+          "id_errors": 18,
+          "oos_false_accepts": 49,
+          "oos_false_accept_rate": 0.06758620689655172
+        },
+        {
+          "target_coverage": 0.5,
+          "actual_coverage": 0.5,
+          "threshold": 0.768676786348766,
+          "accepted": 1115,
+          "errors": 106,
+          "risk": 0.09506726457399103,
+          "id_errors": 26,
+          "oos_false_accepts": 80,
+          "oos_false_accept_rate": 0.1103448275862069
+        },
+        {
+          "target_coverage": 0.6,
+          "actual_coverage": 0.6,
+          "threshold": 0.6525867136253315,
+          "accepted": 1338,
+          "errors": 184,
+          "risk": 0.1375186846038864,
+          "id_errors": 46,
+          "oos_false_accepts": 138,
+          "oos_false_accept_rate": 0.19034482758620688
+        },
+        {
+          "target_coverage": 0.7,
+          "actual_coverage": 0.7,
+          "threshold": 0.515799917313337,
+          "accepted": 1561,
+          "errors": 310,
+          "risk": 0.1985906470211403,
+          "id_errors": 75,
+          "oos_false_accepts": 235,
+          "oos_false_accept_rate": 0.32413793103448274
+        },
+        {
+          "target_coverage": 0.8,
+          "actual_coverage": 0.8,
+          "threshold": 0.37898161838008504,
+          "accepted": 1784,
+          "errors": 486,
+          "risk": 0.27242152466367714,
+          "id_errors": 110,
+          "oos_false_accepts": 376,
+          "oos_false_accept_rate": 0.5186206896551724
+        }
+      ]
+    },
+    "H2": {
+      "aurc": 0.1478351671738293,
+      "at_target_risk_10pct": {
+        "threshold": 0.8919003016161943,
+        "coverage": 0.5130044843049327,
+        "accepted": 1144,
+        "errors": 114,
+        "risk": 0.09965034965034965,
+        "oos_false_accepts": 89,
+        "oos_false_accept_rate": 0.12275862068965518
+      },
+      "matched_coverage": [
+        {
+          "target_coverage": 0.4,
+          "actual_coverage": 0.4,
+          "threshold": 0.9452093122843459,
+          "accepted": 892,
+          "errors": 73,
+          "risk": 0.08183856502242152,
+          "id_errors": 17,
+          "oos_false_accepts": 56,
+          "oos_false_accept_rate": 0.07724137931034483
+        },
+        {
+          "target_coverage": 0.5,
+          "actual_coverage": 0.5,
+          "threshold": 0.8997866896452709,
+          "accepted": 1115,
+          "errors": 111,
+          "risk": 0.09955156950672646,
+          "id_errors": 24,
+          "oos_false_accepts": 87,
+          "oos_false_accept_rate": 0.12
+        },
+        {
+          "target_coverage": 0.6,
+          "actual_coverage": 0.6,
+          "threshold": 0.805883006368547,
+          "accepted": 1338,
+          "errors": 190,
+          "risk": 0.14200298953662183,
+          "id_errors": 48,
+          "oos_false_accepts": 142,
+          "oos_false_accept_rate": 0.19586206896551725
+        },
+        {
+          "target_coverage": 0.7,
+          "actual_coverage": 0.7,
+          "threshold": 0.6711920382909885,
+          "accepted": 1561,
+          "errors": 313,
+          "risk": 0.2005124919923126,
+          "id_errors": 74,
+          "oos_false_accepts": 239,
+          "oos_false_accept_rate": 0.3296551724137931
+        },
+        {
+          "target_coverage": 0.8,
+          "actual_coverage": 0.8,
+          "threshold": 0.5066354029804704,
+          "accepted": 1784,
+          "errors": 488,
+          "risk": 0.273542600896861,
+          "id_errors": 106,
+          "oos_false_accepts": 382,
+          "oos_false_accept_rate": 0.526896551724138
+        }
+      ]
+    },
+    "H3_k1": {
+      "aurc": 0.19517069033051215,
+      "at_target_risk_10pct": {
+        "threshold": 0.9397888779640198,
+        "coverage": 0.2031390134529148,
+        "accepted": 453,
+        "errors": 45,
+        "risk": 0.09933774834437085,
+        "oos_false_accepts": 31,
+        "oos_false_accept_rate": 0.04275862068965517
+      },
+      "matched_coverage": [
+        {
+          "target_coverage": 0.4,
+          "actual_coverage": 0.4,
+          "threshold": 0.8876558542251587,
+          "accepted": 892,
+          "errors": 126,
+          "risk": 0.1412556053811659,
+          "id_errors": 39,
+          "oos_false_accepts": 87,
+          "oos_false_accept_rate": 0.12
+        },
+        {
+          "target_coverage": 0.5,
+          "actual_coverage": 0.5,
+          "threshold": 0.861353874206543,
+          "accepted": 1115,
+          "errors": 187,
+          "risk": 0.16771300448430493,
+          "id_errors": 55,
+          "oos_false_accepts": 132,
+          "oos_false_accept_rate": 0.1820689655172414
+        },
+        {
+          "target_coverage": 0.6,
+          "actual_coverage": 0.6,
+          "threshold": 0.8304181098937988,
+          "accepted": 1338,
+          "errors": 264,
+          "risk": 0.19730941704035873,
+          "id_errors": 79,
+          "oos_false_accepts": 185,
+          "oos_false_accept_rate": 0.25517241379310346
+        },
+        {
+          "target_coverage": 0.7,
+          "actual_coverage": 0.7,
+          "threshold": 0.7900905013084412,
+          "accepted": 1561,
+          "errors": 364,
+          "risk": 0.23318385650224216,
+          "id_errors": 117,
+          "oos_false_accepts": 247,
+          "oos_false_accept_rate": 0.3406896551724138
+        },
+        {
+          "target_coverage": 0.8,
+          "actual_coverage": 0.8,
+          "threshold": 0.7390062212944031,
+          "accepted": 1784,
+          "errors": 500,
+          "risk": 0.2802690582959641,
+          "id_errors": 149,
+          "oos_false_accepts": 351,
+          "oos_false_accept_rate": 0.48413793103448277
+        }
+      ]
+    },
+    "H3_k5": {
+      "aurc": 0.16763590735168798,
+      "at_target_risk_10pct": {
+        "threshold": 0.8445150256156921,
+        "coverage": 0.3919282511210762,
+        "accepted": 874,
+        "errors": 87,
+        "risk": 0.09954233409610984,
+        "oos_false_accepts": 46,
+        "oos_false_accept_rate": 0.06344827586206897
+      },
+      "matched_coverage": [
+        {
+          "target_coverage": 0.4,
+          "actual_coverage": 0.4,
+          "threshold": 0.8425201177597046,
+          "accepted": 892,
+          "errors": 92,
+          "risk": 0.1031390134529148,
+          "id_errors": 43,
+          "oos_false_accepts": 49,
+          "oos_false_accept_rate": 0.06758620689655172
+        },
+        {
+          "target_coverage": 0.5,
+          "actual_coverage": 0.5,
+          "threshold": 0.812940239906311,
+          "accepted": 1115,
+          "errors": 154,
+          "risk": 0.13811659192825113,
+          "id_errors": 62,
+          "oos_false_accepts": 92,
+          "oos_false_accept_rate": 0.12689655172413794
+        },
+        {
+          "target_coverage": 0.6,
+          "actual_coverage": 0.6,
+          "threshold": 0.7791599631309509,
+          "accepted": 1338,
+          "errors": 241,
+          "risk": 0.18011958146487295,
+          "id_errors": 95,
+          "oos_false_accepts": 146,
+          "oos_false_accept_rate": 0.2013793103448276
+        },
+        {
+          "target_coverage": 0.7,
+          "actual_coverage": 0.7,
+          "threshold": 0.7422000169754028,
+          "accepted": 1561,
+          "errors": 353,
+          "risk": 0.22613709160794362,
+          "id_errors": 123,
+          "oos_false_accepts": 230,
+          "oos_false_accept_rate": 0.31724137931034485
+        },
+        {
+          "target_coverage": 0.8,
+          "actual_coverage": 0.8,
+          "threshold": 0.6902827620506287,
+          "accepted": 1784,
+          "errors": 498,
+          "risk": 0.27914798206278024,
+          "id_errors": 154,
+          "oos_false_accepts": 344,
+          "oos_false_accept_rate": 0.47448275862068967
+        }
+      ]
+    },
+    "H3": {
+      "aurc": 0.16329151630401834,
+      "at_target_risk_10pct": {
+        "threshold": 0.8112242817878723,
+        "coverage": 0.40044843049327355,
+        "accepted": 893,
+        "errors": 89,
+        "risk": 0.09966405375139978,
+        "oos_false_accepts": 45,
+        "oos_false_accept_rate": 0.06206896551724138
+      },
+      "matched_coverage": [
+        {
+          "target_coverage": 0.4,
+          "actual_coverage": 0.4,
+          "threshold": 0.8114110231399536,
+          "accepted": 892,
+          "errors": 89,
+          "risk": 0.09977578475336323,
+          "id_errors": 44,
+          "oos_false_accepts": 45,
+          "oos_false_accept_rate": 0.06206896551724138
+        },
+        {
+          "target_coverage": 0.5,
+          "actual_coverage": 0.5,
+          "threshold": 0.7861836552619934,
+          "accepted": 1115,
+          "errors": 148,
+          "risk": 0.13273542600896862,
+          "id_errors": 72,
+          "oos_false_accepts": 76,
+          "oos_false_accept_rate": 0.10482758620689656
+        },
+        {
+          "target_coverage": 0.6,
+          "actual_coverage": 0.6,
+          "threshold": 0.7487530708312988,
+          "accepted": 1338,
+          "errors": 237,
+          "risk": 0.17713004484304934,
+          "id_errors": 109,
+          "oos_false_accepts": 128,
+          "oos_false_accept_rate": 0.17655172413793102
+        },
+        {
+          "target_coverage": 0.7,
+          "actual_coverage": 0.7,
+          "threshold": 0.709933876991272,
+          "accepted": 1561,
+          "errors": 352,
+          "risk": 0.22549647661755284,
+          "id_errors": 133,
+          "oos_false_accepts": 219,
+          "oos_false_accept_rate": 0.3020689655172414
+        },
+        {
+          "target_coverage": 0.8,
+          "actual_coverage": 0.8,
+          "threshold": 0.6567638516426086,
+          "accepted": 1784,
+          "errors": 501,
+          "risk": 0.28082959641255606,
+          "id_errors": 156,
+          "oos_false_accepts": 345,
+          "oos_false_accept_rate": 0.47586206896551725
+        }
+      ]
+    },
+    "H4": {
+      "aurc": 0.1606283113774969,
+      "at_target_risk_10pct": {
+        "threshold": 7.8105112192988875,
+        "coverage": 0.4233183856502242,
+        "accepted": 944,
+        "errors": 94,
+        "risk": 0.09957627118644068,
+        "oos_false_accepts": 54,
+        "oos_false_accept_rate": 0.07448275862068965
+      },
+      "matched_coverage": [
+        {
+          "target_coverage": 0.4,
+          "actual_coverage": 0.4,
+          "threshold": 7.921680380783023,
+          "accepted": 892,
+          "errors": 82,
+          "risk": 0.09192825112107623,
+          "id_errors": 36,
+          "oos_false_accepts": 46,
+          "oos_false_accept_rate": 0.06344827586206897
+        },
+        {
+          "target_coverage": 0.5,
+          "actual_coverage": 0.5,
+          "threshold": 7.45771546466783,
+          "accepted": 1115,
+          "errors": 153,
+          "risk": 0.13721973094170403,
+          "id_errors": 52,
+          "oos_false_accepts": 101,
+          "oos_false_accept_rate": 0.1393103448275862
+        },
+        {
+          "target_coverage": 0.6,
+          "actual_coverage": 0.6,
+          "threshold": 7.023802836348196,
+          "accepted": 1338,
+          "errors": 234,
+          "risk": 0.17488789237668162,
+          "id_errors": 79,
+          "oos_false_accepts": 155,
+          "oos_false_accept_rate": 0.21379310344827587
+        },
+        {
+          "target_coverage": 0.7,
+          "actual_coverage": 0.7,
+          "threshold": 6.554041863138824,
+          "accepted": 1561,
+          "errors": 357,
+          "risk": 0.22869955156950672,
+          "id_errors": 111,
+          "oos_false_accepts": 246,
+          "oos_false_accept_rate": 0.3393103448275862
+        },
+        {
+          "target_coverage": 0.8,
+          "actual_coverage": 0.8,
+          "threshold": 6.083591043803272,
+          "accepted": 1784,
+          "errors": 501,
+          "risk": 0.28082959641255606,
+          "id_errors": 142,
+          "oos_false_accepts": 359,
+          "oos_false_accept_rate": 0.49517241379310345
+        }
+      ]
+    }
+  },
+  "smoke_samples_count": 2
+}
