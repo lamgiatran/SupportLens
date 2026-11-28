@@ -1,0 +1,286 @@
+{
+  "audit_sha256": "6695f3a20683eadecfbce27be1420181d75d091f0eb2b01a5a0cc3f08334eb65",
+  "salt": "context-review-2411",
+  "grades": [
+    {
+      "case": "88e5d2c8f965b98d831c84d12f7ddd78:12",
+      "side": "A",
+      "supported": "no",
+      "responsive": "no",
+      "note": "The sources describe domestic flights and expiration fines. They do not establish that the upgrade avoids general travel fines or explain travel to Canada."
+    },
+    {
+      "case": "8b4f28969ef5bcc4e34ab3394f7dc8a8:9",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "S1 and S2 directly give 62 as the earliest age for retirement benefits."
+    },
+    {
+      "case": "40648cea1a32c1672c5851c8554867ea:7",
+      "side": "A",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "A cites the child categories. B mixes Fry Scholarship rules and a truncated S3 that ends before the child categories."
+    },
+    {
+      "case": "40648cea1a32c1672c5851c8554867ea:7",
+      "side": "B",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "A cites the child categories. B mixes Fry Scholarship rules and a truncated S3 that ends before the child categories."
+    },
+    {
+      "case": "18c88704abffaa8b85609b55cf4cbde1:5",
+      "side": "A",
+      "supported": "no",
+      "responsive": "no",
+      "note": "Both answer about the original registrant. Neither explains a different applicant and the sworn statement discussed in S1."
+    },
+    {
+      "case": "18c88704abffaa8b85609b55cf4cbde1:5",
+      "side": "B",
+      "supported": "no",
+      "responsive": "no",
+      "note": "Both answer about the original registrant. Neither explains a different applicant and the sworn statement discussed in S1."
+    },
+    {
+      "case": "131a7b32787ddc19f33d184496cf91f2:4",
+      "side": "A",
+      "supported": "no",
+      "responsive": "no",
+      "note": "Both generalize translation to driving. S1 limits the translation requirement to the road test, and yes does not identify a language."
+    },
+    {
+      "case": "131a7b32787ddc19f33d184496cf91f2:4",
+      "side": "B",
+      "supported": "no",
+      "responsive": "no",
+      "note": "Both generalize translation to driving. S1 limits the translation requirement to the road test, and yes does not identify a language."
+    },
+    {
+      "case": "102928b61088a51ff84d2bb3f8e6b755:1",
+      "side": "B",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "Private-sale extension is in S1. The cited S2 does not establish the 30-day dealer rule."
+    },
+    {
+      "case": "659bba29e47e5933ebc2e08bdff478f7:8",
+      "side": "A",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "S1 distinguishes suspension types and the order. A incorrectly extends insurance-specific steps to all definite suspensions."
+    },
+    {
+      "case": "659bba29e47e5933ebc2e08bdff478f7:8",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "S1 distinguishes suspension types and the order. A incorrectly extends insurance-specific steps to all definite suspensions."
+    },
+    {
+      "case": "1253d16e73cf6d3024537c671c67aebc:1",
+      "side": "A",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "The guides can be downloaded and printed. Neither cited prefix establishes the claim about zero cost."
+    },
+    {
+      "case": "1253d16e73cf6d3024537c671c67aebc:1",
+      "side": "B",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "The guides can be downloaded and printed. Neither cited prefix establishes the claim about zero cost."
+    },
+    {
+      "case": "3319b4c1020ef853f5f8b5bd61c21645:3",
+      "side": "A",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "S1 gives the possible DEA benefit and both permitted uses."
+    },
+    {
+      "case": "3319b4c1020ef853f5f8b5bd61c21645:3",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "S1 gives the possible DEA benefit and both permitted uses."
+    },
+    {
+      "case": "a9a3fb6863eb980d800732db55b0caef:3",
+      "side": "A",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "A adds creating a freeze as a step. B states the documented temporary-lift procedure."
+    },
+    {
+      "case": "a9a3fb6863eb980d800732db55b0caef:3",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "A adds creating a freeze as a step. B states the documented temporary-lift procedure."
+    },
+    {
+      "case": "9586252d07198b41a058239ae38aeea1:8",
+      "side": "B",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "S2 is about SSA evaluation. It does not direct the person to a planner for the VA housebound pension."
+    },
+    {
+      "case": "47ed1d2ddce2ab50c4bc587e592a5900:5",
+      "side": "B",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "The cited prefix concerns stepparents and does not address incarceration."
+    },
+    {
+      "case": "8dc956a239a7d24ab97945d718a34313:17",
+      "side": "A",
+      "supported": "yes",
+      "responsive": "no",
+      "note": "The cited sources describe estimates and different tools. For the previously discussed impact of working, the answer omits the earnings test calculator."
+    },
+    {
+      "case": "0f920333d379197e1eb23a9ec230419c:7",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "Despite reversing the conversational pronoun, the listed eligibility and application topics directly answer and are in S1/S2."
+    },
+    {
+      "case": "a6415bdbf58d9a2e713ee64d06fb5670:6",
+      "side": "A",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "A adds a three-year application timing rule absent from its citations. B's S3 does not direct applicants to a loan servicer."
+    },
+    {
+      "case": "a6415bdbf58d9a2e713ee64d06fb5670:6",
+      "side": "B",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "A adds a three-year application timing rule absent from its citations. B's S3 does not direct applicants to a loan servicer."
+    },
+    {
+      "case": "70f3b95dacad33b20b953c73d0f91d42:12",
+      "side": "A",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "Both give the income-driven example and when to select a consolidation repayment plan, as stated in S1."
+    },
+    {
+      "case": "70f3b95dacad33b20b953c73d0f91d42:12",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "Both give the income-driven example and when to select a consolidation repayment plan, as stated in S1."
+    },
+    {
+      "case": "7fb485594202738477a3052928b003ec:5",
+      "side": "A",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "A gives a qualified possible eligibility and an example of an additional requirement. B's final S-DVI statement lacks a citation and shifts program."
+    },
+    {
+      "case": "7fb485594202738477a3052928b003ec:5",
+      "side": "B",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "A gives a qualified possible eligibility and an example of an additional requirement. B's final S-DVI statement lacks a citation and shifts program."
+    },
+    {
+      "case": "762106d0fd0b3c4e87b4d573a1089d8c:11",
+      "side": "A",
+      "supported": "no",
+      "responsive": "no",
+      "note": "S1 describes separate routes. The answer combines spouse eligibility with allied wartime service and misses the missing/POW scenario."
+    },
+    {
+      "case": "304e833d420b1b5fda2d7ef4a0508344:12",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "S2 identifies age and coverage as rate inputs and directs users to the age table. No specific personal premium is inferable."
+    },
+    {
+      "case": "390412d2dd95fc237cb5ef28b05724ea:1",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "no",
+      "note": "The conditional route is supported, but the answer omits the actual qualifying age and gives the Medicare age instead."
+    },
+    {
+      "case": "72a1223ae425ae032832a1432c1f933f:9",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "no",
+      "note": "The cited crisis resource is real in the passage. It does not address routine case management."
+    },
+    {
+      "case": "c37ace285f9df7aee5c00e62d47b6413:5",
+      "side": "A",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "Within the explicitly named US/territories scope A describes the discount and availability. B describes the discounted coverage and potential benefit."
+    },
+    {
+      "case": "c37ace285f9df7aee5c00e62d47b6413:5",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "Within the explicitly named US/territories scope A describes the discount and availability. B describes the discounted coverage and potential benefit."
+    },
+    {
+      "case": "4c1b49755da1202af2409f01b0783176:7",
+      "side": "A",
+      "supported": "no",
+      "responsive": "no",
+      "note": "A lists types of vehicles as proofs. B asserts proof is unavailable for whole vehicle classes although S3 describes alternatives."
+    },
+    {
+      "case": "4c1b49755da1202af2409f01b0783176:7",
+      "side": "B",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "A lists types of vehicles as proofs. B asserts proof is unavailable for whole vehicle classes although S3 describes alternatives."
+    },
+    {
+      "case": "52ace64781942e26e7f94c3baca22ce0:5",
+      "side": "A",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "A confuses rules for recipients with eligibility to transfer. B omits the obligation to agree to serve the maximum allowable time in its ten-year route."
+    },
+    {
+      "case": "52ace64781942e26e7f94c3baca22ce0:5",
+      "side": "B",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "A confuses rules for recipients with eligibility to transfer. B omits the obligation to agree to serve the maximum allowable time in its ten-year route."
+    },
+    {
+      "case": "c6d9f1d8452938f4b14a7eed3c48d9a9:3",
+      "side": "A",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "A cites S1 for Getting Ready, which is in S2. B points to both preparation resources in its cited excerpts."
+    },
+    {
+      "case": "c6d9f1d8452938f4b14a7eed3c48d9a9:3",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "A cites S1 for Getting Ready, which is in S2. B points to both preparation resources in its cited excerpts."
+    },
+    {
+      "case": "2639ebe94b6b901371e7005ec03a0387:11",
+      "side": "A",
+      "supported": "no",
+      "responsive": "no",
+      "note": "The license renewal claim is attributed to a non-driver ID passage. The current reply also does not establish what the user is declining."
+    }
+  ]
+}

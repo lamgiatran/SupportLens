@@ -28,7 +28,7 @@ class RequestBase(StrictModel):
 class DocsQARequest(RequestBase):
     mode: Literal["docs_qa"]
     corpus_id: Literal["multidoc2dial"] = "multidoc2dial"
-    retriever: Literal["R1", "R2", "R3", "R4", "R5"] = "R1"
+    retriever: Literal["R1", "R2", "R3", "R4", "R5", "R7"] = "R1"
 
 
 class BankingRequest(RequestBase):

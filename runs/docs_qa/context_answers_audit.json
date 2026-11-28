@@ -1,0 +1,1591 @@
+{
+  "split": "dev",
+  "primary": "all claims supported by their citations AND addresses the request / all",
+  "selection": "one_per_dialogue/citation-pair-v1",
+  "excluded_dialogues": [
+    "03cab7d6b2798b6d3f467e19451ccc3c",
+    "06f571cd8f2587769f658bc145838566",
+    "08969be11ae53654480265abab7a3fe7",
+    "0a268eb90d0e10e63fdd04b9798b9ab3",
+    "0a7f32262e15436fbd585e360f36c1bc",
+    "0f798471a9e95a974e92bf00aa150c42",
+    "1722740f9da53fc02ff23fca433b7165",
+    "17bfff3dc3ca6151a017f02990008b16",
+    "17f3ec8efd2242b66ff0908b67cff441",
+    "17fed87112a4632a9f53502cd360bb19",
+    "18bf08172ab578c9595dd6ee8d60fc88",
+    "19d4ea0d2611c32433e9c78a1f001385",
+    "215073e7606b4ac9975ee830cecf2991",
+    "22e12cbb5d39ec9e6006050d7f0fc0ae",
+    "22f09d83124d20a43bba04cb73ece366",
+    "2a650c272308ff84d93c5955adb46078",
+    "2d4a552a1314552c5d4d1420a6300dde",
+    "2e76f32d20ed5665c0a51cb00ee7a41b",
+    "2f9587c9ea2cd7290452861ed79b9ab2",
+    "317bfd6479722e96bc7a57fdbf5ad2b2",
+    "32e3c1e1d6824a9bf68c88cde9b9b91a",
+    "363758c09c1f25c9edf1f77d76f48857",
+    "36430fe0302340962200a27ff456ca67",
+    "369ca7f66a942fa5ab24fbf912fa1136",
+    "3855667ae8a93a0ed5e6252f5484f99f",
+    "450e1bd8483cca2243d3c13bb08de309",
+    "4ec3bc6754b8290e3085ae43b9ea721d",
+    "531e4217ce2f7cb6e3c780d038afe790",
+    "553b5cfaacc679ac992a651481e2cfc4",
+    "56c4c30460ae5f13bc0ed1c5ac9862f7",
+    "596f5c4d1a31d870d4384ff952914d98",
+    "5d5bb0019650ee6eaef9c60da1ceb0b7",
+    "5f0164902465a37044261c2b701de9d0",
+    "62558800a99e9d5cbb67cb915d6f714e",
+    "6be28d2b3b2858262d2cf4731638e3b3",
+    "7076645f07f9821dd7dfc2cc6ab6fad9",
+    "74a3ad414c25be1c5fbd52c2f1b717c0",
+    "7928bb291db86c0314f3f7aeab1617e5",
+    "7a4d5aaabb1aef6616f4466da6a00ef8",
+    "7f137d35b7fdf9963cca1c64549f01ad",
+    "7f8eebe46f22b15aa5fdd4c17983cbaa",
+    "7fa2d3c51405f6bce46adb9925f4a83a",
+    "82f480a37c4e64eb7ba658d7e45aac6b",
+    "85e086e272f6964333bb891e6447f673",
+    "8aef9f5bbda9f388a2b7e511aa6d8044",
+    "8c272b00a28c9412a1baa948a4dec9ea",
+    "8d64637b8ab455244015fc7581f40181",
+    "8e0770d85d9e7f13ee04580aa88fcca3",
+    "8e710e7d85e0c80fc2ae038b5f89c7ed",
+    "903f99d828a215c2e1c1ffee315d74d4",
+    "940a429838e63f485ba1dd0aef65df9e",
+    "9449ebf0924645a487b5f55caf588970",
+    "956351f8a7623e6c13c5cb8060aa5c83",
+    "95a7c95147ebb2148200478a459319b8",
+    "96cb2354ec1db343f5230f5b172fc22a",
+    "987ea1800f994d3b2609d830aaed343e",
+    "9c5699eb3d3c82e9108d8e8c72d6d962",
+    "9fd9ac67b01535b3e3ee084c54afe47b",
+    "a04265a404021c51b8830ea6fd834fee",
+    "a2e07d7093d79a56f0ca5b307c4cef96",
+    "a3917a6f199f4abba442d7a1b0ae8b30",
+    "a571c5b97f35262ffb7c3b5ae165784f",
+    "a5a1655f5bf11f97e37726f51df46cd9",
+    "a615d75b02952e505ac238ee688a963f",
+    "a8213be3cdd0d00ab1bc737cd468a523",
+    "affd0f2e4fa08b1d43955733b9a093e1",
+    "b023e676deaf2ba9bbcb694f7f0f1930",
+    "b11b921e733c30a62366889c0131c88c",
+    "b1bcb5e9cc111a0e098eb1b88c6ea9ad",
+    "b64e83589290de676622cde7bb81f420",
+    "b96347a9e2491441e7a20affd16c3e2b",
+    "bdffbd6b00f5b1c30836b6d0c974f13e",
+    "be2fb0f758ca7f6452f1ead0eae321b2",
+    "bf261fbcd6548868fd92399ff4fb2dbc",
+    "c596a74a2eeb470cc192c63ec3fcc640",
+    "cabe712bae35eb8da8965a64421648ad",
+    "cc1303e36bd2cc88dfcccc8f22e27366",
+    "cdc38401d5ca350aedcd2a969be700bf",
+    "d0cbcaf4a0bd0a2b52c288b2582a0e35",
+    "d2045199a9351c5d02f5b2a7557ab8f5",
+    "d652eabb0bfe367b38df42bb30c9675b",
+    "d8497aeb50040fbd3ce358ece5ae697b",
+    "d8f465cc44734431c9878e786102473c",
+    "d94e7057cd554b70e5390278ec062eff",
+    "dacb3b32cdd15c3dde7d8e2efa736a17",
+    "debdb257ee48c078c9c9fab93bc274b0",
+    "df970a127e19325a01f24c5d61ce3c20",
+    "e0124bd609918253219264891a9ba24a",
+    "e0a50eea76d8e6f19f09fd33ccb65aef",
+    "eb193ba9fc1f7043957739df3ee95997",
+    "ed292a47df11fed29cc3bf09ee5a6410",
+    "ee139ef3feb06a3cf7b9ac9cbe802fb8",
+    "eedfdf848bc86c30ba8d75b70374df0c",
+    "ef4671e634343ab12abfafc855f15478",
+    "f266708fe15830c119e30df5549b6a86",
+    "f313a5dc5aa5245025877a081c9535df",
+    "f33ebe04c6c6fc36825253952db3380a",
+    "f6e3549ea2a6bd4f26cd61baacea81db",
+    "f92ca2c6a334cdc200e8ff8659582f49",
+    "fc3a1f32406408addcff117b13932d1b",
+    "fc51b2d01c7642964d7a28a5000c5ebd",
+    "fc9a100c28fb9569ad0aba4653da3c4f"
+  ],
+  "ids": [
+    "580d63c318564ff11f7fc4a8fcd0964f:5",
+    "80eba80595a3509dc4dc3e26babf83b3:3",
+    "5cca9a205efa3e902d49712cd20a0029:5",
+    "ed0119668abaa26f1b933533c330a0fe:4",
+    "95a469061b9a4e73d543984f942fcbe3:11",
+    "32ae0a8871ed16a516fd7930d55e0305:3",
+    "625d017cbc6ca5796f4374b3a6047639:9",
+    "d79996f178afe8b10e2900c0eaa7da3c:6",
+    "3e48da929535ac60f66ce0de05a19014:4",
+    "6c044ce4cac224ddefe8f791f77ee1b6:7",
+    "522ce77e8af0a004e6b2aff897e81cb5:7",
+    "f2df8f8f136fc6d4dcc718b3a9751c13:5",
+    "be3d0426d273b85f076149d3d89530a2:10",
+    "7ec3863e050641c4832e467ffe8f7b11:4",
+    "a2f093a87ad8371d3aea4e463bd3ebee:4",
+    "f0f148f4c71c9c149b0a187a1fb557d4:1",
+    "0b3c04b0b6dea4ee5de90f0ca2fa8f8b:18",
+    "b26f445a7e768cd5ed0ccac0718775a0:8",
+    "84a7d6c88e95c7c187f3b1db5a748713:1",
+    "98ec6904a42dfcf483e63cb46e8c0241:1",
+    "cb2580e29e89992409cc436654f9023c:6",
+    "2ca640276d852b3d7d7c5f91a9a6485a:1",
+    "7c1c32cd961d2f7324b0db508f5209ee:15",
+    "73872f3bb4a56c437686018bbc4e8736:8",
+    "47ba9d17a37608191e7a10859ed329e7:9",
+    "dbac675233f968f92858c19fb6221753:11",
+    "a098bf471417f21f8a3545498fdf0bb2:10",
+    "03bf1779ae1cc934cd39b1480eeec6d0:16",
+    "66a393feeeb5b1a2b55414b8052e70f9:3",
+    "c13344869c810beb8c5716ed99837696:13",
+    "d71e9e4588dd20f6c41cfa1eb4f79126:11",
+    "b95c47e5846aa0e1bd7bca9be8acc93d:1",
+    "94d36f0fa7d0d2d75c40deb99abdd6a3:3",
+    "114cba71cb84f71ada24384d79d8bece:6",
+    "789a3cb94cf8871ba6ace0a4923851e2:8",
+    "2f7b40b2702eac5e4e2a158999baf8f8:13",
+    "26895fce9e74d3a778551532394190da:3",
+    "3e8d4f726c013ba365e0faef13bf3851:7",
+    "dc1981706953ab11f62fbd703b7c1147:4",
+    "4eeafa5995d42039a2edfff280222632:3",
+    "81cc489d8f2ec38379a7a4c65e4396db:3",
+    "5e625facdb13ef5a8b3c06b4178af291:5",
+    "5ddc54e4bae20fd92545e38f74a9af98:13",
+    "fe52e49c458d9ae8657e8f70a510ab0e:15",
+    "6dd63542d1b12b70a9e90f796755ef64:11",
+    "db7e6693ca8fef769bfe21b5b8392d41:9",
+    "d7d36b3f4ce3dab9d9e4b5edf19eb35f:3",
+    "93d62504088686b94ab05ff105d7b915:3"
+  ],
+  "model": "qwen2.5:3b",
+  "model_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+  "generator_ids": {
+    "v2": "G-9e467e2c950faf6b",
+    "v3": "G-8797ae1f25422966"
+  },
+  "retriever": "R1-chunk-b3ba5da19294491c",
+  "gate_threshold": 1.7201206380771543,
+  "bundle_sha256": "03dc40e63774bf0fd0b6b857d25a1786b0390bbfed88ff24dd0930aa2c156758",
+  "tokenizer_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+  "rows": [
+    {
+      "id": "580d63c318564ff11f7fc4a8fcd0964f:5",
+      "domain": "ssa",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      },
+      "v3": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      }
+    },
+    {
+      "id": "80eba80595a3509dc4dc3e26babf83b3:3",
+      "domain": "va",
+      "sources": {
+        "S1": {
+          "id": "57e71e80b8c85fcf4c2d",
+          "chars": 1170,
+          "sha256": "fc73911c45f75fde69c23293f90db1b54896f40eb1de0977eb5dd4842838bdb3"
+        },
+        "S2": {
+          "id": "c4a5511d9d64279839fb",
+          "chars": 939,
+          "sha256": "ff2a898f5dc579e15c096e59714997fa5560412b999ce79ca8440330d9cd1f74"
+        },
+        "S3": {
+          "id": "6c70cfb6ad976f5791f2",
+          "chars": 718,
+          "sha256": "62c26733933a6b1fd3f8240bbe2cb5dff444a12ea8e3d59c158717be7ff0aff2"
+        }
+      },
+      "v3": {
+        "status": "answer",
+        "answer": "To use this tool , you ll need to have one of these free accounts : A Premium My HealtheVet account , or A Premium DS Logon account used for eBenefits and milConnect , or that you can create here on VA.gov A verified ID.me account [S2]",
+        "cites_visible_gold": true,
+        "generate_ms": 578.4,
+        "first_display_ms": 578.4
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "Yes, you can use the tool. You need to have one of these free accounts: A Premium My HealtheVet account, or A Premium DS Logon account used for eBenefits and milConnect, or a verified ID.me account. [S2]",
+        "cites_visible_gold": true,
+        "generate_ms": 521.28,
+        "first_display_ms": 120.01
+      }
+    },
+    {
+      "id": "5cca9a205efa3e902d49712cd20a0029:5",
+      "domain": "dmv",
+      "sources": {
+        "S1": {
+          "id": "54e974546adfc40d8c4a",
+          "chars": 1130,
+          "sha256": "4b8e65f9a4496a574584fbf33d06e63d141ae4dfc54583d65987b66232374ef5"
+        },
+        "S2": {
+          "id": "a81117bb24584594ff1e",
+          "chars": 1033,
+          "sha256": "8ce39ce59c13531336bc8996d8eed17527b0906c9c036d4ebd3e0b5922c02857"
+        },
+        "S3": {
+          "id": "6152da88e9727d9accf4",
+          "chars": 630,
+          "sha256": "b015e300d7b55389b519299d2144e287f1c8f6bc78124a2e34dd385c2b2a279a"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "You need to look under Voter Registration Application Frequently Asked Questions [S1] to find out how to register to vote online. [S1] also provides information on updating your voter registration information. [S2] does not pertain to voter registration and is about renewing a license.",
+        "cites_visible_gold": false,
+        "generate_ms": 562.99,
+        "first_display_ms": 121.12
+      },
+      "v3": {
+        "status": "unverified_claim",
+        "answer": "",
+        "cites_visible_gold": false,
+        "generate_ms": 297.93,
+        "first_display_ms": null
+      }
+    },
+    {
+      "id": "ed0119668abaa26f1b933533c330a0fe:4",
+      "domain": "dmv",
+      "sources": {
+        "S1": {
+          "id": "a75497cd22eb60d6394e",
+          "chars": 1046,
+          "sha256": "d8a5b16357ec41a0056f3a4320ab39679cf58af1f405085a96e1612349935e08"
+        },
+        "S2": {
+          "id": "e56d0642427b5863374c",
+          "chars": 1008,
+          "sha256": "0764b8ef0e726ddc63e75b709d75f6dec689dc0784401e32bb97d29488b849e4"
+        },
+        "S3": {
+          "id": "fdc3ea1db66370fe5197",
+          "chars": 595,
+          "sha256": "f90b8f0215fd8edceb5f2b3e7063a1f4af251d8bca96ce2ae8b436303a3bffaa"
+        }
+      },
+      "v3": {
+        "status": "answer",
+        "answer": "You can have your vehicle re - inspected or you can order a replacement sticker using the form Request for Replacement Inspection Sticker PDF [8] VS-118. Complete the form and mail it to the address on the form. Inspection stations electronically send a record of all emissions inspections to the DMV. The DMV must have a record that your vehicle passed an emissions inspection during the previous year. Cite: [S1]",
+        "cites_visible_gold": false,
+        "generate_ms": 798.56,
+        "first_display_ms": 798.55
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "If the inspection sticker has not expired, you can proceed with having your vehicle re-inspected or order a replacement sticker using the form Request for Replacement Inspection Sticker PDF [8] VS-118. Complete the form and mail it to the address on the form. [S1] [S2] [S3]",
+        "cites_visible_gold": true,
+        "generate_ms": 631.3,
+        "first_display_ms": 131.02
+      }
+    },
+    {
+      "id": "95a469061b9a4e73d543984f942fcbe3:11",
+      "domain": "studentaid",
+      "sources": {
+        "S1": {
+          "id": "a84d7bb587b1c6fdf473",
+          "chars": 1131,
+          "sha256": "dad86f96aaf88d2af9da3e9a9e4742aaf04e2768fde47a48a2c28b51400f2279"
+        },
+        "S2": {
+          "id": "09794e1ccb530a7be2c8",
+          "chars": 1206,
+          "sha256": "55049aa14266eef0e43f78af69186fbaca77978c213a2f78ea76e96d3455faff"
+        },
+        "S3": {
+          "id": "f2f5ff3ff0a286f5a049",
+          "chars": 553,
+          "sha256": "b218612dae6e2cd0677168a55b7c7171335f552962df5e035d4590f5d3a845ed"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "There is no income cut-off to qualify for federal student aid [S1, S2]. Eligibility for federal student aid is based on factors such as the size of your family and your year in school [S1]. [S2]",
+        "cites_visible_gold": true,
+        "generate_ms": 487.54,
+        "first_display_ms": 117.23
+      },
+      "v3": {
+        "status": "answer",
+        "answer": "You can apply online [S1]. There is no income cut - off to qualify for federal student aid. [S1]",
+        "cites_visible_gold": true,
+        "generate_ms": 348.68,
+        "first_display_ms": 348.68
+      }
+    },
+    {
+      "id": "32ae0a8871ed16a516fd7930d55e0305:3",
+      "domain": "studentaid",
+      "sources": {
+        "S1": {
+          "id": "6047829c36cd070939bf",
+          "chars": 1070,
+          "sha256": "ecdb3246e64be51e992065ae6d308deaffab21c75094161d301424796cba0cbd"
+        },
+        "S2": {
+          "id": "3986e8abc95ffc11fd62",
+          "chars": 1063,
+          "sha256": "04f91f651f5b453e1b988f39904d82a1b7388a9af749019bf6fb3048f9bf912c"
+        },
+        "S3": {
+          "id": "4143a6b03688867f11c1",
+          "chars": 734,
+          "sha256": "be158d6a316a9e74ad78de0809216b5e8cfef517b383eb8237b11f1bb2be672c"
+        }
+      },
+      "v3": {
+        "status": "answer",
+        "answer": "Yes, consider income - driven repayment. [S2]",
+        "cites_visible_gold": true,
+        "generate_ms": 251.86,
+        "first_display_ms": 251.86
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "Yes, you can also consider income-driven repayment plans where your monthly payments are based on your income and family size. These plans can provide loan forgiveness if your loan isn't paid in full after 20 or 25 years. [S2]",
+        "cites_visible_gold": true,
+        "generate_ms": 505.13,
+        "first_display_ms": 126.14
+      }
+    },
+    {
+      "id": "625d017cbc6ca5796f4374b3a6047639:9",
+      "domain": "studentaid",
+      "sources": {
+        "S1": {
+          "id": "a37495553b305eccfa64",
+          "chars": 1091,
+          "sha256": "313e489be3b0fe77f8697405d3aa64b05179ccf5fbd5b343e8c40962d84ec396"
+        },
+        "S2": {
+          "id": "2e34530843382664915b",
+          "chars": 1193,
+          "sha256": "0d6f9271c8777aff1e2d86c408306ce93eef2418f7bfe3271b634ea80e658b5e"
+        },
+        "S3": {
+          "id": "bcd256f6e5b5f7004b01",
+          "chars": 709,
+          "sha256": "dd0529b6349ec273fbb57c488135fdada515938fef1f3f0e5bda223ef53b5dfb"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "The Income-Sensitive Repayment Plan is available for Subsidized Federal Stafford Loans, Unsubsidized Federal Stafford Loans, FFEL PLUS Loans, and FFEL Consolidation Loans. [S1] Loans that are not eligible for this plan include William D. Ford Federal Direct Loans. [S1]",
+        "cites_visible_gold": true,
+        "generate_ms": 580.1,
+        "first_display_ms": 114.13
+      },
+      "v3": {
+        "status": "no_citation",
+        "answer": "",
+        "cites_visible_gold": false,
+        "generate_ms": 281.95,
+        "first_display_ms": null
+      }
+    },
+    {
+      "id": "d79996f178afe8b10e2900c0eaa7da3c:6",
+      "domain": "dmv",
+      "sources": {
+        "S1": {
+          "id": "c0af1bedc527f1acb117",
+          "chars": 1117,
+          "sha256": "06cc040aa8bcf6f52e4ee3cb74db277f779949ea4e790f0440f17146502f3b9b"
+        },
+        "S2": {
+          "id": "bdbeb0186aed8c768634",
+          "chars": 866,
+          "sha256": "4d27115b8af72143467ee1c0e78147f3b0ac52405062ce6fef7bac5b0c979497"
+        },
+        "S3": {
+          "id": "f8241465f514eaa96db8",
+          "chars": 762,
+          "sha256": "334749333ad928e623fb0b1bfd1d72421db5f23a3f4d55db381d51f4f741321b"
+        }
+      },
+      "v3": {
+        "status": "answer",
+        "answer": "The New York State Department of Motor Vehicles DMV, in cooperation with the New York State Office of Information Technology Services created MyDMV [S1].",
+        "cites_visible_gold": true,
+        "generate_ms": 368.29,
+        "first_display_ms": 368.29
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "The New York State Department of Motor Vehicles DMV, in cooperation with the New York State Office of Information Technology Services created MyDMV. [S1]",
+        "cites_visible_gold": true,
+        "generate_ms": 385.51,
+        "first_display_ms": 129.2
+      }
+    },
+    {
+      "id": "3e48da929535ac60f66ce0de05a19014:4",
+      "domain": "studentaid",
+      "sources": {
+        "S1": {
+          "id": "2f9ca2fb792daf9b00d9",
+          "chars": 938,
+          "sha256": "2b5355da48da50dd8a4f180186eb3c424bd62e09dc4b70b3c6cb4a76ebc8c6ee"
+        },
+        "S2": {
+          "id": "62593ba71b6f633fc389",
+          "chars": 1000,
+          "sha256": "8fed362beee08b17419cb80f5870b79a50af368b3987904243b815fe59d0df12"
+        },
+        "S3": {
+          "id": "a941297ad74b981b879e",
+          "chars": 799,
+          "sha256": "8e4a7fb9fda63000f89c50c38b5df91d3edcc4e26df0b2957295f27852f07ad6"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "If you have missed a few mortgage payments, you can try a repayment plan where you make regular payments with an added amount to cover the missed ones. For assistance, contact a VA Loan Technician at 1-877-827-3702. [S1]",
+        "cites_visible_gold": false,
+        "generate_ms": 569.95,
+        "first_display_ms": 119.29
+      },
+      "v3": {
+        "status": "refused",
+        "answer": "",
+        "cites_visible_gold": false,
+        "generate_ms": 242.87,
+        "first_display_ms": null
+      }
+    },
+    {
+      "id": "6c044ce4cac224ddefe8f791f77ee1b6:7",
+      "domain": "studentaid",
+      "sources": {
+        "S1": {
+          "id": "9cd37968fcaf11bc70c0",
+          "chars": 313,
+          "sha256": "a0f3ba11e9a88c6a923f65b2b4b2ad0a040377219a8d1efac40d51883d4a1d72"
+        },
+        "S2": {
+          "id": "1a659a6b01fd03fe6d06",
+          "chars": 1076,
+          "sha256": "e3bb400e2fc25e8b44c73c4600b9b5f1f093bb24b2834f525a0ed7e396b6ab8e"
+        },
+        "S3": {
+          "id": "f1ed5506010691be9628",
+          "chars": 1109,
+          "sha256": "33a501249ebfbb1dd32bc88a9136215d7560438962e347eb3098353420752fee"
+        }
+      },
+      "v3": {
+        "status": "answer",
+        "answer": "Loan Simulator is a tool to help you make decisions about your student loans. [S1]",
+        "cites_visible_gold": false,
+        "generate_ms": 257.5,
+        "first_display_ms": 257.5
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "Loan Simulator is a new tool designed by Federal Student Aid to help individuals make decisions about their student loans. It offers guidance on finding the best repayment strategy, exploring options like making extra payments or consolidating loans, and simulating borrowing more money. [S1]",
+        "cites_visible_gold": false,
+        "generate_ms": 516.37,
+        "first_display_ms": 119.37
+      }
+    },
+    {
+      "id": "522ce77e8af0a004e6b2aff897e81cb5:7",
+      "domain": "ssa",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      },
+      "v3": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      }
+    },
+    {
+      "id": "f2df8f8f136fc6d4dcc718b3a9751c13:5",
+      "domain": "ssa",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      },
+      "v3": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      }
+    },
+    {
+      "id": "be3d0426d273b85f076149d3d89530a2:10",
+      "domain": "va",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      },
+      "v3": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      }
+    },
+    {
+      "id": "7ec3863e050641c4832e467ffe8f7b11:4",
+      "domain": "va",
+      "sources": {
+        "S1": {
+          "id": "7d23d5a032184e848df9",
+          "chars": 1057,
+          "sha256": "892adaca5b5e43f6c73282c4fb22b6ee0c8de901e70f587361ab773ff1e0d4e4"
+        },
+        "S2": {
+          "id": "02f4eaddd0c455859ccb",
+          "chars": 1037,
+          "sha256": "392262b57a599c0e1f2e20b804ac4e2f4edb9fe7e4f2753feba9da23e5a7dc77"
+        },
+        "S3": {
+          "id": "138ba12727ec1c0afaa2",
+          "chars": 757,
+          "sha256": "e69bdc87c071bd296590854e16c71ab5d49f23d70adaa6e8d5a6b4b482f061b5"
+        }
+      },
+      "v3": {
+        "status": "refused",
+        "answer": "",
+        "cites_visible_gold": false,
+        "generate_ms": 231.82,
+        "first_display_ms": null
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "Copays are required for some types of care, tests, and medications related to service-connected conditions or disabilities. You can pay your VA copay bill online, by phone, or in person. For more details on VA health care copay rates, visit the VA Health Care page. [S1, S2]",
+        "cites_visible_gold": true,
+        "generate_ms": 631.76,
+        "first_display_ms": 126.04
+      }
+    },
+    {
+      "id": "a2f093a87ad8371d3aea4e463bd3ebee:4",
+      "domain": "va",
+      "sources": {
+        "S1": {
+          "id": "697baf41ad56f82347d5",
+          "chars": 1201,
+          "sha256": "2ea15416fcc1b70736bf9124b4b4c548b637ea8e51c8007dd8fe36e698659188"
+        },
+        "S2": {
+          "id": "76e461ed5d186659444b",
+          "chars": 1201,
+          "sha256": "8d536d671a8558a0f9172ce357c07a96066b60a7390669b3a5659c94af2447a0"
+        },
+        "S3": {
+          "id": "14e12c6865da50e39b58",
+          "chars": 757,
+          "sha256": "d4dbe2d1d867b006f10da12cda00e2d1acd2bcecf88c50725446b114c91b4926"
+        }
+      },
+      "v2": {
+        "status": "refused",
+        "answer": "",
+        "cites_visible_gold": false,
+        "generate_ms": 237.89,
+        "first_display_ms": 121.03
+      },
+      "v3": {
+        "status": "answer",
+        "answer": "You're in the right place. VA education benefits help Veterans, service members, and their qualified family members with needs like paying college tuition, finding the right school or training program, and getting career counseling. [S1]",
+        "cites_visible_gold": false,
+        "generate_ms": 488.73,
+        "first_display_ms": 488.73
+      }
+    },
+    {
+      "id": "f0f148f4c71c9c149b0a187a1fb557d4:1",
+      "domain": "ssa",
+      "sources": {
+        "S1": {
+          "id": "2559ada6ce3c50accae0",
+          "chars": 1075,
+          "sha256": "7b3e7cbec2ea6a1f3a7b4fd48deef69637f28ba328826e483c90048d37ae01cd"
+        },
+        "S2": {
+          "id": "97c7a37d246b6d1dd073",
+          "chars": 1061,
+          "sha256": "815b05f963ffd302ae7376a592721c120e676835814ca0292f1b4b6184dba405"
+        },
+        "S3": {
+          "id": "cb8cf9a76f4fb6192214",
+          "chars": 749,
+          "sha256": "1795190dae36209f5f26404b77bfe61058c3e86247b8b087a5ed574609ac1152"
+        }
+      },
+      "v3": {
+        "status": "answer",
+        "answer": "You can apply online [S1].",
+        "cites_visible_gold": true,
+        "generate_ms": 200.87,
+        "first_display_ms": 200.87
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "You can apply for Medicare Part B by completing form CMS 40-B and submitting it to your local Social Security office. [S3] If you already have Medicare Part A, you can sign up for Part B at the time of your application. [S3] Part B helps cover doctor's services and other medical expenses, and you can delay enrollment but may face higher premiums later. [S3]",
+        "cites_visible_gold": false,
+        "generate_ms": 743.23,
+        "first_display_ms": 127.79
+      }
+    },
+    {
+      "id": "0b3c04b0b6dea4ee5de90f0ca2fa8f8b:18",
+      "domain": "va",
+      "sources": {
+        "S1": {
+          "id": "0d760a208c5687ef34c1",
+          "chars": 1113,
+          "sha256": "0510c889d0f81a21e38ead624b8b319a2fe5d8d54e4f7bc8efaea3ea60858baf"
+        },
+        "S2": {
+          "id": "293d1d73cff28c30be68",
+          "chars": 1039,
+          "sha256": "9543b16bfbf3d3eeca5ed566ea8e0d984c4896eb842d68eb10d80ed08882778c"
+        },
+        "S3": {
+          "id": "7e9148551952e7bb9be8",
+          "chars": 582,
+          "sha256": "a2fb68c88771d5facc7a624d51fa8b6591d0284f21687415fc5116d8ceb041e0"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "Yes, a Social Security number or VA file number is indeed needed for the request process [S1]. For applying for the GI Bill, a Social Security number or VA file number is required [S2]. For Survivors’ and Dependents’ Educational Assistance, a Social Security number or VA file number is needed to contact the certifying official [S3].",
+        "cites_visible_gold": true,
+        "generate_ms": 667.52,
+        "first_display_ms": 125.58
+      },
+      "v3": {
+        "status": "refused",
+        "answer": "",
+        "cites_visible_gold": false,
+        "generate_ms": 247.69,
+        "first_display_ms": null
+      }
+    },
+    {
+      "id": "b26f445a7e768cd5ed0ccac0718775a0:8",
+      "domain": "ssa",
+      "sources": {
+        "S1": {
+          "id": "01544fb0918bd7d33ca3",
+          "chars": 1036,
+          "sha256": "c0a8962737defae97a9dcab8a99df48f2007fe67b6bc1bf905402315db964d0b"
+        },
+        "S2": {
+          "id": "a8bc57c21c063f34b517",
+          "chars": 1022,
+          "sha256": "c8765107bf3b9355dc49d7cb3a7e49ba2a3517691a26fc4ddbba19a47607e410"
+        },
+        "S3": {
+          "id": "0882518d3204e9b2e0ea",
+          "chars": 672,
+          "sha256": "77e800a559991a3973ecac18285313d92f9d7bf5aab798cfeae66f273cd4f711"
+        }
+      },
+      "v3": {
+        "status": "refused",
+        "answer": "",
+        "cites_visible_gold": false,
+        "generate_ms": 220.02,
+        "first_display_ms": null
+      },
+      "v2": {
+        "status": "refused",
+        "answer": "",
+        "cites_visible_gold": false,
+        "generate_ms": 232.11,
+        "first_display_ms": 126.2
+      }
+    },
+    {
+      "id": "84a7d6c88e95c7c187f3b1db5a748713:1",
+      "domain": "ssa",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      },
+      "v3": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      }
+    },
+    {
+      "id": "98ec6904a42dfcf483e63cb46e8c0241:1",
+      "domain": "va",
+      "sources": {
+        "S1": {
+          "id": "ef4d49ef67bfa5e81a20",
+          "chars": 1093,
+          "sha256": "6f42b078dfb9fb1e2b808e2638ed2aa5c66cc78ce1967214512318ad3718ae9b"
+        },
+        "S2": {
+          "id": "cfbb5f71305491a485a7",
+          "chars": 1003,
+          "sha256": "634dac259f73c32015712cbe57ae9e17beb654666ab702b4af9073d3751a55ca"
+        },
+        "S3": {
+          "id": "0dd76e7d5a786c513183",
+          "chars": 498,
+          "sha256": "dcbbcf778f2fa1b4e69f9a8ba90615d815f7b22820e7f6ffefd0d5b68024b4d4"
+        }
+      },
+      "v3": {
+        "status": "answer",
+        "answer": "Nothing. We provide dependent coverage at no cost until the child is 18 years old, or sometimes longer if the child meets one of the requirements listed below. [S1]",
+        "cites_visible_gold": true,
+        "generate_ms": 434.58,
+        "first_display_ms": 434.58
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "Nothing. We provide dependent coverage at no cost until the child is 18 years old. [S1]",
+        "cites_visible_gold": true,
+        "generate_ms": 320.51,
+        "first_display_ms": 136.6
+      }
+    },
+    {
+      "id": "cb2580e29e89992409cc436654f9023c:6",
+      "domain": "dmv",
+      "sources": {
+        "S1": {
+          "id": "60a3fa084900a2c909fc",
+          "chars": 1078,
+          "sha256": "cc860b015b37211e2b97e455febc03dd9787fd3b62d48c3429d62559ee3dac51"
+        },
+        "S2": {
+          "id": "73ebbc6a6196866d8043",
+          "chars": 1052,
+          "sha256": "5b0d3c6156f842087e192f925539f60648909ee295aba5fe210c6f5d4d1dac75"
+        },
+        "S3": {
+          "id": "570a8126b79bea33682a",
+          "chars": 756,
+          "sha256": "6a6adbc406f7a52f3d2925e147cba6ef7680dbee962b93f2cea3aa808353e98d"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "You will need to bring an International Driving Permit or a certified translation of your driver license to the road test. Ensure the translation is certified by a consulate, the US Department of State, or another official agency. [S2]",
+        "cites_visible_gold": false,
+        "generate_ms": 474.89,
+        "first_display_ms": 125.9
+      },
+      "v3": {
+        "status": "answer",
+        "answer": "You must present an International Driving Permit or a certified translation of your driver's license to the test drive. The translation must be certified by a consulate, the United States Department of State or another official agency [S2].",
+        "cites_visible_gold": false,
+        "generate_ms": 502.1,
+        "first_display_ms": 502.1
+      }
+    },
+    {
+      "id": "2ca640276d852b3d7d7c5f91a9a6485a:1",
+      "domain": "ssa",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      },
+      "v3": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      }
+    },
+    {
+      "id": "7c1c32cd961d2f7324b0db508f5209ee:15",
+      "domain": "studentaid",
+      "sources": {
+        "S1": {
+          "id": "41e18bbc22a5774ce01e",
+          "chars": 1031,
+          "sha256": "df2d43d541feb7a6830bea7740169856df329d5b2199fa7d1f5453fcda7b4278"
+        },
+        "S2": {
+          "id": "4de3e5ebfdc480d3d08a",
+          "chars": 566,
+          "sha256": "3ebae56664108f23232ccecab309fb180ade807c11520a6a7c5bca345005bc60"
+        },
+        "S3": {
+          "id": "87762802e84a6575f7e2",
+          "chars": 982,
+          "sha256": "24a2b5bd8578fbf458b1f502baf9db8f3891a2edd13f317440190578d9f9adf4"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "You will need to answer financial and other questions that are used to estimate your federal student aid eligibility. Be sure to answer all the questions on FAFSA4caster, even if you have to estimate or guess. You can enter the school's cost of attendance and fill in the amounts of state and college grants, scholarships, and your Federal Work-Study amount. [S1, S3]",
+        "cites_visible_gold": true,
+        "generate_ms": 745.43,
+        "first_display_ms": 147.52
+      },
+      "v3": {
+        "status": "answer",
+        "answer": "You may be able to answer most of the questions easily , but some of the questions may ask you to reference your personal records for instance, your federal tax information or your bank statements. [S1]",
+        "cites_visible_gold": true,
+        "generate_ms": 453.42,
+        "first_display_ms": 453.42
+      }
+    },
+    {
+      "id": "73872f3bb4a56c437686018bbc4e8736:8",
+      "domain": "va",
+      "sources": {
+        "S1": {
+          "id": "a8ebb50c50be771018a4",
+          "chars": 1063,
+          "sha256": "b41411f21c57e8bafddb9f10232bfb56f06cf5f8bd3fbc83b741b39e1c7d19ba"
+        },
+        "S2": {
+          "id": "1d8a69a536e6ece654ea",
+          "chars": 1123,
+          "sha256": "3a3188350eb0141e2ef7e0dce913bce859855585ab0794c3070bc5295bc9259a"
+        },
+        "S3": {
+          "id": "c83c2646835adae2b96e",
+          "chars": 442,
+          "sha256": "ea9987ceb36925f08c1ff243cff29326912d032956d9bef875130618b9280612"
+        }
+      },
+      "v3": {
+        "status": "answer",
+        "answer": "You should have served 24 continuous months or the full period for which you were called to active duty, unless any of the descriptions below are true for you [S1].",
+        "cites_visible_gold": true,
+        "generate_ms": 418.55,
+        "first_display_ms": 418.55
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "If you signed up after September 7, 1980, or entered active duty after October 16, 1981, you must have served 24 continuous months or the full period for which you were called to active duty, unless any of the descriptions below are true for you. [S1]",
+        "cites_visible_gold": true,
+        "generate_ms": 669.22,
+        "first_display_ms": 143.47
+      }
+    },
+    {
+      "id": "47ba9d17a37608191e7a10859ed329e7:9",
+      "domain": "ssa",
+      "sources": {
+        "S1": {
+          "id": "ad75dcfbd87712421d49",
+          "chars": 393,
+          "sha256": "80bdc032467398ad572e64090d3ca950c1508554217c642aa1d15c0aee446e61"
+        },
+        "S2": {
+          "id": "611550b07bf0b16d8da9",
+          "chars": 414,
+          "sha256": "e5562bd66de4efc9ef1f9ec5981b358a9b7c90e5081f4b734a70b8c1ee487a8b"
+        },
+        "S3": {
+          "id": "db4a4221e7abbb60585f",
+          "chars": 1166,
+          "sha256": "8edc6f0bf79545100acbf4100f204ffb725a5edf58406c5c5d76969934edf3aa"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "No, the full retirement age will not increase. It is fixed at 67 for people born in 1960 or later. [S1]",
+        "cites_visible_gold": false,
+        "generate_ms": 354.88,
+        "first_display_ms": 100.16
+      },
+      "v3": {
+        "status": "refused",
+        "answer": "",
+        "cites_visible_gold": false,
+        "generate_ms": 223.41,
+        "first_display_ms": null
+      }
+    },
+    {
+      "id": "dbac675233f968f92858c19fb6221753:11",
+      "domain": "va",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      },
+      "v3": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      }
+    },
+    {
+      "id": "a098bf471417f21f8a3545498fdf0bb2:10",
+      "domain": "dmv",
+      "sources": {
+        "S1": {
+          "id": "6d5433aa670aa042869e",
+          "chars": 1028,
+          "sha256": "df68f64616ce1a24a252a5ed6791ad273e6c431957d7ce580a9024c534f35496"
+        },
+        "S2": {
+          "id": "3b7982d67b385cd4c0d4",
+          "chars": 1050,
+          "sha256": "4049e113440f47e6d2976ea140b41b729fd342ff1266b02db6d32df3683afb29"
+        },
+        "S3": {
+          "id": "b32fc2c749cd77706afe",
+          "chars": 779,
+          "sha256": "3d26a0205c90d323ececf70bbad876cd3453eced15e9278ef05a37573673af0a"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "If your license is suspended due to a lapse in insurance, it means the DMV has taken action to prevent you from driving until your insurance is reinstated or until the suspension period ends. [S3] To reinstate your license, you must pay the $50 license suspension termination fee to the DMV. [S3]",
+        "cites_visible_gold": false,
+        "generate_ms": 645.43,
+        "first_display_ms": 130.08
+      },
+      "v3": {
+        "status": "refused",
+        "answer": "",
+        "cites_visible_gold": false,
+        "generate_ms": 269.46,
+        "first_display_ms": null
+      }
+    },
+    {
+      "id": "03bf1779ae1cc934cd39b1480eeec6d0:16",
+      "domain": "studentaid",
+      "sources": {
+        "S1": {
+          "id": "a84d7bb587b1c6fdf473",
+          "chars": 1131,
+          "sha256": "dad86f96aaf88d2af9da3e9a9e4742aaf04e2768fde47a48a2c28b51400f2279"
+        },
+        "S2": {
+          "id": "09794e1ccb530a7be2c8",
+          "chars": 1206,
+          "sha256": "55049aa14266eef0e43f78af69186fbaca77978c213a2f78ea76e96d3455faff"
+        },
+        "S3": {
+          "id": "4de3e5ebfdc480d3d08a",
+          "chars": 566,
+          "sha256": "3ebae56664108f23232ccecab309fb180ade807c11520a6a7c5bca345005bc60"
+        }
+      },
+      "v3": {
+        "status": "answer",
+        "answer": "Most U.S. citizens or eligible noncitizens are eligible for financial aid for college or career school. It s important to understand the criteria of the programs, how to stay eligible, and how to get your eligibility back if you lose it. Eligibility Requirements [S2]",
+        "cites_visible_gold": true,
+        "generate_ms": 533.4,
+        "first_display_ms": 533.4
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "Most U.S. citizens or eligible noncitizens are eligible for financial aid for college or career school. [S2] Non-U.S. citizens who have a green card and meet other basic eligibility criteria can also receive federal student aid. [S2] Students with intellectual disabilities, those who have been in foster care, and those with criminal convictions may also qualify after meeting additional eligibility requirements. [S2]",
+        "cites_visible_gold": true,
+        "generate_ms": 751.75,
+        "first_display_ms": 75.18
+      }
+    },
+    {
+      "id": "66a393feeeb5b1a2b55414b8052e70f9:3",
+      "domain": "va",
+      "sources": {
+        "S1": {
+          "id": "6bc98c22124ad0e63b03",
+          "chars": 1156,
+          "sha256": "7206283695bb0e86e9b7ed044c2278ba33172382218c82fe79345966a6d1df7c"
+        },
+        "S2": {
+          "id": "79e1caaef468be48d98d",
+          "chars": 1156,
+          "sha256": "8d68d7b677216e0fa044e76b6a1a518a669e4e3501eb06279c60a116e40ace73"
+        },
+        "S3": {
+          "id": "3021582bc42b3203c069",
+          "chars": 792,
+          "sha256": "dff1f5cec6c3799907731982f5ce2d80da1c7155b5da012682d971042f597d59"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "You can find information about your VA health care benefits and services on the VA website. For more details, you can download fact sheets on specific health care needs for transgender individuals, male Veterans, and female Veterans. If you need help accessing services, you can call the VA's toll-free hotline for assistance. [S1]",
+        "cites_visible_gold": false,
+        "generate_ms": 643.99,
+        "first_display_ms": 148.71
+      },
+      "v3": {
+        "status": "answer",
+        "answer": "You can apply online [S1].",
+        "cites_visible_gold": false,
+        "generate_ms": 227.21,
+        "first_display_ms": 227.21
+      }
+    },
+    {
+      "id": "c13344869c810beb8c5716ed99837696:13",
+      "domain": "studentaid",
+      "sources": {
+        "S1": {
+          "id": "c1aebea7ecab4aceca40",
+          "chars": 1037,
+          "sha256": "ab1279fdf7bd997066d9fb91e9ad2334cbaee7867b4a5275d64cf8fe6be24aae"
+        },
+        "S2": {
+          "id": "ea0d027a68f448be171f",
+          "chars": 1092,
+          "sha256": "9988d279e73c4dd815cbdeeaf346dd9214b2716e6d87bd892cebc6976c65763c"
+        },
+        "S3": {
+          "id": "78153cf1fd5789723ae0",
+          "chars": 703,
+          "sha256": "7b39ff0805315c1d0bf2def60895e25170d410015cf01558bc47adcba41176a8"
+        }
+      },
+      "v3": {
+        "status": "answer",
+        "answer": "Your COA is the estimate of tuition and fees; the cost of room and board or living expenses for students who do not contract with the school for room and board; the cost of books, supplies, transportation, loan fees, and miscellaneous expenses including a reasonable amount for the documented cost of a personal computer; an allowance for child care or other dependent care; costs related to a disability; and/or reasonable costs for eligible study - abroad programs. [S3]",
+        "cites_visible_gold": true,
+        "generate_ms": 865.81,
+        "first_display_ms": 865.81
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "Your Cost of Attendance (COA) includes tuition and fees, room and board, books, supplies, transportation, loan fees, and miscellaneous expenses. [S3] If you're attending at least half-time, your COA is the estimate of these costs. [S3]",
+        "cites_visible_gold": true,
+        "generate_ms": 583.76,
+        "first_display_ms": 133.62
+      }
+    },
+    {
+      "id": "d71e9e4588dd20f6c41cfa1eb4f79126:11",
+      "domain": "va",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      },
+      "v3": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      }
+    },
+    {
+      "id": "b95c47e5846aa0e1bd7bca9be8acc93d:1",
+      "domain": "studentaid",
+      "sources": {
+        "S1": {
+          "id": "3986e8abc95ffc11fd62",
+          "chars": 1063,
+          "sha256": "04f91f651f5b453e1b988f39904d82a1b7388a9af749019bf6fb3048f9bf912c"
+        },
+        "S2": {
+          "id": "4143a6b03688867f11c1",
+          "chars": 1072,
+          "sha256": "3c1ad5a398e3561f5e76037a16feb2fbb447a46dfe13f107e462128d1a89dc1d"
+        },
+        "S3": {
+          "id": "a31be896399e08ac2130",
+          "chars": 727,
+          "sha256": "90ef74ef642a8d2f3a170625416f0ce054ff6aea4c386e042b5773d444c16476"
+        }
+      },
+      "v3": {
+        "status": "answer",
+        "answer": "I can apply for deferment [S1].",
+        "cites_visible_gold": true,
+        "generate_ms": 244.02,
+        "first_display_ms": 244.02
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "Student loan deferment allows you to temporarily stop making payments, which can help if you need to manage short-term financial difficulties. However, deferment does not provide forgiveness or progress toward loan repayment. For ongoing financial issues, consider income-driven repayment plans which may offer lower payments or even zero payments. [S1, S2]",
+        "cites_visible_gold": true,
+        "generate_ms": 784.17,
+        "first_display_ms": 201.71
+      }
+    },
+    {
+      "id": "94d36f0fa7d0d2d75c40deb99abdd6a3:3",
+      "domain": "studentaid",
+      "sources": {
+        "S1": {
+          "id": "b9405462b10655dd0a8c",
+          "chars": 1261,
+          "sha256": "ac1c0dd92a30dfd572787d6288a5ec8f47a0157b0da3c7f04db390bbd9d8ff10"
+        },
+        "S2": {
+          "id": "d43a7cbe56ae92335823",
+          "chars": 1212,
+          "sha256": "6f541eb44b070895123862dd952e4ffaefd5ef625158fc47f63b544f78b81667"
+        },
+        "S3": {
+          "id": "6f7d3ccbfededba02f90",
+          "chars": 738,
+          "sha256": "c17aa17d7ba8c5be5ad65489b5c6031187d04aec2a28d38dec706b1884f9e00d"
+        }
+      },
+      "v2": {
+        "status": "refused",
+        "answer": "",
+        "cites_visible_gold": false,
+        "generate_ms": 271.06,
+        "first_display_ms": 153.2
+      },
+      "v3": {
+        "status": "refused",
+        "answer": "",
+        "cites_visible_gold": false,
+        "generate_ms": 306.98,
+        "first_display_ms": null
+      }
+    },
+    {
+      "id": "114cba71cb84f71ada24384d79d8bece:6",
+      "domain": "studentaid",
+      "sources": {
+        "S1": {
+          "id": "a941297ad74b981b879e",
+          "chars": 1079,
+          "sha256": "3ce52d3306bbfd751af62859b5381eb6f15a5c12a7557962384ce4369a75220b"
+        },
+        "S2": {
+          "id": "1b66f271a531508e94ac",
+          "chars": 832,
+          "sha256": "5a310256f5233c4fec9964b65c9d8733e6cd7c51138a5c58213e2999147ae6c3"
+        },
+        "S3": {
+          "id": "3c7b11b77ce46fa2d874",
+          "chars": 1095,
+          "sha256": "704aab861c5879f4d587cd49fca64cfdc01fc83adf531d7ba5a496bf807e07c3"
+        }
+      },
+      "v3": {
+        "status": "refused",
+        "answer": "",
+        "cites_visible_gold": false,
+        "generate_ms": 263.41,
+        "first_display_ms": null
+      },
+      "v2": {
+        "status": "refused",
+        "answer": "",
+        "cites_visible_gold": false,
+        "generate_ms": 267.62,
+        "first_display_ms": 152.7
+      }
+    },
+    {
+      "id": "789a3cb94cf8871ba6ace0a4923851e2:8",
+      "domain": "dmv",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      },
+      "v3": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      }
+    },
+    {
+      "id": "2f7b40b2702eac5e4e2a158999baf8f8:13",
+      "domain": "dmv",
+      "sources": {
+        "S1": {
+          "id": "fd206e5343697989073f",
+          "chars": 1027,
+          "sha256": "ba570d14a86e5a4ed5ededf6d0ec4afd361a72359f8d44ff19775609120d17a1"
+        },
+        "S2": {
+          "id": "fcef3fd84965879db0fd",
+          "chars": 1091,
+          "sha256": "548bee07de519ad28ae6f253b04aa85853a1e314cc28110a3d1ea50ed17637d2"
+        },
+        "S3": {
+          "id": "8c32990f46f906d3d966",
+          "chars": 836,
+          "sha256": "be0246dae740e810ac2eace2490a1bc0909c2a9375ed501d6db1075dc20f3ad7"
+        }
+      },
+      "v3": {
+        "status": "no_citation",
+        "answer": "",
+        "cites_visible_gold": false,
+        "generate_ms": 304.69,
+        "first_display_ms": null
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "You can find information about the NYS Lemon Law complaint at Lemon Law Complaints [S2].",
+        "cites_visible_gold": true,
+        "generate_ms": 343.99,
+        "first_display_ms": 165.95
+      }
+    },
+    {
+      "id": "26895fce9e74d3a778551532394190da:3",
+      "domain": "va",
+      "sources": {
+        "S1": {
+          "id": "d187c08c235e38fd624e",
+          "chars": 1062,
+          "sha256": "499dce70390b2e3fedbec6cfee84a9efdd2c6f1cacb1a9d6b387b213e2bcd84c"
+        },
+        "S2": {
+          "id": "9b85678752059c170c55",
+          "chars": 1067,
+          "sha256": "506ddcb8a3f8f084c8984eb199932da7f3b5dcae657ed1200189def122787077"
+        },
+        "S3": {
+          "id": "4ca664bd8cc75b2fee2c",
+          "chars": 811,
+          "sha256": "25df465b7ebd6f75f25cd275f260e3fe1e81e093637f267b160059b7a73f036e"
+        }
+      },
+      "v2": {
+        "status": "refused",
+        "answer": "",
+        "cites_visible_gold": false,
+        "generate_ms": 251.06,
+        "first_display_ms": 140.09
+      },
+      "v3": {
+        "status": "refused",
+        "answer": "",
+        "cites_visible_gold": false,
+        "generate_ms": 238.35,
+        "first_display_ms": null
+      }
+    },
+    {
+      "id": "3e8d4f726c013ba365e0faef13bf3851:7",
+      "domain": "va",
+      "sources": {
+        "S1": {
+          "id": "876583c66b00f117d91c",
+          "chars": 1028,
+          "sha256": "6e2bbfe7efcb862d9c6b22f8acf5ddc6f924aec972ce3265bd98042f9f5759b2"
+        },
+        "S2": {
+          "id": "b0e7118e20c5a4385127",
+          "chars": 1059,
+          "sha256": "cd64a4f92d35fec1114340d9161e2e77b915a75eede9ba4c0d79c13d2ad6096a"
+        },
+        "S3": {
+          "id": "8754d871b4d099b95ad9",
+          "chars": 565,
+          "sha256": "8e2c8cd77057e02fc2930d7fe17599f061d656b7b938334764d3a5a72d6b5149"
+        }
+      },
+      "v3": {
+        "status": "answer",
+        "answer": "You may be able to get some or all of your dental care through VA [S1].",
+        "cites_visible_gold": true,
+        "generate_ms": 377.56,
+        "first_display_ms": 377.55
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "You can renew online or at an office [S1]. The fee is $25 [S2]. If you don't qualify for VA dental care benefits, you may be able to get some or all of your dental care through VA [S3]. Find out how to get VA dental care or how to buy dental insurance if you don't qualify [S1].",
+        "cites_visible_gold": true,
+        "generate_ms": 848.17,
+        "first_display_ms": 191.11
+      }
+    },
+    {
+      "id": "dc1981706953ab11f62fbd703b7c1147:4",
+      "domain": "dmv",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      },
+      "v3": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      }
+    },
+    {
+      "id": "4eeafa5995d42039a2edfff280222632:3",
+      "domain": "ssa",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      },
+      "v3": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      }
+    },
+    {
+      "id": "81cc489d8f2ec38379a7a4c65e4396db:3",
+      "domain": "dmv",
+      "sources": {
+        "S1": {
+          "id": "0e4e782a29421b66b2cd",
+          "chars": 1099,
+          "sha256": "b51d953dae7cfc4be31920b40ae02a46336a506bb0295785585fbdbb6336b21e"
+        },
+        "S2": {
+          "id": "63da5a9aec1a6b7865df",
+          "chars": 1086,
+          "sha256": "fb1749b8355c0bae8e75089fe1f618819a1299a8918e9482a22e18c8ff2c3c09"
+        },
+        "S3": {
+          "id": "b1a1347f10f6c67fc340",
+          "chars": 640,
+          "sha256": "c607cabe57332ec6117d4c056e229194273176d4402d500ee8a55522946e22ba"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "If your title was not yet issued due to a stolen vehicle, you must apply for a title in your name first to transfer ownership to your insurance company. After transferring, if your vehicle is recovered, you need to ensure the police cancel the stolen vehicle alarm and then send the title to the Title Bureau. [S1, S2]",
+        "cites_visible_gold": true,
+        "generate_ms": 672.35,
+        "first_display_ms": 128.12
+      },
+      "v3": {
+        "status": "refused",
+        "answer": "",
+        "cites_visible_gold": false,
+        "generate_ms": 258.58,
+        "first_display_ms": null
+      }
+    },
+    {
+      "id": "5e625facdb13ef5a8b3c06b4178af291:5",
+      "domain": "va",
+      "sources": {
+        "S1": {
+          "id": "1c5b21685ea136d984da",
+          "chars": 1250,
+          "sha256": "65845cb06a78d95dc1651395ec06cfa32802911edb49247f99663a95b891168b"
+        },
+        "S2": {
+          "id": "99350af82d66b0101d32",
+          "chars": 1031,
+          "sha256": "d2af5bb0525a352e0ba1c07cbcc0ba1b9ef0e2b9af989bf0ad8cbaad88db85df"
+        },
+        "S3": {
+          "id": "0174dd24c8b891881ea3",
+          "chars": 623,
+          "sha256": "b90a441f2b595c21738061d4d618520b9671375e4eaad0972ad46b45e9ed5bb2"
+        }
+      },
+      "v3": {
+        "status": "refused",
+        "answer": "",
+        "cites_visible_gold": false,
+        "generate_ms": 236.36,
+        "first_display_ms": null
+      },
+      "v2": {
+        "status": "refused",
+        "answer": "",
+        "cites_visible_gold": false,
+        "generate_ms": 261.46,
+        "first_display_ms": 143.29
+      }
+    },
+    {
+      "id": "5ddc54e4bae20fd92545e38f74a9af98:13",
+      "domain": "dmv",
+      "sources": {
+        "S1": {
+          "id": "e56d0642427b5863374c",
+          "chars": 1008,
+          "sha256": "0764b8ef0e726ddc63e75b709d75f6dec689dc0784401e32bb97d29488b849e4"
+        },
+        "S2": {
+          "id": "53faba78db8f7de1cfbb",
+          "chars": 1050,
+          "sha256": "99f8e7df1828a7472b924d2531d096dfa790e0e87b3c05333d875b1ce7fabd74"
+        },
+        "S3": {
+          "id": "fcf020a36c9100f886fe",
+          "chars": 738,
+          "sha256": "057f580a1c3a7be5751021476461c2a163ca27c15f23a13abe323ab4a6da3de7"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "No, the extension sticker will not be recorded as an inspection on New York State DMV records. [S1, S2]",
+        "cites_visible_gold": true,
+        "generate_ms": 393.75,
+        "first_display_ms": 160.64
+      },
+      "v3": {
+        "status": "refused",
+        "answer": "",
+        "cites_visible_gold": false,
+        "generate_ms": 273.5,
+        "first_display_ms": null
+      }
+    },
+    {
+      "id": "fe52e49c458d9ae8657e8f70a510ab0e:15",
+      "domain": "dmv",
+      "sources": {
+        "S1": {
+          "id": "0a031d25381218aca60c",
+          "chars": 1000,
+          "sha256": "e5f045134a5be1adb0b7ca9dd9c5b26cd5c9573350eb6f3aa8deeb35bdaa7e8e"
+        },
+        "S2": {
+          "id": "86ea1be28f283a85135b",
+          "chars": 1069,
+          "sha256": "0cf82cb6e03293a96fee6d7161534398de00ecced00f682289ce2e4d2e56048e"
+        },
+        "S3": {
+          "id": "9d124e8524c7cfdc935d",
+          "chars": 579,
+          "sha256": "b78ff5bff41af6063be9d0b8891855c776d2469dd1cadc6682326a6fe201828c"
+        }
+      },
+      "v3": {
+        "status": "refused",
+        "answer": "",
+        "cites_visible_gold": false,
+        "generate_ms": 300.09,
+        "first_display_ms": null
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "To get new plates if a plate is lost, you need to surrender the original plate or the MV-78B/ police report/statement to a DMV office. You will need to pay a fee of $3.75 for a new registration and $25 for a set of two plates. If the plate was lost due to a crime, you must provide a police report or an MV-78B. [S1, S3]",
+        "cites_visible_gold": true,
+        "generate_ms": 869.16,
+        "first_display_ms": 140.78
+      }
+    },
+    {
+      "id": "6dd63542d1b12b70a9e90f796755ef64:11",
+      "domain": "studentaid",
+      "sources": {
+        "S1": {
+          "id": "1400abd4662a300830f5",
+          "chars": 1140,
+          "sha256": "a255d7413651aa6b8778acca391156d6c1c93e40649ee563e1b1b200f331f82e"
+        },
+        "S2": {
+          "id": "1b2e410dbed03d8ca6c7",
+          "chars": 988,
+          "sha256": "9253b5a952a053cbd96f433e43b481851126057dc94101a90d1ed2dca72c7990"
+        },
+        "S3": {
+          "id": "2de70f6d0e8cdcb76f85",
+          "chars": 653,
+          "sha256": "f9067cf194216ed5dd26fbb4892c4e9a7f162d1fc9354c2d10aff98575de61d0"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "Yes, you can search for information in other instances using our comprehensive FAQs section. Visit our online services page for a complete list of available services. [S1]",
+        "cites_visible_gold": false,
+        "generate_ms": 419.88,
+        "first_display_ms": 141.86
+      },
+      "v3": {
+        "status": "refused",
+        "answer": "",
+        "cites_visible_gold": false,
+        "generate_ms": 259.31,
+        "first_display_ms": null
+      }
+    },
+    {
+      "id": "db7e6693ca8fef769bfe21b5b8392d41:9",
+      "domain": "ssa",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      },
+      "v3": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      }
+    },
+    {
+      "id": "d7d36b3f4ce3dab9d9e4b5edf19eb35f:3",
+      "domain": "va",
+      "sources": {
+        "S1": {
+          "id": "84c3c6336e7c47f3d5d6",
+          "chars": 1115,
+          "sha256": "19a2c0b531ade5ab6c29700c0a89f9d373ac3b72152bc9cd17d025bd934547c4"
+        },
+        "S2": {
+          "id": "6afd7684e31574b8107d",
+          "chars": 981,
+          "sha256": "7f8040785b507083f057934ff2e795ae94f6ae2f623ff56bd31bdc461c950f52"
+        },
+        "S3": {
+          "id": "14e12c6865da50e39b58",
+          "chars": 829,
+          "sha256": "efc3b051982e10143fcaf0881b795d6e7354389d1fb123747d6c27b7d99a386a"
+        }
+      },
+      "v2": {
+        "status": "answer",
+        "answer": "You may be eligible for Educational and Career Counseling if you meet both requirements: being the dependent of a Veteran and eligible for a VA education benefit, such as the Post-9/11 GI Bill, Montgomery GI Bill Active Duty, or Montgomery GI Bill Selected Reserve. [S1]",
+        "cites_visible_gold": true,
+        "generate_ms": 715.57,
+        "first_display_ms": 171.33
+      },
+      "v3": {
+        "status": "answer",
+        "answer": "You may be eligible for Educational and Career Counseling if you meet both of the requirements listed below. Both of these must be true. You're: The dependent of a Veteran , and Eligible for a VA education benefit , including : The Post-9/11 GI Bill Chapter 33 The Montgomery GI Bill Active Duty MGIB - AD, Chapter 30 The Montgomery GI Bill Selected Reserve MGIB - SR, Chapter 1606 Reserve Education Assistance Program REAP, Chapter 1607. [S1]",
+        "cites_visible_gold": true,
+        "generate_ms": 1164.2,
+        "first_display_ms": 1164.2
+      }
+    },
+    {
+      "id": "93d62504088686b94ab05ff105d7b915:3",
+      "domain": "va",
+      "sources": {},
+      "v2": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      },
+      "v3": {
+        "status": "retrieval_handoff",
+        "answer": "",
+        "cites_visible_gold": false
+      }
+    }
+  ]
+}

@@ -24,6 +24,7 @@ from anyio.from_thread import start_blocking_portal
 
 from .generation import Prompt, make_prompt, resolve_citations
 from .generation_journal import GenerationJournal, identity_hash
+from .grounded_answer import check_cited_values, copied_example, recent_conversation
 from .text import Tokenizer
 
 LOGGER = logging.getLogger("uvicorn.error.supportlens.docs_generator")
@@ -41,14 +42,22 @@ PROMPTS = {
            "I cannot answer from these sources; please request human review.\n"
            "Example answer: You can renew online or at an office [{p}1]. The fee is $25 [{p}2].",
            "Answer in at most 3 sentences and end each sentence with its source label, e.g. [{p}1]."),
+    "v3": ("Answer the user's current question directly from the numbered evidence. Use the prior conversation "
+           "only to identify what the user is referring to. It is not a source. Give one short answer, "
+           "including any condition needed to make it true. Omit unrelated instructions and additional "
+           "fees or telephone numbers. Cite each factual statement with its own source label before the "
+           "period, for example: You can apply online [{p}2]. If the evidence does not answer this specific "
+           "request, say exactly: I cannot answer from these sources; please request human review.",
+           "Give the answer and cite the passage that actually states it. If the answer is missing, request human review."),
 }
 WARMUP_QUESTION = "Which source explains this demo?"
+PROMPTS["v2_checked"] = PROMPTS["v2"]
 WARMUP_EVIDENCE = [{"evidence_id": "warmup-1", "text": "This synthetic passage only warms up the generator."}]
 REFUSAL = re.compile(r"cannot answer|can't answer|unable to answer|not enough information|"
                      r"insufficient (?:evidence|information)|human review", re.I)
 
 Status = Literal["answer", "refused", "no_citation", "invalid_citation", "empty",
-                 "timeout", "cancelled", "error"]
+                 "timeout", "cancelled", "error", "unverified_claim"]
 
 
 @dataclass(frozen=True)
@@ -61,6 +70,7 @@ class GeneratorConfig:
     evidence_top_k: int = 3
     temperature: float = 0.0
     deadline_seconds: float = 30.0
+    warmup_deadline_seconds: float = 120.0
     connect_timeout_seconds: float = 3.0
     cache_size: int = 256
     prompt_policy: str = "v2"
@@ -70,7 +80,7 @@ class GeneratorConfig:
             raise ValueError(f"prompt_policy must be one of {sorted(PROMPTS)}")
         if self.evidence_top_k < 1 or self.evidence_top_k > 3:
             raise ValueError("make_prompt packs at most 3 passages; evidence_top_k must be 1..3")
-        if self.deadline_seconds <= 0 or self.connect_timeout_seconds <= 0:
+        if min(self.deadline_seconds, self.warmup_deadline_seconds, self.connect_timeout_seconds) <= 0:
             raise ValueError("deadline and connect timeout must be positive")
         if self.num_predict < 1 or self.num_ctx <= self.num_predict or self.cache_size < 0:
             raise ValueError("invalid generation budget")
@@ -87,7 +97,7 @@ class GeneratorConfig:
     @property
     def version(self) -> str:
         identity = {k: v for k, v in asdict(self).items()
-                    if k not in {"base_url", "deadline_seconds", "connect_timeout_seconds", "cache_size"}}
+                    if k not in {"base_url", "deadline_seconds", "warmup_deadline_seconds", "connect_timeout_seconds", "cache_size"}}
         identity["prompt_template"] = "chatml_raw_cited_top3"
         digest = hashlib.sha256(json.dumps(identity, sort_keys=True).encode()).hexdigest()
         return "G-" + digest[:16]
@@ -154,7 +164,8 @@ class OllamaGenerator:
         return {"state": self.state, "model": self.config.model, "version": self.version,
                 "model_digest": self.model_digest,
                 "error_type": self.error_type, "warmup_ms": self.warmup_ms,
-                "deadline_seconds": self.config.deadline_seconds, "cache_entries": len(self._cache)}
+                "deadline_seconds": self.config.deadline_seconds, "warmup_deadline_seconds": self.config.warmup_deadline_seconds,
+                "cache_entries": len(self._cache)}
 
     def start(self) -> None:
         """Check the pinned model exists, then load it with one short generation."""
@@ -180,20 +191,22 @@ class OllamaGenerator:
             finally:
                 LOGGER.info("Docs generator startup: %s", self.snapshot())
 
-    def build_prompt(self, question: str, evidence: list) -> Prompt:
+    def build_prompt(self, question: str, evidence: list, *, history=()) -> Prompt:
         items = [e if isinstance(e, dict) else {"evidence_id": e.evidence_id, "text": e.text}
                  for e in evidence[:self.config.evidence_top_k]]
         system, suffix = PROMPTS[self.config.prompt_policy]
         return make_prompt(question, items, self.tokenizer, self.config.num_ctx,
                            self.config.num_predict, self.config.evidence_budget_tokens,
-                           system=system, suffix=suffix)
+                           system=system, suffix=suffix,
+                           conversation=recent_conversation(history, self.tokenizer)
+                           if self.config.prompt_policy == "v3" else "")
 
     async def _read_ollama(self, payload, timeout, messages):
         # The scope includes connecting, waiting for headers and waiting between tokens.
         try:
             async with asyncio.timeout(timeout):
                 async with httpx.AsyncClient(base_url=self.config.base_url, transport=self.transport, verify=self._verify,
-                                             timeout=self.client.timeout) as client:
+                                             timeout=httpx.Timeout(timeout, connect=min(timeout, self.config.connect_timeout_seconds))) as client:
                     async with client.stream("POST", "/api/generate", json=payload) as response:
                         response.raise_for_status()
                         async for line in response.aiter_lines():
@@ -271,11 +284,13 @@ class OllamaGenerator:
                     "retrieval_version": retrieval_version, "question_sha256": identity_hash(question),
                     "history_sha256": identity_hash(list(history)),
                     "evidence": [[e["evidence_id"], identity_hash(e["text"])] for e in items]}
+        contextual = self.config.prompt_policy == "v3"
+        guarded = contextual or self.config.prompt_policy == "v2_checked"
         prompt, final = None, {}
         text, first, status, error_type = "", None, None, None
         journal = self.journal if not warmup else None
         try:
-            prompt = self.build_prompt(question, items)
+            prompt = self.build_prompt(question, items, history=history) if contextual else self.build_prompt(question, items)
         except ValueError as error:
             status, error_type = "error", type(error).__name__
         identity["prompt_sha256"] = identity_hash(prompt.text) if prompt else None
@@ -283,7 +298,8 @@ class OllamaGenerator:
         caching = use_cache and self.config.cache_size > 0 and prompt is not None
         cached = self._lookup(key) if caching else None
         if cached is not None:
-            yield {"event": "delta", "text": cached.answer}
+            if not guarded or cached.status == "answer":
+                yield {"event": "delta", "text": cached.answer}
             yield {"event": "result", "result": replace(cached, ttft_ms=None, generate_ms=(self.clock() - started) * 1000)}
             return
 
@@ -292,7 +308,8 @@ class OllamaGenerator:
                 payload = {"model": self.config.model, "prompt": prompt.text, "raw": True, "stream": True,
                            "options": {"num_ctx": self.config.num_ctx, "num_predict": self.config.num_predict,
                                        "temperature": self.config.temperature}}
-                events = self._live_events(payload, started + self.config.deadline_seconds, cancel)
+                budget = self.config.warmup_deadline_seconds if warmup else self.config.deadline_seconds
+                events = self._live_events(payload, started + budget, cancel)
                 try:
                     for event in events:
                         if isinstance(event, tuple):
@@ -300,10 +317,11 @@ class OllamaGenerator:
                             break
                         token = event.get("response", "")
                         if token:
-                            if first is None:
+                            if first is None and not guarded:
                                 first = (self.clock() - started) * 1000
                             text += token
-                            yield {"event": "delta", "text": token}
+                            if not guarded:
+                                yield {"event": "delta", "text": token}
                         if event.get("done"):
                             final = event
                 finally:
@@ -317,7 +335,15 @@ class OllamaGenerator:
             citations, invalid = [], []
             if status is None:
                 status, citations, invalid = classify(text, prompt)
-            result = GenerationResult(status, "" if status in {"timeout", "cancelled", "error"} else text,
+                if guarded and status == "answer":
+                    if contextual and REFUSAL.search(text):
+                        status, citations = "refused", []
+                    elif ((contextual and not check_cited_values(text, prompt, items))
+                          or (not contextual and copied_example(text, prompt, items))):
+                        status, citations = "unverified_claim", []
+                    else:
+                        first = (self.clock() - started) * 1000
+            result = GenerationResult(status, "" if status in {"timeout", "cancelled", "error", "unverified_claim"} else text,
                                       citations, invalid, "miss", first, (self.clock() - started) * 1000, error_type)
             if journal is not None:
                 packed = asdict(prompt) if prompt else {}
@@ -332,6 +358,8 @@ class OllamaGenerator:
                 journal.save(key, row)
         if caching and status in {"answer", "refused"}:
             self._remember(key, result)
+        if guarded and result.status == "answer":
+            yield {"event": "delta", "text": result.answer}
         yield {"event": "result", "result": result}
 
     def generate(self, question: str, evidence: list, **kwargs) -> GenerationResult:
@@ -351,6 +379,7 @@ def generator_from_env(environ) -> OllamaGenerator | None:
     from .text import JsonTokenizer
     deadline = environ.get("SUPPORTLENS_GENERATOR_DEADLINE")
     config = GeneratorConfig.load(environ.get("SUPPORTLENS_GENERATOR_CONFIG", "configs/default.json"),
+                                  prompt_policy=environ.get("SUPPORTLENS_GENERATOR_POLICY"),
                                   base_url=environ.get("SUPPORTLENS_OLLAMA_URL"),
                                   deadline_seconds=float(deadline) if deadline else None)
     tokenizer = JsonTokenizer(environ.get("SUPPORTLENS_GENERATOR_TOKENIZER", "data/tokenizers/qwen/tokenizer.json"))

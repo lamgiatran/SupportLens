@@ -1,0 +1,16 @@
+{
+  "gate": {
+    "method": "R7",
+    "artifact_version": "R7-chunk-19885a4a18eeaaa1",
+    "threshold": 2.9777157468279585,
+    "fitted_split": "dev",
+    "score_name": "top1_boosted_margin_v1",
+    "target_k": 3,
+    "selection": "coverage",
+    "target_coverage": 0.7
+  },
+  "queries": 2213,
+  "accepted": 1551,
+  "coverage": 0.7008585630366019,
+  "risk_gold_missing_top3_given_accept": 0.34300451321727915
+}

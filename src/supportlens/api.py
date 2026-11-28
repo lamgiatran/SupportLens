@@ -275,6 +275,12 @@ def app_from_env():
         registry["R3"] = HybridChunks(retriever, registry["R2"])
     gate_dir = os.environ.get("SUPPORTLENS_DOCS_GATES")
     gates = {}
+    model_path = os.environ.get("SUPPORTLENS_PASSAGE_RANKER")
+    if model_path:
+        if not isinstance(retriever, BM25Chunks) or not gate_dir:
+            raise ValueError("R7 requires a passage bundle and SUPPORTLENS_DOCS_GATES")
+        from .passage_ranker import PassageRanker
+        registry["R7"] = PassageRanker.load(retriever, model_path)
     if gate_dir:
         if gate_path:
             raise ValueError("use a single gate file OR a gate directory")

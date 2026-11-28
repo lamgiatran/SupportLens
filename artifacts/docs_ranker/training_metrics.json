@@ -1,0 +1,10 @@
+{
+  "fit_dialogues": 3190,
+  "excluded_without_both_classes": 284,
+  "pairs": 613595,
+  "positives": 3686,
+  "version": "R7-chunk-19885a4a18eeaaa1",
+  "sklearn": "1.8.0",
+  "numpy": "2.4.2",
+  "bundle_sha256": "03dc40e63774bf0fd0b6b857d25a1786b0390bbfed88ff24dd0930aa2c156758"
+}

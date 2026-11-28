@@ -1,0 +1,1945 @@
+{
+  "split": "dev",
+  "arms": [
+    "R3",
+    "R7"
+  ],
+  "ids": [
+    "88e5d2c8f965b98d831c84d12f7ddd78:12",
+    "8b4f28969ef5bcc4e34ab3394f7dc8a8:9",
+    "40648cea1a32c1672c5851c8554867ea:7",
+    "18c88704abffaa8b85609b55cf4cbde1:5",
+    "131a7b32787ddc19f33d184496cf91f2:4",
+    "102928b61088a51ff84d2bb3f8e6b755:1",
+    "2e020772abb2fb3cf2cc53a82de87501:14",
+    "659bba29e47e5933ebc2e08bdff478f7:8",
+    "1253d16e73cf6d3024537c671c67aebc:1",
+    "3319b4c1020ef853f5f8b5bd61c21645:3",
+    "a9a3fb6863eb980d800732db55b0caef:3",
+    "9586252d07198b41a058239ae38aeea1:8",
+    "47ed1d2ddce2ab50c4bc587e592a5900:5",
+    "8dc956a239a7d24ab97945d718a34313:17",
+    "0f920333d379197e1eb23a9ec230419c:7",
+    "a6415bdbf58d9a2e713ee64d06fb5670:6",
+    "2eb85da28078980a0ada851fb09f5753:6",
+    "7d8c5205719fc14d2f5e992ee3b40a7b:10",
+    "70f3b95dacad33b20b953c73d0f91d42:12",
+    "7fb485594202738477a3052928b003ec:5",
+    "5e85a9d5970b7385fe920cf9290b38f9:13",
+    "762106d0fd0b3c4e87b4d573a1089d8c:11",
+    "304e833d420b1b5fda2d7ef4a0508344:12",
+    "390412d2dd95fc237cb5ef28b05724ea:1",
+    "72a1223ae425ae032832a1432c1f933f:9",
+    "0a0539fb744ecca0d1b7c9f5d478b3cf:1",
+    "c37ace285f9df7aee5c00e62d47b6413:5",
+    "4c1b49755da1202af2409f01b0783176:7",
+    "52ace64781942e26e7f94c3baca22ce0:5",
+    "c6d9f1d8452938f4b14a7eed3c48d9a9:3",
+    "9c597124812a3b16f36596b8da2a5bec:14",
+    "2639ebe94b6b901371e7005ec03a0387:11"
+  ],
+  "excluded_dialogues": [
+    "03bf1779ae1cc934cd39b1480eeec6d0",
+    "03cab7d6b2798b6d3f467e19451ccc3c",
+    "06f571cd8f2587769f658bc145838566",
+    "08969be11ae53654480265abab7a3fe7",
+    "0a268eb90d0e10e63fdd04b9798b9ab3",
+    "0a7f32262e15436fbd585e360f36c1bc",
+    "0b3c04b0b6dea4ee5de90f0ca2fa8f8b",
+    "0f798471a9e95a974e92bf00aa150c42",
+    "114cba71cb84f71ada24384d79d8bece",
+    "1722740f9da53fc02ff23fca433b7165",
+    "17bfff3dc3ca6151a017f02990008b16",
+    "17f3ec8efd2242b66ff0908b67cff441",
+    "17fed87112a4632a9f53502cd360bb19",
+    "18bf08172ab578c9595dd6ee8d60fc88",
+    "19d4ea0d2611c32433e9c78a1f001385",
+    "215073e7606b4ac9975ee830cecf2991",
+    "22e12cbb5d39ec9e6006050d7f0fc0ae",
+    "22f09d83124d20a43bba04cb73ece366",
+    "26895fce9e74d3a778551532394190da",
+    "2a650c272308ff84d93c5955adb46078",
+    "2ca640276d852b3d7d7c5f91a9a6485a",
+    "2d4a552a1314552c5d4d1420a6300dde",
+    "2e76f32d20ed5665c0a51cb00ee7a41b",
+    "2f7b40b2702eac5e4e2a158999baf8f8",
+    "2f9587c9ea2cd7290452861ed79b9ab2",
+    "317bfd6479722e96bc7a57fdbf5ad2b2",
+    "32ae0a8871ed16a516fd7930d55e0305",
+    "32e3c1e1d6824a9bf68c88cde9b9b91a",
+    "363758c09c1f25c9edf1f77d76f48857",
+    "36430fe0302340962200a27ff456ca67",
+    "369ca7f66a942fa5ab24fbf912fa1136",
+    "3855667ae8a93a0ed5e6252f5484f99f",
+    "3e48da929535ac60f66ce0de05a19014",
+    "3e8d4f726c013ba365e0faef13bf3851",
+    "450e1bd8483cca2243d3c13bb08de309",
+    "47ba9d17a37608191e7a10859ed329e7",
+    "4ec3bc6754b8290e3085ae43b9ea721d",
+    "4eeafa5995d42039a2edfff280222632",
+    "522ce77e8af0a004e6b2aff897e81cb5",
+    "531e4217ce2f7cb6e3c780d038afe790",
+    "553b5cfaacc679ac992a651481e2cfc4",
+    "56c4c30460ae5f13bc0ed1c5ac9862f7",
+    "580d63c318564ff11f7fc4a8fcd0964f",
+    "596f5c4d1a31d870d4384ff952914d98",
+    "5cca9a205efa3e902d49712cd20a0029",
+    "5d5bb0019650ee6eaef9c60da1ceb0b7",
+    "5ddc54e4bae20fd92545e38f74a9af98",
+    "5e625facdb13ef5a8b3c06b4178af291",
+    "5f0164902465a37044261c2b701de9d0",
+    "62558800a99e9d5cbb67cb915d6f714e",
+    "625d017cbc6ca5796f4374b3a6047639",
+    "66a393feeeb5b1a2b55414b8052e70f9",
+    "6be28d2b3b2858262d2cf4731638e3b3",
+    "6c044ce4cac224ddefe8f791f77ee1b6",
+    "6dd63542d1b12b70a9e90f796755ef64",
+    "7076645f07f9821dd7dfc2cc6ab6fad9",
+    "73872f3bb4a56c437686018bbc4e8736",
+    "74a3ad414c25be1c5fbd52c2f1b717c0",
+    "789a3cb94cf8871ba6ace0a4923851e2",
+    "7928bb291db86c0314f3f7aeab1617e5",
+    "7a4d5aaabb1aef6616f4466da6a00ef8",
+    "7c1c32cd961d2f7324b0db508f5209ee",
+    "7ec3863e050641c4832e467ffe8f7b11",
+    "7f137d35b7fdf9963cca1c64549f01ad",
+    "7f8eebe46f22b15aa5fdd4c17983cbaa",
+    "7fa2d3c51405f6bce46adb9925f4a83a",
+    "80eba80595a3509dc4dc3e26babf83b3",
+    "81cc489d8f2ec38379a7a4c65e4396db",
+    "82f480a37c4e64eb7ba658d7e45aac6b",
+    "84a7d6c88e95c7c187f3b1db5a748713",
+    "85e086e272f6964333bb891e6447f673",
+    "8aef9f5bbda9f388a2b7e511aa6d8044",
+    "8c272b00a28c9412a1baa948a4dec9ea",
+    "8d64637b8ab455244015fc7581f40181",
+    "8e0770d85d9e7f13ee04580aa88fcca3",
+    "8e710e7d85e0c80fc2ae038b5f89c7ed",
+    "903f99d828a215c2e1c1ffee315d74d4",
+    "93d62504088686b94ab05ff105d7b915",
+    "940a429838e63f485ba1dd0aef65df9e",
+    "9449ebf0924645a487b5f55caf588970",
+    "94d36f0fa7d0d2d75c40deb99abdd6a3",
+    "956351f8a7623e6c13c5cb8060aa5c83",
+    "95a469061b9a4e73d543984f942fcbe3",
+    "95a7c95147ebb2148200478a459319b8",
+    "96cb2354ec1db343f5230f5b172fc22a",
+    "987ea1800f994d3b2609d830aaed343e",
+    "98ec6904a42dfcf483e63cb46e8c0241",
+    "9c5699eb3d3c82e9108d8e8c72d6d962",
+    "9fd9ac67b01535b3e3ee084c54afe47b",
+    "a04265a404021c51b8830ea6fd834fee",
+    "a098bf471417f21f8a3545498fdf0bb2",
+    "a2e07d7093d79a56f0ca5b307c4cef96",
+    "a2f093a87ad8371d3aea4e463bd3ebee",
+    "a3917a6f199f4abba442d7a1b0ae8b30",
+    "a571c5b97f35262ffb7c3b5ae165784f",
+    "a5a1655f5bf11f97e37726f51df46cd9",
+    "a615d75b02952e505ac238ee688a963f",
+    "a8213be3cdd0d00ab1bc737cd468a523",
+    "affd0f2e4fa08b1d43955733b9a093e1",
+    "b023e676deaf2ba9bbcb694f7f0f1930",
+    "b11b921e733c30a62366889c0131c88c",
+    "b1bcb5e9cc111a0e098eb1b88c6ea9ad",
+    "b26f445a7e768cd5ed0ccac0718775a0",
+    "b64e83589290de676622cde7bb81f420",
+    "b95c47e5846aa0e1bd7bca9be8acc93d",
+    "b96347a9e2491441e7a20affd16c3e2b",
+    "bdffbd6b00f5b1c30836b6d0c974f13e",
+    "be2fb0f758ca7f6452f1ead0eae321b2",
+    "be3d0426d273b85f076149d3d89530a2",
+    "bf261fbcd6548868fd92399ff4fb2dbc",
+    "c13344869c810beb8c5716ed99837696",
+    "c596a74a2eeb470cc192c63ec3fcc640",
+    "cabe712bae35eb8da8965a64421648ad",
+    "cb2580e29e89992409cc436654f9023c",
+    "cc1303e36bd2cc88dfcccc8f22e27366",
+    "cdc38401d5ca350aedcd2a969be700bf",
+    "d0cbcaf4a0bd0a2b52c288b2582a0e35",
+    "d2045199a9351c5d02f5b2a7557ab8f5",
+    "d652eabb0bfe367b38df42bb30c9675b",
+    "d71e9e4588dd20f6c41cfa1eb4f79126",
+    "d79996f178afe8b10e2900c0eaa7da3c",
+    "d7d36b3f4ce3dab9d9e4b5edf19eb35f",
+    "d8497aeb50040fbd3ce358ece5ae697b",
+    "d8f465cc44734431c9878e786102473c",
+    "d94e7057cd554b70e5390278ec062eff",
+    "dacb3b32cdd15c3dde7d8e2efa736a17",
+    "db7e6693ca8fef769bfe21b5b8392d41",
+    "dbac675233f968f92858c19fb6221753",
+    "dc1981706953ab11f62fbd703b7c1147",
+    "debdb257ee48c078c9c9fab93bc274b0",
+    "df970a127e19325a01f24c5d61ce3c20",
+    "e0124bd609918253219264891a9ba24a",
+    "e0a50eea76d8e6f19f09fd33ccb65aef",
+    "eb193ba9fc1f7043957739df3ee95997",
+    "ed0119668abaa26f1b933533c330a0fe",
+    "ed292a47df11fed29cc3bf09ee5a6410",
+    "ee139ef3feb06a3cf7b9ac9cbe802fb8",
+    "eedfdf848bc86c30ba8d75b70374df0c",
+    "ef4671e634343ab12abfafc855f15478",
+    "f0f148f4c71c9c149b0a187a1fb557d4",
+    "f266708fe15830c119e30df5549b6a86",
+    "f2df8f8f136fc6d4dcc718b3a9751c13",
+    "f313a5dc5aa5245025877a081c9535df",
+    "f33ebe04c6c6fc36825253952db3380a",
+    "f6e3549ea2a6bd4f26cd61baacea81db",
+    "f92ca2c6a334cdc200e8ff8659582f49",
+    "fc3a1f32406408addcff117b13932d1b",
+    "fc51b2d01c7642964d7a28a5000c5ebd",
+    "fc9a100c28fb9569ad0aba4653da3c4f",
+    "fe52e49c458d9ae8657e8f70a510ab0e"
+  ],
+  "bundle_sha256": "03dc40e63774bf0fd0b6b857d25a1786b0390bbfed88ff24dd0930aa2c156758",
+  "generator": "G-25d62dbba90da779",
+  "model": "qwen2.5:3b",
+  "rows": [
+    {
+      "id": "88e5d2c8f965b98d831c84d12f7ddd78:12",
+      "domain": "dmv",
+      "R3": {
+        "status": "handoff",
+        "reason": "retrieval_below_dev_threshold",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "ce0f6830ac58b2c854dd",
+            "chars": 1021,
+            "sha256": "0b96beae11d1cbe268dee16bc3668f36e30a4e42e42d76c73d1cfdcdccde8ee7"
+          },
+          "S2": {
+            "id": "13cae2e576b502f4055e",
+            "chars": 1000,
+            "sha256": "4b93242a7a66f1f9ffd02ae2433d949cb19cda77fa7bc8fefa90bde9094a399c"
+          },
+          "S3": {
+            "id": "034f11e166b581978da8",
+            "chars": 678,
+            "sha256": "54d11d831ab6208cce214fcd57276377d981eb7a33b60d5d2d453b454524ab61"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 34.01279999525286,
+        "first_display_ms": null
+      },
+      "R7": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "Replacing or renewing a license or ID is important for maintaining legal driving and identification status, ensuring compliance with travel regulations, and avoiding fines for non-compliance. [S1, S2, S3] Obtaining an Enhanced or REAL ID is crucial for domestic travel starting in October 2020, as standard documents will not be accepted without a passport. [S2, S3]",
+        "sources": {
+          "S1": {
+            "id": "98ecf499202184284a9c",
+            "chars": 946,
+            "sha256": "896f7daa44fc74755e9c1d9d39d55a086bf077aae3b206b3a3aee954ea474e69"
+          },
+          "S2": {
+            "id": "0f13f82a875ef15f3207",
+            "chars": 1004,
+            "sha256": "aecac82ac05807d8889cca45cd919796d5c25d6335dce0534dc1765043e35ae4"
+          },
+          "S3": {
+            "id": "a98c74f41149d60edb5f",
+            "chars": 578,
+            "sha256": "76105d1db00bc4d225091f9842b5ea5e1a48867a104408ba6d64fba013c5377a"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 777.1550999896135,
+        "first_display_ms": 767.3304000054486
+      }
+    },
+    {
+      "id": "8b4f28969ef5bcc4e34ab3394f7dc8a8:9",
+      "domain": "ssa",
+      "R7": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "You can retire at any time between age 62 and full retirement age [S1, S2, S3].",
+        "sources": {
+          "S1": {
+            "id": "95264252af99998c3b3c",
+            "chars": 1145,
+            "sha256": "eb1a7d23820b2e004aea737f8a9fea718747f33ff1f115399a8fa23b2f45d979"
+          },
+          "S2": {
+            "id": "dad05f51485f1b38ceec",
+            "chars": 1129,
+            "sha256": "b04665fe5c13ef59a3a6ff2f8c4fc9c994b8205f40d4e45327bc4dc361e46269"
+          },
+          "S3": {
+            "id": "8a80261057e6a4788c6a",
+            "chars": 656,
+            "sha256": "b1936b66eba813c167a49c67f628dc25bd13d45673dd1af1bebe3a6bb29957a1"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 358.88640000484884,
+        "first_display_ms": 351.2938000203576
+      },
+      "R3": {
+        "status": "handoff",
+        "reason": "generator_insufficient_evidence",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "98d2a423d4ca255d2aad",
+            "chars": 1106,
+            "sha256": "bc977b2578e0a1c50b0a76afdc35ca612e05eea19c62c7bfda827577af7d77e1"
+          },
+          "S2": {
+            "id": "c30d3a8c48a78612a4b2",
+            "chars": 1121,
+            "sha256": "4ed917232cd68e737107d70934861cf6de02c43e18037367fd1f8bc652349570"
+          },
+          "S3": {
+            "id": "137ec897ceb75219aff3",
+            "chars": 682,
+            "sha256": "9c35c63485470dfdefb102e247ff7db1ae2220e7d5435004cf6d72ff78605716"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 279.9253000121098,
+        "first_display_ms": null
+      }
+    },
+    {
+      "id": "40648cea1a32c1672c5851c8554867ea:7",
+      "domain": "ssa",
+      "R3": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "No, a child does not have to be your biological child to qualify. They can be adopted, stepchildren, or dependent grandchildren. [S1, S2]",
+        "sources": {
+          "S1": {
+            "id": "4ed53c1bce88562308df",
+            "chars": 1092,
+            "sha256": "5a2052412ea4636961e67d79550532759749ab65b3ccd26ce6bec9f6d7cb337d"
+          },
+          "S2": {
+            "id": "2b3989f8f3018281dd93",
+            "chars": 1085,
+            "sha256": "d56f11720ff56ff013cc7a7bfcc16ff9dbadce79a18aab04d86baf1897c67ccf"
+          },
+          "S3": {
+            "id": "8b4aa83929b086b0e5df",
+            "chars": 536,
+            "sha256": "46907705e5c77e1e98b443ac323e7b5d9b3a0caa60fc099735e3aa6836550f3e"
+          }
+        },
+        "cites_visible_gold": true,
+        "total_ms": 421.25970000051893,
+        "first_display_ms": 384.1107999905944
+      },
+      "R7": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "You can be married or unmarried. If you turned 18 or graduated from high school before January 1 , 2013, you can get a Fry Scholarship until you're 33 years old. [S1] For children, you can be a biological, adopted, or stepchild. A dependent grandchild may also qualify. [S3]",
+        "sources": {
+          "S1": {
+            "id": "dfea3b04048e88b72847",
+            "chars": 1095,
+            "sha256": "3ca24fd1fcf97869711f1d3ed9db78ff41eb5e5ab49429c6fad0de861e163b76"
+          },
+          "S2": {
+            "id": "2b3989f8f3018281dd93",
+            "chars": 1085,
+            "sha256": "d56f11720ff56ff013cc7a7bfcc16ff9dbadce79a18aab04d86baf1897c67ccf"
+          },
+          "S3": {
+            "id": "4ed53c1bce88562308df",
+            "chars": 419,
+            "sha256": "6ce028a7cc1b03fd82abfefd8204c3142aa893dd4a2126571f6027fc47c8defe"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 718.0560000124387,
+        "first_display_ms": 712.0949000236578
+      }
+    },
+    {
+      "id": "18c88704abffaa8b85609b55cf4cbde1:5",
+      "domain": "dmv",
+      "R7": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "No, you cannot register the vehicle yourself as the registration is suspended. You must surrender the plates to the DMV as per the suspension rules. [S1, S2]",
+        "sources": {
+          "S1": {
+            "id": "92728a31b22841326bb3",
+            "chars": 1008,
+            "sha256": "74793bde357067d7b4d34e324290d6ebf6cc9ffa3617a732c1a0877d1eff712b"
+          },
+          "S2": {
+            "id": "5bc8a083f6d31d6473ae",
+            "chars": 971,
+            "sha256": "a55e2be4d2b0b0f0c53a1c4ebb7ba251eff0090b7bb67b4d4d34a4f9bfa67ecf"
+          },
+          "S3": {
+            "id": "b32fc2c749cd77706afe",
+            "chars": 919,
+            "sha256": "e6a7523e1f55e66217a249a041e824c1d22ee2e3c376cc253060df1d5671b199"
+          }
+        },
+        "cites_visible_gold": true,
+        "total_ms": 429.90800002007745,
+        "first_display_ms": 423.0995000107214
+      },
+      "R3": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "No, you cannot register the vehicle yourself as the suspension affects your ability to do so. You must surrender your plates to the DMV and wait for the lapse period to be determined before the registration can be processed. [S1, S2]",
+        "sources": {
+          "S1": {
+            "id": "92728a31b22841326bb3",
+            "chars": 1008,
+            "sha256": "74793bde357067d7b4d34e324290d6ebf6cc9ffa3617a732c1a0877d1eff712b"
+          },
+          "S2": {
+            "id": "3b7982d67b385cd4c0d4",
+            "chars": 1050,
+            "sha256": "4049e113440f47e6d2976ea140b41b729fd342ff1266b02db6d32df3683afb29"
+          },
+          "S3": {
+            "id": "bfc0967a536329a2b9dc",
+            "chars": 808,
+            "sha256": "d4eeb2b41eb13a9a95a5302885f47ce8e088f36cea1280809551cc6605b72bb7"
+          }
+        },
+        "cites_visible_gold": true,
+        "total_ms": 551.970500004245,
+        "first_display_ms": 508.9803999871947
+      }
+    },
+    {
+      "id": "131a7b32787ddc19f33d184496cf91f2:4",
+      "domain": "dmv",
+      "R3": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "Yes, you can drive without a supervising driver if you have a valid foreign driver license. Ensure your foreign driver license is printed in English or accompanied by a certified translation. [S1]",
+        "sources": {
+          "S1": {
+            "id": "60a3fa084900a2c909fc",
+            "chars": 1078,
+            "sha256": "cc860b015b37211e2b97e455febc03dd9787fd3b62d48c3429d62559ee3dac51"
+          },
+          "S2": {
+            "id": "73ebbc6a6196866d8043",
+            "chars": 1052,
+            "sha256": "5b0d3c6156f842087e192f925539f60648909ee295aba5fe210c6f5d4d1dac75"
+          },
+          "S3": {
+            "id": "150170ce0edf2b168268",
+            "chars": 743,
+            "sha256": "5ff234e6a848c2672fb3b89e3850e3d58a21f2580c6396771049e391ad0fd5fa"
+          }
+        },
+        "cites_visible_gold": true,
+        "total_ms": 463.4338000032585,
+        "first_display_ms": 433.11039998661727
+      },
+      "R7": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "Yes, you can drive without a supervising driver if you have a valid foreign driver license. Ensure your foreign driver license is printed in English or accompanied by a certified translation if it's in another language. [S1]",
+        "sources": {
+          "S1": {
+            "id": "60a3fa084900a2c909fc",
+            "chars": 1078,
+            "sha256": "cc860b015b37211e2b97e455febc03dd9787fd3b62d48c3429d62559ee3dac51"
+          },
+          "S2": {
+            "id": "73ebbc6a6196866d8043",
+            "chars": 1052,
+            "sha256": "5b0d3c6156f842087e192f925539f60648909ee295aba5fe210c6f5d4d1dac75"
+          },
+          "S3": {
+            "id": "3559519d73ac087818b1",
+            "chars": 692,
+            "sha256": "c97689c0434744f5d1f334c0574e27b9f55517fa15ac7af8ee137b9a3728d17d"
+          }
+        },
+        "cites_visible_gold": true,
+        "total_ms": 433.9293999946676,
+        "first_display_ms": 429.02139999205247
+      }
+    },
+    {
+      "id": "102928b61088a51ff84d2bb3f8e6b755:1",
+      "domain": "dmv",
+      "R7": {
+        "status": "handoff",
+        "reason": "retrieval_below_dev_threshold",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "12b6efcc48f9b7d8b6a1",
+            "chars": 1076,
+            "sha256": "c8ea2b53cad280f839c3aaecff67712ea3a596b25e4fe79072e467f3a755ce16"
+          },
+          "S2": {
+            "id": "fcf020a36c9100f886fe",
+            "chars": 1089,
+            "sha256": "afbb02e1307f525da3d6070526ee4633d941494df7c30204f64d6fc7c3b97185"
+          },
+          "S3": {
+            "id": "a75497cd22eb60d6394e",
+            "chars": 640,
+            "sha256": "c9d622fdd7225be51cf61a812aea9eb49ba18daa1cdb2a513399fba39d634cab"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 1.9162999815307558,
+        "first_display_ms": null
+      },
+      "R3": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "If you bought a vehicle from a private seller, you will receive an inspection extension that lasts 10 days from the date of registration. [S1] Prior to delivery, the dealer must inspect the vehicle within 30 days of the date of sale. [S2]",
+        "sources": {
+          "S1": {
+            "id": "12b6efcc48f9b7d8b6a1",
+            "chars": 1076,
+            "sha256": "c8ea2b53cad280f839c3aaecff67712ea3a596b25e4fe79072e467f3a755ce16"
+          },
+          "S2": {
+            "id": "58a29dd4a16464745074",
+            "chars": 1095,
+            "sha256": "c289241d745d883a768e0128a74c8bccc8e61571c2402a189701e06f757f6197"
+          },
+          "S3": {
+            "id": "6ac877cb4583dd36b449",
+            "chars": 672,
+            "sha256": "e318e47190bcc6fb160e3e27072c38d6f5c5028bed708c79cbd9c78c178e988b"
+          }
+        },
+        "cites_visible_gold": true,
+        "total_ms": 611.2113000126556,
+        "first_display_ms": 591.555100021651
+      }
+    },
+    {
+      "id": "2e020772abb2fb3cf2cc53a82de87501:14",
+      "domain": "va",
+      "R3": {
+        "status": "handoff",
+        "reason": "generator_insufficient_evidence",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "e7dbc8423e7b77ba2ee1",
+            "chars": 1066,
+            "sha256": "eb0e22b33c3626e76f685c3014225e9fae7e294b3f53ff654a5f0ed463efdce4"
+          },
+          "S2": {
+            "id": "054329bd910945327a1a",
+            "chars": 1139,
+            "sha256": "f9310e238a5d165c4682a158824ecc126dc459c3ff9512f76d15d6b6b1c493b8"
+          },
+          "S3": {
+            "id": "34ada6041bef85125809",
+            "chars": 448,
+            "sha256": "1aadc6303c05942b7265a4424dd021b3999d7bddbc32e249b0b2832ec82c670d"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 287.01669999281876,
+        "first_display_ms": null
+      },
+      "R7": {
+        "status": "handoff",
+        "reason": "generator_insufficient_evidence",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "e7dbc8423e7b77ba2ee1",
+            "chars": 1066,
+            "sha256": "eb0e22b33c3626e76f685c3014225e9fae7e294b3f53ff654a5f0ed463efdce4"
+          },
+          "S2": {
+            "id": "d257f70fd2f0f743684a",
+            "chars": 1084,
+            "sha256": "f8217e3df398ac3fa93a2db28dd8b74f2b6c67521b097a8a7eca75aad995ab16"
+          },
+          "S3": {
+            "id": "697baf41ad56f82347d5",
+            "chars": 652,
+            "sha256": "fe4a6a573e8ccb3ac3c6067668bd79a2d27883cdc1b031cc754cbe85e07c46c0"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 231.1681999999564,
+        "first_display_ms": null
+      }
+    },
+    {
+      "id": "659bba29e47e5933ebc2e08bdff478f7:8",
+      "domain": "dmv",
+      "R7": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "Suspensions are categorized into definite and indefinite types. For definite suspensions, you must follow instructions in the letter and contact your insurance company or agent. If you have insurance, file a notice of coverage with the DMV electronically. If you don't have insurance, surrender your vehicle registration and plates to the DMV immediately. [S1]",
+        "sources": {
+          "S1": {
+            "id": "1687a87737e5ca227732",
+            "chars": 1105,
+            "sha256": "8a9a3ee814f0f34abb37d8ae1ed3997bc343813539ef5d7de164a97a59a6bd5c"
+          },
+          "S2": {
+            "id": "901ce8e001db0fee180e",
+            "chars": 1080,
+            "sha256": "3035c56b137dbd590ea3f696a1823f304959b532b12961a747153662be2ebfcd"
+          },
+          "S3": {
+            "id": "3b7982d67b385cd4c0d4",
+            "chars": 650,
+            "sha256": "47f610afd73a1030da1d9d0d806b2a56aef356ed8851baa4cc63de563db557d9"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 687.2153999865986,
+        "first_display_ms": 676.0198999836575
+      },
+      "R3": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "Suspensions are categorized into definite and indefinite types. For definite suspensions, you must follow instructions on the order and may need to pay a termination fee. For indefinite suspensions, you must take required actions to lift the suspension. [S1] If your license is suspended, you should check the specific reasons for the suspension and follow the instructions on the order. [S1]",
+        "sources": {
+          "S1": {
+            "id": "1687a87737e5ca227732",
+            "chars": 1105,
+            "sha256": "8a9a3ee814f0f34abb37d8ae1ed3997bc343813539ef5d7de164a97a59a6bd5c"
+          },
+          "S2": {
+            "id": "901ce8e001db0fee180e",
+            "chars": 1080,
+            "sha256": "3035c56b137dbd590ea3f696a1823f304959b532b12961a747153662be2ebfcd"
+          },
+          "S3": {
+            "id": "d6c9dae48c1931e8fe34",
+            "chars": 648,
+            "sha256": "d01baba90cf773f0d69d0004765850647746ab411a07f8b210571b2f8a6b5e7a"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 705.7835999876261,
+        "first_display_ms": 665.4102000175044
+      }
+    },
+    {
+      "id": "1253d16e73cf6d3024537c671c67aebc:1",
+      "domain": "va",
+      "R3": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "You can print out your VA Welcome Kit for free at Veterans Affairs website. This kit helps guide you through various benefits and services you've earned. For more specific benefits, explore the VA.gov for detailed information. [S1, S2, S3]",
+        "sources": {
+          "S1": {
+            "id": "3017336e9bd0bae66438",
+            "chars": 1085,
+            "sha256": "fe71fd8ca485ccf236190e98dee787007e42d5dbf2f883d18a6decd87fc47afb"
+          },
+          "S2": {
+            "id": "87bfad20f9f5cc4e193c",
+            "chars": 1160,
+            "sha256": "31770c0d0c5156a8463826c61da17fecff16ecc4365cccb1881847e60f424a56"
+          },
+          "S3": {
+            "id": "1b332938a48100b31adb",
+            "chars": 801,
+            "sha256": "b1e05613bd9ae43ae85e13529e68aeb3b1217aa57d3e00f9eba201668b9f1985"
+          }
+        },
+        "cites_visible_gold": true,
+        "total_ms": 563.9220000011846,
+        "first_display_ms": 542.3470999812707
+      },
+      "R7": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "You can print out your VA Welcome Kit for free at Veterans Affairs website. This kit helps guide you through various benefits and services you've earned. Explore VA.gov for more detailed information on your benefits. [S1]",
+        "sources": {
+          "S1": {
+            "id": "3017336e9bd0bae66438",
+            "chars": 1085,
+            "sha256": "fe71fd8ca485ccf236190e98dee787007e42d5dbf2f883d18a6decd87fc47afb"
+          },
+          "S2": {
+            "id": "87bfad20f9f5cc4e193c",
+            "chars": 1160,
+            "sha256": "31770c0d0c5156a8463826c61da17fecff16ecc4365cccb1881847e60f424a56"
+          },
+          "S3": {
+            "id": "1b332938a48100b31adb",
+            "chars": 801,
+            "sha256": "b1e05613bd9ae43ae85e13529e68aeb3b1217aa57d3e00f9eba201668b9f1985"
+          }
+        },
+        "cites_visible_gold": true,
+        "total_ms": 409.37499998835847,
+        "first_display_ms": 402.5077000260353
+      }
+    },
+    {
+      "id": "3319b4c1020ef853f5f8b5bd61c21645:3",
+      "domain": "va",
+      "R7": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "If you are the child or spouse of a veteran or service member who died, is captured or disappeared, you may be eligible for the Survivors and Dependents Educational Assistance (DEA) program. This program provides help paying for school or job training. [S1]",
+        "sources": {
+          "S1": {
+            "id": "32b26f67596080c76c0d",
+            "chars": 1152,
+            "sha256": "237ef41c868289b0e7ea2005011c32d6307a53cbcae1cad235699ddfc6debfb1"
+          },
+          "S2": {
+            "id": "7ae08a35ebf693631eb2",
+            "chars": 1071,
+            "sha256": "c6972dea5aa3cf47cefdbdaf949c50a7feb3a5c51f5f1f9d1d66e730c1477f77"
+          },
+          "S3": {
+            "id": "fb2bbd3be7e54920a69b",
+            "chars": 518,
+            "sha256": "e7b02a1c32eb4964edb10747e8d8225cac6c913dbb4faa697cafa1ddebf90fa7"
+          }
+        },
+        "cites_visible_gold": true,
+        "total_ms": 575.7807000190951,
+        "first_display_ms": 565.5736000044271
+      },
+      "R3": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "If you are the child or spouse of a veteran or service member who died, is captured or disappeared, you may be eligible for the Survivors and Dependents Educational Assistance (DEA) program. [S1] This program provides help paying for school or job training. [S1]",
+        "sources": {
+          "S1": {
+            "id": "32b26f67596080c76c0d",
+            "chars": 1152,
+            "sha256": "237ef41c868289b0e7ea2005011c32d6307a53cbcae1cad235699ddfc6debfb1"
+          },
+          "S2": {
+            "id": "3c82a42abe71a7d64ae0",
+            "chars": 1133,
+            "sha256": "54d42651ce71543054e3cf25a6ed243c2f862d8d605a13b1dc6088c4d9c9b319"
+          },
+          "S3": {
+            "id": "eb26abd97b89c93a0c3f",
+            "chars": 626,
+            "sha256": "3790e176e1fdb8012dd23d35ed7c3edd97eb626b09c350e25c6f2a41a8bfc2d1"
+          }
+        },
+        "cites_visible_gold": true,
+        "total_ms": 634.7496999951545,
+        "first_display_ms": 602.0653999876231
+      }
+    },
+    {
+      "id": "a9a3fb6863eb980d800732db55b0caef:3",
+      "domain": "ssa",
+      "R3": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "Yes, you can open an account by either creating a security freeze or fraud alert and then lifting it, or by visiting a local Social Security office. [S3] Additionally, you can also create an account online after lifting the security freeze or fraud alert. [S2]",
+        "sources": {
+          "S1": {
+            "id": "0a7eda7f21baa9ad690d",
+            "chars": 1135,
+            "sha256": "8cf40ce3377e453e6199cb1e28fa91294c2515ae8fe7ed73ae3b77d4d96fbc98"
+          },
+          "S2": {
+            "id": "200dafa9d5017a535e57",
+            "chars": 1139,
+            "sha256": "c8591e9c6489aaaece08df9e314be5181d818bd9d6e0f686670da4b8680d68f3"
+          },
+          "S3": {
+            "id": "77823d85dde73b4ca251",
+            "chars": 865,
+            "sha256": "1a0d8196d1c14beee228debb056228d88132dbed6b0d92f884f7b2c345d48c49"
+          }
+        },
+        "cites_visible_gold": true,
+        "total_ms": 626.5476999979,
+        "first_display_ms": 577.6665000012144
+      },
+      "R7": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "Yes, you can open a my Social Security account by temporarily lifting a security freeze or fraud alert. Contact the Identity Services Provider to request a temporary lift. After the lift, you can create the account online. [S1, S2]",
+        "sources": {
+          "S1": {
+            "id": "0a7eda7f21baa9ad690d",
+            "chars": 1135,
+            "sha256": "8cf40ce3377e453e6199cb1e28fa91294c2515ae8fe7ed73ae3b77d4d96fbc98"
+          },
+          "S2": {
+            "id": "200dafa9d5017a535e57",
+            "chars": 1139,
+            "sha256": "c8591e9c6489aaaece08df9e314be5181d818bd9d6e0f686670da4b8680d68f3"
+          },
+          "S3": {
+            "id": "abd44a3b14709b311910",
+            "chars": 860,
+            "sha256": "28014a3c04ff72542270c0f87f1181995438b1ae43133b1db76fe12225f6f858"
+          }
+        },
+        "cites_visible_gold": true,
+        "total_ms": 477.0272000168916,
+        "first_display_ms": 468.19549999781884
+      }
+    },
+    {
+      "id": "9586252d07198b41a058239ae38aeea1:8",
+      "domain": "va",
+      "R7": {
+        "status": "handoff",
+        "reason": "retrieval_below_dev_threshold",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "1e717d5193fe37bc8675",
+            "chars": 1109,
+            "sha256": "af0c09c3fb9c526df0086bef22f8263b706b6d3015b0ae74cc5ca017464d8ef0"
+          },
+          "S2": {
+            "id": "7fda006a44986b65124c",
+            "chars": 1092,
+            "sha256": "83ed686048921a2ee973356944457ec7f02dd61ac112d95198d16a6f0bcf7d6d"
+          },
+          "S3": {
+            "id": "a3fdaa946d66dc905709",
+            "chars": 714,
+            "sha256": "38136bafd78b63e9672d836418458ee6a206874a422f99505cc3599b3242abbb"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 5.451600009109825,
+        "first_display_ms": null
+      },
+      "R3": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "If your condition is not 100% disabling, you do not meet the requirement for a single permanent disability that qualifies you for a pension based on being housebound. [S1] You should consult with a disability benefits planner to understand how your condition affects your eligibility for benefits. [S2]",
+        "sources": {
+          "S1": {
+            "id": "7fda006a44986b65124c",
+            "chars": 1092,
+            "sha256": "83ed686048921a2ee973356944457ec7f02dd61ac112d95198d16a6f0bcf7d6d"
+          },
+          "S2": {
+            "id": "47bafad7afe067b3c1d1",
+            "chars": 1081,
+            "sha256": "a7c3a73ee615a8a9b9bdbc177cb0a53390b457875b0fe58ee916e3cde65b665f"
+          },
+          "S3": {
+            "id": "43c55766aa8aabc09c8f",
+            "chars": 594,
+            "sha256": "c26104e3095b8a1d73946f8892a53176f01fee2e59f8f8eca2f50cf804e5be33"
+          }
+        },
+        "cites_visible_gold": true,
+        "total_ms": 659.9917999992613,
+        "first_display_ms": 615.198599989526
+      }
+    },
+    {
+      "id": "47ed1d2ddce2ab50c4bc587e592a5900:5",
+      "domain": "studentaid",
+      "R3": {
+        "status": "handoff",
+        "reason": "retrieval_below_dev_threshold",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "75728d688bd6631b3165",
+            "chars": 1052,
+            "sha256": "bf8fe1cd3b5b4eb67cb1083629c278105a2e49b478ff315fd6a8127ecb6085d2"
+          },
+          "S2": {
+            "id": "105fe2e9766e9e209d19",
+            "chars": 1090,
+            "sha256": "a59a6873f09632fa4cc358a1d7fea7e68822f7f9d32c2c2c753ced5392b16d19"
+          },
+          "S3": {
+            "id": "08c58972af3d684c319a",
+            "chars": 697,
+            "sha256": "f03d65db826d902c4f2e768de9b030e277f1f9a939acb59912e82233e55bbe93"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 28.677499998593703,
+        "first_display_ms": null
+      },
+      "R7": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "If your parents are in jail, you should still report their information on the FAFSA form. This helps ensure your financial information is accurate and can affect your eligibility for financial aid. [S1]",
+        "sources": {
+          "S1": {
+            "id": "96d9eb72debcd5ed67e6",
+            "chars": 1037,
+            "sha256": "586c65f59031e598ef714d30fa9bd3c4f56f8541da853f27bf625cd0dc06478d"
+          },
+          "S2": {
+            "id": "75728d688bd6631b3165",
+            "chars": 1052,
+            "sha256": "bf8fe1cd3b5b4eb67cb1083629c278105a2e49b478ff315fd6a8127ecb6085d2"
+          },
+          "S3": {
+            "id": "9e963b1bcc8c0e48da5e",
+            "chars": 654,
+            "sha256": "c3f03571f4c4fe28da49e594784c1ebf3ca2061be3bc264214bbb1f680b04122"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 465.8347000076901,
+        "first_display_ms": 460.38529998622835
+      }
+    },
+    {
+      "id": "8dc956a239a7d24ab97945d718a34313:17",
+      "domain": "ssa",
+      "R7": {
+        "status": "handoff",
+        "reason": "retrieval_below_dev_threshold",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "a25cc19f67c87bbe33d1",
+            "chars": 963,
+            "sha256": "baca4c883912337dc13c2dcf4e38901fd23f9377088636cc7ca8efb5c127c61d"
+          },
+          "S2": {
+            "id": "7cb19fd8e512edfb7674",
+            "chars": 945,
+            "sha256": "b985c40a9aa8c497fa8ea74c48f35fdf234b9fbebe6de1e432eac6e52a5b0ac6"
+          },
+          "S3": {
+            "id": "88e089ef3bae002b6fc2",
+            "chars": 1056,
+            "sha256": "5bc535af8a02382d2fd560a9908c70d4e4c8cb769dd37c428ac35abcd4086313"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 3.0832999909762293,
+        "first_display_ms": null
+      },
+      "R3": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "To figure out the amount of benefits, you can use your annual Social Security Statement or create a free my Social Security account to check your earnings history online. Additionally, the Retirement Calculator within my Social Security can provide personalized estimates based on your actual earnings. For divorced spouses, you may need to use the Benefits Planner: Retirement | If You Are Divorced to understand how your benefits are calculated. [S1, S3]",
+        "sources": {
+          "S1": {
+            "id": "88e089ef3bae002b6fc2",
+            "chars": 1214,
+            "sha256": "1a74e30cbd497b198c905f12dad5f5432a8c0e7fbc7b6e1818780374b807e0fb"
+          },
+          "S2": {
+            "id": "99dd988bf623e1bf6d31",
+            "chars": 1035,
+            "sha256": "9a05a46b4056283df9388d16c34773afb1d60fd74975a2c0c10d4c6b9b0a539b"
+          },
+          "S3": {
+            "id": "7cb19fd8e512edfb7674",
+            "chars": 828,
+            "sha256": "46b63a43a2d9d86a6a5ced8736779be33fd1e8b13bb891c8cb5fb5b7e6932ee9"
+          }
+        },
+        "cites_visible_gold": true,
+        "total_ms": 841.2902999843936,
+        "first_display_ms": 806.2770999968052
+      }
+    },
+    {
+      "id": "0f920333d379197e1eb23a9ec230419c:7",
+      "domain": "va",
+      "R3": {
+        "status": "handoff",
+        "reason": "retrieval_below_dev_threshold",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "5924feef50cade75f8f3",
+            "chars": 1184,
+            "sha256": "f2127e78be8e176c9b4df124ebe7d49b67cb3035743dbebbb4112345f8b550c5"
+          },
+          "S2": {
+            "id": "f22e204a36b14f596ab5",
+            "chars": 1156,
+            "sha256": "242c589d877e8dadf9e0c007aad0b20c54a89033db7b4c842213bed55f167704"
+          },
+          "S3": {
+            "id": "76e461ed5d186659444b",
+            "chars": 693,
+            "sha256": "77eef17f866446d14d6dd9d1c71d4ceb883cb4dbae4aa5b37be4fafe5935b79d"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 41.65670002112165,
+        "first_display_ms": null
+      },
+      "R7": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "You can guide me on how to apply for and manage VA education benefits, eligibility for VA education benefits, and how to prepare and apply for VA education and training benefits. [S1, S2]",
+        "sources": {
+          "S1": {
+            "id": "697baf41ad56f82347d5",
+            "chars": 1201,
+            "sha256": "2ea15416fcc1b70736bf9124b4b4c548b637ea8e51c8007dd8fe36e698659188"
+          },
+          "S2": {
+            "id": "76e461ed5d186659444b",
+            "chars": 1201,
+            "sha256": "8d536d671a8558a0f9172ce357c07a96066b60a7390669b3a5659c94af2447a0"
+          },
+          "S3": {
+            "id": "5924feef50cade75f8f3",
+            "chars": 715,
+            "sha256": "8f73fec4e28f52a4830d7e7fea433595c6f8f6a2f40a498a574a37db6676104f"
+          }
+        },
+        "cites_visible_gold": true,
+        "total_ms": 480.3657000011299,
+        "first_display_ms": 472.2577999928035
+      }
+    },
+    {
+      "id": "a6415bdbf58d9a2e713ee64d06fb5670:6",
+      "domain": "va",
+      "R7": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "If your school closed, you should first contact the state licensing agency to see if they have your academic records. You may be eligible for a closed school discharge if you completed or are in the process of completing a comparable program at another school, but did not participate in a teach-out, transfer credits, or benefit from the training at the closed school. If your school closed less than three years ago, you can apply for a closed school discharge as soon as your school's closure date is confirmed by the U.S. Department of Education. [S1, S2]",
+        "sources": {
+          "S1": {
+            "id": "9b39d606e34dccea764c",
+            "chars": 1025,
+            "sha256": "4d33fec5bb8ab87d98aef1e2e6a48c1dfc24dc7d263389f67ae34fd426d43ab9"
+          },
+          "S2": {
+            "id": "0cf0ce9c57ab4fe9983d",
+            "chars": 1133,
+            "sha256": "a38781627068dbdb51934b92cc2cccc5d96a84ada2df6d6d290e541709280e8f"
+          },
+          "S3": {
+            "id": "8422d7a52217c797a3dd",
+            "chars": 845,
+            "sha256": "becd643ae6001f41d12d6924fb6e29c2eb98113f0621bbd53a0cd0b3d79094d4"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 1022.6060999848414,
+        "first_display_ms": 1014.2057999910321
+      },
+      "R3": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "If your school closed, you can contact your loan servicer to apply for a closed school discharge. You have the benefit of no further obligation to repay the loan and the record of the loan will be deleted from your credit report. [S3]",
+        "sources": {
+          "S1": {
+            "id": "0cf0ce9c57ab4fe9983d",
+            "chars": 1133,
+            "sha256": "a38781627068dbdb51934b92cc2cccc5d96a84ada2df6d6d290e541709280e8f"
+          },
+          "S2": {
+            "id": "8422d7a52217c797a3dd",
+            "chars": 1160,
+            "sha256": "9ad64a2f245a4404b441962efd3dc0f9af1ef620bf48ceb4f97bfde8a45b4f5b"
+          },
+          "S3": {
+            "id": "edf491aac6681335d9c7",
+            "chars": 714,
+            "sha256": "a486cca148a5d6ebde79fc924d7923f124eeb49b8e320bd36b50a41d504be65f"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 561.8333999882452,
+        "first_display_ms": 532.8033000114374
+      }
+    },
+    {
+      "id": "2eb85da28078980a0ada851fb09f5753:6",
+      "domain": "studentaid",
+      "R3": {
+        "status": "handoff",
+        "reason": "retrieval_below_dev_threshold",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "55ad00b00dfaa0c457b7",
+            "chars": 1047,
+            "sha256": "6ff281f332be333118cfd03a7dcfca147e175937734acfdb5affd5a4048bfc00"
+          },
+          "S2": {
+            "id": "c7e00a8c96bcd83d7f8e",
+            "chars": 1020,
+            "sha256": "bd97ec9b35be44cb26967224f9b5811bcd371608cd9dc092e6cb3216a550b085"
+          },
+          "S3": {
+            "id": "7329b8b28933cc3081d4",
+            "chars": 486,
+            "sha256": "d0e6e5d0090b5b8d1c70b55da1aa654adca3a547834d8f97c8629be290f39fdc"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 22.131100005935878,
+        "first_display_ms": null
+      },
+      "R7": {
+        "status": "handoff",
+        "reason": "retrieval_below_dev_threshold",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "f362c70aa902cb2046fe",
+            "chars": 1080,
+            "sha256": "448887c6794b618a8997983a733e4b738cf908695870047846c7342ef99305c2"
+          },
+          "S2": {
+            "id": "55ad00b00dfaa0c457b7",
+            "chars": 1047,
+            "sha256": "6ff281f332be333118cfd03a7dcfca147e175937734acfdb5affd5a4048bfc00"
+          },
+          "S3": {
+            "id": "9ca496cae4134eab987d",
+            "chars": 490,
+            "sha256": "65457bc475f5551420f45926b8bc398f93f118977c507f73a41a9981affb7fa0"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 4.974100011168048,
+        "first_display_ms": null
+      }
+    },
+    {
+      "id": "7d8c5205719fc14d2f5e992ee3b40a7b:10",
+      "domain": "dmv",
+      "R7": {
+        "status": "handoff",
+        "reason": "retrieval_below_dev_threshold",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "05fa1ba71cb0ac058c7a",
+            "chars": 1070,
+            "sha256": "fe87714469b3ae4386a2d5f4cdd6289254206d6204054cbd5bb9c8ae4c85ccb1"
+          },
+          "S2": {
+            "id": "84f1376d8cd633a4acf6",
+            "chars": 1112,
+            "sha256": "ad4e57cb8fc9eecbfbdb6f6e14c5fe9eca4ce6e2753114e72c20560562f41186"
+          },
+          "S3": {
+            "id": "cd97077211bb04bcf7e4",
+            "chars": 686,
+            "sha256": "54988c85ae6fe257dcf906322675f5a3c0d5b8f496a268c6ca6119da48052226"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 6.459999975049868,
+        "first_display_ms": null
+      },
+      "R3": {
+        "status": "handoff",
+        "reason": "retrieval_below_dev_threshold",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "05fa1ba71cb0ac058c7a",
+            "chars": 1070,
+            "sha256": "fe87714469b3ae4386a2d5f4cdd6289254206d6204054cbd5bb9c8ae4c85ccb1"
+          },
+          "S2": {
+            "id": "f69526695023b772df82",
+            "chars": 1141,
+            "sha256": "ca2ee311613cc6d67e6874713935bd2a63bcbf90dcc4e069a51605241539b9ba"
+          },
+          "S3": {
+            "id": "f70361110426a43088c5",
+            "chars": 760,
+            "sha256": "45271cc2bfa85c62ee8a5795c8dab3698f23956a09835c4af6f38f77ad3ff0ed"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 41.27730001346208,
+        "first_display_ms": null
+      }
+    },
+    {
+      "id": "70f3b95dacad33b20b953c73d0f91d42:12",
+      "domain": "studentaid",
+      "R3": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "Yes, there are different repayment plans including income-driven repayment plans. You select a repayment plan when applying for a Direct Consolidation Loan. [S1, S2]",
+        "sources": {
+          "S1": {
+            "id": "246483389a7696517753",
+            "chars": 1136,
+            "sha256": "24d16838257292acd428f17f86175c99625fc509e99f32272992ea7efb07bf1a"
+          },
+          "S2": {
+            "id": "adcb9adac0b13cbcd29c",
+            "chars": 1168,
+            "sha256": "569bbd118e771b93b7b7eb3b1e3922749ee7d13175effe54c7503f0a48e5ea34"
+          },
+          "S3": {
+            "id": "8e3860635460dbbf6eed",
+            "chars": 745,
+            "sha256": "dc9ec92172ee0b47e98955a16787941b028a4a70faef257df089ecaf9bdeb468"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 442.59360001888126,
+        "first_display_ms": 400.41719999862835
+      },
+      "R7": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "Yes, there are different repayment plans including income-driven repayment plans. You select a repayment plan when applying for a Direct Consolidation Loan. [S1, S2]",
+        "sources": {
+          "S1": {
+            "id": "246483389a7696517753",
+            "chars": 1136,
+            "sha256": "24d16838257292acd428f17f86175c99625fc509e99f32272992ea7efb07bf1a"
+          },
+          "S2": {
+            "id": "adcb9adac0b13cbcd29c",
+            "chars": 1168,
+            "sha256": "569bbd118e771b93b7b7eb3b1e3922749ee7d13175effe54c7503f0a48e5ea34"
+          },
+          "S3": {
+            "id": "2e34530843382664915b",
+            "chars": 784,
+            "sha256": "c230981a9fabb51e8047bcaf1e60b1fbfbccf9ab3f2ec9f9d3f0e6a6533c1a09"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 368.4845000097994,
+        "first_display_ms": 360.07799999788404
+      }
+    },
+    {
+      "id": "7fb485594202738477a3052928b003ec:5",
+      "domain": "va",
+      "R7": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "Yes, if you have a severe service-connected disability, you may be eligible for VMLI. You must also meet additional requirements such as having received a Specially Adapted Housing SAH grant to buy, build, or make changes to a home to fit your needs. [S1]",
+        "sources": {
+          "S1": {
+            "id": "f42b9a4fc1a53eb885ea",
+            "chars": 1048,
+            "sha256": "c498b4dd8bd6e31678aa3955e02ed59715720dd2f1e9af2cd2de43c426b45510"
+          },
+          "S2": {
+            "id": "03c797a67f95b613675b",
+            "chars": 918,
+            "sha256": "91acbe35bb16e65f2e99e1cf4708af93900f57e03e2659b1dc49679221f8bf83"
+          },
+          "S3": {
+            "id": "f19fcd9ce7c53176e615",
+            "chars": 553,
+            "sha256": "8f2e5915efe608744e79d64b5997d64d5eb138eeed11811b580c96e0ffe28a13"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 614.4524000119418,
+        "first_display_ms": 604.8136999888811
+      },
+      "R3": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "You may be eligible for Veterans Mortgage Life Insurance (VMLI) if you have a severe disability caused by your service and received a Specially Adapted Housing (SAH) grant to make your home more accessible. [S2] However, VMLI eligibility is not directly related to Service-Disabled Veterans Life Insurance (S-DVI). [S1] To apply for S-DVI, you must meet specific requirements related to your service-connected disability and have applied within 2 years of receiving a new service-connected disability rating.",
+        "sources": {
+          "S1": {
+            "id": "f19fcd9ce7c53176e615",
+            "chars": 998,
+            "sha256": "249df2b5deacc718206a1946b3d3c70e6a864def3b588613056763d67e213fae"
+          },
+          "S2": {
+            "id": "f42b9a4fc1a53eb885ea",
+            "chars": 1048,
+            "sha256": "c498b4dd8bd6e31678aa3955e02ed59715720dd2f1e9af2cd2de43c426b45510"
+          },
+          "S3": {
+            "id": "23fb7e1342c10ca1ab8a",
+            "chars": 704,
+            "sha256": "51464027d8c7739745b5082c1052eab49e38bf619ab5e9522a4ae4c83d2bef6b"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 1013.7140000006184,
+        "first_display_ms": 962.1156999783125
+      }
+    },
+    {
+      "id": "5e85a9d5970b7385fe920cf9290b38f9:13",
+      "domain": "va",
+      "R3": {
+        "status": "handoff",
+        "reason": "retrieval_below_dev_threshold",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "7c95194d647354c34d73",
+            "chars": 1222,
+            "sha256": "1ee84023b6534223c9c6ebb7a3a3930a5d8a8b36777d366a46585ca6231b62b2"
+          },
+          "S2": {
+            "id": "f4bd61e0115e137d3859",
+            "chars": 1087,
+            "sha256": "ce277aff7862e24865e812a9a11f0d30a0c847ed7013d5466f0f98e559874d5d"
+          },
+          "S3": {
+            "id": "3979c18b8af5b13024dc",
+            "chars": 665,
+            "sha256": "107bb2fa07e95591942df930dc4b96f943b18c13ebb78e5cff4018321b0bd0db"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 32.37410000292584,
+        "first_display_ms": null
+      },
+      "R7": {
+        "status": "handoff",
+        "reason": "retrieval_below_dev_threshold",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "3979c18b8af5b13024dc",
+            "chars": 1095,
+            "sha256": "f81d1f4bd2825c360bc0e2ff4e55d6072a61c09133efe3c6169f17f1c881353a"
+          },
+          "S2": {
+            "id": "1400abd4662a300830f5",
+            "chars": 1140,
+            "sha256": "a255d7413651aa6b8778acca391156d6c1c93e40649ee563e1b1b200f331f82e"
+          },
+          "S3": {
+            "id": "248f7fad6e4abf1f4404",
+            "chars": 640,
+            "sha256": "74d6532efa19e867b177a9266a19a69855067b4a099b659ec0acd7b067fefdc6"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 5.934999993769452,
+        "first_display_ms": null
+      }
+    },
+    {
+      "id": "762106d0fd0b3c4e87b4d573a1089d8c:11",
+      "domain": "va",
+      "R7": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "You may be able to get a COE if you are the spouse of a Veteran and served in the Armed Forces of a government allied with the United States in World War II. [S1] If you meet the eligibility requirements, you can apply for a Certificate of Eligibility (COE) to use for VA home loan programs. [S3]",
+        "sources": {
+          "S1": {
+            "id": "96f79ba199bd87fee73b",
+            "chars": 1031,
+            "sha256": "5e73e1f1c922fa89b4854b6a4e6f366ab9e08d2ffa0be228b35ff79727bbcc03"
+          },
+          "S2": {
+            "id": "ece847db24d72d134ca0",
+            "chars": 1066,
+            "sha256": "5861d22ea10a81e1ccb627191f93fb44ac27082342b98e081d32ca79f8b8f542"
+          },
+          "S3": {
+            "id": "6317176ce6270cedd220",
+            "chars": 522,
+            "sha256": "117e442281a8daf6521d37d2ef3c72fb862e2da386951d83ed812da9fb3705af"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 708.219399995869,
+        "first_display_ms": 701.3328000030015
+      },
+      "R3": {
+        "status": "handoff",
+        "reason": "retrieval_below_dev_threshold",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "a4c4588faf28e5d2302b",
+            "chars": 1059,
+            "sha256": "bcef6dcdb59f4f1e6f25baa2ff903aaf879aaa4cdb86e1990a630f3c6030537b"
+          },
+          "S2": {
+            "id": "96f79ba199bd87fee73b",
+            "chars": 1031,
+            "sha256": "5e73e1f1c922fa89b4854b6a4e6f366ab9e08d2ffa0be228b35ff79727bbcc03"
+          },
+          "S3": {
+            "id": "6317176ce6270cedd220",
+            "chars": 444,
+            "sha256": "7bae82973cb985e4e35221d10c6098e0e9dd9c57a313c2d46b258e1380a76e9d"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 24.918600014643744,
+        "first_display_ms": null
+      }
+    },
+    {
+      "id": "304e833d420b1b5fda2d7ef4a0508344:12",
+      "domain": "va",
+      "R3": {
+        "status": "handoff",
+        "reason": "generator_insufficient_evidence",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "27563be95fbd303e2226",
+            "chars": 596,
+            "sha256": "0f35b6a491f3fd9ba357ce6df783cc7383bf6a19aa45df17c7f5d5287c29a51f"
+          },
+          "S2": {
+            "id": "efd454ea9e1884a0cb5d",
+            "chars": 962,
+            "sha256": "8620c06c9f306c6059e05458435ad0b724dcac427232a6fba82adeb4b85868cd"
+          },
+          "S3": {
+            "id": "adbbd1c13ed304190992",
+            "chars": 443,
+            "sha256": "1bc2fd82293880ff64fb6af9c271bed3368f249fd48e082d4d4fc35e4f58dbdc"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 308.47089999588206,
+        "first_display_ms": null
+      },
+      "R7": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "VGLI premium rates are determined based on your age and the amount of insurance coverage you desire. You can find monthly premium rates as of July 1, 2014, by choosing your age. See the VGLI premium rates before July 1, 2014 for a reference. [S2]",
+        "sources": {
+          "S1": {
+            "id": "27563be95fbd303e2226",
+            "chars": 596,
+            "sha256": "0f35b6a491f3fd9ba357ce6df783cc7383bf6a19aa45df17c7f5d5287c29a51f"
+          },
+          "S2": {
+            "id": "f85e3c8bacb5c8677600",
+            "chars": 951,
+            "sha256": "ec8a9d43c19aef2ad68881c3e35fcfaa1a1e8000897e5291fc71cd83f8c8ff6d"
+          },
+          "S3": {
+            "id": "737ee7933ee020dd9446",
+            "chars": 775,
+            "sha256": "1446a9e403d2a5548587f7308e472e44e36824a854228b5349e0b39d18d29d74"
+          }
+        },
+        "cites_visible_gold": true,
+        "total_ms": 656.1420999933034,
+        "first_display_ms": 644.5136000111233
+      }
+    },
+    {
+      "id": "390412d2dd95fc237cb5ef28b05724ea:1",
+      "domain": "ssa",
+      "R7": {
+        "status": "handoff",
+        "reason": "generator_insufficient_evidence",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "a63df629d2b480316640",
+            "chars": 1112,
+            "sha256": "d56c75860c05b41f1f29447d8c204b5d10579bc714e60b0a2973d2b7f9aaaeb6"
+          },
+          "S2": {
+            "id": "f3ad9661dd9b9c2a8e6f",
+            "chars": 1108,
+            "sha256": "94092df5fb0b1ff4bf7fb37977752f4b6459ad7e6b08e3c72636dedb7a1d50e1"
+          },
+          "S3": {
+            "id": "a7e3a6cbee264a16a121",
+            "chars": 775,
+            "sha256": "34b1d1afb22237a37b015ed48974cfc75e0e9116f9cc0c72717a4fa539061673"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 317.6038999808952,
+        "first_display_ms": null
+      },
+      "R3": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "Yes, you can be eligible for spouse's benefits if your spouse is receiving retirement or disability benefits and you meet the age requirement. You can also qualify for Medicare at age 65. [S1]",
+        "sources": {
+          "S1": {
+            "id": "d5893ec3e2b7147ce88c",
+            "chars": 1125,
+            "sha256": "0fd169b145bc0b0d381c45d5dc844ff9d4a81c03fc0017097f0cdf2ad7f5ecee"
+          },
+          "S2": {
+            "id": "591b2a327bc462a3d97d",
+            "chars": 1133,
+            "sha256": "75c34570385e6003a13b3e722f7229b623453a3cbb31564afc19903375190f52"
+          },
+          "S3": {
+            "id": "dc09bc80de3dd6d2f342",
+            "chars": 609,
+            "sha256": "eaf42becd0098c6b13c7b87b72ea367e66259438331d7e30b8a68ba98fa3783d"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 513.0719000007957,
+        "first_display_ms": 478.58439999981783
+      }
+    },
+    {
+      "id": "72a1223ae425ae032832a1432c1f933f:9",
+      "domain": "studentaid",
+      "R3": {
+        "status": "handoff",
+        "reason": "retrieval_below_dev_threshold",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "1a659a6b01fd03fe6d06",
+            "chars": 1076,
+            "sha256": "e3bb400e2fc25e8b44c73c4600b9b5f1f093bb24b2834f525a0ed7e396b6ab8e"
+          },
+          "S2": {
+            "id": "374debda139827f80604",
+            "chars": 1149,
+            "sha256": "2108d798f30e8d2880c11a1fcc57e6c6f91c12678d8c9af377004d00b32e8b8c"
+          },
+          "S3": {
+            "id": "bd3555d7bb74aee51e12",
+            "chars": 776,
+            "sha256": "e56d68032f08551529f8edcf2b4dfba752a6a3826c3f9de227a38f94236c1537"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 36.537200008751824,
+        "first_display_ms": null
+      },
+      "R7": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "Yes, you can call the Veterans Crisis Line for confidential help. They are available 24/7 and can be reached at 800-273-8255, then select 1. [S3]",
+        "sources": {
+          "S1": {
+            "id": "1a659a6b01fd03fe6d06",
+            "chars": 1076,
+            "sha256": "e3bb400e2fc25e8b44c73c4600b9b5f1f093bb24b2834f525a0ed7e396b6ab8e"
+          },
+          "S2": {
+            "id": "f7db66c258a418476f94",
+            "chars": 822,
+            "sha256": "a8970670c1c0ec278262a13f42cc6d8e799c862acfa42a71bfd59ff879bd5abe"
+          },
+          "S3": {
+            "id": "9a741379f58c046c0b39",
+            "chars": 892,
+            "sha256": "6ace99e5ed42253e2e90110aa8cc161f7f6f0a7481fe7feda5ba4c83c8c1ae11"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 527.7519999945071,
+        "first_display_ms": 519.1208999895025
+      }
+    },
+    {
+      "id": "0a0539fb744ecca0d1b7c9f5d478b3cf:1",
+      "domain": "studentaid",
+      "R7": {
+        "status": "handoff",
+        "reason": "retrieval_below_dev_threshold",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "1a659a6b01fd03fe6d06",
+            "chars": 1076,
+            "sha256": "e3bb400e2fc25e8b44c73c4600b9b5f1f093bb24b2834f525a0ed7e396b6ab8e"
+          },
+          "S2": {
+            "id": "e5c9414e77f868415bbf",
+            "chars": 285,
+            "sha256": "9eb2d9440b945b5fee48b5ed83bc9ba953c7a4b43a3ab836ad24289013436ca6"
+          },
+          "S3": {
+            "id": "1e9fc09b093db11d67db",
+            "chars": 990,
+            "sha256": "0ddc8c142d81d6d60fa4dc4bc9022321ca6dc850f00f7764683d3e4a7958fcce"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 3.4699999960139394,
+        "first_display_ms": null
+      },
+      "R3": {
+        "status": "handoff",
+        "reason": "retrieval_below_dev_threshold",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "1a659a6b01fd03fe6d06",
+            "chars": 1076,
+            "sha256": "e3bb400e2fc25e8b44c73c4600b9b5f1f093bb24b2834f525a0ed7e396b6ab8e"
+          },
+          "S2": {
+            "id": "1e9fc09b093db11d67db",
+            "chars": 990,
+            "sha256": "0ddc8c142d81d6d60fa4dc4bc9022321ca6dc850f00f7764683d3e4a7958fcce"
+          },
+          "S3": {
+            "id": "de3a57a351ef86b05795",
+            "chars": 809,
+            "sha256": "9f8def2d3d6742edba75f678f05865e8034827d80b7906dfcc997051a664e5e6"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 24.229000002378598,
+        "first_display_ms": null
+      }
+    },
+    {
+      "id": "c37ace285f9df7aee5c00e62d47b6413:5",
+      "domain": "va",
+      "R3": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "Having VADIP is a plus because it offers discounted private dental insurance, which can help manage healthcare costs and improve access to dental services for eligible Veterans and their families. [S1] Additionally, VADIP is available throughout the United States and its territories, providing coverage regardless of location. [S1]",
+        "sources": {
+          "S1": {
+            "id": "b9cbcbc482d3a570feba",
+            "chars": 1041,
+            "sha256": "a088f763023241dddf83867ebbfe81733c908a7d4100ff70272b09a2a0370437"
+          },
+          "S2": {
+            "id": "c83c2646835adae2b96e",
+            "chars": 1119,
+            "sha256": "647399f5e363eb84d98e8461ce2c9b0e23372ea7ac9e09451283e74a08ddcd40"
+          },
+          "S3": {
+            "id": "01c71d24ca762f64888b",
+            "chars": 689,
+            "sha256": "e310250bbae17fdbd3a58ade132075b836393e1238c6326a6109a59fd8531f0e"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 671.076999977231,
+        "first_display_ms": 628.773700009333
+      },
+      "R7": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "Having VADIP as a Veteran can be a plus because it allows you to purchase private dental insurance at a reduced cost, which can cover dental procedures not covered by VA health care. Additionally, it can provide added peace of mind knowing you have a dental insurance plan, even if you're not eligible for free VA dental care. [S1]",
+        "sources": {
+          "S1": {
+            "id": "4e291e657b3d3261c243",
+            "chars": 1001,
+            "sha256": "f578d49f477f93ccf748ed77735f9b2a1e3d152c285fa74a2415473118ee9fb2"
+          },
+          "S2": {
+            "id": "c4b8f9e6cd1f819d5ec5",
+            "chars": 1036,
+            "sha256": "b247396e8c9112c3f98072ff50d906ffb7dd30fed5b35d3a8d8a96f7ea515fc5"
+          },
+          "S3": {
+            "id": "b9cbcbc482d3a570feba",
+            "chars": 676,
+            "sha256": "93b2db2d1622085040863f3105acc53c2b95d098eebee1547f3f6b5513dba062"
+          }
+        },
+        "cites_visible_gold": true,
+        "total_ms": 687.2864000033587,
+        "first_display_ms": 680.7832000195049
+      }
+    },
+    {
+      "id": "4c1b49755da1202af2409f01b0783176:7",
+      "domain": "dmv",
+      "R7": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "For different types of vehicles, the proofs of ownership needed to register and title a vehicle in New York include cars, trailers, boats, snowmobiles, and manufactured homes. Acceptable proofs of ownership can be obtained at purchase, from a deceased owner, or through other acceptable proofs. [S1]",
+        "sources": {
+          "S1": {
+            "id": "c91e3b7aba1bfe320548",
+            "chars": 1038,
+            "sha256": "250f355de0a6dc1441cbb2ac19349f06e16b0aeec6be42c8676e1ded9d872ca5"
+          },
+          "S2": {
+            "id": "2ffe38534a98b096387d",
+            "chars": 1014,
+            "sha256": "4a06e9840e38341e239f1f317a33ef367acc4b29238be0a485b6e81a2fd0559a"
+          },
+          "S3": {
+            "id": "2ace8cbda0aa51f70237",
+            "chars": 515,
+            "sha256": "7a21e0bc69c70dffbfb21ef6834d71c1b8a7cd858a1bc62a5265f266f7d94628"
+          }
+        },
+        "cites_visible_gold": true,
+        "total_ms": 618.3846999774687,
+        "first_display_ms": 609.8707000201102
+      },
+      "R3": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "Proof of ownership is not available for non-titled vehicles, boats, or snowmobiles in New York. You can get proof of ownership at purchase, through a deceased owner, or with a notarized affidavit. The DMV office will issue a non-transferable registration if your proof of ownership is not a NY State transferable registration. [S2, S3]",
+        "sources": {
+          "S1": {
+            "id": "2ace8cbda0aa51f70237",
+            "chars": 515,
+            "sha256": "7a21e0bc69c70dffbfb21ef6834d71c1b8a7cd858a1bc62a5265f266f7d94628"
+          },
+          "S2": {
+            "id": "c91e3b7aba1bfe320548",
+            "chars": 1038,
+            "sha256": "250f355de0a6dc1441cbb2ac19349f06e16b0aeec6be42c8676e1ded9d872ca5"
+          },
+          "S3": {
+            "id": "561d1d0194ae29d0ebcb",
+            "chars": 1067,
+            "sha256": "fd70d5985451ff4e90e004fa47e3176b236f341b65c7c77f6f36c73599392eba"
+          }
+        },
+        "cites_visible_gold": true,
+        "total_ms": 759.3249999918044,
+        "first_display_ms": 727.197400003206
+      }
+    },
+    {
+      "id": "52ace64781942e26e7f94c3baca22ce0:5",
+      "domain": "va",
+      "R3": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "Yes, you can transfer your Post-9/11 GI Bill benefits through milConnect while on active duty or after separation. You must qualify for the monthly housing allowance and meet age requirements. Contact your career counselor or personnel center for assistance. [S1, S2]",
+        "sources": {
+          "S1": {
+            "id": "542215348d1d1f0d3424",
+            "chars": 937,
+            "sha256": "41e3cdede1c446ac080ad2f445c480d39918fb6cf9e1afecc9405affd29b4ec3"
+          },
+          "S2": {
+            "id": "451473d1de7fa291dfd6",
+            "chars": 1072,
+            "sha256": "0701baa6df0d1776922084be14374e5b8edd5e2579b9e320307dad014ce9c16e"
+          },
+          "S3": {
+            "id": "1aefba8ffcc7e67ee323",
+            "chars": 407,
+            "sha256": "89264d30846209c659223756c5c22ef032490d2f54379cbe0ce061424ddda7ad"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 623.4330000006594,
+        "first_display_ms": 583.0929999938235
+      },
+      "R7": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "You can transfer Post-9/11 GI Bill benefits if you are on active duty or in the Selected Reserve and meet specific requirements. These include having completed at least 6 years of service and agreeing to add 4 more years of service, or having completed at least 10 years of service without committing to add 4 more years due to policy or statute. Additionally, the person receiving benefits must be enrolled in DEERS. [S2]",
+        "sources": {
+          "S1": {
+            "id": "84641e9d3f98328a5c54",
+            "chars": 1023,
+            "sha256": "bcf12dd24f66de356919227cb14eb949bb95ff6750df1c61ac3c565418c29024"
+          },
+          "S2": {
+            "id": "f25d7e5f4620891beac6",
+            "chars": 1092,
+            "sha256": "519b1b967ee1889eb923adeb44446e9ffff565b7389d02bbdcb585b0ea6076f8"
+          },
+          "S3": {
+            "id": "542215348d1d1f0d3424",
+            "chars": 569,
+            "sha256": "3b6ad020dcbbc22670825a07780176b9e7f3fc3c28ae04639714e22d23e4afc7"
+          }
+        },
+        "cites_visible_gold": true,
+        "total_ms": 875.6044000037946,
+        "first_display_ms": 865.3364000201691
+      }
+    },
+    {
+      "id": "c6d9f1d8452938f4b14a7eed3c48d9a9:3",
+      "domain": "ssa",
+      "R7": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "You should review the \"Other Things to Consider\" section for important factors to consider when deciding when to start your benefits. Read the \"Checklist for Online Medicare, Retirement, and Spouses Applications\" to find out what documents and information you need to apply. [S1, S2]",
+        "sources": {
+          "S1": {
+            "id": "99315c16eeee3f61e963",
+            "chars": 1130,
+            "sha256": "db43a76a994e460b378a6f47a8a37d697325a2cb178308e28f85d795c9a10b56"
+          },
+          "S2": {
+            "id": "474d5184992c75724753",
+            "chars": 1131,
+            "sha256": "dc1c95a6fdf2fdab9b53865d0f5306d97385c4b82df258f4c394103c23585e1f"
+          },
+          "S3": {
+            "id": "188c5b68a2fd20101ced",
+            "chars": 689,
+            "sha256": "418476bbe21bbd617900297559149bf94ac3855d4157ebf72a60e1eeb27cc1e3"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 602.9594000137877,
+        "first_display_ms": 595.1398000179324
+      },
+      "R3": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "Before applying, review the \"Getting Ready\" section on the Apply for Benefits page to ensure you have all necessary information. [S1] Additionally, check the \"Basics\" section for details about your \"full retirement age.\" [S1] Lastly, familiarize yourself with the different application options available, including online, phone, or in-person at a Social Security office. [S2]",
+        "sources": {
+          "S1": {
+            "id": "188c5b68a2fd20101ced",
+            "chars": 1139,
+            "sha256": "e872f3be34144c8fa1683e3fd4057f4bbecc31300f763eba3152b86a93c5d77b"
+          },
+          "S2": {
+            "id": "a068bfade7ead7456e6b",
+            "chars": 1118,
+            "sha256": "add0392318d60455ca2b64328dd0ac200ed0b1222daafd97eabd844e7daf3fcc"
+          },
+          "S3": {
+            "id": "5856ec263a41219c01fa",
+            "chars": 653,
+            "sha256": "b627d412f8c3d63c4d1e145bfb496ebfd5cd39ffb7fd23c84c2a1878c2403c62"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 813.612900004955,
+        "first_display_ms": 766.7818000190891
+      }
+    },
+    {
+      "id": "9c597124812a3b16f36596b8da2a5bec:14",
+      "domain": "ssa",
+      "R3": {
+        "status": "handoff",
+        "reason": "generator_insufficient_evidence",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "785ce416686eb2874d7d",
+            "chars": 1050,
+            "sha256": "53e37bb168743574253b57af1b76e855bb509a9754e6a7ae25604c13ce40a72f"
+          },
+          "S2": {
+            "id": "f4ca24a423af5caa2c31",
+            "chars": 1050,
+            "sha256": "53e37bb168743574253b57af1b76e855bb509a9754e6a7ae25604c13ce40a72f"
+          },
+          "S3": {
+            "id": "3896931fe891c612e190",
+            "chars": 662,
+            "sha256": "8230ed8246f6e7075a895817c390a7f26e2778ef8964d4bc00c43238b58cc6bd"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 306.1983999796212,
+        "first_display_ms": null
+      },
+      "R7": {
+        "status": "handoff",
+        "reason": "retrieval_below_dev_threshold",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "733635223c487fd96f3f",
+            "chars": 1087,
+            "sha256": "0a2a7c0af7b974c99eb6693bb762f1a3740930a1a96961311eb63fbfd87a9b7c"
+          },
+          "S2": {
+            "id": "1168e1d0f3d67daf8e14",
+            "chars": 1169,
+            "sha256": "bd3620a76b8a26bad2266ec5b7088620664f611728ba9c0769367c959242337c"
+          },
+          "S3": {
+            "id": "aa08a5beb212098682b8",
+            "chars": 687,
+            "sha256": "7e1ae250fa57a14084264fceb376325d9dbe2316e2f51cf56e46b6db272666ab"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 7.134999992558733,
+        "first_display_ms": null
+      }
+    },
+    {
+      "id": "2639ebe94b6b901371e7005ec03a0387:11",
+      "domain": "dmv",
+      "R7": {
+        "status": "handoff",
+        "reason": "generator_insufficient_evidence",
+        "answer": "",
+        "sources": {
+          "S1": {
+            "id": "b9e0cdae364c99996963",
+            "chars": 1066,
+            "sha256": "929a13fcea8f8ec7b708fbdac40016fd44bce956c9fecf4acc821d5e3829d739"
+          },
+          "S2": {
+            "id": "583138a6cd9a79439ebe",
+            "chars": 1014,
+            "sha256": "2285e609335d5b70303c7769ee6861700d7f287c676edd2acb298f605ebd3211"
+          },
+          "S3": {
+            "id": "570a8126b79bea33682a",
+            "chars": 784,
+            "sha256": "e35afb76b4b97fd786d3cc3348d8bc25e8f5456fda8667170fdd0b5d8aa754d2"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 271.63519998430274,
+        "first_display_ms": null
+      },
+      "R3": {
+        "status": "answer",
+        "reason": "generated_with_verified_citations",
+        "answer": "Temporary Visitor refers to anyone not immigrating to or residing in the United States with legal status documentation from the US Department of Homeland Security. [S2] For renewals, if your Temporary Visitor status is not expired, you can renew online, through the mail, or in an office. If your status has been extended, you must visit a DMV office with updated DHS paperwork. [S1]",
+        "sources": {
+          "S1": {
+            "id": "583138a6cd9a79439ebe",
+            "chars": 1014,
+            "sha256": "2285e609335d5b70303c7769ee6861700d7f287c676edd2acb298f605ebd3211"
+          },
+          "S2": {
+            "id": "b9e0cdae364c99996963",
+            "chars": 1066,
+            "sha256": "929a13fcea8f8ec7b708fbdac40016fd44bce956c9fecf4acc821d5e3829d739"
+          },
+          "S3": {
+            "id": "f5a01b1c00a637ea7845",
+            "chars": 750,
+            "sha256": "5c745c366a07574ceb569a3bb10fe83623f6637f0090a8fa8fd6390aaf432367"
+          }
+        },
+        "cites_visible_gold": false,
+        "total_ms": 811.6417000128422,
+        "first_display_ms": 767.8983999940101
+      }
+    }
+  ],
+  "model_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+  "metrics": {
+    "R3": {
+      "decisions": {
+        "handoff": 13,
+        "answer": 19
+      },
+      "answers_citing_visible_gold": 10,
+      "request_p95_ms": 826.0677299957024
+    },
+    "R7": {
+      "decisions": {
+        "answer": 21,
+        "handoff": 11
+      },
+      "answers_citing_visible_gold": 10,
+      "request_p95_ms": 821.4572849959949
+    }
+  }
+}
