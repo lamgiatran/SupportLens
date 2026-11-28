@@ -44,11 +44,11 @@ def resolve_citations(answer: str, prompt: Prompt) -> tuple[list[str], list[str]
 def make_prompt(question: str, evidence: list[dict], tokenizer: Tokenizer,
                 num_ctx: int = 2048, num_predict: int = 128,
                 evidence_budget: int = 600, *, system: str | None = None,
-                suffix: str | None = None) -> Prompt:
+                suffix: str | None = None, conversation: str = "") -> Prompt:
     """`system`/`suffix` are templates with `{p}` for the citation prefix; None keeps the v1 prompt."""
     # No namespace is inherently impossible in arbitrary source text. Reserve a
     # short one absent from the supplied text; never edit raw document brackets.
-    original = question + "\n" + "\n".join(item["text"] for item in evidence[:3])
+    original = question + "\n" + conversation + "\n" + "\n".join(item["text"] for item in evidence[:3])
     prefix = "S"
     while re.search(rf"\[[^\[\]\r\n]*\b{prefix}\s*\d", original, re.I):
         prefix += "S"
@@ -85,8 +85,9 @@ def make_prompt(question: str, evidence: list[dict], tokenizer: Tokenizer,
         visible[evidence_id] = len(item["text"])
     context = "\n\n".join(parts)
     # raw=True avoids hidden chat-template token accounting in this probe.
+    background = f"\n\nPrior conversation (for meaning only):\n{conversation}" if conversation else ""
     prompt = (f"<|im_start|>system\n{system}<|im_end|>\n"
-              f"<|im_start|>user\nEvidence:\n{context}\n\nQuestion: {question}{tail}<|im_end|>\n"
+              f"<|im_start|>user\nEvidence:\n{context}{background}\n\nQuestion: {question}{tail}<|im_end|>\n"
               "<|im_start|>assistant\n")
     tokens = tokenizer.count(prompt, special=False)
     if tokens + num_predict + 32 > num_ctx:

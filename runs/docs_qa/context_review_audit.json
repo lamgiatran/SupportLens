@@ -1,0 +1,335 @@
+{
+  "audit_sha256": "759759bd57d9514cfa044ee9ec6eef364973b479f4e94e0ab42c8ef66fc71219",
+  "salt": "context-review-2411",
+  "grades": [
+    {
+      "case": "80eba80595a3509dc4dc3e26babf83b3:3",
+      "side": "A",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "Account types and access conditions in S2."
+    },
+    {
+      "case": "80eba80595a3509dc4dc3e26babf83b3:3",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "Account types and access conditions in S2."
+    },
+    {
+      "case": "5cca9a205efa3e902d49712cd20a0029:5",
+      "side": "B",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "S1 points to the FAQ. S2 actually discusses voter registration during renewal."
+    },
+    {
+      "case": "ed0119668abaa26f1b933533c330a0fe:4",
+      "side": "A",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "S1 gives both replacement options in the ongoing sticker discussion."
+    },
+    {
+      "case": "ed0119668abaa26f1b933533c330a0fe:4",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "S1 gives both replacement options in the ongoing sticker discussion."
+    },
+    {
+      "case": "95a469061b9a4e73d543984f942fcbe3:11",
+      "side": "A",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "S1 states the cut-off and factors. B adds an online application claim absent from S1."
+    },
+    {
+      "case": "95a469061b9a4e73d543984f942fcbe3:11",
+      "side": "B",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "S1 states the cut-off and factors. B adds an online application claim absent from S1."
+    },
+    {
+      "case": "32ae0a8871ed16a516fd7930d55e0305:3",
+      "side": "A",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "S2 explicitly recommends income-driven repayment and gives the terms used by A."
+    },
+    {
+      "case": "32ae0a8871ed16a516fd7930d55e0305:3",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "S2 explicitly recommends income-driven repayment and gives the terms used by A."
+    },
+    {
+      "case": "625d017cbc6ca5796f4374b3a6047639:9",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "S1 names the four eligible loan types and excludes Direct Loans."
+    },
+    {
+      "case": "d79996f178afe8b10e2900c0eaa7da3c:6",
+      "side": "A",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "S1 names both agencies."
+    },
+    {
+      "case": "d79996f178afe8b10e2900c0eaa7da3c:6",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "S1 names both agencies."
+    },
+    {
+      "case": "3e48da929535ac60f66ce0de05a19014:4",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "no",
+      "note": "Mortgage advice is supported conditionally. The recent turns establish only an unspecified loan."
+    },
+    {
+      "case": "6c044ce4cac224ddefe8f791f77ee1b6:7",
+      "side": "A",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "S1 shows only a fragment about goals and calculations, not a definition or repayment features."
+    },
+    {
+      "case": "6c044ce4cac224ddefe8f791f77ee1b6:7",
+      "side": "B",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "S1 shows only a fragment about goals and calculations, not a definition or repayment features."
+    },
+    {
+      "case": "7ec3863e050641c4832e467ffe8f7b11:4",
+      "side": "A",
+      "supported": "no",
+      "responsive": "no",
+      "note": "User declines more information. S1 specifies treatment unrelated to service, unlike the answer."
+    },
+    {
+      "case": "a2f093a87ad8371d3aea4e463bd3ebee:4",
+      "side": "A",
+      "supported": "yes",
+      "responsive": "no",
+      "note": "Repeats the prior description. Does not tell the user what they can do on this page."
+    },
+    {
+      "case": "f0f148f4c71c9c149b0a187a1fb557d4:1",
+      "side": "A",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "S3 does not substantiate the full cost and coverage claims. S1 does not say apply online."
+    },
+    {
+      "case": "f0f148f4c71c9c149b0a187a1fb557d4:1",
+      "side": "B",
+      "supported": "no",
+      "responsive": "no",
+      "note": "S3 does not substantiate the full cost and coverage claims. S1 does not say apply online."
+    },
+    {
+      "case": "0b3c04b0b6dea4ee5de90f0ca2fa8f8b:18",
+      "side": "B",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "S3 does not require that ID to contact the certifying official."
+    },
+    {
+      "case": "98ec6904a42dfcf483e63cb46e8c0241:1",
+      "side": "A",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "Both give the cost asked for. B also includes possible extended eligibility."
+    },
+    {
+      "case": "98ec6904a42dfcf483e63cb46e8c0241:1",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "Both give the cost asked for. B also includes possible extended eligibility."
+    },
+    {
+      "case": "cb2580e29e89992409cc436654f9023c:6",
+      "side": "A",
+      "supported": "no",
+      "responsive": "no",
+      "note": "Both omit the non-English-license condition and repeat pre-test instructions to a post-exam prompt."
+    },
+    {
+      "case": "cb2580e29e89992409cc436654f9023c:6",
+      "side": "B",
+      "supported": "no",
+      "responsive": "no",
+      "note": "Both omit the non-English-license condition and repeat pre-test instructions to a post-exam prompt."
+    },
+    {
+      "case": "7c1c32cd961d2f7324b0db508f5209ee:15",
+      "side": "A",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "S3 estimates work-study automatically. S1 supports using tax or banking records."
+    },
+    {
+      "case": "7c1c32cd961d2f7324b0db508f5209ee:15",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "S3 estimates work-study automatically. S1 supports using tax or banking records."
+    },
+    {
+      "case": "73872f3bb4a56c437686018bbc4e8736:8",
+      "side": "A",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "Both state the minimum duty or full-period rule with its exception."
+    },
+    {
+      "case": "73872f3bb4a56c437686018bbc4e8736:8",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "Both state the minimum duty or full-period rule with its exception."
+    },
+    {
+      "case": "47ba9d17a37608191e7a10859ed329e7:9",
+      "side": "A",
+      "supported": "no",
+      "responsive": "no",
+      "note": "The prior turn refers to the earnings limit. S1 does not establish that retirement age never increases."
+    },
+    {
+      "case": "a098bf471417f21f8a3545498fdf0bb2:10",
+      "side": "B",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "S3 links license suspension to the registration suspension period. It does not say restoring insurance alone ends it."
+    },
+    {
+      "case": "03bf1779ae1cc934cd39b1480eeec6d0:16",
+      "side": "A",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "S2 lists population headings, without stating the detailed green-card and special-group rules in A."
+    },
+    {
+      "case": "03bf1779ae1cc934cd39b1480eeec6d0:16",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "S2 lists population headings, without stating the detailed green-card and special-group rules in A."
+    },
+    {
+      "case": "66a393feeeb5b1a2b55414b8052e70f9:3",
+      "side": "A",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "Fact sheets and hotline not visible in S1. B gives an unsupported application instruction."
+    },
+    {
+      "case": "66a393feeeb5b1a2b55414b8052e70f9:3",
+      "side": "B",
+      "supported": "no",
+      "responsive": "no",
+      "note": "Fact sheets and hotline not visible in S1. B gives an unsupported application instruction."
+    },
+    {
+      "case": "c13344869c810beb8c5716ed99837696:13",
+      "side": "A",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "The conversation establishes half-time status and S3 supports the named costs."
+    },
+    {
+      "case": "c13344869c810beb8c5716ed99837696:13",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "The conversation establishes half-time status and S3 supports the named costs."
+    },
+    {
+      "case": "b95c47e5846aa0e1bd7bca9be8acc93d:1",
+      "side": "A",
+      "supported": "no",
+      "responsive": "no",
+      "note": "A does not address suspending payments or establish eligibility. B turns probable lack of progress into an absolute."
+    },
+    {
+      "case": "b95c47e5846aa0e1bd7bca9be8acc93d:1",
+      "side": "B",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "A does not address suspending payments or establish eligibility. B turns probable lack of progress into an absolute."
+    },
+    {
+      "case": "2f7b40b2702eac5e4e2a158999baf8f8:13",
+      "side": "A",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "S2 identifies the named link for Lemon Law complaints."
+    },
+    {
+      "case": "3e8d4f726c013ba365e0faef13bf3851:7",
+      "side": "A",
+      "supported": "yes",
+      "responsive": "no",
+      "note": "A repeats the premise without explaining eligibility or how to get care. B invents a renewal and fee."
+    },
+    {
+      "case": "3e8d4f726c013ba365e0faef13bf3851:7",
+      "side": "B",
+      "supported": "no",
+      "responsive": "no",
+      "note": "A repeats the premise without explaining eligibility or how to get care. B invents a renewal and fee."
+    },
+    {
+      "case": "81cc489d8f2ec38379a7a4c65e4396db:3",
+      "side": "B",
+      "supported": "no",
+      "responsive": "no",
+      "note": "S2 says before ownership transfer. B says after, and misses the regular title outcome."
+    },
+    {
+      "case": "5ddc54e4bae20fd92545e38f74a9af98:13",
+      "side": "A",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "S2 explicitly says no inspection is recorded for the extension."
+    },
+    {
+      "case": "fe52e49c458d9ae8657e8f70a510ab0e:15",
+      "side": "B",
+      "supported": "no",
+      "responsive": "yes",
+      "note": "Fees are supported. The police report requirement is overstated without the fee-waiver condition."
+    },
+    {
+      "case": "6dd63542d1b12b70a9e90f796755ef64:11",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "S1 directs users to FAQs and the list of online services."
+    },
+    {
+      "case": "d7d36b3f4ce3dab9d9e4b5edf19eb35f:3",
+      "side": "A",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "S1 gives both eligibility requirements and the listed program examples."
+    },
+    {
+      "case": "d7d36b3f4ce3dab9d9e4b5edf19eb35f:3",
+      "side": "B",
+      "supported": "yes",
+      "responsive": "yes",
+      "note": "S1 gives both eligibility requirements and the listed program examples."
+    }
+  ]
+}

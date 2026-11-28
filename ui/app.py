@@ -139,12 +139,15 @@ score_method = "H1"
 if not is_mock:
     if mode == "docs_qa":
         available = health["docs_methods"] if health else None
+        methods = dict(RETRIEVERS)
+        if available and "R7" in available:
+            methods["R7"] = "Xếp hạng đoạn theo hội thoại"
 
         def method_label(method):
             suffix = " · chưa nạp" if available is not None and method not in available else ""
-            return f"{method} — {RETRIEVERS[method]}{suffix}"
+            return f"{method} - {methods[method]}{suffix}"
 
-        retriever = st.selectbox("Cách tìm tài liệu", list(RETRIEVERS),
+        retriever = st.selectbox("Cách tìm tài liệu", list(methods),
                                  format_func=method_label, key="retriever")
         if available is not None and retriever not in available:
             st.warning(f"{retriever} chưa sẵn sàng. Chọn retriever đã nạp hoặc chuẩn bị encoder theo RUN_DENSE.md.")
